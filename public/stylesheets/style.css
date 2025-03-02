@@ -1,0 +1,175 @@
+/* Variables de color y tipografía */
+:root {
+  --rojoPrimario: #ff3131;
+  --rojoSecundario: #ff5757;
+  --azul: #5271ff;
+  --blanco: #ffffff;
+  --gris: #b3b2ae;
+  --azulPrincipal: #174b93;
+  --negro: #000;
+
+  --fuente-principal: "Raleway", sans-serif;
+}
+
+/* Configuración base */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 2rem;
+  font-family: var(--fuente-principal);
+  line-height: 1.5;
+
+  background: linear-gradient(
+    90deg,
+    #001f3f,
+    #0074d9,
+    #00a8e8
+  ); /* Degradado más visible */
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+input {
+  font-family: var(--fuente-principal);
+}
+
+#imagenInicio {
+  max-width: 80%;
+}
+
+/* Contenedor principal */
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 95%;
+}
+
+/* Tipografías */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.1rem;
+  font-weight: 400;
+}
+
+/* Sección de Login */
+.heading__login {
+  text-align: center;
+  color: var(--blanco);
+}
+
+/* Formulario */
+.formulario__login {
+  max-width: 45rem;
+  padding: 2rem;
+  background-color: var(--blanco);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.heading__formulario {
+  font-weight: 700;
+  color: var(--negro);
+  text-align: center;
+}
+
+.input__formulario {
+  margin: 2rem;
+  display: block;
+  border: none;
+  border-bottom: 0.2rem solid var(--gris);
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.input__formulario:focus,
+.submit__formulario:focus {
+  outline: none; /* Elimina el contorno azul predeterminado */
+  box-shadow: none; /* Evita resplandores en algunos navegadores */
+}
+
+.input__formulario-correo {
+  margin-top: 0rem;
+}
+
+.submit__formulario {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border-radius: 1rem;
+  color: var(--negro);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 2rem;
+  border: 0.15rem solid black;
+  transition-property: background color border;
+  transition-duration: 300ms;
+}
+
+.submit__formulario:hover {
+  cursor: pointer;
+  background-color: var(--azul);
+  color: var(--blanco);
+  border-color: var(--azul);
+}
+.enlace__formulario {
+  text-align: center;
+  color: var(--azul);
+  margin-top: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Imagen */
+.imagen__login {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.journey__imagen {
+  width: 25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .journey__imagen {
+    display: none;
+  }
+}
+
+.enlace__formulario {
+  margin-top: 2.5rem;
+  transition-duration: 200ms;
+  transition-property: color;
+}
+.enlace__formulario:hover {
+  color: var(--azulPrincipal);
+}
+
+/* Barra LateraL */
