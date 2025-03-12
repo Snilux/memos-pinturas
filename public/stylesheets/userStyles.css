@@ -1,0 +1,185 @@
+/* Variables de color y tipografía */
+:root {
+  --rojoPrimario: #ff3131;
+  --rojoSecundario: #ff5757;
+  --azul: #3b66ff;
+  --blanco: #ffffff;
+  --gris: #b3b2ae;
+  --azulPrincipal: #174b93;
+  --negro: #000;
+  --fuente-principal: "Raleway", sans-serif;
+}
+
+/* Configuración base */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 2rem;
+  font-family: var(--fuente-principal);
+  line-height: 1.5;
+
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+input {
+  font-family: var(--fuente-principal);
+}
+
+/* Contenedor principal */
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 95%;
+}
+
+/* Tipografías */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.1rem;
+  font-weight: 400;
+}
+
+/* Sección de Login */
+
+.heading__login {
+  text-align: center;
+  color: var(--negro);
+  margin-bottom: 2rem;
+  margin-top: 30px;
+}
+
+/* Formulario */
+.formulario__login {
+  max-width: 45rem;
+  padding: 2rem;
+  background: var(--azul);
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  outline: none;
+}
+
+.heading__formulario {
+  font-weight: 700;
+  color: var(--blanco);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input__formulario {
+  margin: 2rem;
+  display: block;
+  border: none;
+  border-bottom: 0.2rem solid var(--blanco);
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: var(--azul);
+  outline: none;
+
+  color: var(--blanco);
+}
+
+.input_formulario:focus,
+.submit_formulario:focus {
+  outline: none; /* Elimina el contorno azul predeterminado */
+  box-shadow: none; /* Evita resplandores en algunos navegadores */
+}
+
+.input__formulario-correo {
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.input__formulario::placeholder {
+  color: var(--blanco);
+}
+
+.submit__formulario {
+  text-decoration: none;
+  width: 150px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  border-radius: 1rem;
+  color: var(--blanco);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-top: 2rem;
+  border: 0.15rem solid var(--blanco);
+  transition-property: background color border;
+  transition-duration: 300ms;
+}
+
+.submit__formulario:hover {
+  cursor: pointer;
+  color: var(--blanco);
+
+  background-color: #06154b;
+  border-color: #06154b;
+}
+table {
+  font-family: var(--fuente-principal);
+}
+/* table {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 15px auto;
+  background-color: var(--azulPrincipal);
+  box-shadow: 0 4px 10px rgba(85, 113, 253, 0.2);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  color: var(--blanco);
+  text-align: center;
+  font-size: 16px;
+}
+
+th {
+  background-color: var(--azulPrincipal);
+  color: white;
+  text-transform: uppercase;
+}
+
+td {
+  background-color: var(--azul);
+}
+
+td:hover {
+  background-color: #bee2f9;
+  transform: translateY(-4px);
+  color: #000;
+} */

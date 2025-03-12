@@ -1,0 +1,47 @@
+<%- include('../partials/head.ejs') %>
+<!-- Estilos personalizados -->
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/userStyles.css">
+</head>
+
+<body>
+  <%- include('../partials/navAdmin.ejs') %>
+
+  <!-- Inicia Menu -->
+  <%- include('../partials/dropdownMenu.ejs') %>
+
+
+  <!-- Contenido -->
+  <section class="contenedor login" id="sectionFormulario">
+    <h2 class="heading__login">Journey</h2>
+
+    <form class="formulario__login" id="formularioLogin" method="post" action="/users/add">
+      <h1 class="heading__formulario">Crea un usuario</h1>
+
+      <input type="text" class="input__formulario" placeholder="Nombre " id="inputUsuario" name="user">
+      <input type="email" class="input__formulario" placeholder="Correo electronico " id="inputCorreo" name="email">
+      <input type="password" class="input__formulario" placeholder="Contraseña" id="inputPassword" name="password">
+      <select class="input__formulario" id="inputRol" name="rol">
+        <option value="" disabled selected>Selecciona un rol</option>
+        <option value="administrador">Administrador</option>
+        <option value="operador">Operador</option>
+      </select>
+      <input type="submit" class="submit__formulario" value="Registrarte" id="submitLogin">
+      <a href="/users" class="submit__formulario">Volver</a>
+
+    </form>
+
+
+  </section>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/javascripts/appPanelAdministrarion.js"></script>
+  <script src="/javascripts/appUsers.js"></script>
+  <script>
+    var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+  </script>
+
+
+</body>
+
+</html>

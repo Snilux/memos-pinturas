@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS memos_pinturas;
+DROP database memos_pinturas;
 USE memos_pinturas;
 
 -- Tabla de Usuarios
@@ -17,71 +18,81 @@ CREATE TABLE proveedores (
     telefono VARCHAR(20),
     email VARCHAR(100)
 );
-
+-- No tiene productos ni complementos
 -- Tabla de Lotes
 CREATE TABLE lotes (
     id_lote INT AUTO_INCREMENT PRIMARY KEY,
     codigo_trazabilidad VARCHAR(50) UNIQUE NOT NULL,
     proveedor_id INT,
     fecha_llegada DATE NOT NULL,
+    fecha_caducidad DATE NUll,
+    descripcion varchar(255) NOT NULL,
     FOREIGN KEY (proveedor_id) REFERENCES proveedores(id_proveedor) ON DELETE SET NULL
 );
-
+-- nombreProducto, borrar cantidad_caja, agregar campo de foto
 -- Tabla base para productos
 CREATE TABLE productos_base (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     color_nombre VARCHAR(50) NOT NULL,
     color_hex VARCHAR(7) NOT NULL,
-    codigo_pintura VARCHAR(50) UNIQUE NOT NULL,
+    codigo_pintura VARCHAR(50) NOT NULL,
     cantidad_caja INT NOT NULL,
     cantidad_litros DECIMAL(10,2) NOT NULL,
     lote_id INT NOT NULL,
     precio_compra DECIMAL(10,2) NOT NULL,
     precio_venta DECIMAL(10,2) NOT NULL,
     cantidad INT NOT NULL,
-    codigo_trazabilidad VARCHAR(50) UNIQUE NOT NULL,
+    imagen text NULL,
     FOREIGN KEY (lote_id) REFERENCES lotes(id_lote) ON DELETE CASCADE
 );
 
 -- Tablas de cada categoría con subcategorías
 CREATE TABLE pinturas_arquitectonicas LIKE productos_base;
 ALTER TABLE pinturas_arquitectonicas ADD COLUMN subcategoria ENUM('Vinílicas', 'Selladores', 'Esmaltes', 'Primarios Anticorrosivos', 'Impermeabilizantes', 'Impermeabilizantes Asfálticos', 'Impermeabilizantes Para Muros') NOT NULL;
+ALTER TABLE pinturas_arquitectonicas ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
 describe pinturas_arquitectonicas;
 
 CREATE TABLE pinturas_en_aerosol LIKE productos_base;
 ALTER TABLE   pinturas_en_aerosol ADD COLUMN  subcategoria ENUM('Aerosoles') NOT NULL;
-
+ALTER TABLE pinturas_en_aerosol ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
 
 CREATE TABLE adhesivos_y_colorantes LIKE productos_base;
 ALTER TABLE adhesivos_y_colorantes ADD COLUMN subcategoria ENUM('Adhesivos', 'Color Para Cemento') NOT NULL;
+ALTER TABLE adhesivos_y_colorantes ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
 
 
 CREATE TABLE pinturas_industriales LIKE productos_base;
 ALTER TABLE pinturas_industriales ADD COLUMN subcategoria ENUM('Línea Industrial') NOT NULL;
+ALTER TABLE pinturas_industriales ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
 
 
 CREATE TABLE pinturas_automotrices LIKE productos_base;
 ALTER TABLE pinturas_automotrices ADD COLUMN subcategoria ENUM('Línea Automotriz', 'Primers Y Rellenadores', 'Plaste Automotivo', 'Perlas Universales Xiralicas', 'Reductores Y Solventes', 'Endurecedores Y Aditivos', 'Transparentes') NOT NULL;
-
+ALTER TABLE pinturas_automotrices ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
 
 CREATE TABLE pinturas_para_madera LIKE productos_base;
 ALTER TABLE pinturas_para_madera ADD COLUMN subcategoria ENUM('Century Maderas', 'Tintas') NOT NULL;
+ALTER TABLE pinturas_para_madera ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
 
+describe pinturas_para_madera;
 
 -- Tabla de Complementos
 CREATE TABLE complementos (
     id_complemento INT AUTO_INCREMENT PRIMARY KEY,
     producto VARCHAR(100) NOT NULL,
-    codigo_trazabilidad VARCHAR(50) UNIQUE NOT NULL,
     caracteristicas TEXT NOT NULL,
     cantidad_caja INT NOT NULL,
     precio_caja DECIMAL(10,2) NOT NULL,
     precio_unitario DECIMAL(10,2) NOT NULL,
-    precio_caja_venta DECIMAL(10,2) NOT NULL,
     precio_unitario_venta DECIMAL(10,2) NOT NULL,
-    cantidad INT NOT NULL
+    lote_id int NOT NULL,
+    cantidad INT NOT NULL,
+    imgen TEXT null,
+    FOREIGN KEY (lote_id) REFERENCES lotes(id_lote) ON DELETE CASCADE
 );
+
+drop table complementos;
 
 -- Tabla de Ventas (puede vender productos o complementos)
 CREATE TABLE ventas (
@@ -92,6 +103,7 @@ CREATE TABLE ventas (
     cantidad_vendida INT,
     precio_total_venta DECIMAL(10,2),
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    codigo_trazabilidad VARCHAR(50) UNIQUE NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE SET NULL,
     FOREIGN KEY (producto_id) REFERENCES productos_base(id_producto) ON DELETE SET NULL,
     FOREIGN KEY (complemento_id) REFERENCES complementos(id_complemento) ON DELETE SET NULL
@@ -107,7 +119,6 @@ CREATE TABLE movimientos_inventario (
     cantidad INT NOT NULL,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     lote_id INT NULL,
-    codigo_unico VARCHAR(50) NOT NULL,
     FOREIGN KEY (producto_id) REFERENCES productos_base(id_producto) ON DELETE SET NULL,
     FOREIGN KEY (complemento_id) REFERENCES complementos(id_complemento) ON DELETE SET NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE SET NULL,

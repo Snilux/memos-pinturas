@@ -2,9 +2,8 @@ use memos_pinturas;
 
 -- Inserción de datos de prueba
 INSERT INTO usuarios (nombre, email, pass, rol) VALUES
-('Admin1', 'admin1@email.com', '12345', 'Administrador'),
-('Operador1', 'operador1@email.com', '12345', 'Operador'),
-('Cliente1', 'cliente1@email.com', '12345', 'Cliente');
+('Ana', 'snilux.zero@gmail.com', '12345', 'Administrador'),
+('Operador', 'luisgordillopor2@email.com', '12345', 'Operador');
 
 select * from usuarios;
 
@@ -57,3 +56,77 @@ SELECT * FROM vista_todas_las_pinturas
 WHERE nombre LIKE '%blanco%' OR color_nombre LIKE '%blanco%';
 
 SELECT * FROM vista_todas_las_pinturas;
+
+
+
+
+
+
+SELECT 'pinturas_arquitectonicas' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_arquitectonicas
+WHERE nombre LIKE '%[VINIPESA]%' OR codigo_pintura LIKE '%[tu_termino_de_busqueda]%' OR color_nombre LIKE '%[tu_termino_de_busqueda]%'
+
+UNION ALL
+
+SELECT 'pinturas_en_aerosol' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_en_aerosol
+WHERE nombre LIKE '%[tu_termino_de_busqueda]%' OR codigo_pintura LIKE '%[tu_termino_de_busqueda]%' OR color_nombre LIKE '%[tu_termino_de_busqueda]%'
+
+UNION ALL
+
+SELECT 'adhesivos_y_colorantes' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM adhesivos_y_colorantes
+WHERE nombre LIKE '%[tu_termino_de_busqueda]%' OR codigo_pintura LIKE '%[tu_termino_de_busqueda]%' OR color_nombre LIKE '%[tu_termino_de_busqueda]%'
+
+UNION ALL
+
+SELECT 'pinturas_industriales' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_industriales
+WHERE nombre LIKE '%[tu_termino_de_busqueda]%' OR codigo_pintura LIKE '%[tu_termino_de_busqueda]%' OR color_nombre LIKE '%[tu_termino_de_busqueda]%'
+
+UNION ALL
+
+SELECT 'pinturas_automotrices' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_automotrices
+WHERE nombre LIKE '%[tu_termino_de_busqueda]%' OR codigo_pintura LIKE '%[tu_termino_de_busqueda]%' OR color_nombre LIKE '%[tu_termino_de_busqueda]%'
+
+UNION ALL
+
+SELECT 'pinturas_para_madera' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_para_madera
+WHERE nombre LIKE '%[tu_termino_de_busqueda]%' OR codigo_pintura LIKE '%[tu_termino_de_busqueda]%' OR color_nombre LIKE '%[tu_termino_de_busqueda]%';
+
+
+
+
+
+
+-- Select all
+
+SELECT 'Pinturas Arquitectónicas' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_arquitectonicas
+
+UNION ALL
+
+SELECT 'Pinturas en Aerosol' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_en_aerosol
+
+UNION ALL
+
+SELECT 'Adhesivos y Colorantes' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM adhesivos_y_colorantes
+
+UNION ALL
+
+SELECT 'Pinturas Industriales' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_industriales
+
+UNION ALL
+
+SELECT 'Pinturas Automotrices' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_automotrices
+
+UNION ALL
+
+SELECT 'Pinturas para Madera' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
+FROM pinturas_para_madera;

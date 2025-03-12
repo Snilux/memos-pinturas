@@ -1,0 +1,55 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/productsAdministration.css">
+</head>
+
+<body>
+  <%- include('../../partials/navAdmin.ejs') %>
+  <%- include('../../partials/dropdownMenu.ejs') %>
+
+  <h1 class="heading__formulario">Añadir Producto</h1>
+
+  <form class="formularios__productos" id="formularioLogin" method="post" action="/admin/products/add" enctype="multipart/form-data">
+
+    <div class="formularios__columna">
+      <input type="text" class="input__formulario" placeholder="Codigo pintura " id="inputCodigo" required name="codigo_pintura">
+      <div id="inputLitrosContainer"></div>
+      <input type="number" min="0" class="input__formulario" placeholder="Precio compra" name="precio_compra">
+      <input type="number" min="0" class="input__formulario" placeholder="Precio venta" id="inputVenta" name="precio_venta">
+      <input type="number" min="0" class="input__formulario" placeholder="Cantidad disponible" id="inputCantidad" name="cantidad">
+
+      <input type="file" class="input__formulario" id="inputFoto" accept="image/*" placeholder="Añadir Imagen" name="imagen">
+      <input type="number" class="input__formulario" placeholder="Numero de lote" id="inputLote" name="lote_id">
+
+      <input type="submit" min="0" class="submit__formulario" value="Agregar" id="submitAgregar">
+      <a href="/admin/products" class="submit__formulario">Volver</a>
+
+    </div>
+    <!-- ================================== -->
+    <div class="formularios__columna">
+      <input type="text" class="input__formulario" id="inputCategoria" readonly placeholder="Categoria" name="tabla_categoria">
+      <input type="text" class="input__formulario" id="inputSubCategoria" readonly placeholder="Subcategoria" name="subcategoria">
+      <input type="text" class="input__formulario" placeholder="Nombre producto" readonly id="inputNombreProducto" name="nombre">
+
+      <input type="text" id="colorInput" placeholder="Nombre del color" class="input__formulario" readonly name="color_nombre">
+      <input type="color" class="input__formulario-color" id="nombreColor" readonly name="color_hex">
+
+      <input type="text" class="input__formulario" placeholder="Piezas por caja" readonly id="inputCajasContainer" name="cantidad_caja">
+      <input type="text" class="input__formulario" placeholder="Proveedor" readonly id="inputProveedor" name="nombre_proveedor">
+    </div>
+
+  </form>
+  <h2 class="heading__login">Journey</h2>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/javascripts/appPanelAdministrarion.js"></script>
+  <script src="/javascripts/appAdminProducts.js"></script>
+  <script>
+    var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+  </script>
+
+</body>
+
+</html>

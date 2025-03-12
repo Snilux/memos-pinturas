@@ -1,14 +1,530 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title><%= title %></title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+<%- include('partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/indexStyles.css" />
 </head>
 
-<body>
-  <h1 style="color: #fff;"><%= title %></h1>
-  <br>
+<body class="articulos__body">
+
+  <!-- EMPIEZA NAVEGACIÓN -->
+  <%- include('partials/navIndex.ejs')%>
+  <!-- ACABA NAVEGACIÓN -->
+
+  <!-- Empieza Hero -->
+  <div class="hero__index">
+    <h2 class="hero__heading">Memo's Pinturas <i class="fa-solid fa-brush"></i></h2>
+  </div>
+  <!-- Acaba Hero -->
+
+  <!-- informacion__index -->
+  <section class="index__contenido" id="categoriasId">
+    <h2 class="index__titulo">Memo's Pinturas</h2>
+    <h3 class="index__subtitulo">Colores que inspiran, Calidad que perdura.</h3>
+  </section>
+
+  <!-- Empiezan Categorías -->
+  <section class="categorias">
+    <h2 class="categorias__heading">Categorías de productos</h2>
+
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="slide">
+          <img src="/images/catAerosoles.png" alt="Aerosol" class="slide-image">
+          <a href="productos.html" class="slide-caption">
+            <span>AEROSOL</span>
+          </a>
+        </div>
+        <div class="slide">
+          <img src="/images/categoriaArquitectonica.jpg" alt="Arquitectónica" class="slide-image">
+          <a href="productos.html" class="slide-caption">
+            <span>ARQUITECTÓNICA</span>
+          </a>
+        </div>
+        <div class="slide">
+          <img src="/images/catComplementos.jpg" alt="Complementos" class="slide-image">
+          <a href="productos.html" class="slide-caption">
+            <span>COMPLEMENTOS</span>
+          </a>
+        </div>
+        <div class="slide">
+          <img src="/images/catAutomotrizP.jpg" alt="Slide 4" class="slide-image">
+          <a href="productos.html" class="slide-caption">
+            <span>AUTOMOTRIZ</span>
+          </a>
+        </div>
+        <div class="slide">
+          <img src="/images/catIndustrial.png" alt="Slide 5" class="slide-image">
+          <a href="productos.html" class="slide-caption">
+            <span>INDUSTRIAL</span>
+          </a>
+        </div>
+        <div class="slide">
+          <img src="/images/catColorantesyAdhesivos.png" alt="Slide 5" class="slide-image">
+          <a href="productos.html" class="slide-caption">
+            <span>COLORANTES Y ADHESIVOS</span>
+          </a>
+        </div>
+
+
+
+      </div>
+  </section>
+  <!-- Acaban categorías -->
+
+  <h2 class="productos__heading" id="nuestrosProductosId">Nuestros Productos</h2>
+
+
+  <!-- Empiezan Productos -->
+  <section class="productos">
+
+    <div class="contenedor">
+      <h2 class="productos__subheading">
+        <i class="fas fa-house"></i> Pintura Arquitectónica
+      </h2>
+
+      <div class="productos-grid">
+        <!-- Producto 1 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="img/productoImg_1.png" alt="Pintura Arquitectónica">
+          </div>
+
+          <div class="producto-info">
+            <div class="producto-detalles">
+              <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+              <p class="producto-precio">Precio: <span>$500</span></p>
+              <p class="producto-color-label">Color:<span class="producto-color-valor"> Verde agua</span> </p>
+              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+            </div>
+
+            <div class="color-muestra">
+              <div class="color-circulo" style="background-color: #5DAE78;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="img/productoImg_2.png" alt="Pintura Arquitectónica">
+          </div>
+
+          <div class="producto-info">
+            <div class="producto-detalles">
+              <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+              <p class="producto-precio">Precio: <span>$500</span></p>
+              <p class="producto-color-label">Color:<span class="producto-color-valor"> Verde agua</span> </p>
+              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+            </div>
+
+            <div class="color-muestra">
+              <div class="color-circulo" style="background-color: #3D7EC9;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="img/productoImg_3.png" alt="Pintura Arquitectónica">
+          </div>
+
+          <div class="producto-info">
+            <div class="producto-detalles">
+              <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+              <p class="producto-precio">Precio: <span>$500</span></p>
+              <p class="producto-color-label">Color:<span class="producto-color-valor"> Verde agua</span> </p>
+              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+            </div>
+
+            <div class="color-muestra">
+              <div class="color-circulo" style="background-color: #8B5A4C;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </section>
+
+
+  <section class="principal__producto" id="esloganId">
+
+    <div class="contenedor">
+
+      <div class="principal__grid">
+        <!-- Imagen del producto -->
+        <div class="principal__imagen">
+          <img src="/images/aerosolesImg_2.png" alt="Imagen Principal" class="imagen__principal">
+        </div>
+
+        <!-- Información del producto -->
+        <div class="principal__informacion">
+          <h3 class="principal__heading">Colores de calidad y duraderos</h3>
+          <h4 class="principal__subheading">¡Dale color a tus ideas con nuestros aerosoles!</h4>
+
+          <p class="principal__texto">
+            Disponibles en una amplia gama de colores vibrantes y resistentes.
+            Ideales para proyectos de arte, manualidades, decoración y más.
+          </p>
+
+          <ul class="principal__listado">
+            <li class="principal__punto"><i class="fas fa-check"></i> Calidad</li>
+            <li class="principal__punto"><i class="fas fa-check"></i> Durabilidad</li>
+            <li class="principal__punto"><i class="fas fa-check"></i> Variedad</li>
+          </ul>
+
+          <!-- Sello de garantía -->
+          <div class="principal__destacado">
+            <i class="fas fa-award"></i> Garantía de satisfacción 100%
+          </div>
+
+          <!-- Calificación -->
+          <div class="principal__calificacion">
+            <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <span class="calificacion__texto">5.0 - ¡Clientes felices con nuestros colores!</span>
+          </div>
+
+          <!-- Botón de acción -->
+          <button class="principal__boton">
+            <p><i class="fas fa-box"></i> <span class="principal__span">Ver más productos</span></p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Empiezan Productos -->
+  <section class="productos">
+    <h2 class="productos__heading"></h2>
+
+    <div class="contenedor">
+      <h2 class="productos__subheading">
+        <i class="fa-solid fa-spray-can-sparkles"></i> Pintura en Aerosol
+      </h2>
+
+      <div class="productos-grid">
+        <!-- Producto 1 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="img/aerosolesImg_1.png" alt="Pintura en Aerosol Verde">
+          </div>
+
+          <div class="producto-info">
+            <div class="producto-detalles">
+              <h3 class="producto-titulo">Pintura en Aerosol</h3>
+              <p class="producto-precio">Precio: <span>$500</span></p>
+              <p class="producto-color-label">Color: <span class="producto-color-valor">Verde agua</span></p>
+              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+            </div>
+
+            <div class="color-muestra">
+              <div class="color-circulo" style="background-color: #5DAE78;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="img/aerosolesImg_2.png" alt="Producto Imagen" class="producto__index">
+          </div>
+
+          <div class="producto-info">
+            <div class="producto-detalles">
+              <h3 class="producto-titulo">Pintura en Aerosol</h3>
+              <p class="producto-precio">Precio: <span>$500</span></p>
+              <p class="producto-color-label">Color: <span class="producto-color-valor">Verde agua</span></p>
+              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+            </div>
+
+            <div class="color-muestra">
+              <div class="color-circulo" style="background-color: #3D7EC9;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img src="img/aerosolesImg_3.png" alt="Producto Imagen" class="producto__index">
+          </div>
+
+          <div class="producto-info">
+            <div class="producto-detalles">
+              <h3 class="producto-titulo">Pintura en Aerosol</h3>
+              <p class="producto-precio">Precio: <span>$500</span></p>
+              <p class="producto-color-label">Color: <span class="producto-color-valor">Verde agua</span></p>
+              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+            </div>
+
+            <div class="color-muestra">
+              <div class="color-circulo" style="background-color: #8B5A4C;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Empieza Sección de Combinaciones -->
+  <section class="combinaciones" id="combinacionesId">
+    <h2 class="combinaciones__heading">Mejores Combinaciones</h2>
+    <div class="contenedor">
+      <h2 class="combinaciones__titulo">Inspiración para tu hogar</h2>
+      <div class="paletas">
+
+        <div class="paletas__grid">
+
+          <!-- Tarjeta -->
+          <div class="paletas__tarjeta">
+            <div class="paletas__imagen-contenedor">
+
+              <img src="/images/combinacion1.jpg" alt="Combinación 1" class="paletas__imagen">
+
+            </div>
+            <div class="paletas__contenido">
+              <h3 class="paletas__titulo">Elegancia fresca con pared verde menta.</h3>
+              <div class="paletas__boton-contenedor">
+                
+              </div>
+            </div>
+          </div>
+          <!-- Finaliza Tarjeta -->
+
+          <!-- Tarjeta -->
+          <div class="paletas__tarjeta">
+            <div class="paletas__imagen-contenedor">
+
+              <img src="/images/combinacion2.jpg" alt="Combinación 2" class="paletas__imagen">
+
+            </div>
+            <div class="paletas__contenido">
+              <h3 class="paletas__titulo">Mate y gris en cada rincon de tu sala.</h3>
+              <div class="paletas__boton-contenedor">
+               
+              </div>
+            </div>
+          </div>
+          <!-- Finaliza Tarjeta -->
+
+          <!-- Tarjeta -->
+          <div class="paletas__tarjeta">
+            <div class="paletas__imagen-contenedor">
+
+              <img src="/images/combinacion3.jpg" alt="Combinación 2" class="paletas__imagen">
+
+            </div>
+            <div class="paletas__contenido">
+              <h3 class="paletas__titulo">Serenidad y estilo en tonos azules y grises.</h3>
+              <div class="paletas__boton-contenedor">
+                
+              </div>
+            </div>
+          </div>
+          <!-- Finaliza Tarjeta -->
+
+          <!-- Tarjeta -->
+          <div class="paletas__tarjeta">
+            <div class="paletas__imagen-contenedor">
+
+              <img src="/images/combinacion4.jpg" alt="Combinación 2" class="paletas__imagen">
+
+            </div>
+            <div class="paletas__contenido">
+              <h3 class="paletas__titulo">Tu recámara, envuelta en grises claros y oscuros.</h3>
+              <div class="paletas__boton-contenedor">
+                
+              </div>
+            </div>
+          </div>
+          <!-- Finaliza Tarjeta -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de colores populares -->
+  <section class="colores__section" id="coloresId">
+    <h2 class="carrusel__galeria-heading">Colores Populares</h2>
+
+    <div class="contenedor">
+      <h2 class="carrusel__galeria-titulo">Selección de colores más utilizados</h2>
+      <div class="colores__grid">
+        <!-- Tarjeta de color 1 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--rojoPrimario)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Rojo Intenso</h3>
+            <p class="color__codigo">#FF3131</p>
+            <p class="color__descripcion">Ideal para espacios que necesitan energía y vitalidad</p>
+
+          </div>
+        </div>
+
+        <!-- Tarjeta de color 2 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--azulPrincipal)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Azul Marino</h3>
+            <p class="color__codigo">#174B93</p>
+            <p class="color__descripcion">Perfecto para crear ambientes elegantes y relajantes</p>
+
+          </div>
+        </div>
+
+        <!-- Tarjeta de color 3 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--verdePrimario)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Verde Naturaleza</h3>
+            <p class="color__codigo">#589D62</p>
+            <p class="color__descripcion">Transmite frescura y conexión con la naturaleza</p>
+
+          </div>
+        </div>
+
+        <!-- Tarjeta de color 4 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--amarilloOpaco)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Crema Suave</h3>
+            <p class="color__codigo">#FAF7F3</p>
+            <p class="color__descripcion">Tono neutro ideal para ampliar espacios</p>
+
+          </div>
+        </div>
+
+        <!-- Tarjeta de color 5 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--dorado)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Dorado Elegante</h3>
+            <p class="color__codigo">#FFD700</p>
+            <p class="color__descripcion">Añade un toque de lujo y sofisticación</p>
+
+          </div>
+        </div>
+
+        <!-- Tarjeta de color 6 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--grisOxford)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Gris Oxford</h3>
+            <p class="color__codigo">#393D42</p>
+            <p class="color__descripcion">Elegante y moderno para espacios contemporáneos</p>
+
+          </div>
+        </div>
+
+        <!-- Tarjeta de color 7 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--azulClaro)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Azul Cielo</h3>
+            <p class="color__codigo">#B3C5FF</p>
+            <p class="color__descripcion">Transmite tranquilidad y amplitud</p>
+
+          </div>
+        </div>
+
+        <!-- Tarjeta de color 8 -->
+        <div class="color__tarjeta">
+          <div class="color__muestra" style="background-color: var(--naranjaPrimario)"></div>
+          <div class="color__info">
+            <h3 class="color__nombre">Coral Vibrante</h3>
+            <p class="color__codigo">#E1306C</p>
+            <p class="color__descripcion">Energético y moderno para espacios dinámicos</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="complementos__section" id="complementosId">
+    <h2 class="complementos__heading">Más Productos</h2>
+
+    <div class="contenedor">
+      <h2 class="complementos__titulo">Explora otros productos</h2>
+
+      <div class="complementos__grid">
+        <div class="complemento">
+          <div class="complemento__imagen">
+            <img src="/images/complemento1.png" alt="Brochas de pintura" class="complemento__img">
+          </div>
+          <div class="complemento__info">
+            <h3 class="complemento__nombre">Brochas</h3>
+            <p class="complemento__descripcion">Brochas profesionales para acabados perfectos</p>
+
+          </div>
+        </div>
+
+        <div class="complemento">
+          <div class="complemento__imagen">
+            <img src="/images/complemento2.png" alt="Rodillos de pintura" class="complemento__img">
+          </div>
+          <div class="complemento__info">
+            <h3 class="complemento__nombre">Rodillos</h3>
+            <p class="complemento__descripcion">Rodillos para cubrir grandes superficies</p>
+
+          </div>
+        </div>
+
+        <div class="complemento">
+          <div class="complemento__imagen">
+            <img src="/images/complemento3.png" alt="Cepillos para pintura" class="complemento__img">
+          </div>
+          <div class="complemento__info">
+            <h3 class="complemento__nombre">Cepillos</h3>
+            <p class="complemento__descripcion">Cepillos especiales para texturas y efectos</p>
+
+          </div>
+        </div>
+
+        <div class="complemento">
+          <div class="complemento__imagen">
+            <img src="/images/complemento4.png" alt="Charolas para pintura" class="complemento__img">
+          </div>
+          <div class="complemento__info">
+            <h3 class="complemento__nombre">Charolas</h3>
+            <p class="complemento__descripcion">Charolas resistentes para todo tipo de pinturas</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <%- include('partials/footer.ejs' )%>
+
+
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/javascripts/appIndexCarrusel.js"></script>
+  <script src="/javascripts/appIndexMaps.js"></script>
+  <!-- Slick Carousel JS -->
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
 
 </body>
 

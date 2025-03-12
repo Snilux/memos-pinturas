@@ -1,0 +1,90 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
+</head>
+
+<body>
+  <%- include('../../partials/navAdmin.ejs') %>
+  <%- include('../../partials/dropdownMenu.ejs') %>
+  <section class="productos">
+
+    <%- include('../../partials/navShowProducts.ejs') %>
+    <div class="productos-grid">
+      <% if (products) { %>
+      <% for (let i = 0; i < products.length; i++) { %>
+      <div class="producto-card">
+        <div class="producto-imagen">
+          <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].Tipo %>>
+        </div>
+        <div class="producto-info">
+          <div class="producto-detalles">
+            <h3 class="producto-titulo">
+              <%= products[i].Tipo %>
+              <%= type %>
+              <%= products[i].subcategoria %>
+            </h3>
+            <h3 class="producto-titulo">
+              <%= products[i].nombre %>
+            </h3>
+            <p class="producto-precio">Codigo Pintura: <span>
+                <%= products[i].codigo_pintura %>
+              </span></p>
+            <p class="producto-color-label">Color: <span class="producto-color-valor">
+                <%= products[i].color_nombre %>
+              </span></p>
+            <p class="producto-precio">Cantidad caja: <span>
+                <%= products[i].cantidad_caja %>
+              </span></p>
+            <p class="producto-precio">Cantidad litros: <span>
+                <%= products[i].cantidad_litros %>
+              </span></p>
+            <p class="producto-precio">Numero lote: <span>
+                <%= products[i].lote_id %>
+              </span></p>
+            <p class="producto-precio">Precio compra: <span>$
+                <%= products[i].precio_compra %>
+              </span></p>
+            <p class="producto-precio">Precio venta: <span>$
+                <%= products[i].precio_venta %>
+              </span></p>
+            <p class="producto-precio">Cantidad: <span>
+                <%= products[i].cantidad %>
+              </span></p>
+            <p class="producto-precio">Proveedor: <span>
+                <%= products[i].nombre_proveedor %>
+              </span></p>
+          </div>
+          <div class="color-muestra">
+            <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;">
+            </div>
+          </div>
+        </div>
+
+        <div class="producto-accion">
+          <a class="btn-ver-mas" href="/admin/products/edit/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+            Editar <i class="fa-solid fa-pen-to-square"></i>
+          </a>
+          <a class="btn-ver-mas delete-product"
+            data-url="/admin/products/delete/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+            Eliminar <i class="fa-solid fa-trash"></i>
+          </a>
+          <a class="btn-ver-mas"
+            href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+            Duplicar <i class="fa-solid fa-clone"></i>
+          </a>
+        </div>
+      </div>
+      <% } %>
+      <% } %>
+    </div>
+  </section>
+  <script src="/javascripts/appPanelAdministrarion.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    var errorMessage =
+      "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage =
+      "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+
+  </script>
+</body>
