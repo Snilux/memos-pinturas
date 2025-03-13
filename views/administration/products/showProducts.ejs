@@ -55,8 +55,7 @@
               </span></p>
           </div>
           <div class="color-muestra">
-            <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;">
-            </div>
+            <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
           </div>
         </div>
 
@@ -64,12 +63,10 @@
           <a class="btn-ver-mas" href="/admin/products/edit/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
             Editar <i class="fa-solid fa-pen-to-square"></i>
           </a>
-          <a class="btn-ver-mas delete-product"
-            data-url="/admin/products/delete/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+          <a class="btn-ver-mas delete-product" data-url="/admin/products/delete/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
             Eliminar <i class="fa-solid fa-trash"></i>
           </a>
-          <a class="btn-ver-mas"
-            href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+          <a class="btn-ver-mas" href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
             Duplicar <i class="fa-solid fa-clone"></i>
           </a>
         </div>
@@ -85,6 +82,5 @@
       "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
     var successMessage =
       "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
-
   </script>
 </body>

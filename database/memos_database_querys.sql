@@ -130,3 +130,20 @@ UNION ALL
 
 SELECT 'Pinturas para Madera' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
 FROM pinturas_para_madera;
+
+
+
+
+
+
+(SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros
+FROM pinturas_arquitectonicas
+ORDER BY RAND()
+LIMIT 3)
+
+UNION ALL
+
+(SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros
+FROM pinturas_en_aerosol
+ORDER BY RAND()
+LIMIT 3);

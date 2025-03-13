@@ -28,37 +28,37 @@
       <div class="carousel">
         <div class="slide">
           <img src="/images/catAerosoles.png" alt="Aerosol" class="slide-image">
-          <a href="productos.html" class="slide-caption">
+          <a href="/products" class="slide-caption">
             <span>AEROSOL</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/categoriaArquitectonica.jpg" alt="Arquitectónica" class="slide-image">
-          <a href="productos.html" class="slide-caption">
+          <a href="/products" class="slide-caption">
             <span>ARQUITECTÓNICA</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catComplementos.jpg" alt="Complementos" class="slide-image">
-          <a href="productos.html" class="slide-caption">
+          <a href="/products" class="slide-caption">
             <span>COMPLEMENTOS</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catAutomotrizP.jpg" alt="Slide 4" class="slide-image">
-          <a href="productos.html" class="slide-caption">
+          <a href="/products" class="slide-caption">
             <span>AUTOMOTRIZ</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catIndustrial.png" alt="Slide 5" class="slide-image">
-          <a href="productos.html" class="slide-caption">
+          <a href="/products" class="slide-caption">
             <span>INDUSTRIAL</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catColorantesyAdhesivos.png" alt="Slide 5" class="slide-image">
-          <a href="productos.html" class="slide-caption">
+          <a href="/products" class="slide-caption">
             <span>COLORANTES Y ADHESIVOS</span>
           </a>
         </div>
@@ -79,74 +79,40 @@
       <h2 class="productos__subheading">
         <i class="fas fa-house"></i> Pintura Arquitectónica
       </h2>
-
       <div class="productos-grid">
+        <% if(products && products.length > 0) { %>
+        <% for (let i = 0; i < products.length; i++) { %>
+        <%if (products[i].tabla_origen === "arquitectonica" ) { %>
         <!-- Producto 1 -->
         <div class="producto-card">
           <div class="producto-imagen">
-            <img src="img/productoImg_1.png" alt="Pintura Arquitectónica">
+            <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
           </div>
 
           <div class="producto-info">
             <div class="producto-detalles">
               <h3 class="producto-titulo">Pintura Arquitectónica</h3>
-              <p class="producto-precio">Precio: <span>$500</span></p>
-              <p class="producto-color-label">Color:<span class="producto-color-valor"> Verde agua</span> </p>
-              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+              <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+              <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+              <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
             </div>
 
             <div class="color-muestra">
-              <div class="color-circulo" style="background-color: #5DAE78;"></div>
+              <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Producto 2 -->
-        <div class="producto-card">
-          <div class="producto-imagen">
-            <img src="img/productoImg_2.png" alt="Pintura Arquitectónica">
-          </div>
+        <%}%>
+        <%}%>
+        <% } else { %>
+        <p>No se encontraron productos.</p>
+        <% } %>
 
-          <div class="producto-info">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Pintura Arquitectónica</h3>
-              <p class="producto-precio">Precio: <span>$500</span></p>
-              <p class="producto-color-label">Color:<span class="producto-color-valor"> Verde agua</span> </p>
-              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
-            </div>
 
-            <div class="color-muestra">
-              <div class="color-circulo" style="background-color: #3D7EC9;"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Producto 3 -->
-        <div class="producto-card">
-          <div class="producto-imagen">
-            <img src="img/productoImg_3.png" alt="Pintura Arquitectónica">
-          </div>
-
-          <div class="producto-info">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Pintura Arquitectónica</h3>
-              <p class="producto-precio">Precio: <span>$500</span></p>
-              <p class="producto-color-label">Color:<span class="producto-color-valor"> Verde agua</span> </p>
-              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
-            </div>
-
-            <div class="color-muestra">
-              <div class="color-circulo" style="background-color: #8B5A4C;"></div>
-            </div>
-          </div>
-
-        </div>
       </div>
-
     </div>
-
 
 
 
@@ -213,68 +179,36 @@
       </h2>
 
       <div class="productos-grid">
+        <% if(products && products.length > 0) { %>
+        <% for (let i = 0; i < products.length; i++) { %>
+        <%if (products[i].tabla_origen === "aerosol" ) { %>
         <!-- Producto 1 -->
         <div class="producto-card">
           <div class="producto-imagen">
-            <img src="img/aerosolesImg_1.png" alt="Pintura en Aerosol Verde">
+            <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
           </div>
 
           <div class="producto-info">
             <div class="producto-detalles">
-              <h3 class="producto-titulo">Pintura en Aerosol</h3>
-              <p class="producto-precio">Precio: <span>$500</span></p>
-              <p class="producto-color-label">Color: <span class="producto-color-valor">Verde agua</span></p>
-              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
+              <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+              <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+              <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+              <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
             </div>
 
             <div class="color-muestra">
-              <div class="color-circulo" style="background-color: #5DAE78;"></div>
+              <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Producto 2 -->
-        <div class="producto-card">
-          <div class="producto-imagen">
-            <img src="img/aerosolesImg_2.png" alt="Producto Imagen" class="producto__index">
-          </div>
+        <%}%>
+          <%}%>
+        <% } else { %>
+        <p>No se encontraron productos.</p>
+        <% } %>
 
-          <div class="producto-info">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Pintura en Aerosol</h3>
-              <p class="producto-precio">Precio: <span>$500</span></p>
-              <p class="producto-color-label">Color: <span class="producto-color-valor">Verde agua</span></p>
-              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
-            </div>
-
-            <div class="color-muestra">
-              <div class="color-circulo" style="background-color: #3D7EC9;"></div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Producto 3 -->
-        <div class="producto-card">
-          <div class="producto-imagen">
-            <img src="img/aerosolesImg_3.png" alt="Producto Imagen" class="producto__index">
-          </div>
-
-          <div class="producto-info">
-            <div class="producto-detalles">
-              <h3 class="producto-titulo">Pintura en Aerosol</h3>
-              <p class="producto-precio">Precio: <span>$500</span></p>
-              <p class="producto-color-label">Color: <span class="producto-color-valor">Verde agua</span></p>
-              <p class="producto-capacidad">Capacidad: <span>4 Lt</span></p>
-            </div>
-
-            <div class="color-muestra">
-              <div class="color-circulo" style="background-color: #8B5A4C;"></div>
-            </div>
-          </div>
-
-        </div>
       </div>
     </div>
   </section>
@@ -299,7 +233,7 @@
             <div class="paletas__contenido">
               <h3 class="paletas__titulo">Elegancia fresca con pared verde menta.</h3>
               <div class="paletas__boton-contenedor">
-                
+
               </div>
             </div>
           </div>
@@ -315,7 +249,7 @@
             <div class="paletas__contenido">
               <h3 class="paletas__titulo">Mate y gris en cada rincon de tu sala.</h3>
               <div class="paletas__boton-contenedor">
-               
+
               </div>
             </div>
           </div>
@@ -331,7 +265,7 @@
             <div class="paletas__contenido">
               <h3 class="paletas__titulo">Serenidad y estilo en tonos azules y grises.</h3>
               <div class="paletas__boton-contenedor">
-                
+
               </div>
             </div>
           </div>
@@ -347,7 +281,7 @@
             <div class="paletas__contenido">
               <h3 class="paletas__titulo">Tu recámara, envuelta en grises claros y oscuros.</h3>
               <div class="paletas__boton-contenedor">
-                
+
               </div>
             </div>
           </div>
@@ -520,7 +454,7 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/javascripts/appIndexCarrusel.js"></script>
-  <script src="/javascripts/appIndexMaps.js"></script>
+
   <!-- Slick Carousel JS -->
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 

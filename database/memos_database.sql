@@ -56,6 +56,7 @@ describe pinturas_arquitectonicas;
 CREATE TABLE pinturas_en_aerosol LIKE productos_base;
 ALTER TABLE   pinturas_en_aerosol ADD COLUMN  subcategoria ENUM('Aerosoles') NOT NULL;
 ALTER TABLE pinturas_en_aerosol ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
+describe pinturas_arquitectonicas;
 
 CREATE TABLE adhesivos_y_colorantes LIKE productos_base;
 ALTER TABLE adhesivos_y_colorantes ADD COLUMN subcategoria ENUM('Adhesivos', 'Color Para Cemento') NOT NULL;

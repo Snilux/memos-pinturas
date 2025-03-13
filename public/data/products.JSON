@@ -3218,9 +3218,9 @@
     "subcategoria": "Niquelado",
     "color": "Cobre",
     "colorHex": "",
-    "litros": [0.4, "", ""],
-    "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "litros": [0.4, 0.4, 0.4],
+    "preciosCompra": ["$40.00", "$40.00", "$40.00"],
+    "piezasCaja": [6,6,6]
   },
   {
     "codigo": "2185",

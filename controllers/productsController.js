@@ -2,8 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const connection = require("../config/db");
-const showAllProductsQuery = require("./querysProductsController");
-const { type } = require("os");
+const  showAllProductsQuery  = require("./querysProductsController");
 const productsController = {};
 
 const categoriaMap = {
@@ -341,6 +340,7 @@ productsController.ShowArchitectural = (req, res) => {
     });
   });
 };
+
 productsController.ShowIndustrials = (req, res) => {
   const query = `SELECT * FROM pinturas_industriales`;
   connection.query(query, (err, results) => {
@@ -358,6 +358,7 @@ productsController.ShowIndustrials = (req, res) => {
     });
   });
 };
+
 productsController.ShowAdhesives = (req, res) => {
   const query = `SELECT * FROM adhesivos_y_colorantes`;
   connection.query(query, (err, results) => {
@@ -375,6 +376,7 @@ productsController.ShowAdhesives = (req, res) => {
     });
   });
 };
+
 productsController.ShowAdhesives = (req, res) => {
   const query = `SELECT * FROM adhesivos_y_colorantes`;
   connection.query(query, (err, results) => {
@@ -392,6 +394,7 @@ productsController.ShowAdhesives = (req, res) => {
     });
   });
 };
+
 productsController.ShowWood = (req, res) => {
   const query = `SELECT * FROM pinturas_para_madera`;
   connection.query(query, (err, results) => {
@@ -409,4 +412,5 @@ productsController.ShowWood = (req, res) => {
     });
   });
 };
+
 module.exports = productsController;

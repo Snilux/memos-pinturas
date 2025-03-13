@@ -65,9 +65,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  let code = document.getElementById("inputCodigo").value;
-  let input = document.getElementById("inputCodigo");
-  input.value = code;
-  let event = new Event("input", { bubbles: true });
-  input.dispatchEvent(event);
+  
 });

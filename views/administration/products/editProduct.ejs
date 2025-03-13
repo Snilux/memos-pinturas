@@ -13,18 +13,18 @@
     <div class="formularios__columna">
       <input type="text" class="input__formulario" placeholder="Codigo pintura " id="inputCodigo" required name="codigo_pintura" value="<%=product.codigo_pintura%>">
       <div id="inputLitrosContainer" value="<%=product.cantidad_litros%>"></div>
-      
+
       <input type="number" min="0" class="input__formulario" placeholder="Precio compra" name="precio_compra" value="<%=product.precio_compra%>">
       <input type="number" min="0" class="input__formulario" placeholder="Precio venta" id="inputVenta" name="precio_venta" value="<%=product.precio_venta%>">
       <input type="number" min="0" class="input__formulario" placeholder="Cantidad disponible" id="inputCantidad" name="cantidad" value="<%=product.cantidad%>">
 
       <% if (product.imagen) { %>
-        <div class="producto-imagen">
-            <img src="/uploads/images/<%= product.imagen %>" alt="Imagen del producto" style="width: 70px; height: 80px;">
-        </div>
-        <input type="hidden" name="currentImagePath" value="<%= product.imagen %>"> 
-    <% } %>
-    <input type="file" class="input__formulario" id="inputFoto" accept="image/*" placeholder="Añadir Imagen" name="imagen">
+      <div class="producto-imagen">
+        <img src="/uploads/images/<%= product.imagen %>" alt="Imagen del producto" style="width: 70px; height: 80px;">
+      </div>
+      <input type="hidden" name="currentImagePath" value="<%= product.imagen %>">
+      <% } %>
+      <input type="file" class="input__formulario" id="inputFoto" accept="image/*" placeholder="Añadir Imagen" name="imagen">
 
 
       <input type="number" class="input__formulario" placeholder="Numero de lote" id="inputLote" name="lote_id" value="<%=product.lote_id%>">
@@ -55,6 +55,13 @@
   <script>
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
     var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    let code = document.getElementById("inputCodigo").value;
+    let input = document.getElementById("inputCodigo");
+    input.value = code;
+    let event = new Event("input", {
+      bubbles: true
+    });
+    input.dispatchEvent(event);
   </script>
 </body>
 

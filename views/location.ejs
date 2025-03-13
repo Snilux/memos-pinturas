@@ -1,0 +1,117 @@
+<%- include('partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/indexStyles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+
+<body class="articulos__body ">
+
+  <!-- EMPIEZA NAVEGACIÓN -->
+  <%- include('partials/navIndex.ejs')%>
+
+  <div class="hero__ubicacion">
+    <h2 class="hero__heading">Ubicación <i class="fa-solid fa-map-location-dot"></i></h2>
+  </div>
+
+  <section class="index__contenido" id="categoriasId">
+    <h2 class="index__titulo">Encuentranos Fácilmente</h2>
+    <h3 class="index__subtitulo">Lleva nuestros colores contigo siempre.</h3>
+  </section>
+
+  <section class="contenedor__ubicacion">
+
+    <h2 class="ubicacion__heading">Encuentranos en el mapa</h2>
+
+    <div class="contenedor__mapa">
+      <h2 class="ubicacion__subheading">Estamos ubicados San Miguel Zacaola, Puebla, México.</h2>
+
+      <!-- Mapa a lo largo -->
+      <div class="ubicacion__mapa">
+        <!-- Contenedor para el mapa de OpenStreetMap -->
+        <div id="mapa"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="contenedor__informacion-ubicacion">
+    <h2 class="ubicacion__heading"></h2>
+
+
+    <div class="contenedor__informacion">
+      <!-- Información de contacto debajo del mapa -->
+      <div class="ubicacion__contacto-grid">
+        <!-- Dirección -->
+        <div class="ubicacion__info-bloque">
+          <h3 class="ubicacion__subtitulo">Dirección</h3>
+          <p class="ubicacion__texto"> <i class="fas fa-map-marker-alt"></i> Cuapiaxtla - Acatlán de Osorio, 75290, Puebla, México.</p>
+
+        </div>
+
+        <!-- Teléfono y Email -->
+        <div class="ubicacion__info-bloque">
+          <h3 class="ubicacion__subtitulo">Contacto</h3>
+          <p class="ubicacion__texto">
+            <i class="fas fa-phone"></i>
+            (+52) 2215913273
+          </p>
+          <p class="ubicacion__texto">
+            <i class="fas fa-envelope"></i>
+            memospinturas@gmail.com
+          </p>
+        </div>
+
+        <!-- Horarios -->
+        <div class="ubicacion__info-bloque">
+          <h3 class="ubicacion__subtitulo">Horarios</h3>
+          <div class="ubicacion__horario">
+            <span class="ubicacion__dia">Lunes a Viernes:</span>
+            <span class="ubicacion__hora">9:00 AM - 7:00 PM</span>
+          </div>
+          <div class="ubicacion__horario">
+            <span class="ubicacion__dia">Sábados:</span>
+            <span class="ubicacion__hora">9:00 AM - 3:00 PM</span>
+          </div>
+          <div class="ubicacion__horario">
+            <span class="ubicacion__dia">Domingos:</span>
+            <span class="ubicacion__hora">Cerrado</span>
+          </div>
+        </div>
+
+        <!-- Contacto Rápido -->
+        <div class="ubicacion__info-bloque">
+          <h3 class="ubicacion__subtitulo">Contacto Rápido</h3>
+          <div class="ubicacion__botones">
+            <a href="tel:+2215913273" class="ubicacion__boton">
+              <i class="fas fa-phone"></i> Llamar
+            </a>
+            <a href="https://wa.me/525512345678" class="ubicacion__boton">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="#" class="ubicacion__boton" id="como-llegar">
+              <i class="fas fa-directions"></i> Cómo Llegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer.ejs' )%>
+
+
+
+
+
+  <script src="/javascripts/appIndexCarrusel.js"></script><!-- Script de la barra de navegación -->
+  <!-- jQuery -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+  <!-- Slick Carousel JS -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="/javascripts/appIndexMaps.js"></script>
+
+</body>
+
+</html>

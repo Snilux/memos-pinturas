@@ -3,7 +3,9 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   req.session.destroy(() => {
-    res.redirect("/");
+    res.render("index", {
+      title: "Memo's Pinturas",
+    });
   });
 });
 

@@ -5,12 +5,19 @@ const authUser = require("../middlewares/authUser");
 const upload = require("../middlewares/multerConfig");
 
 router.get("/", authUser.isAdmOrOp, (req, res, next) => {
+  res.setHeader(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate"
+  );
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+  res.setHeader("Surrogate-Control", "no-store");
+
   res.render("administration/panelAdministration", {
     title: `Panel de administracion`,
     data: req.session.user,
   });
 });
-
 router.get("/products", authUser.isAdmOrOp, productsController.ShowAllProducts);
 
 router.get("/products/add", authUser.isAdmOrOp, (req, res, next) => {
@@ -81,10 +88,6 @@ router.get(
   authUser.isAdmOrOp,
   productsController.ShowAdhesives
 );
-router.get(
-  "/products/wood",
-  authUser.isAdmOrOp,
-  productsController.ShowWood
-);
+router.get("/products/wood", authUser.isAdmOrOp, productsController.ShowWood);
 
 module.exports = router;

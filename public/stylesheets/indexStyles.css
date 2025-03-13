@@ -437,7 +437,7 @@ img {
       rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.4)
     ),
-    url(../img/tiendaMemosPinturas_1.jpg);
+    url(/images/tiendaMemosPinturas_1.jpg);
   height: 40rem;
 }
 

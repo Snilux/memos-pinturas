@@ -1,0 +1,369 @@
+<%- include('partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/indexStyles.css" />
+
+</head>
+
+<body class="articulos__body ">
+  <%- include('partials/navIndex.ejs')%>
+  <!-- EMPIEZA NAVEGACIÓN -->
+  <div class="hero__productos">
+    <h2 class="hero__heading">Productos <i class="fa-solid fa-brush"></i></h2>
+  </div>
+
+  <section class="contenedor__busqueda">
+    <h1 class="titulo__principal">Explora más de nuestros productos</h1>
+
+    <div class="contenedor">
+      <form action="" class="formulario__busqueda">
+        <input type="search" class="input__busqueda" placeholder="Coloca aquí tu busqueda">
+        <select name="selectBusqueda" id="selectBusqueda" class="select__busqueda">
+          <option disabled selected> --- Selecciona una Categoría --- </option>
+          <option value="arquitectonica" class="opcion__busqueda">Arquitectónica</option>
+          <option value="aerosol" class="opcion__busqueda">Aerosol</option>
+          <option value="automotriz" class="opcion__busqueda">Automotriz</option>
+          <option value="aerosol" class="opcion__busqueda">Colorantes y Adhesivos</option>
+          <option value="andustrial" class="opcion__busqueda">Industrial</option>
+          <option value="andustrial" class="opcion__busqueda">Madera</option>
+          <option value="complementos" class="opcion__busqueda">Complementos</option>
+        </select>
+      </form>
+    </div>
+  </section>
+
+  <h2 class="productos__heading">Explora Nuestros Productos</h2>
+  <!-- ACABA NAVEGACIÓN -->
+
+  <main class="contenedor__productos">
+
+    <!-- Empiezan Productos -->
+    <section class="productos" id="arquitectonicaId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fas fa-house"></i> Pintura Arquitectónica
+        </h2>
+
+
+        <div class="productos-grid">
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+          <%if (products[i].tabla_origen === "pinturas_arquitectonicas" ) { %>
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+                <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
+              </div>
+
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%}%>
+              <%}%>
+          <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- Empiezan Productos -->
+    <section class="productos" id="aerosolId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fa-solid fa-spray-can-sparkles"></i> Pintura en Aerosol
+        </h2>
+        <div class="productos-grid">
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+          <%if (products[i].tabla_origen === "pinturas_en_aerosol" ) { %>
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+                <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
+              </div>
+
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%}%>
+                <%}%>
+          <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empiezan Productos -->
+    <section class="productos" id="automotrizId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fa-solid fa-car"></i> Pintura Automotriz
+        </h2>
+
+
+        <div class="productos-grid">
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+          <%if (products[i].tabla_origen === "pinturas_automotrices" ) { %>
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+                <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
+              </div>
+
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%}%>
+                  <%}%>
+          <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empiezan Productos -->
+    <section class="productos" id="colorantesId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fa-solid fa-palette"></i> Colorantes y Adhesivos
+        </h2>
+        <div class="productos-grid">
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+          <%if (products[i].tabla_origen === "adhesivos_y_colorantes" ) { %>
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+                <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
+              </div>
+
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%}%>
+                  <%}%>
+          <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empiezan Productos -->
+    <section class="productos" id="industrialId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fa-solid fa-industry"></i> Pintura Industral
+        </h2>
+        <div class="productos-grid">
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+          <%if (products[i].tabla_origen === "pinturas_industriales" ) { %>
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+                <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
+              </div>
+
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%}%>
+                  <%}%>
+          <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <section class="productos" id="industrialId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fa-solid fa-tree"></i> Pintura Para Madera
+        </h2>
+        <div class="productos-grid">
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+          <%if (products[i].tabla_origen === "pinturas_para_madera" ) { %>
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+                <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
+              </div>
+
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%}%>
+                  <%}%>
+          <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empiezan Productos -->
+    <section class="productos" id="complementosId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fa-solid fa-brush"></i> Complementos
+        </h2>
+
+
+        <div class="productos-grid">
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src="img/complemento1.png" alt="Complemento">
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Brocha</h3>
+                <p class="producto-precio">Precio: <span>$500</span></p>
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <!-- Producto 2 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src="img/complemento3.png" alt="Pintura Aerosol">
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Cepillo</h3>
+                <p class="producto-precio">Precio: <span>$500</span></p>
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <!-- Producto 3 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src="img/complemento2.png" alt="Pintura Automotrizl Marrón">
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo">Rodillo</h3>
+                <p class="producto-precio">Precio: <span>$500</span></p>
+              </div>
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <section class="enlace__contacto">
+    <h1 class="enlace__contacto-titulo">¿No encontraste lo que buscabas?</h1>
+    <p class="enlace__contacto-subtitulo">Dirigete a la sección de <a class="enlace__contacto-liga" href="contacto.html">Contacto</a> y preguntanos acerca de los productos de tu interés.</p>
+  </section>
+
+  <%- include('partials/footer.ejs' )%>
+  <script src="/javascripts/appIndexCarrusel.js"></script>
+
+  <!-- jQuery -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+  <!-- Slick Carousel JS -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="js/appSwiper.js"></script> -->
+
+</body>
+
+</html>
