@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const connection = require("../config/db");
-const  showAllProductsQuery  = require("./querysProductsController");
+const queries = require("./queries/queriesProductsController");
 const productsController = {};
 
 const categoriaMap = {
@@ -14,7 +14,12 @@ const categoriaMap = {
   "Pinturas para Madera": "pinturas_para_madera",
 };
 
+function normalizarTexto(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 productsController.ShowAllProducts = (req, res) => {
+  const showAllProductsQuery = queries.showAllProductsQuery;
   connection.query(showAllProductsQuery, (err, results) => {
     if (err) {
       console.error(`Error en la consulta ${err}`);
@@ -102,7 +107,12 @@ productsController.edit = (req, res) => {
   console.log(req.params);
   const { id, categoria } = req.params;
 
-  const tabla = categoriaMap[categoria];
+  const tabla =
+    categoriaMap[
+      Object.keys(categoriaMap).find(
+        (key) => normalizarTexto(key) === normalizarTexto(categoria)
+      )
+    ];
   const query = `SELECT * FROM ${tabla} WHERE id_producto = ?`;
 
   connection.query(query, [id], (err, results) => {
@@ -143,7 +153,12 @@ productsController.save = async (req, res) => {
     nombre_proveedor,
   } = req.body;
 
-  const tabla = categoriaMap[tabla_categoria];
+  const tabla =
+    categoriaMap[
+      Object.keys(categoriaMap).find(
+        (key) => normalizarTexto(key) === normalizarTexto(tabla_categoria)
+      )
+    ];
   let imagePath = currentImagePath;
 
   try {
@@ -224,9 +239,16 @@ productsController.delete = async (req, res) => {
   const id_producto = req.params.id;
   const categoria = req.params.categoria;
 
-  const tabla = categoriaMap[categoria];
+  // const tabla = categoriaMap[categoria];
 
-  console.log(tabla, id_producto);
+  const tabla =
+    categoriaMap[
+      Object.keys(categoriaMap).find(
+        (key) => normalizarTexto(key) === normalizarTexto(categoria)
+      )
+    ];
+
+  // console.log(tabla, id_producto);
 
   try {
     const [rows] = await connection
@@ -409,6 +431,43 @@ productsController.ShowWood = (req, res) => {
       title: "Pinturas para madera",
       data: req.session.user,
       type: "Pinturas para madera",
+    });
+  });
+};
+
+productsController.searchProducts = (req, res) => {
+  const { value } = req.query;
+  const query = queries.searchAllProducts;
+  // console.log(value);
+
+  if (!value) {
+    res.redirect("/products");
+  }
+  const searchTermWildcard = `%${value}%`;
+  const queryParams = Array(30).fill(searchTermWildcard);
+
+  connection.query(query, queryParams, (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/admin/products");
+    }
+    const formattedResults = results.map((product) => {
+      const formattedTabla = product.tabla
+        .replace(/_/g, " ")
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+
+      return {
+        ...product,
+        tabla: formattedTabla,
+      };
+    });
+    // console.log(formattedResults);
+
+    res.render("administration/products/showProducts", {
+      title: `Productos`,
+      data: req.session.user,
+      products: formattedResults,
+      type: "",
     });
   });
 };

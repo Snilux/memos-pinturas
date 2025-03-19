@@ -14,20 +14,27 @@
     <h1 class="titulo__principal">Explora más de nuestros productos</h1>
 
     <div class="contenedor">
-      <form action="" class="formulario__busqueda">
-        <input type="search" class="input__busqueda" placeholder="Coloca aquí tu busqueda">
+      <form action="/products/searchProduct" method="get">
         <select name="selectBusqueda" id="selectBusqueda" class="select__busqueda">
           <option disabled selected> --- Selecciona una Categoría --- </option>
-          <option value="arquitectonica" class="opcion__busqueda">Arquitectónica</option>
-          <option value="aerosol" class="opcion__busqueda">Aerosol</option>
-          <option value="automotriz" class="opcion__busqueda">Automotriz</option>
-          <option value="aerosol" class="opcion__busqueda">Colorantes y Adhesivos</option>
-          <option value="andustrial" class="opcion__busqueda">Industrial</option>
-          <option value="andustrial" class="opcion__busqueda">Madera</option>
-          <option value="complementos" class="opcion__busqueda">Complementos</option>
+          <option value="Pinturas Arquitectónicas" class="opcion__busqueda">Arquitectónica</option>
+          <option value="Pinturas en Aerosol" class="opcion__busqueda">Aerosol</option>
+          <option value="Pinturas Automotrices" class="opcion__busqueda">Automotriz</option>
+          <option value="Adhesivos y Colorantes" class="opcion__busqueda">Colorantes y Adhesivos</option>
+          <option value="Pinturas Industriales" class="opcion__busqueda">Industrial</option>
+          <option value="Pinturas para Madera" class="opcion__busqueda">Madera</option>
+          <option value="Complementos" class="opcion__busqueda">Complementos</option>
         </select>
+        <input type="submit" value="Búscar">
       </form>
     </div>
+
+    <div class="contenedor">
+      <form action="/products/searchProducts" method="get" class="formulario__busqueda">
+        <input type="search" class="input__busqueda" placeholder="Coloca aquí tu busqueda" name="value">
+      </form>
+    </div>
+
   </section>
 
   <h2 class="productos__heading">Explora Nuestros Productos</h2>

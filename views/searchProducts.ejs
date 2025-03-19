@@ -1,0 +1,102 @@
+<%- include('partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/indexStyles.css" />
+
+</head>
+
+<body class="articulos__body ">
+  <%- include('partials/navIndex.ejs')%>
+
+  <div class="hero__productos">
+    <h2 class="hero__heading">Productos <i class="fa-solid fa-brush"></i></h2>
+  </div>
+  <section class="contenedor__busqueda">
+    <h1 class="titulo__principal">Explora más de nuestros productos</h1>
+
+    <div class="contenedor">
+      <form action="/products/searchProduct" method="get">
+        <select name="selectBusqueda" id="selectBusqueda" class="select__busqueda">
+          <option disabled selected> --- Selecciona una Categoría --- </option>
+          <option value="Pinturas Arquitectónicas" class="opcion__busqueda">Arquitectónica</option>
+          <option value="Pinturas en Aerosol" class="opcion__busqueda">Aerosol</option>
+          <option value="Pinturas Automotrices" class="opcion__busqueda">Automotriz</option>
+          <option value="Adhesivos y Colorantes" class="opcion__busqueda">Colorantes y Adhesivos</option>
+          <option value="Pinturas Industriales" class="opcion__busqueda">Industrial</option>
+          <option value="Pinturas para Madera" class="opcion__busqueda">Madera</option>
+          <option value="Complementos" class="opcion__busqueda">Complementos</option>
+        </select>
+        <input type="submit" value="Búscar">
+      </form>
+    </div>
+    <div class="contenedor">
+      <form action="/products/searchProducts" method="get" class="formulario__busqueda">
+        <input type="search" class="input__busqueda" placeholder="Coloca aquí tu busqueda" name="value">
+      </form>
+    </div>
+
+  </section>
+
+  <h2 class="productos__heading">Explora Nuestros Productos</h2>
+
+  <main class="contenedor__productos">
+
+    <section class="productos" id="busquedaId">
+      <div class="contenedor">
+        <h2 class="productos__subheading">
+          <i class="fas fa-search"></i> <%= category %>
+        </h2>
+
+
+        <div class="productos-grid">
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo"><%= products[i].tabla %></h3>
+                <h3 class="producto-titulo"><%= products[i].nombre %></h3>
+                <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
+                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
+              </div>
+
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+              </div>
+            </div>
+
+          </div>
+
+          <%}%>
+          <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+
+        </div>
+
+
+      </div>
+    </section>
+  </main>
+  <section class="enlace__contacto">
+    <h1 class="enlace__contacto-titulo">¿No encontraste lo que buscabas?</h1>
+    <p class="enlace__contacto-subtitulo">Dirigete a la sección de <a class="enlace__contacto-liga" href="contacto.html">Contacto</a> y preguntanos acerca de los productos de tu interés.</p>
+  </section>
+
+  <%- include('partials/footer.ejs' )%>
+  <script src="/javascripts/appIndexCarrusel.js"></script>
+
+  <!-- jQuery -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+  <!-- Slick Carousel JS -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="js/appSwiper.js"></script> -->
+
+</body>
+
+</html>

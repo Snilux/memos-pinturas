@@ -19,17 +19,27 @@ CREATE TABLE proveedores (
     email VARCHAR(100)
 );
 -- No tiene productos ni complementos
+SELECT id_proveedor FROM proveedores WHERE nombre_empresa = "ipesa ";
+SELECT * FROM proveedores;
+
+
+ALTER TABLE lotes DROP FOREIGN KEY lotes_ibfk_1;
+
+ALTER TABLE lotes
+ADD CONSTRAINT lotes_ibfk_1
+FOREIGN KEY (proveedor_id) REFERENCES proveedores(id_proveedor) ON DELETE SET NULL;
 -- Tabla de Lotes
 CREATE TABLE lotes (
     id_lote INT AUTO_INCREMENT PRIMARY KEY,
-    codigo_trazabilidad VARCHAR(50) UNIQUE NOT NULL,
+    codigo_trazabilidad VARCHAR(50) UNIQUE NULL,
     proveedor_id INT,
     fecha_llegada DATE NOT NULL,
     fecha_caducidad DATE NUll,
     descripcion varchar(255) NOT NULL,
     FOREIGN KEY (proveedor_id) REFERENCES proveedores(id_proveedor) ON DELETE SET NULL
 );
--- nombreProducto, borrar cantidad_caja, agregar campo de foto
+
+SELECT id_lote FROM lotes WHERE proveedor_id = ?, proveedor_id = ?,  fecha_llegada = ?, fecha_caducidad = ?, descripcion = ?; 
 -- Tabla base para productos
 CREATE TABLE productos_base (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
@@ -54,9 +64,9 @@ ALTER TABLE pinturas_arquitectonicas ADD COLUMN nombre_proveedor VARCHAR(50) NOT
 describe pinturas_arquitectonicas;
 
 CREATE TABLE pinturas_en_aerosol LIKE productos_base;
-ALTER TABLE   pinturas_en_aerosol ADD COLUMN  subcategoria ENUM('Aerosoles') NOT NULL;
+ALTER TABLE   pinturas_en_aerosol ADD COLUMN  subcategoria ENUM('Mate',' Satinado y Brillante','Metálicos','Fluorescentes',' Alta temperatura','Madera','Niquelado','Seguridad','Primarios') NOT NULL;
 ALTER TABLE pinturas_en_aerosol ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
-describe pinturas_arquitectonicas;
+describe pinturas_en_aerosol;
 
 CREATE TABLE adhesivos_y_colorantes LIKE productos_base;
 ALTER TABLE adhesivos_y_colorantes ADD COLUMN subcategoria ENUM('Adhesivos', 'Color Para Cemento') NOT NULL;
@@ -77,6 +87,7 @@ ALTER TABLE pinturas_para_madera ADD COLUMN subcategoria ENUM('Century Maderas',
 ALTER TABLE pinturas_para_madera ADD COLUMN nombre_proveedor VARCHAR(50) NOT NULL;
 
 describe pinturas_para_madera;
+SELECT * FROM pinturas_arquitectonicas WHERE lote_id IS NOT NULL;
 
 -- Tabla de Complementos
 CREATE TABLE complementos (

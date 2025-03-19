@@ -1,0 +1,108 @@
+<%- include('../../partials/head.ejs') %>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/userStyles.css">
+</head>
+
+<body>
+  <%- include('../../partials/navAdmin.ejs') %>
+  <%- include('../../partials/dropdownMenu.ejs') %>
+
+
+
+  <h1>Providers</h1>
+  <div class="w-4/5 mx-auto mt-5">
+    <a href="/admin/providers/add" class="submit__formulario" style="background-color: black;">Agregar proveedor</a>
+
+    <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+      <thead class="bg-gray-50">
+        <tr>
+          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
+            ID
+          </th>
+          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
+            Nombre
+          </th>
+          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
+            Teléfono
+          </th>
+          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
+            Email
+          </th>
+          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
+            Acciones
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <% if(providers){ %>
+        <% for (let i = 0; i < providers.length; i++) { %>
+
+        <tr>
+          <td class="px-6 py-6 whitespace-nowrap">
+            <div class="flex items-center">
+
+              <div class="ml-6">
+                <div class="text-2xl font-semibold text-gray-900">
+                  <%= providers[i].id_proveedor %>
+                </div>
+              </div>
+          </td>
+          <td class="px-6 py-6 whitespace-nowrap">
+            <div class="flex items-center">
+
+              <div class="ml-6">
+                <div class="text-2xl font-semibold text-gray-900">
+                  <%= providers[i].nombre_empresa %>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-6 whitespace-nowrap">
+            <div class="flex items-center">
+
+              <div class="ml-6">
+                <div class="text-2xl font-semibold text-gray-900">
+                  <%= providers[i].telefono %>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="px-6 py-6 whitespace-nowrap">
+            <div class="flex items-center">
+
+              <div class="ml-6">
+                <div class="text-2xl font-semibold text-gray-900">
+                  <%= providers[i].email %>
+                </div>
+              </div>
+            </div>
+          </td>
+
+          <td class="px-6 py-6 whitespace-nowrap">
+            <div class="flex items-center">
+
+              <div class="ml-6">
+                <div class="text-2xl font-semibold text-gray-900">
+                  <a href="/admin/providers/edit/<%= providers[i].id_proveedor %>">Editar</a>
+                  <a class="delete-product" data-url="/admin/providers/delete/<%= providers[i].id_proveedor %>">Eliminar</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <% } %>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/javascripts/appAdminProviders.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    var errorMessage =
+      "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage =
+      "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+  </script>
+</body>

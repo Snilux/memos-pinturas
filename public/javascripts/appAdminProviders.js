@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       icon: "error",
       confirmButtonText: "Aceptar",
     }).then(() => {
-      window.location.href = `/admin`;
+      window.location.href = `/admin/providers`;
     });
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.pathname);
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       confirmButtonText: "Aceptar",
     }).then(() => {
       setTimeout(() => {
-        window.location.href = `/admin/products`;
+        window.location.href = `/admin/providers`;
       }, 1000);
     });
     if (window.history.replaceState) {
@@ -64,12 +64,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-
-  let code = document.getElementById("inputCodigo").value;
-  let input = document.getElementById("inputCodigo");
-  input.value = code;
-  let event = new Event("input", {
-    bubbles: true,
-  });
-  input.dispatchEvent(event);
 });

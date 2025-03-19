@@ -1,0 +1,76 @@
+<%- include('partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/indexStyles.css" />
+</head>
+
+<body class="articulos__body ">
+
+  <!-- EMPIEZA NAVEGACIÓN -->
+
+  <%- include('partials/navIndex.ejs')%>
+
+  <div class="hero__contacto">
+    <h2 class="hero__heading">Contacto <i class="fa-solid fa-envelope"></i></h2>
+  </div>
+
+  <section class="index__contenido" id="categoriasId">
+    <h2 class="index__titulo">¿Tienes problemas?</h2>
+    <h3 class="index__subtitulo">Aclararemos tus dudas si te comunicas con nosotros.</h3>
+  </section>
+
+  <h2 class="contacto__heading">Contesta nuestro formulario</h2>
+  <!-- ACABA NAVEGACIÓN -->
+
+  <section class="contacto">
+    <div class="contenedor">
+
+      <div class="contacto__grid">
+
+        <div class="contacto__formulario">
+          <form class="formulario__contacto">
+            <h2 class="formulario__contacto-heading">Formulario de Contacto</h2>
+            <input type="text" class="input__nombre" placeholder="Coloca tu nombre">
+            <input type="email" class="input__email" placeholder="Coloca tu Email">
+            <input type="tel" class="input__telefono" placeholder="Coloca tu Email">
+            <textarea name="asunto__contacto" class="asunto__contacto" placeholder="Coloca aquí tu asunto"></textarea>
+
+            <input type="submit" value="Enviar" class="submit__contacto">
+          </form>
+        </div>
+
+        <div class="contacto__datos">
+
+
+          <!-- From Uiverse.io by codebykay101 -->
+          <div class="container">
+            <div data-text="Colores" style="--r:-15;" class="glass">
+              <i class="fas fa-palette 2xl"></i>
+            </div>
+            <div data-text="Confianza" style="--r:5;" class="glass">
+              <i class="fas fa-heart 2xl"></i>
+            </div>
+            <div data-text="Calidad" style="--r:25;" class="glass">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="contacto__info">
+            <h2 class="contacto__datos-frase">Memo's Pinturas</h2>
+            <h3 class="contacto__datos-subfrase">Colores que inspiran, Calidad que perdura.</h3>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <%- include('partials/footer.ejs' )%>
+
+  <script src="/javascripts/appIndexCarrusel.js"></script>
+
+</body>
+
+</html>

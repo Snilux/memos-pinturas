@@ -3,21 +3,20 @@ const router = express.Router();
 const productsController = require("../controllers/productsController");
 const authUser = require("../middlewares/authUser");
 const upload = require("../middlewares/multerConfig");
+const providerRoutes = require("./administrationProvidersRoutes");
+const lotsRoutes = require("./administrationLotsRoutes");
 
 router.get("/", authUser.isAdmOrOp, (req, res, next) => {
-  res.setHeader(
-    "Cache-Control",
-    "no-store, no-cache, must-revalidate, proxy-revalidate"
-  );
-  res.setHeader("Pragma", "no-cache");
-  res.setHeader("Expires", "0");
-  res.setHeader("Surrogate-Control", "no-store");
-
   res.render("administration/panelAdministration", {
     title: `Panel de administracion`,
     data: req.session.user,
   });
 });
+// Uso de las rutas de proveedores
+router.use("/providers", providerRoutes);
+
+router.use("/lots", lotsRoutes);
+
 router.get("/products", authUser.isAdmOrOp, productsController.ShowAllProducts);
 
 router.get("/products/add", authUser.isAdmOrOp, (req, res, next) => {
@@ -90,4 +89,9 @@ router.get(
 );
 router.get("/products/wood", authUser.isAdmOrOp, productsController.ShowWood);
 
+router.get(
+  "/products/search",
+  authUser.isAdmOrOp,
+  productsController.searchProducts
+);
 module.exports = router;

@@ -5,10 +5,21 @@ const indexController = require("../controllers/indexController");
 router.get("/", indexController.getRandomProducts);
 
 router.get("/products", indexController.getAllRandomProducts);
+
 router.get("/location", (req, res) => {
   res.render("location", {
     title: "Ubicación",
   });
 });
+
+router.get("/contact", (req, res) => {
+  res.render("contact", {
+    title: "Contacto",
+  });
+});
+
+router.get("/products/searchProduct", indexController.searchAllProducts);
+
+router.get("/products/searchProducts", indexController.searchProducts)
 
 module.exports = router;

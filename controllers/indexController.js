@@ -1,20 +1,24 @@
 const connection = require("../config/db");
 const indexController = {};
+const queries = require("./queries/queriesIndexController");
+
+const categoriaMap = {
+  "Pinturas Automotrices": "pinturas_automotrices",
+  "Pinturas Arquitectónicas": "pinturas_arquitectonicas",
+  "Pinturas en Aerosol": "pinturas_en_aerosol",
+  "Pinturas Industriales": "pinturas_industriales",
+  "Adhesivos y Colorantes": "adhesivos_y_colorantes",
+  "Pinturas para Madera": "pinturas_para_madera",
+  Complementos: "complementos",
+};
 
 indexController.getRandomProducts = (req, res) => {
-  const query = `
-        (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'arquitectonica' AS tabla_origen FROM pinturas_arquitectonicas ORDER BY RAND() LIMIT 3)
-        UNION ALL
-        (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'aerosol' AS tabla_origen FROM pinturas_en_aerosol ORDER BY RAND() LIMIT 3);
-    `;
+  const query = queries.getRandomProducts;
 
   connection.query(query, (err, results) => {
     if (err) {
-      console.log(`Error en el servidor ${err}`);
       return;
     }
-    // console.log(results);
-
     return res.render("index", {
       title: "Memo's Pinturas",
       products: results,
@@ -23,24 +27,12 @@ indexController.getRandomProducts = (req, res) => {
 };
 
 indexController.getAllRandomProducts = (req, res) => {
-  const query = `(SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'pinturas_arquitectonicas' AS tabla_origen FROM              pinturas_arquitectonicas ORDER BY RAND() LIMIT 3)
-  UNION ALL
-  (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'pinturas_en_aerosol' AS tabla_origen FROM pinturas_en_aerosol ORDER BY RAND() LIMIT 3)
-  UNION ALL
-  (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'adhesivos_y_colorantes' AS tabla_origen FROM adhesivos_y_colorantes ORDER BY RAND() LIMIT 3)
-  UNION ALL
-  (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'pinturas_industriales' AS tabla_origen FROM pinturas_industriales ORDER BY RAND() LIMIT 3)
-  UNION ALL
-  (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'pinturas_automotrices' AS tabla_origen FROM pinturas_automotrices ORDER BY RAND() LIMIT 3)
-  UNION ALL
-  (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'pinturas_para_madera' AS tabla_origen FROM pinturas_para_madera ORDER BY RAND() LIMIT 3);`;
+  const query = queries.getAllRandomProducts;
 
   connection.query(query, (err, results) => {
     if (err) {
-      console.log(`Error en el servidor ${err}`);
       return;
     }
-    // console.log(results);
 
     return res.render("products", {
       title: "Productos",
@@ -49,4 +41,60 @@ indexController.getAllRandomProducts = (req, res) => {
   });
 };
 
+indexController.searchAllProducts = (req, res) => {
+  const { selectBusqueda } = req.query;
+  const table = categoriaMap[selectBusqueda];
+
+  if (!table) {
+    return res.redirect("/products");
+  }
+
+  const query = `SELECT imagen, precio_venta, color_nombre, color_hex, cantidad_litros FROM ${table}`; // Insertar el nombre de la tabla directamente
+
+  connection.query(query, (err, results) => {
+    if (err) {
+      return res.redirect("/products");
+    }
+    res.render("searchProducts", {
+      title: `Productos ${selectBusqueda} `,
+      category: selectBusqueda,
+      products: results,
+    });
+  });
+};
+
+indexController.searchProducts = (req, res) => {
+  const { value } = req.query;
+  const query = queries.searchProducts;
+
+  if (!value) {
+    res.redirect("/products");
+  }
+  const searchTermWildcard = `%${value}%`;
+  const queryParams = Array(30).fill(searchTermWildcard);
+
+  connection.query(query, queryParams, (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/products");
+    }
+
+    const formattedResults = results.map((product) => {
+      const formattedTabla = product.tabla
+        .replace(/_/g, " ")
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+
+      return {
+        ...product,
+        tabla: formattedTabla,
+      };
+    });
+
+    res.render("searchProducts", {
+      title: `Productos ${value}`,
+      products: formattedResults,
+      category: `Resultados para ${value}`,
+    });
+  });
+};
 module.exports = indexController;
