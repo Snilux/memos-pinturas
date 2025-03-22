@@ -34,12 +34,12 @@ router.post(
 );
 
 router.get(
-  "/products/edit/:id/:categoria/",
+  "/products/edit/:id/:categoria/:path",
   authUser.isAdmOrOp,
   productsController.edit
 );
 router.post(
-  "/products/edit/:id",
+  "/products/edit/:id/:path",
   authUser.isAdmOrOp,
   upload.single("imagen"),
   productsController.save

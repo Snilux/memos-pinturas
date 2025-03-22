@@ -7,9 +7,9 @@
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
 
-  <h1 class="heading__formulario">Añadir Producto</h1>
+  <h1 class="heading__formulario">Añadir Producto </h1>
 
-  <form class="formularios__productos" id="formularioLogin" method="post" action="/admin/products/edit/<%= product.id_producto %>" enctype="multipart/form-data">
+  <form class="formularios__productos" id="formularioLogin" method="post" action="/admin/products/edit/<%= product.id_producto %>/<%= path %>" enctype="multipart/form-data">
     <div class="formularios__columna">
       <input type="text" class="input__formulario" placeholder="Codigo pintura " id="inputCodigo" required name="codigo_pintura" value="<%=product.codigo_pintura%>">
       <div id="inputLitrosContainer" value="<%=product.cantidad_litros%>"></div>
@@ -55,7 +55,6 @@
   <script>
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
     var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
-    
   </script>
 </body>
 

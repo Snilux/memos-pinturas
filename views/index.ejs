@@ -23,37 +23,37 @@
       <div class="carousel">
         <div class="slide">
           <img src="/images/catAerosoles.png" alt="Aerosol" class="slide-image">
-          <a href="/products" class="slide-caption">
+          <a href="/products/#aerosolId" class="slide-caption">
             <span>AEROSOL</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/categoriaArquitectonica.jpg" alt="Arquitectónica" class="slide-image">
-          <a href="/products" class="slide-caption">
+          <a href="/products/#arquitectonicaId" class="slide-caption">
             <span>ARQUITECTÓNICA</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catComplementos.jpg" alt="Complementos" class="slide-image">
-          <a href="/products" class="slide-caption">
+          <a href="/products/#complementosId" class="slide-caption">
             <span>COMPLEMENTOS</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catAutomotrizP.jpg" alt="Slide 4" class="slide-image">
-          <a href="/products" class="slide-caption">
+          <a href="/products/#automotrizId" class="slide-caption">
             <span>AUTOMOTRIZ</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catIndustrial.png" alt="Slide 5" class="slide-image">
-          <a href="/products" class="slide-caption">
+          <a href="/products/#industrialId" class="slide-caption">
             <span>INDUSTRIAL</span>
           </a>
         </div>
         <div class="slide">
           <img src="/images/catColorantesyAdhesivos.png" alt="Slide 5" class="slide-image">
-          <a href="/products" class="slide-caption">
+          <a href="/products/#colorantesId" class="slide-caption">
             <span>COLORANTES Y ADHESIVOS</span>
           </a>
         </div>
@@ -109,7 +109,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="principal__producto" id="esloganId">
 
     <div class="contenedor">
@@ -150,9 +150,9 @@
           </div>
 
           <!-- Botón de acción -->
-          <button class="principal__boton">
+          <a class="principal__boton">
             <p><i class="fas fa-box"></i> <span class="principal__span">Ver más productos</span></p>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -181,7 +181,7 @@
 
           <div class="producto-info">
             <div class="producto-detalles">
-              <h3 class="producto-titulo">Pintura Arquitectónica</h3>
+              <h3 class="producto-titulo">Pintura Aerosol</h3>
               <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
               <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
               <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>

@@ -9,14 +9,14 @@
   <%- include('../../partials/dropdownMenu.ejs') %>
   <section class="contenedor login" id="sectionFormulario">
     <h2 class="heading__login">Journey</h2>
-    <form class="formulario__login" id="formularioLogin" method="post" action="/admin/lots/add">
+    <form class="formulario__login" id="formularioLogin" method="post" action="/admin/lots/edit/<%= lot.id_lote %>">
       <h1 class="heading__formulario">Añadir Lote</h1>
-      <input type="text" class="input__formulario" placeholder="Proveedor" id="inputProveedor" name="nombre_empresa">
-      <input type="date" class="input__formulario" placeholder="Fecha Llegada" id="inputFechaLegada" name="fecha_llegada">
-      <input type="date" class="input__formulario" placeholder="Fecha Caducidad" id="inputFechaCaducidad" name="fecha_caducidad">
-      <textarea class="input__formulario" placeholder="Descripcion" id="Descripcion" name="descripcion"></textarea>
-      <input type="submit" class="submit__formulario" value="Añadir" id="submitAñadir">
-
+      <input type="text" class="input__formulario" placeholder="Proveedor" id="inputProveedor" name="nombre_empresa" value="<%= nameProvider %>">
+      <input type="date" class="input__formulario" placeholder="Fecha Llegada" id="inputFechaLegada" name="fecha_llegada" value="<%= lot.fecha_llegada %>">
+      <input type="date" class="input__formulario" placeholder="Fecha Caducidad" id="inputFechaCaducidad" name="fecha_caducidad" value="<%= lot.fecha_caducidad %>">
+      <textarea class="input__formulario" placeholder="Descripcion" id="Descripcion" name="descripcion"> <%= lot.descripcion %> </textarea>
+      <input type="submit" class="submit__formulario" value="Guardar" id="submitAñadir">
+      
     </form>
 
     <script src="/javascripts/appAdminLots.js"></script>

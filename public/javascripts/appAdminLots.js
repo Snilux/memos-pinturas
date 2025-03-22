@@ -15,7 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
       icon: "error",
       confirmButtonText: "Aceptar",
     }).then(() => {
-      window.location.href = `/admin`;
+      if (errorMessage === "No hay productos en el lote") {
+        window.location.href = `/admin/lots`;
+      }
+      if (errorMessage === "Introduzca un proveedor valido") {
+        return;
+      }
+      window.location.href = `/admin/lots`;
     });
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.pathname);
@@ -33,15 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
       icon: "success",
       confirmButtonText: "Aceptar",
     }).then(() => {
-      if (successMessage == "Producto editado con éxito") {
-        setTimeout(() => {
-          window.location.href = `/admin/products`;
-        }, 1000);
-      }
-      if (successMessage == "Producto en lote editado con éxito") {
+      if (successMessage === "Lote agregado correctamente") {
         setTimeout(() => {
           window.location.href = `/admin/lots`;
         }, 1000);
+      }
+      if (successMessage === "Lote actualizado correctamente") {
+        setTimeout(() => {
+          window.location.href = `/admin/lots`;
+        }, 500);
       }
     });
     if (window.history.replaceState) {
@@ -51,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".delete-product").forEach((button) => {
     button.addEventListener("click", function (event) {
-      event.preventDefault(); // Evita la navegación automática
+      event.preventDefault();
 
       let deleteUrl = this.getAttribute("data-url");
 
@@ -66,17 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = deleteUrl; // Redirige si confirma
+          Swal.fire({
+            title: "Éxito",
+            text: "Lote eliminado correctamente",
+            icon: "success",
+            confirmButtonText: "Aceptar",
+          }).then(() => {
+            window.location.href = deleteUrl; // Redirige si confirma
+          });
         }
       });
     });
   });
-
-  let code = document.getElementById("inputCodigo").value;
-  let input = document.getElementById("inputCodigo");
-  input.value = code;
-  let event = new Event("input", {
-    bubbles: true,
-  });
-  input.dispatchEvent(event);
 });

@@ -19,8 +19,11 @@ function normalizarTexto(texto) {
 }
 
 productsController.ShowAllProducts = (req, res) => {
+  // console.log(req.originalUrl);
   const showAllProductsQuery = queries.showAllProductsQuery;
   connection.query(showAllProductsQuery, (err, results) => {
+    // console.log(results);
+
     if (err) {
       console.error(`Error en la consulta ${err}`);
       return res.status(500).send("Error del servidor");
@@ -104,8 +107,8 @@ productsController.add = (req, res) => {
 };
 
 productsController.edit = (req, res) => {
-  console.log(req.params);
-  const { id, categoria } = req.params;
+  const { id, categoria, path } = req.params;
+  console.log(path);
 
   const tabla =
     categoriaMap[
@@ -124,6 +127,7 @@ productsController.edit = (req, res) => {
     }
     res.render("administration/products/editProduct", {
       product: results[0],
+      path: path,
       category: categoria,
       title: "Editar producto",
       data: req.session.user,
@@ -133,9 +137,11 @@ productsController.edit = (req, res) => {
 
 productsController.save = async (req, res) => {
   const id_producto = req.params.id;
+  const path = req.params.path;
+  // console.log("Path del post" + path);
 
-  console.log(req.params);
-  console.log(req.body);
+  // console.log(req.params);
+  // console.log(req.body);
 
   const {
     codigo_pintura,
@@ -222,11 +228,38 @@ productsController.save = async (req, res) => {
             reject(err);
           } else {
             resolve(results);
+
+            if (path === "products") {
+              res.render("administration/products/editProduct", {
+                product: results,
+                category: tabla,
+                title: "Editar producto",
+                data: req.session.user,
+                path: path,
+                successMessage: "Producto editado con éxito",
+              });
+            } else {
+              res.render("administration/products/editProduct", {
+                product: results,
+                category: tabla,
+                title: "Editar producto",
+                data: req.session.user,
+                path: path,
+                successMessage: "Producto en lote editado con éxito",
+              });
+            }
           }
         }
       );
     });
-    res.redirect("/admin/products");
+    // res.redirect("/admin/products")
+    // res.render("administration/products/editProduct", {
+    //   product: results,
+    //   category: tabla,
+    //   title: "Editar producto",
+    //   data: req.session.user,
+    //   successMessage: "Producto editado con exito",
+    // });
   } catch (error) {
     console.error("Error al actualizar el producto:", error);
     res
@@ -314,6 +347,10 @@ productsController.duplicate = (req, res) => {
 productsController.ShowAutomobiles = (req, res) => {
   const query = `SELECT * FROM pinturas_automotrices`;
   connection.query(query, (err, results) => {
+    // console.log("Resultados para automoviles");
+
+    // console.log(results);
+
     if (err) {
       console.log(`Error en la consulta ${err}`);
       return;
@@ -340,7 +377,7 @@ productsController.ShowAerosol = (req, res) => {
       products: results,
       title: "Pinturas arosoles",
       data: req.session.user,
-      type: "Pinturas Arosoles",
+      type: "Pinturas en Aerosol",
     });
   });
 };
@@ -394,25 +431,7 @@ productsController.ShowAdhesives = (req, res) => {
       products: results,
       title: "Adhesivos y colorantes",
       data: req.session.user,
-      type: "Adhesivos y colorantes",
-    });
-  });
-};
-
-productsController.ShowAdhesives = (req, res) => {
-  const query = `SELECT * FROM adhesivos_y_colorantes`;
-  connection.query(query, (err, results) => {
-    console.log(results);
-
-    if (err) {
-      console.log(`Error en la consulta ${err}`);
-      return;
-    }
-    return res.render("administration/products/showProducts", {
-      products: results,
-      title: "Adhesivos y colorantes",
-      data: req.session.user,
-      type: "Adhesivos y colorantes",
+      type: "Adhesivos y Colorantes",
     });
   });
 };
@@ -428,9 +447,9 @@ productsController.ShowWood = (req, res) => {
     }
     return res.render("administration/products/showProducts", {
       products: results,
-      title: "Pinturas para madera",
+      title: "Pinturas para Madera",
       data: req.session.user,
-      type: "Pinturas para madera",
+      type: "Pinturas para Madera",
     });
   });
 };

@@ -19,4 +19,16 @@ router.get("/add", authUser.isAdmOrOp, (req, res) => {
 
 router.post("/add", authUser.isAdmOrOp, lotsController.AddLot);
 
+router.get(
+  "/generateCode/:id/:month/:year",
+  authUser.isAdmOrOp,
+  lotsController.generateCode
+);
+
+router.get("/edit/:id/:provider", authUser.isAdmOrOp, lotsController.editLot);
+
+router.post("/edit/:id", authUser.isAdmOrOp, lotsController.saveLot);
+
+router.get("/delete/:id", authUser.isAdmOrOp, lotsController.deleteLot)
+
 module.exports = router;

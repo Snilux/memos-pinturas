@@ -128,7 +128,11 @@
               <div class="ml-6">
                 <div class="text-2xl font-semibold text-gray-900">
                   <a href="/admin/lots/showProduct/<%= lots[i].id_lote %>">Ver productos</a>
-                  <a href="/admin/lots/edit/<%= lots[i].id_lote %>">Editar</a>
+
+                  <a href="/admin/lots/generateCode/<%= lots[i].id_lote %>/<%= (new Date(lots[i].fecha_llegada).getMonth() + 1).toString().padStart(2, '0') %>/<%= new Date(lots[i].fecha_llegada).getFullYear() %>">Generar codigo</a>
+
+                  <a href="/admin/lots/edit/<%= lots[i].id_lote %>/<%= lots[i].proveedor_id %>">Editar</a>
+
                   <a class="delete-product" data-url="/admin/lots/delete/<%= lots[i].id_lote %>">Eliminar</a>
                 </div>
               </div>
@@ -141,7 +145,7 @@
     </table>
   </div>
 
-  <script src="/javascripts/appAdminProviders.js"></script>
+  <script src="/javascripts/appAdminLots.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     var errorMessage =

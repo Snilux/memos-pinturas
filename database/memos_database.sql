@@ -39,7 +39,8 @@ CREATE TABLE lotes (
     FOREIGN KEY (proveedor_id) REFERENCES proveedores(id_proveedor) ON DELETE SET NULL
 );
 
-SELECT id_lote FROM lotes WHERE proveedor_id = ?, proveedor_id = ?,  fecha_llegada = ?, fecha_caducidad = ?, descripcion = ?; 
+
+
 -- Tabla base para productos
 CREATE TABLE productos_base (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,

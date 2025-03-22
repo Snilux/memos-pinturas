@@ -20,7 +20,7 @@
           <div class="producto-detalles">
             <h3 class="producto-titulo">
               <%= products[i].Tipo %>
-              <%= products[i].tabla %>
+
               <%= type %>
               <%= products[i].subcategoria %>
             </h3>
@@ -61,13 +61,13 @@
         </div>
 
         <div class="producto-accion">
-          <a class="btn-ver-mas" href="/admin/products/edit/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+          <a class="btn-ver-mas" href="/admin/products/edit/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>/products">
             Editar <i class="fa-solid fa-pen-to-square"></i>
           </a>
-          <a class="btn-ver-mas delete-product" data-url="/admin/products/delete/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+          <a class="btn-ver-mas delete-product" data-url="/admin/products/delete/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
             Eliminar <i class="fa-solid fa-trash"></i>
           </a>
-          <a class="btn-ver-mas" href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo %>">
+          <a class="btn-ver-mas" href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
             Duplicar <i class="fa-solid fa-clone"></i>
           </a>
         </div>

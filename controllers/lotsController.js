@@ -13,7 +13,15 @@ const traceability = (id) => {
         console.log(`Error en el servidor ${err}`);
         reject(err);
       } else {
-        resolve(results[0]); // Devolvemos el primer resultado
+        if (
+          results.length > 0 &&
+          results[0].Proveedor &&
+          results[0].Categorias
+        ) {
+          resolve(results[0]);
+        } else {
+          resolve(undefined);
+        } // Devolvemos el primer resultado
       }
     });
   });
@@ -27,23 +35,102 @@ const providerId = (name) => {
         console.log(`Error en el servidor ${err}`);
         reject(err);
       } else {
-        resolve(results[0]); // Devolvemos el primer resultado
+        // Verificar si results tiene al menos un elemento
+        if (results.length > 0 && results[0].id_proveedor) {
+          resolve(results[0].id_proveedor);
+        } else {
+          resolve(undefined);
+        }
       }
     });
   });
 };
 
+const nameProvider = (id) => {
+  return new Promise((resolve, reject) => {
+    const query = `SELECT nombre_empresa FROM proveedores WHERE id_proveedor = ?`;
+    connection.query(query, id, (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor`);
+        reject(err);
+      } else {
+        if (results.length > 0 && results[0].nombre_empresa) {
+          resolve(results[0].nombre_empresa);
+        } else {
+          resolve(undefined);
+        }
+      }
+    });
+  });
+};
+
+const formatDate = (date) => {
+  const d = new Date(date);
+  let month = "" + (d.getMonth() + 1);
+  let day = "" + d.getDate();
+  const year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+};
+
 lotsController.AddLot = async (req, res) => {
   const { nombre_empresa, fecha_llegada, fecha_caducidad, descripcion } =
     req.body;
+  let id_proveedor = await providerId(nombre_empresa);
+  // console.log(id_proveedor);
 
-  let proveedor_id = await providerId(nombre_empresa);
-  console.log(proveedor_id);
+  if (id_proveedor == undefined) {
+    return res.render("administration/lots/addLot", {
+      title: "Añadir lote",
+      errorMessage: "No se encontro el proveedor",
+    });
+  }
+  const query = `INSERT INTO ${table} (proveedor_id, fecha_llegada, fecha_caducidad, descripcion) VALUES (?, ?, ?, ?)`;
+  connection.query(
+    query,
+    [id_proveedor, fecha_llegada, fecha_caducidad, descripcion],
+    (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor ${err}`);
+        return res.redirect("/admin/lot/add");
+      }
+      return res.render("administration/lots/addLot", {
+        title: "Añadir lote",
+        successMessage: "Lote agregado correctamente",
+      });
+    }
+  );
+};
 
-  // let traceabilityCode = await traceability(id_lote);
-  // console.log(traceabilityCode);
+lotsController.generateCode = async (req, res) => {
+  const id_lote = req.params.id;
+  const month = parseInt(req.params.month);
+  const year = parseInt(req.params.year);
 
-  // traceabilityCode += id_lote;
+  let values = await traceability(id_lote);
+  console.log(values);
+
+  if (values !== undefined) {
+    let traceabilityCode = `${values.Proveedor}-${values.Categorias}-${year}${month}-${id_lote}`;
+
+    const query = `UPDATE ${table} SET codigo_trazabilidad = ? WHERE id_lote = ?`;
+
+    connection.query(query, [traceabilityCode, id_lote], (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor`);
+        return res.redirect("/admin/lots/add");
+      }
+      return res.redirect("/admin/lots");
+    });
+  } else {
+    return res.render("administration/lots/addLot", {
+      title: "Añadir lote",
+      errorMessage: "No hay productos en el lote",
+    });
+  }
 };
 
 lotsController.showLots = (req, res) => {
@@ -79,7 +166,7 @@ lotsController.showProductsInLots = (req, res) => {
   // console.log(id);
   const params = Array(7).fill(id);
   connection.query(query, params, (err, results) => {
-    console.log(results);
+    //console.log(results);
     if (err) {
       console.log(`Error en el servidor ${err}`);
       return res.redirect("/admin/lots");
@@ -95,12 +182,104 @@ lotsController.showProductsInLots = (req, res) => {
         tabla_origen: formattedTabla,
       };
     });
-    console.log(formattedResults);
+    // console.log(formattedResults);
 
     return res.render("administration/lots/showProducts", {
       title: "Productos en lote",
       lots: formattedResults,
     });
+  });
+};
+
+lotsController.editLot = async (req, res) => {
+  const lote_id = req.params.id;
+  const proveedor_id = req.params.provider;
+
+  let nombre_proveedor = await nameProvider(proveedor_id);
+  // console.log(nombre_proveedor);
+
+  const query = `SELECT * FROM ${table} WHERE id_lote = ?`;
+
+  connection.query(query, lote_id, (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/admin/lots");
+    }
+    // console.log(results[0]);
+
+    res.render("administration/lots/editLot", {
+      title: "Editar lote",
+      lot: {
+        id_lote: results[0].id_lote,
+        codigo_trazabilidad: results[0].codigo_trazabilidad,
+        proveedor_id: results[0].proveedor_id,
+        fecha_llegada: results[0].fecha_llegada
+          ? formatDate(results[0].fecha_llegada)
+          : "",
+        fecha_caducidad: results[0].fecha_caducidad
+          ? formatDate(results[0].fecha_caducidad)
+          : "",
+        descripcion: results[0].descripcion,
+      },
+      nameProvider: nombre_proveedor,
+    });
+  });
+};
+
+lotsController.saveLot = async (req, res) => {
+  const id_lote = req.params.id;
+  const { nombre_empresa, fecha_llegada, fecha_caducidad, descripcion } =
+    req.body;
+
+  const query = `UPDATE ${table} SET proveedor_id  = ?, fecha_llegada = ?, fecha_caducidad = ?, descripcion = ? WHERE id_lote = ? `;
+  let proveedor_id = await providerId(nombre_empresa);
+
+  if (proveedor_id == undefined) {
+    return res.render("administration/lots/editLot", {
+      title: "Editar lote",
+      errorMessage: "Introduzca un proveedor valido",
+      lot: {
+        id_lote,
+        fecha_llegada,
+        fecha_caducidad,
+        descripcion,
+      },
+      nameProvider: nombre_empresa,
+    });
+  }
+  connection.query(
+    query,
+    [proveedor_id, fecha_llegada, fecha_caducidad, descripcion, id_lote],
+    (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor ${err}`);
+        return res.redirect("/admin/lots");
+      }
+      return res.render("administration/lots/editLot", {
+        title: "Editar lote",
+        successMessage: "Lote actualizado correctamente",
+        lot: {
+          id_lote: "",
+          fecha_llegada: "",
+          fecha_caducidad: "",
+          descripcion: "",
+        },
+        nameProvider: "",
+      });
+    }
+  );
+};
+
+lotsController.deleteLot = (req, res) => {
+  const id_lote = req.params.id;
+  const query = `DELETE FROM ${table} WHERE id_lote = ?`;
+
+  connection.query(query, id_lote, (err, results) => {
+    if (err) {
+      console.log(`Erroe en el servidor ${err}`);
+      return res.redirect("/admin/lots");
+    }
+    return res.redirect("/admin/lots");
   });
 };
 module.exports = lotsController;

@@ -7,23 +7,13 @@ INSERT INTO usuarios (nombre, email, pass, rol) VALUES
 
 -- Insertar proveedores de ejemplo
 INSERT INTO proveedores (nombre_empresa, telefono, email) VALUES
-('Pinturas Colorín', '555-1234', 'info@colorin.com'),
-('Aerosoles Express', '555-5678', 'ventas@aerosolesexpress.com'),
-('Adhesivos Unidos', '555-9012', 'contacto@adhesivosunidos.com'),
-('Industrias Pintor', '555-3456', 'info@industriaspintor.com'),
-('Automotriz Brillante', '555-7890', 'ventas@automotrizbrillante.com'),
-('Madera Bella', '555-2345', 'contacto@maderabella.com');
+('Ipesa', '2491110478', 'luisgordillopor2@gmail.com');
 
 select * from proveedores;
 -- Insertar lotes de ejemplo
 
-INSERT INTO lotes (codigo_trazabilidad, proveedor_id, fecha_llegada, fecha_caducidad, descripcion) VALUES
-('LOTE001', 1, '2023-01-15', '2025-01-15', 'Pinturas vinílicas'),
-('LOTE002', 7, '2023-02-20', '2024-02-20', 'Aerosoles mate'),
-('LOTE003', 8, '2023-03-25', '2026-03-25', 'Adhesivos de contacto'),
-('LOTE004', 9, '2023-04-30', '2027-04-30', 'Pinturas industriales'),
-('LOTE005', 10, '2023-05-15', '2025-05-15', 'Pinturas automotrices'),
-('LOTE006', 11, '2023-06-20', '2024-06-20', 'Tintas para madera');
+INSERT INTO lotes (proveedor_id, fecha_llegada, fecha_caducidad, descripcion) VALUES
+(1, '2023-01-15', '2025-01-15', 'Pinturas vinílicas');
 
 describe proveedores;
 describe lotes;
