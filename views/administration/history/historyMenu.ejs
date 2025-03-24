@@ -1,0 +1,21 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
+</head>
+
+<body>
+  <%- include('../../partials/navAdmin.ejs') %>
+  <%- include('../../partials/dropdownMenu.ejs') %>
+  <section class="productos-section">
+    <%- include('../../partials/historyMenuNav.ejs') %>
+  </section>
+
+
+
+  <script>
+    function activarMenu() {
+      document.getElementById("menuDesplegable").classList.toggle("active");
+      document.querySelector(".menu").classList.toggle("active");
+    }
+  </script>
+</body>

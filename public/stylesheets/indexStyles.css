@@ -14,6 +14,7 @@
   --amarilloOpaco: #faf7f3;
   --dorado: #ffd700;
   --grisOxford: #393d42;
+  --grisOscuro: #d1d5db;
 
   --sombra: 0 4px 12px rgba(0, 0, 0, 0.08);
   --radio-borde: 8px;
@@ -738,7 +739,7 @@ img {
 
 /* Imagen del producto */
 .producto-imagen {
-  background-color: var(--grisClaro);
+  background-color: var(--grisOscuro);
   padding: 30px;
   display: flex;
   justify-content: center;

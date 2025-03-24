@@ -1,6 +1,7 @@
 <%- include('../../partials/head.ejs') %>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
 <link rel="stylesheet" href="/stylesheets/productsAdministration.css">
+
 </head>
 
 <body>
@@ -9,46 +10,188 @@
 
   <h1 class="heading__formulario">Añadir Producto</h1>
 
-  <form class="formularios__productos" id="formularioLogin" method="post" action="/admin/products/add" enctype="multipart/form-data">
+  <div class="contenedor">
+    <div class="formulario-container">
+      <form class="formularios__productos" id="formularioLogin" method="post" action="/admin/products/add" enctype="multipart/form-data">
+        <div class="formulario__grid">
+          <!-- SECCIÓN INFORMACIÓN PRINCIPAL -->
+          <div class="formulario__card">
+            <div class="card__header">
+              <div class="icon-circle">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+              <h2>Información Principal</h2>
+            </div>
+            <div class="card__content">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Código de Pintura</label>
+                  <div class="input-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="000" name="codigo_pintura" id="inputCodigo" required>
+                    <span class="badge">Autocompletado</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Litros</label>
+                  <div class="input-container">
+                    <i class="fa-solid fa-fill-drip"></i>
+                    <select name="litros" id="inputLitros" required>
+                      <option value="" disabled selected>Selecciona una opción</option>
+                      <option value="1">1 Litro</option>
+                      <option value="4">4 Litros</option>
+                      <option value="19">19 Litros</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Categoría</label>
+                  <div class="input-container">
+                    <i class="fas fa-tags"></i>
+                    <input type="text" placeholder="Categoría" name="tabla_categoria" id="inputCategoria" readonly required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Subcategoría</label>
+                  <div class="input-container">
+                    <i class="fas fa-tag"></i>
+                    <input type="text" placeholder="Subcategoría" name="subcategoria" id="inputSubCategoria" readonly required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group full-width">
+                  <label>Nombre del Producto</label>
+                  <div class="input-container">
+                    <i class="fas fa-tag"></i>
+                    <input type="text" placeholder="Nombre del producto" name="nombre" id="inputNombreProducto" readonly required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <div class="formularios__columna">
-      <input type="text" class="input__formulario" placeholder="Codigo pintura " id="inputCodigo" required name="codigo_pintura">
+          <!-- SECCIÓN INFORMACIÓN VISUAL -->
+          <div class="formulario__card">
+            <div class="card__header">
+              <div class="icon-circle">
+                <i class="fa-solid fa-image"></i>
+              </div>
+              <h2>Información Visual</h2>
+            </div>
+            
+            <div class="card__content">
+              <div class="upload-area" id="uploadArea">
+                <div class="upload-placeholder">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                  <p>Arrastra una imagen o haz clic para seleccionar</p>
+                </div>
+                <input type="file" id="imageUpload" name="imagen" accept="image/*" required>
+                <img id="imagePreview" class="preview-image" style="display: none;">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Nombre del Color</label>
+                  <div class="input-container">
+                    <i class="fas fa-palette"></i>
 
-      
-      <div id="inputLitrosContainer"></div>
+                    <input type="text" id="colorInput" placeholder="Nombre del color" readonly name="color_nombre" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Color</label>
+                  <input type="color" id="nombreColor" readonly name="color_hex" required>
 
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <input type="number" min="0" class="input__formulario" placeholder="Precio compra" name="precio_compra">
-      <input type="number" min="0" class="input__formulario" placeholder="Precio venta" id="inputVenta" name="precio_venta">
-      <input type="number" min="0" class="input__formulario" placeholder="Cantidad disponible" id="inputCantidad" name="cantidad">
+          <!-- SECCIÓN PRECIOS Y CANTIDADES -->
+          <div class="formulario__card">
+            <div class="card__header">
+              <div class="icon-circle">
+                <i class="fa-solid fa-dollar-sign"></i>
+              </div>
+              <h2>Precios y Cantidades</h2>
+            </div>
+            <div class="card__content">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="precio_compra">Precio de Compra</label>
+                  <div class="input-container">
+                    <i class="fas fa-shopping-cart"></i>
+                    <input type="number" placeholder="Precio de compra" name="precio_compra" id="inputCompra" min="0" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="">Precio de Venta</label>
+                  <div class="input-container">
+                    <i class="fas fa-tag"></i>
+                    <input type="number" placeholder="Precio de venta" name="precio_venta" id="inputVenta" min="0" required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Cantidad Disponible</label>
+                  <div class="input-container">
+                    <i class="fas fa-boxes"></i>
+                    <input type="number" placeholder="Cantidad disponible" name="cantidad" id="inputCantidad" min="0" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Piezas por Caja</label>
+                  <div class="input-container">
+                    <i class="fas fa-box"></i>
+                    <input type="text" placeholder="Piezas por caja" id="inputCajasContainer" name="cantidad_caja" readonly required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Número de Lote</label>
+                  <div class="input-container">
+                    <i class="fas fa-barcode"></i>
+                    <input type="number" placeholder="Número de lote" name="lote_id" id="inputLote" min="0" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Proveedor</label>
+                  <div class="input-container">
+                    <i class="fas fa-truck"></i>
+                    <input type="text" placeholder="Proveedor" name="nombre_proveedor" id="inputProveedor" readonly required>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      <input type="file" class="input__formulario" id="inputFoto" accept="image/*" placeholder="Añadir Imagen" name="imagen">
-      <input type="number" class="input__formulario" placeholder="Numero de lote" id="inputLote" name="lote_id">
+          </div>
 
-      <input type="submit" min="0" class="submit__formulario" value="Agregar" id="submitAgregar">
-      <a href="/admin/products" class="submit__formulario">Volver</a>
-
+          <!-- SECCIÓN BOTONES -->
+          <div class="buttons-container">
+            <button type="submit" class="btn btn-save">
+              <i class="fas fa-save"></i> Guardar Producto
+            </button>
+            <a href="/admin/products" class="btn btn-cancel">
+              <i class="fas fa-arrow-left"></i> Volver
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
-    <!-- ================================== -->
-    <div class="formularios__columna">
-      <input type="text" class="input__formulario" id="inputCategoria" readonly placeholder="Categoria" name="tabla_categoria">
-      <input type="text" class="input__formulario" id="inputSubCategoria" readonly placeholder="Subcategoria" name="subcategoria">
-      <input type="text" class="input__formulario" placeholder="Nombre producto" readonly id="inputNombreProducto" name="nombre">
+  </div>
 
-      <input type="text" id="colorInput" placeholder="Nombre del color" class="input__formulario" readonly name="color_nombre">
-      <input type="color" class="input__formulario-color" id="nombreColor" readonly name="color_hex">
-
-      <input type="text" class="input__formulario" placeholder="Piezas por caja" readonly id="inputCajasContainer" name="cantidad_caja">
-      <input type="text" class="input__formulario" placeholder="Proveedor" readonly id="inputProveedor" name="nombre_proveedor">
-    </div>
-
-  </form>
-  <h2 class="heading__login">Journey</h2>
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/javascripts/appPanelAdministrarion.js"></script>
   <script src="/javascripts/appAdminProducts.js"></script>
+  <script src="/javascripts/appFormularioAdd.js"></script>
+
+
   <script>
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
     var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";

@@ -37,10 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           window.location.href = `/admin/products`;
         }, 1000);
-      }
-      if (successMessage == "Producto en lote editado con éxito") {
+      } else if (successMessage == "Producto en lote editado con éxito") {
         setTimeout(() => {
           window.location.href = `/admin/lots`;
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          window.location.href = `/admin/products`;
         }, 1000);
       }
     });

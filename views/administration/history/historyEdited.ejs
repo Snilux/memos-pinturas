@@ -1,0 +1,143 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
+</head>
+
+<body>
+  <%- include('../../partials/navAdmin.ejs') %>
+  <%- include('../../partials/dropdownMenu.ejs') %>
+  <section class="productos-section">
+    <%- include('../../partials/historyMenuNav.ejs') %>
+    <div class="productos-container">
+      <div class="productos-grid">
+        <% if (editedProducts) { %> <% for (let i = 0; i < editedProducts.length; i++) { %>
+        <div class="producto-card">
+          <div class="producto-content">
+
+            <div class="producto-header">
+              <h3 class="producto-titulo"> <%= editedProducts[i].tabla_modificada %>
+                <%= editedProducts[i].subcategoria_anterior %> </h3>
+              <h3 class="producto-nombre"> <%= editedProducts[i].nombre_anterior %> </h3>
+              <h3 class="producto-nombre">ID del producto: <%= editedProducts[i].producto_id %> </h3>
+              <h3 class="producto-nombre">Codigo de pintura: <%= editedProducts[i].codigo_pintura_anterior %> </h3>
+
+            </div>
+            <div class="producto-info">
+
+              <div class="info-item">
+                <span class="producto-nombre">Valores anteriores:</span>
+              </div>
+              <div class="info-item">
+                <span class="producto-nombre"">valores actuales:</span>
+              </div>
+
+              <div class="info-item">
+              </div>
+
+              <% if(editedProducts[i].cantidad_litros_anterior && editedProducts[i].cantidad_litros_nuevo) {%>
+              <div class="info-item">
+                <span class="info-label">Litros:</span>
+                <span class="info-value"><%= editedProducts[i].cantidad_litros_anterior %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Litros:</span>
+                <span class="info-value"><%= editedProducts[i].cantidad_litros_nuevo %></span>
+              </div>
+              <% } %>
+              <!-- ITEM VACIO -->
+              <div class="info-item"></div>
+
+              <% if(editedProducts[i].precio_compra_anterior && editedProducts[i].precio_compra_nuevo) {%>
+              <div class="info-item">
+                <span class="info-label">Precio compra:</span>
+                <span class="info-value"><%= editedProducts[i].precio_compra_anterior %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Precio compra:</span>
+                <span class="info-value"><%= editedProducts[i].precio_compra_nuevo %></span>
+              </div>
+              <% } %>
+
+              <div class="info-item"></div>
+
+              <% if(editedProducts[i].precio_venta_anterior && editedProducts[i].precio_venta_nuevo) {%>
+              <div class="info-item">
+                <span class="info-label">Precio venta:</span>
+                <span class="info-value"><%= editedProducts[i].precio_venta_anterior %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Precio venta:</span>
+                <span class="info-value"><%= editedProducts[i].precio_venta_nuevo %></span>
+              </div>
+              <% } %>
+              <!-- ITEM VACIO -->
+              <div class="info-item"></div>
+
+              <% if(editedProducts[i].cantidad_anterior && editedProducts[i].cantidad_nueva) {%>
+              <div class="info-item">
+                <span class="info-label">Cantidad anterior:</span>
+                <span class="info-value"><%= editedProducts[i].cantidad_anterior %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Cantidad nueva:</span>
+                <span class="info-value"><%= editedProducts[i].cantidad_nueva %></span>
+              </div>
+              <% } %>
+              <!-- ITEM VACIO -->
+              <div class="info-item"></div>
+
+              <% if(editedProducts[i].lote_id_anterior && editedProducts[i].lote_id_nuevo) {%>
+              <div class="info-item">
+                <span class="info-label">Id lote:</span>
+                <span class="info-value"><%= editedProducts[i].lote_id_anterior %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Id lote:</span>
+                <span class="info-value"><%= editedProducts[i].lote_id_nuevo %></span>
+              </div>
+              <% } %>
+              <!-- ITEM VACIO -->
+              <div class="info-item"></div>
+
+              <% if(editedProducts[i].fecha_cambio) {%>
+              <div class="info-item">
+                <span class="info-label">Fecha de actualizacion:</span>
+                <span class="info-value">
+                  <% if (editedProducts[i].fecha_cambio) { %>
+                  <%= new Date(editedProducts[i].fecha_cambio).toLocaleString('es-ES', { 
+                      day: '2-digit', 
+                      month: '2-digit', 
+                      year: 'numeric', 
+                      hour: '2-digit', 
+                      minute: '2-digit' 
+                    }) %>
+                  <% } %>
+                </span>
+              </div>
+
+              <% } %>
+
+            </div>
+
+          </div>
+          <div class="producto-accion">
+            <a class="btn-accion btn-eliminar delete-product"
+              data-url="/admin/history/edited/delete/<%= editedProducts[i].id_auditoria %>">
+              <i class="fa-solid fa-trash"></i> Eliminar </a>
+          </div>
+
+
+        </div>
+        <% } %>
+        <% } else { %>
+        <div class=" no-products">
+          <p>No hay productos </p>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+  <script src="/javascripts/appAdminHistory.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>

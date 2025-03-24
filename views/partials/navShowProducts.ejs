@@ -1,16 +1,31 @@
 <div class="nav-productos">
   <nav class="navbar">
-    <a class="submit__formulario" href="/admin/products/add">Agregar pintura</a>
-    <a class="submit__formulario" href="/admin/products">Ver todos</a>
-    <a class="submit__formulario" href="/admin/products/automobiles">Pinturas Automotrices</a>
-    <a class="submit__formulario" href="/admin/products/architectural">Pinturas Arquitectónicas</a>
-    <a class="submit__formulario" href="/admin/products/aerosol">Pinturas en Aerosol</a>
-    <a class="submit__formulario" href="/admin/products/industrials">Pinturas Industriales</a>
-    <a class="submit__formulario" href="/admin/products/adhesives">Adhesivos y Colorantes</a>
-    <a class="submit__formulario" href="/admin/products/wood">Pinturas para Madera</a>
-    <form action="/admin/products/search" method="get">
-      <input type="search" class="submit__formulario" name="value" value="Buscar">
+    <a class="submit__formulario" href="/admin/products/add">
+      <i class="fas fa-plus-circle"></i> Agregar pintura
+    </a>
+    <a class="submit__formulario" href="/admin/products">
+      <i class="fas fa-list"></i> Ver todos
+    </a>
+    <a class="submit__formulario" href="/admin/products/automobiles">
+      <i class="fas fa-car"></i> Pinturas Automotrices
+    </a>
+    <a class="submit__formulario" href="/admin/products/architectural">
+      <i class="fas fa-building"></i> Pinturas Arquitectónicas
+    </a>
+    <a class="submit__formulario" href="/admin/products/aerosol">
+      <i class="fas fa-spray-can"></i> Pinturas en Aerosol
+    </a>
+    <a class="submit__formulario" href="/admin/products/industrials">
+      <i class="fas fa-industry"></i> Pinturas Industriales
+    </a>
+    <a class="submit__formulario" href="/admin/products/adhesives">
+      <i class="fas fa-paint-roller"></i> Adhesivos y Colorantes
+    </a>
+    <a class="submit__formulario" href="/admin/products/wood">
+      <i class="fas fa-tree"></i> Pinturas para Madera
+    </a>
+    <form action="/admin/products/search" method="get" class="search__contenedor">
+      <input type="search" name="value" placeholder="Buscar" class="input__search">
     </form>
   </nav>
-
 </div>

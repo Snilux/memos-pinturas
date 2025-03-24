@@ -5,6 +5,8 @@ const authUser = require("../middlewares/authUser");
 const upload = require("../middlewares/multerConfig");
 const providerRoutes = require("./administrationProvidersRoutes");
 const lotsRoutes = require("./administrationLotsRoutes");
+const historyRoutes = require("./administrationHistoryRoutes");
+const salesRoutes = require("./administrationSalesRoutes");
 
 router.get("/", authUser.isAdmOrOp, (req, res, next) => {
   res.render("administration/panelAdministration", {
@@ -16,6 +18,10 @@ router.get("/", authUser.isAdmOrOp, (req, res, next) => {
 router.use("/providers", providerRoutes);
 
 router.use("/lots", lotsRoutes);
+
+router.use("/history", historyRoutes);
+
+router.use("/sales", salesRoutes);
 
 router.get("/products", authUser.isAdmOrOp, productsController.ShowAllProducts);
 

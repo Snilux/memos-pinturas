@@ -6,82 +6,69 @@
 <body>
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
-  <section class="productos">
-
+  <section class="productos-section">
     <%- include('../../partials/navShowProducts.ejs') %>
-    <div class="productos-grid">
-      <% if (products) { %>
-      <% for (let i = 0; i < products.length; i++) { %>
-      <div class="producto-card">
-        <div class="producto-imagen">
-          <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].Tipo %>>
-        </div>
-        <div class="producto-info">
-          <div class="producto-detalles">
-            <h3 class="producto-titulo">
-              <%= products[i].Tipo %>
-
-              <%= type %>
-              <%= products[i].subcategoria %>
-            </h3>
-            <h3 class="producto-titulo">
-              <%= products[i].nombre %>
-            </h3>
-            <p class="producto-precio">Codigo Pintura: <span>
-                <%= products[i].codigo_pintura %>
-              </span></p>
-            <p class="producto-color-label">Color: <span class="producto-color-valor">
-                <%= products[i].color_nombre %>
-              </span></p>
-            <p class="producto-precio">Cantidad caja: <span>
-                <%= products[i].cantidad_caja %>
-              </span></p>
-            <p class="producto-precio">Cantidad litros: <span>
-                <%= products[i].cantidad_litros %>
-              </span></p>
-            <p class="producto-precio">Numero lote: <span>
-                <%= products[i].lote_id %>
-              </span></p>
-            <p class="producto-precio">Precio compra: <span>$
-                <%= products[i].precio_compra %>
-              </span></p>
-            <p class="producto-precio">Precio venta: <span>$
-                <%= products[i].precio_venta %>
-              </span></p>
-            <p class="producto-precio">Cantidad: <span>
-                <%= products[i].cantidad %>
-              </span></p>
-            <p class="producto-precio">Proveedor: <span>
-                <%= products[i].nombre_proveedor %>
-              </span></p>
+    <div class="productos-container">
+      <div class="productos-grid"> <% if (products) { %> <% for (let i = 0; i < products.length; i++) { %>
+        <div class="producto-card">
+          <div class="producto-imagen"> <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].Tipo %>>
           </div>
-          <div class="color-muestra">
-            <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"> </div>
+          <div class="producto-content">
+            <div class="producto-header">
+              <h3 class="producto-titulo"> <%= products[i].Tipo %> <%= products[i].tabla %> <%= type %>
+                <%= products[i].subcategoria %> </h3>
+              <h3 class="producto-nombre"> <%= products[i].nombre %> </h3>
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"></div> <span
+                  class="color-nombre"><%= products[i].color_nombre %></span>
+              </div>
+            </div>
+            <div class="producto-info">
+              <div class="info-item"> <span class="info-label">Código Pintura:</span> <span
+                  class="info-value"><%= products[i].codigo_pintura %></span> </div>
+              <div class="info-item"> <span class="info-label">Cantidad caja:</span> <span
+                  class="info-value"><%= products[i].cantidad_caja %></span> </div>
+              <div class="info-item"> <span class="info-label">Cantidad litros:</span> <span
+                  class="info-value"><%= products[i].cantidad_litros %></span> </div>
+              <div class="info-item"> <span class="info-label">Número lote:</span> <span
+                  class="info-value"><%= products[i].lote_id %></span> </div>
+              <div class="info-item"> <span class="info-label">Precio compra:</span> <span
+                  class="info-value precio">$<%= products[i].precio_compra %></span> </div>
+              <div class="info-item"> <span class="info-label">Precio venta:</span> <span
+                  class="info-value precio">$<%= products[i].precio_venta %></span> </div>
+              <div class="info-item"> <span class="info-label">Cantidad:</span> <span
+                  class="info-value"><%= products[i].cantidad %></span> </div>
+              <div class="info-item"> <span class="info-label">Proveedor:</span> <span
+                  class="info-value"><%= products[i].nombre_proveedor %></span> </div>
+            </div>
           </div>
-        </div>
+          <div class="producto-accion">
+            <a class="btn-accion btn-editar"
+              href="/admin/products/edit/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>/products">
+              <i class="fa-solid fa-pen-to-square"></i> Editar </a>
 
-        <div class="producto-accion">
-          <a class="btn-ver-mas" href="/admin/products/edit/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>/products">
-            Editar <i class="fa-solid fa-pen-to-square"></i>
-          </a>
-          <a class="btn-ver-mas delete-product" data-url="/admin/products/delete/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
-            Eliminar <i class="fa-solid fa-trash"></i>
-          </a>
-          <a class="btn-ver-mas" href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
-            Duplicar <i class="fa-solid fa-clone"></i>
-          </a>
-        </div>
+            <a class="btn-accion btn-eliminar delete-product"
+              data-url="/admin/products/delete/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
+              <i class="fa-solid fa-trash"></i> Eliminar </a>
+
+            <a class="btn-accion btn-duplicar"
+              href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
+              <i class="fa-solid fa-clone"></i> Duplicar </a>
+
+            <a class="btn-accion btn-etiqueta" href="#"> <i class="fa-solid fa-tag"></i> Etiqueta </a>
+          </div>
+
+          
+        </div> <% } %> <% } else { %> <div class="no-products">
+          <p>No hay productos disponibles</p>
+        </div> <% } %>
       </div>
-      <% } %>
-      <% } %>
     </div>
   </section>
   <script src="/javascripts/appPanelAdministrarion.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    var errorMessage =
-      "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
-    var successMessage =
-      "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
   </script>
 </body>

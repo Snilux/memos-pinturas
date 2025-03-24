@@ -1,4 +1,3 @@
-const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const connection = require("../config/db");
@@ -137,7 +136,7 @@ productsController.edit = (req, res) => {
 
 productsController.save = async (req, res) => {
   const id_producto = req.params.id;
-  const path = req.params.path;
+  const url = req.params.path;
   // console.log("Path del post" + path);
 
   // console.log(req.params);
@@ -157,6 +156,7 @@ productsController.save = async (req, res) => {
     color_hex,
     cantidad_caja,
     nombre_proveedor,
+    cantidad_litros,
   } = req.body;
 
   const tabla =
@@ -170,6 +170,7 @@ productsController.save = async (req, res) => {
   try {
     if (req.file) {
       imagePath = req.file.filename;
+
 
       if (currentImagePath && currentImagePath !== imagePath) {
         const absoluteOldImagePath = path.join(
@@ -194,6 +195,7 @@ productsController.save = async (req, res) => {
         color_hex = ?,
         codigo_pintura = ?,
         cantidad_caja = ?,
+        cantidad_litros = ?,
         lote_id = ?,
         precio_compra = ?,
         precio_venta = ?,
@@ -214,6 +216,7 @@ productsController.save = async (req, res) => {
           color_hex,
           codigo_pintura,
           cantidad_caja,
+          cantidad_litros,
           lote_id,
           precio_compra,
           precio_venta,
@@ -229,13 +232,13 @@ productsController.save = async (req, res) => {
           } else {
             resolve(results);
 
-            if (path === "products") {
+            if (url === "products") {
               res.render("administration/products/editProduct", {
                 product: results,
                 category: tabla,
                 title: "Editar producto",
                 data: req.session.user,
-                path: path,
+                path: url,
                 successMessage: "Producto editado con éxito",
               });
             } else {
@@ -244,7 +247,7 @@ productsController.save = async (req, res) => {
                 category: tabla,
                 title: "Editar producto",
                 data: req.session.user,
-                path: path,
+                path: url,
                 successMessage: "Producto en lote editado con éxito",
               });
             }
@@ -252,14 +255,6 @@ productsController.save = async (req, res) => {
         }
       );
     });
-    // res.redirect("/admin/products")
-    // res.render("administration/products/editProduct", {
-    //   product: results,
-    //   category: tabla,
-    //   title: "Editar producto",
-    //   data: req.session.user,
-    //   successMessage: "Producto editado con exito",
-    // });
   } catch (error) {
     console.error("Error al actualizar el producto:", error);
     res
@@ -367,7 +362,7 @@ productsController.ShowAutomobiles = (req, res) => {
 productsController.ShowAerosol = (req, res) => {
   const query = `SELECT * FROM pinturas_en_aerosol`;
   connection.query(query, (err, results) => {
-    console.log(results);
+    // console.log(results);
 
     if (err) {
       console.log(`Error en la consulta ${err}`);
@@ -385,7 +380,7 @@ productsController.ShowAerosol = (req, res) => {
 productsController.ShowArchitectural = (req, res) => {
   const query = `SELECT * FROM pinturas_arquitectonicas`;
   connection.query(query, (err, results) => {
-    console.log(results);
+    // console.log(results);
 
     if (err) {
       console.log(`Error en la consulta ${err}`);
@@ -403,7 +398,7 @@ productsController.ShowArchitectural = (req, res) => {
 productsController.ShowIndustrials = (req, res) => {
   const query = `SELECT * FROM pinturas_industriales`;
   connection.query(query, (err, results) => {
-    console.log(results);
+    // console.log(results);
 
     if (err) {
       console.log(`Error en la consulta ${err}`);
@@ -421,7 +416,7 @@ productsController.ShowIndustrials = (req, res) => {
 productsController.ShowAdhesives = (req, res) => {
   const query = `SELECT * FROM adhesivos_y_colorantes`;
   connection.query(query, (err, results) => {
-    console.log(results);
+    // console.log(results);
 
     if (err) {
       console.log(`Error en la consulta ${err}`);
@@ -439,7 +434,7 @@ productsController.ShowAdhesives = (req, res) => {
 productsController.ShowWood = (req, res) => {
   const query = `SELECT * FROM pinturas_para_madera`;
   connection.query(query, (err, results) => {
-    console.log(results);
+    // console.log(results);
 
     if (err) {
       console.log(`Error en la consulta ${err}`);

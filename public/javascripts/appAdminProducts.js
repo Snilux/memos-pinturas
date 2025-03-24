@@ -20,16 +20,15 @@ function setupEventListeners() {
 
     if (producto) {
       document.getElementById("inputCategoria").value = producto.categoria;
-      document.getElementById("inputSubCategoria").value =
-        producto.subcategoria;
-      document.getElementById("inputNombreProducto").value =
-        producto.nombreProducto;
+      document.getElementById("inputSubCategoria").value = producto.subcategoria;
+      document.getElementById("inputNombreProducto").value = producto.nombreProducto;
       document.getElementById("colorInput").value = producto.color || "";
-      document.getElementById("nombreColor").style.backgroundColor =
-        producto.colorHex || "transparent";
-      document.getElementById("nombreColor").value = producto.colorHex || "#00";
+      
+      const colorInput = document.getElementById("nombreColor");
+      colorInput.value = producto.colorHex || "#000000";
+    
       document.getElementById("inputProveedor").value = "Ipesa";
-
+    
       setOrReplaceInput("inputLitros", producto.litros, producto.piezasCaja);
       setOrReplaceInput("inputCompra", producto.preciosCompra);
     } else {
@@ -37,13 +36,14 @@ function setupEventListeners() {
       document.getElementById("inputSubCategoria").value = "";
       document.getElementById("inputNombreProducto").value = "";
       document.getElementById("colorInput").value = "";
-      document.getElementById("nombreColor").style.backgroundColor =
-        "transparent";
-      document.getElementById("nombreColor").value = "#00";
+    
+      const colorInput = document.getElementById("nombreColor");
+      colorInput.value = "#000000"; // Valor por defecto para evitar errores
+      colorInput.style.backgroundColor = "transparent";
+    
       document.getElementById("inputProveedor").value = "";
-
+    
       setOrReplaceInput("inputLitros", []);
-      setOrReplaceInput("inputCompra", []);
     }
   });
 
@@ -95,102 +95,46 @@ function setupEventListeners() {
 }
 
 function setOrReplaceInput(id, valores, piezasCaja) {
-  const container = document.getElementById(id + "Container");
-  let input = document.getElementById(id);
+  const select = document.getElementById(id);
+  const inputCajas = document.getElementById("inputCajasContainer");
 
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
-  }
+  if (!select || !inputCajas) return;
 
+  // Limpiar opciones actuales del select
+  select.innerHTML = "";
+
+  // Agregar la opción por defecto
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  defaultOption.textContent = "Selecciona una opción";
+  select.appendChild(defaultOption);
+
+  // Si no hay valores, deshabilitar el select y limpiar el input
   if (!valores || valores.length === 0) {
-    if (input && input.tagName === "SELECT") {
-      const newInput = document.createElement("input");
-      newInput.type = "number";
-      newInput.classList.add("input__formulario");
-      newInput.id = id;
-      input.replaceWith(newInput);
-    }
-    if (input) input.value = "";
+    select.disabled = true;
+    inputCajas.value = "";
     return;
   }
 
-  if (valores.length === 1) {
-    if (input && input.tagName === "SELECT") {
-      const newInput = document.createElement("input");
-      newInput.type = "number";
-      newInput.classList.add("input__formulario");
-      newInput.id = id;
-      newInput.value = valores[0];
-      input.replaceWith(newInput);
-    } else if (input) {
-      input.value = valores[0];
-    }
-  } else {
-    if (!input || input.tagName !== "SELECT") {
-      const label = document.createElement("label");
-      label.textContent =
-        id
-          .replace("input", "")
-          .replace(/([A-Z])/g, " $1")
-          .trim() + ":";
-      container.appendChild(label);
+  // Agregar nuevas opciones basadas en los valores
+  valores.forEach((valor, index) => {
+    const option = document.createElement("option");
+    option.value = valor;
+    option.textContent = `${valor} Litro${valor > 1 ? 's' : ''}`;
+    option.dataset.piezas = piezasCaja[index]; // Guarda las piezas en un data attribute
+    select.appendChild(option);
+  });
 
-      const select = document.createElement("select");
-      select.classList.add("input__formulario");
-      select.id = id;
-      select.name = id.replace("input", "").toLowerCase();
+  // Habilitar el select
+  select.disabled = false;
 
-      const defaultOption = document.createElement("option");
-      defaultOption.value = "";
-      defaultOption.disabled = true;
-      defaultOption.selected = true;
-      defaultOption.textContent = "Selecciona una opción";
-      select.appendChild(defaultOption);
-
-      valores.forEach((valor, index) => {
-        const option = document.createElement("option");
-        option.value = valor;
-        option.textContent = valor;
-        option.dataset.piezas = piezasCaja[index]; // Guarda las piezas en un data attribute
-        select.appendChild(option);
-      });
-
-      select.addEventListener("change", function () {
-        const piezasSeleccionadas =
-          this.options[this.selectedIndex].dataset.piezas;
-        document.getElementById("inputCajasContainer").value =
-          piezasSeleccionadas;
-      });
-
-      if (input) {
-        input.replaceWith(select);
-      } else {
-        container.appendChild(select);
-      }
-    } else {
-      input.innerHTML = "";
-
-      const defaultOption = document.createElement("option");
-      defaultOption.value = "";
-      defaultOption.disabled = true;
-      defaultOption.selected = true;
-      defaultOption.textContent = "Selecciona una opción";
-      input.appendChild(defaultOption);
-
-      valores.forEach((valor, index) => {
-        const option = document.createElement("option");
-        option.value = valor;
-        option.textContent = valor;
-        option.dataset.piezas = piezasCaja[index];
-        input.appendChild(option);
-      });
-
-      input.addEventListener("change", function () {
-        const piezasSeleccionadas =
-          this.options[this.selectedIndex].dataset.piezas;
-        document.getElementById("inputCajasContainer").value =
-          piezasSeleccionadas;
-      });
-    }
-  }
+  // Evento para actualizar el input de piezas por caja
+  select.addEventListener("change", function () {
+    const piezasSeleccionadas = this.options[this.selectedIndex].dataset.piezas;
+    inputCajas.value = piezasSeleccionadas || "";
+  });
 }
+
+

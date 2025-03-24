@@ -1,0 +1,95 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
+</head>
+
+<body>
+  <%- include('../../partials/navAdmin.ejs') %>
+  <%- include('../../partials/dropdownMenu.ejs') %>
+  <section class="productos-section">
+    <%- include('../../partials/historyMenuNav.ejs') %>
+    <div class="productos-container">
+      <div class="productos-grid">
+        <% if (editedProducts) { %> <% for (let i = 0; i < editedProducts.length; i++) { %>
+        <div class="producto-card">
+          <div class="producto-content">
+
+            <div class="producto-header">
+              <h3 class="producto-titulo"> <%= editedProducts[i].tabla_modificada %>
+                <%= editedProducts[i].subcategoria %> </h3>
+              <h3 class="producto-nombre"> <%= editedProducts[i].nombre %> </h3>
+              <h3 class="producto-nombre">ID del producto: <%= editedProducts[i].producto_id %> </h3>
+              <h3 class="producto-nombre">Codigo de pintura: <%= editedProducts[i].codigo_pintura %> </h3>
+
+            </div>
+            <div class="producto-info">
+
+              <div class="info-item">
+                <span class="producto-nombre">Valores del producto:</span>
+              </div>
+
+
+              <div class=" info-item"></div>
+              <div class=" info-item"></div>
+
+
+              <div class="info-item">
+                <span class="info-label">Litros:</span>
+                <span class="info-value"><%= editedProducts[i].cantidad_litros %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Precio compra:</span>
+                <span class="info-value"><%= editedProducts[i].precio_compra %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Precio venta:</span>
+                <span class="info-value"><%= editedProducts[i].precio_venta %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Cantidad:</span>
+                <span class="info-value"><%= editedProducts[i].cantidad %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Lote id:</span>
+                <span class="info-value"><%= editedProducts[i].lote_id %></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Fecha de eliminacion:</span>
+                <span class="info-value">
+                  <% if (editedProducts[i].fecha_eliminacion) { %>
+                  <%= new Date(editedProducts[i].fecha_eliminacion).toLocaleString('es-ES', { 
+                      day: '2-digit', 
+                      month: '2-digit', 
+                      year: 'numeric', 
+                      hour: '2-digit', 
+                      minute: '2-digit' 
+                    }) %>
+                  <% } %>
+                </span>
+              </div>
+
+
+
+            </div>
+
+          </div>
+          <div class="producto-accion">
+            <a class="btn-accion btn-eliminar delete-product"
+              data-url="/admin/history/removed/delete/<%= editedProducts[i].id_auditoria %>">
+              <i class="fa-solid fa-trash"></i> Eliminar </a>
+          </div>
+
+
+        </div>
+        <% } %>
+        <% } else { %>
+        <div class=" no-products">
+          <p>No hay productos </p>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+  <script src="/javascripts/appAdminHistory.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>

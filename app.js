@@ -2,7 +2,11 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var cors = require('cors')
+var bodyParser = require('body-parser')
+
 require("dotenv").config();
+
 //Configuración de la sesión
 const sessionConfig = require("./config/sessionConfig");
 const sessionInitializer = require("./middlewares/sessionInitializer");
@@ -21,6 +25,9 @@ app.use(sessionInitializer);
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+app.use(cors());
+app.use(bodyParser.json());
 
 app.use(logger("dev"));
 app.use(express.json());
