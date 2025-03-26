@@ -40,6 +40,17 @@ router.post(
 );
 
 router.get(
+  "/products/generateTag/:id/:category/",
+  authUser.isAdmOrOp,
+  productsController.verifyTag
+);
+router.get(
+  "/products/generateTag/:id/:category/",
+  authUser.isAdmOrOp,
+  productsController.generateTag
+);
+
+router.get(
   "/products/edit/:id/:categoria/:path",
   authUser.isAdmOrOp,
   productsController.edit

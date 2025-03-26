@@ -151,6 +151,7 @@ CREATE TABLE etiquetas (
     FOREIGN KEY (complemento_id) REFERENCES complementos(id_complemento) ON DELETE CASCADE
 );
 
+DROP TABLE etiquetas;
 
 -- Disparador para actualizar el inventario tras una venta de productos
 DELIMITER //

@@ -55,10 +55,12 @@
               href="/admin/products/duplicate/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
               <i class="fa-solid fa-clone"></i> Duplicar </a>
 
-            <a class="btn-accion btn-etiqueta" href="#"> <i class="fa-solid fa-tag"></i> Etiqueta </a>
+            <a class="btn-accion btn-etiqueta"
+              href="/admin/products/generateTag/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
+              <i class="fa-solid fa-tag"></i> Etiqueta </a>
           </div>
 
-          
+
         </div> <% } %> <% } else { %> <div class="no-products">
           <p>No hay productos disponibles</p>
         </div> <% } %>

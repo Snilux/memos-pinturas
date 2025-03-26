@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const connection = require("../config/db");
 const queries = require("./queries/queriesProductsController");
+const qrcode = require("qrcode");
 const productsController = {};
 
 const categoriaMap = {
@@ -105,6 +106,207 @@ productsController.add = (req, res) => {
   }
 };
 
+// --- Controlador verifyTag REVISADO (asumiendo que 'add' se corregirá) ---
+productsController.verifyTag = (req, res) => {
+  const { id, category } = req.params; // 'id' ES el id_producto (PK en tabla categoría Y en productos_base)
+  const table = categoriaMap[category];
+
+  if (!table) {
+    console.error(`Error: Categoría inválida "${category}"`);
+    return res
+      .status(400)
+      .render("error", { message: `Categoría inválida: ${category}` });
+  }
+
+  // 1. Obtener datos del producto desde la tabla de categoría
+  // No se necesita JOIN para el ID si 'add' inserta en ambas tablas.
+  const getProductDataQuery = `SELECT * FROM ?? WHERE id_producto = ?`;
+
+  console.log(`Verificando etiqueta para ${table} con id_producto ${id}`);
+
+  connection.query(
+    getProductDataQuery,
+    [table, id],
+    (errProduct, productResults) => {
+      if (errProduct) {
+        console.error(
+          `Error al obtener datos del producto (${table}): ${errProduct}`
+        );
+        return res
+          .status(500)
+          .render("error", {
+            message: "Error al buscar los datos del producto",
+            error: errProduct,
+          });
+      }
+
+      if (!productResults || productResults.length === 0) {
+        console.log(`Producto con ID ${id} no encontrado en ${table}.`);
+        // Importante: Asegurarse que si existe en la tabla categoría, también EXISTA en productos_base debido a la corrección en 'add'
+        return res
+          .status(404)
+          .render("error", {
+            message: `Producto con ID ${id} no encontrado en la categoría ${category}.`,
+          });
+      }
+
+      const productData = productResults[0]; // Datos completos del producto de su tabla específica
+      const idProductoParaEtiqueta = productData.id_producto; // El ID que necesitamos para la tabla 'etiquetas'
+
+      // 2. Buscar en la tabla 'etiquetas' usando el id_producto
+      const findEtiquetaQuery = `SELECT codigo_qr FROM etiquetas WHERE producto_id = ? LIMIT 1`;
+
+      console.log(
+        `Buscando etiqueta existente para producto_id ${idProductoParaEtiqueta}`
+      );
+
+      connection.query(
+        findEtiquetaQuery,
+        [idProductoParaEtiqueta],
+        (errEtiqueta, etiquetaResults) => {
+          if (errEtiqueta) {
+            console.error(`Error al buscar etiqueta existente: ${errEtiqueta}`);
+            return res
+              .status(500)
+              .render("error", {
+                message: "Error al verificar la etiqueta",
+                error: errEtiqueta,
+              });
+          }
+
+          if (etiquetaResults && etiquetaResults.length > 0) {
+            // 3. Etiqueta ENCONTRADA: Mostrarla
+            const existingQrCode = etiquetaResults[0].codigo_qr;
+            console.log(
+              `Etiqueta encontrada para producto_id ${idProductoParaEtiqueta}.`
+            );
+            res.render("administration/products/viewTag", {
+              // Vista para mostrar etiqueta
+              title: `Etiqueta Existente - ${productData.nombre || "Producto"}`,
+              tagValues: productData,
+              qrCodeDataUrl: existingQrCode,
+            });
+          } else {
+            // 4. Etiqueta NO ENCONTRADA: Mostrar opción para generar
+            console.log(
+              `No se encontró etiqueta para producto_id ${idProductoParaEtiqueta}.`
+            );
+            res.render("administration/products/confirmGenerateTag", {
+              // Vista para confirmar generación
+              title: `Generar Etiqueta - ${productData.nombre || "Producto"}`,
+              tagValues: productData, // Pasar productData para usar sus IDs en el formulario POST
+            });
+          }
+        }
+      ); // Fin query buscar etiqueta
+    }
+  ); // Fin query obtener datos producto
+};
+
+const generateQrCode = async (productDataObj) => {
+  if (!productDataObj || typeof productDataObj !== "object") {
+    console.error("generateQrCode recibió datos inválidos:", productDataObj);
+    throw new Error("Datos inválidos proporcionados para generar QR.");
+  }
+  console.log(productDataObj);
+
+  const qrContent = {
+    productId: productDataObj.id_producto,
+    category: productDataObj.tableName,
+    lotId: productDataObj.lote_id,
+    price: productDataObj.precio_venta,
+    code: productDataObj.codigo_pintura,
+  };
+
+  const qrString = JSON.stringify(qrContent);
+  // console.log(`Contenido para qrCode ${qrString}`);
+
+  if (qrString === "{}" || !qrContent.productId) {
+    console.warn(
+      "El contenido del QR parece estar vacío o incompleto:",
+      qrContent
+    );
+  }
+
+  try {
+    const qrDataUrl = await qrcode.toDataURL(qrString);
+    return qrDataUrl;
+  } catch (error) {
+    console.error(`Error al generar qr ${error}`);
+    throw new Error("No se pudo generar el código QR.");
+  }
+};
+
+productsController.generateTag = (req, res) => {
+  const { id, category } = req.params;
+  const table = categoriaMap[category];
+
+  if (!table) {
+    console.error(`Error: Categoría inválida "${category}"`);
+    return res.status(400).json({ error: `Categoría inválida: ${category}` });
+  }
+
+  const query = `SELECT * FROM ?? WHERE id_producto = ?`;
+
+  connection.query(query, [table, id], async (err, results) => {
+    if (err) {
+      console.error(`Error en el servidor ${err}`);
+      return res.status(500).render("error", {
+        message: "Error al buscar el producto",
+        error: err,
+      });
+    }
+
+    if (!results || results.length === 0) {
+      console.log(`Producto con ID ${id} no encontrado en la tabla ${table}`);
+      return res.status(404).render("error", {
+        message: `Producto con ID ${id} no encontrado en la categoría ${category}`,
+      });
+    }
+
+    const resultsWithTable = results.map((row) => ({
+      ...row,
+      tableName: table,
+    }));
+    const productData = resultsWithTable[0];
+
+    try {
+      const qrCodeDataUrl = await generateQrCode(productData);
+      const insertEtiquetaQuery =
+        "INSERT INTO etiquetas (producto_id, lote_id, codigo_qr, fecha_creacion) VALUES (?, ?, ?, NOW())";
+      connection.query(
+        insertEtiquetaQuery,
+        [productData.id_producto, productData.lote_id, qrCodeDataUrl],
+        (saveErr, saveResult) => {
+          if (saveErr) {
+            console.error("Error guardando la etiqueta en la BD:", saveErr);
+          } else {
+            console.log(
+              "Etiqueta guardada en la BD con ID:",
+              saveResult.insertId
+            );
+          }
+        }
+      );
+
+      return res.render("administration/products/generateTag", {
+        title: `Etiquetas`,
+        tagValues: productData,
+        qrCodeDataUrl: qrCodeDataUrl,
+        data: req.session.user,
+      });
+    } catch (error) {
+      console.error(
+        `Error durante la generación/procesamiento del QR: ${error}`
+      );
+      return res.status(500).render("error", {
+        message: "Error al generar la etiqueta QR",
+        error: error,
+      });
+    }
+  });
+};
+
 productsController.edit = (req, res) => {
   const { id, categoria, path } = req.params;
   console.log(path);
@@ -170,7 +372,6 @@ productsController.save = async (req, res) => {
   try {
     if (req.file) {
       imagePath = req.file.filename;
-
 
       if (currentImagePath && currentImagePath !== imagePath) {
         const absoluteOldImagePath = path.join(
