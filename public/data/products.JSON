@@ -1337,7 +1337,7 @@
     "subcategoria": "Bases",
     "color": "Base lv2",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$130.00", "$509.00"],
     "piezasCaja": ["", 2, 1]
   },
@@ -1645,7 +1645,7 @@
     "subcategoria": "Tintas",
     "color": "L Ocre",
     "colorHex": "#C7B300",
-    "litros": [1,0,0],
+    "litros": [1, 0, 0],
     "preciosCompra": ["$167.00", "", ""],
     "piezasCaja": [6, "", ""]
   },
@@ -3339,7 +3339,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Amarillo Limón",
     "colorHex": "#FDFD96",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$92.00"],
     "piezasCaja": [6]
   },
@@ -3350,7 +3350,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Amarillo Óxido",
     "colorHex": "#C7B300",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$50.00"],
     "piezasCaja": [6]
   },
@@ -3361,7 +3361,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Azul Rey",
     "colorHex": "#0033A0",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$50.00"],
     "piezasCaja": [6]
   },
@@ -3372,7 +3372,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Azul Ultramar",
     "colorHex": "#0000FF",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$70.00"],
     "piezasCaja": [6]
   },
@@ -3383,7 +3383,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Café",
     "colorHex": "#B87333",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$38.00"],
     "piezasCaja": [6]
   },
@@ -3394,7 +3394,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Negro",
     "colorHex": "#000000",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$63.00"],
     "piezasCaja": [6]
   },
@@ -3405,7 +3405,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$42.00"],
     "piezasCaja": [6]
   },
@@ -3416,7 +3416,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Rojo",
     "colorHex": "#FF0000",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$111.00"],
     "piezasCaja": [6]
   },
@@ -3427,7 +3427,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Verde Cristal",
     "colorHex": "#77DD77",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$70.00"],
     "piezasCaja": [6]
   },
@@ -3438,7 +3438,7 @@
     "subcategoria": "COLOR PARA CEMENTO",
     "color": "Verde Pasto",
     "colorHex": "#4DBD33",
-    "Kilos": [1],
+    "litros": [1],
     "preciosCompra": ["$89.00"],
     "piezasCaja": [6]
   },

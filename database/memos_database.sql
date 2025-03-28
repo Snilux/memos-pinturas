@@ -94,6 +94,7 @@ SELECT * FROM pinturas_arquitectonicas WHERE lote_id IS NOT NULL;
 CREATE TABLE complementos (
     id_complemento INT AUTO_INCREMENT PRIMARY KEY,
     producto VARCHAR(100) NOT NULL,
+    codigo_complemento VARCHAR (25) NOT NULL,
     caracteristicas TEXT NOT NULL,
     cantidad_caja INT NOT NULL,
     precio_caja DECIMAL(10,2) NOT NULL,
@@ -104,6 +105,8 @@ CREATE TABLE complementos (
     imgen TEXT null,
     FOREIGN KEY (lote_id) REFERENCES lotes(id_lote) ON DELETE CASCADE
 );
+ALTER TABLE complementos ADD COLUMN codigo_complemento VARCHAR (25) NOT NULL;
+describe complementos;
 
 drop table complementos;
 
@@ -145,13 +148,15 @@ CREATE TABLE etiquetas (
     lote_id INT NULL,
     complemento_id INT NULL,
     codigo_qr TEXT NOT NULL,
+    tabla VARCHAR(30) NOT NULL,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (producto_id) REFERENCES productos_base(id_producto) ON DELETE CASCADE,
     FOREIGN KEY (lote_id) REFERENCES lotes(id_lote) ON DELETE CASCADE,
     FOREIGN KEY (complemento_id) REFERENCES complementos(id_complemento) ON DELETE CASCADE
 );
-
+ALTER TABLE etiquetas ADD COLUMN tabla VARCHAR(30) NOT NULL;
 DROP TABLE etiquetas;
+
+SELECT * FROM etiquetas;
 
 -- Disparador para actualizar el inventario tras una venta de productos
 DELIMITER //

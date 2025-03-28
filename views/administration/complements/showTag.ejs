@@ -1,0 +1,165 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/productsAdministration.css">
+<style>
+    /* Estilos básicos para la etiqueta visible */
+    .etiqueta-producto {
+        border: 1px solid #ccc;
+        padding: 25px;
+        margin: 30px auto;
+        max-width: 450px;
+        /* Ajusta el ancho según necesites */
+        background-color: #f9f9f9;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+        font-family: sans-serif;
+    }
+
+    .etiqueta-producto h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .qr-code-container {
+        text-align: center;
+        /* Centra la imagen del QR */
+        margin-bottom: 20px;
+    }
+
+    .qr-code-container img {
+        width: 200px;
+        /* Tamaño del QR */
+        height: 200px;
+        border: 1px solid #eee;
+    }
+
+    .product-details-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        /* Columna para etiqueta, columna para valor */
+        gap: 8px 15px;
+        /* Espacio entre filas y columnas */
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    .product-details-grid strong {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .color-swatch-container span {
+        vertical-align: middle;
+    }
+
+    .color-swatch {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #888;
+        vertical-align: middle;
+        margin-left: 8px;
+    }
+
+    .error-warning {
+        color: #D8000C;
+        /* Rojo para errores */
+        background-color: #FFD2D2;
+        /* Fondo rojo claro */
+        border: 1px solid #D8000C;
+        padding: 10px;
+        margin-top: 15px;
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+    <%- include('../../partials/navAdmin.ejs') %>
+    <%- include('../../partials/dropdownMenu.ejs') %>
+
+    <h1 class="heading__formulario"><%= title %></h1>
+
+
+    <div class="contenedor etiqueta-producto">
+
+
+        <h2>Código QR</h2>
+        <div class="qr-code-container">
+            <% if (typeof qrCodeDataUrl !== 'undefined' && qrCodeDataUrl) { %>
+
+            <img src="<%= qrCodeDataUrl %>" alt="Código QR del Producto">
+            <% } else { %>
+            <p style="color: #888;">(Código QR no disponible)</p>
+            <% } %>
+        </div>
+
+        <hr>
+
+
+        <h2>Detalles del Producto</h2>
+        <% if (typeof tagValues !== 'undefined' && tagValues) { %>
+        <div class="product-details-grid">
+            <strong>Nombre:</strong>
+            <span><%= tagValues.producto %></span>
+
+            <strong>Código Complemento:</strong>
+            <span><%= tagValues.codigo_complemento || 'N/A' %></span>
+
+            <strong>Proveedor:</strong>
+            <span>Ipesa</span>
+
+
+            <strong>Descripción:</strong>
+            <span><%= tagValues.caracteristicas ? `${tagValues.caracteristicas} "` : 'N/A' %></span>
+
+            <strong>Precio Venta:</strong>
+            <span><%= typeof tagValues.precio_unitario_venta !== 'undefined' ? `$${parseFloat(tagValues.precio_unitario_venta).toFixed(2)}` : 'N/A' %></span>
+
+            <strong>Lote ID:</strong>
+            <span><%= tagValues.lote_id %></span>
+
+            <strong>Stock:</strong>
+            <span><%= tagValues.cantidad %></span>
+
+            <strong>ID :</strong>
+            <span><%= tagValues.id_complemento %></span>
+            %>
+        </div>
+
+
+        <% } else { %>
+        <p style="color: #888; text-align: center;">Detalles del producto no disponibles.</p>
+        <% } %>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/javascripts/appPanelAdministrarion.js"></script>
+    <script>
+
+        var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+        var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+
+        if (successMessage) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Realizado',
+                text: successMessage,
+                timer: 2500,
+                showConfirmButton: false
+            });
+        }
+        if (errorMessage) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorMessage
+
+            });
+        }
+    </script>
+
+</body>
+
+</html>

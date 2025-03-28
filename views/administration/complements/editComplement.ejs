@@ -1,0 +1,198 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
+<link rel="stylesheet" href="/stylesheets/productsAdministration.css">
+</head>
+
+<body>
+    <%- include('../../partials/navAdmin.ejs') %>
+    <%- include('../../partials/dropdownMenu.ejs') %>
+    <div class="contenedor">
+        <%- include('../../partials/navShowComplements.ejs') %>
+        <br>
+        <div class="formulario-container">
+            <form class="formularios__productos" id="formularioLogin" method="post"
+                action="/admin/complements/edit/<%= complement.id_complemento %>" enctype="multipart/form-data">
+                <div class="formulario__grid">
+                    <div class="formulario__card">
+                        <div class="card__header">
+                            <div class="icon-circle">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </div>
+                            <h2>Información Principal</h2>
+                        </div>
+                        <div class="card__content">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Código del Producto </label>
+                                    <div class="input-container">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="000" name="codigo_complemento" required
+                                            value="<%=complement.codigo_complemento%>" id="inputCodigoC">
+                                        <span class="badge">Autocompletado</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Cantidad Disponible</label>
+                                    <div class="input-container">
+                                        <i class="fa-solid fa-box-open"></i>
+                                        <input type="number" placeholder="Cantidad disponible" name="cantidad"
+                                            id="inputCantidad" min="0" required value="<%= complement.cantidad%>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label>Nombre del producto</label>
+                                    <div class="input-container">
+                                        <i class="fa-solid fa-paint-roller"></i>
+                                        <input type="text" placeholder="Coloca aquí el nombre del producto"
+                                            name="producto" required value="<%= complement.producto%> " readonly>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label>Características</label>
+                                    <div class="input-container">
+                                        <textarea name="caracteristicas"
+                                            placeholder="Coloca aquí una descripción del producto:"><%=complement.caracteristicas%></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN INFORMACIÓN VISUAL -->
+                    <div class="formulario__card">
+                        <div class="card__header">
+                            <div class="icon-circle">
+                                <i class="fa-solid fa-image"></i>
+                            </div>
+                            <h2>Información Visual</h2>
+                        </div>
+
+                        <div class="card__content">
+                            <div class="upload-area" id="uploadArea">
+                                <div class="upload-placeholder">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p>Arrastra una imagen o haz clic para seleccionar</p>
+                                </div>
+                                <% if (complement.imagen) { %>
+
+                                <img src="/uploads/images/<%= complement.imagen %>" alt="Imagen del producto"
+                                    id="imagePreview" class="preview-image">
+
+                                <input type="file" id="imageUpload" name="imagen" accept="image/*" required>
+
+                                <% } %>
+
+                                <input type="hidden" name="currentImagePath" value="<%= complement.imagen %>">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN PRECIOS Y CANTIDADES -->
+                    <div class="formulario__card">
+                        <div class="card__header">
+                            <div class="icon-circle">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </div>
+                            <h2>Precios y Cantidades</h2>
+                        </div>
+                        <div class="card__content">
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+                                    <label>Piezas por Caja</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-boxes"></i>
+                                        <select name="cantidad_caja" id="inputLitros" required>
+                                            <option value="" disabled selected>Selecciona una opción</option>
+                                            <option value="<%= parseFloat(complement.cantidad_caja)%>" selected>
+                                                <%= parseFloat(complement.cantidad_caja)%>
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="precio_compra">Precio por caja</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <input type="number" placeholder="Precio por caja (Compra)" name="precio_caja"
+                                            id="" min="0" value="<%= parseFloat(complement.precio_caja)%>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Precio Compra Unitario</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-tag"></i>
+                                        <input type="number" placeholder="Precio de compra unitario"
+                                            name="precio_unitario" id="" min="0"
+                                            value="<%= parseFloat(complement.precio_unitario)%>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Precio Venta Unitario</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-tag"></i>
+                                        <input type="number" placeholder="Precio de venta unitario"
+                                            name="precio_unitario_venta" id="" min="0"
+                                            value="<%= parseFloat(complement.precio_unitario_venta)%>" required>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Número de Lote</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-barcode"></i>
+                                        <input type="number" placeholder="Número de lote" name="lote_id" id="" min="0"
+                                            value="<%= complement.lote_id%>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Proveedor</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-truck"></i>
+                                        <input type="text" placeholder="Proveedor" name="" id="" readonly required
+                                            value="Ipesa">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- SECCIÓN BOTONES -->
+                    <div class="buttons-container">
+                        <button type="submit" class="btn btn-save">
+                            <i class="fas fa-save"></i> Guardar Producto
+                        </button>
+                        <a href="/admin/complements" class="btn btn-cancel">
+                            <i class="fas fa-arrow-left"></i> Volver
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/javascripts/appPanelAdministrarion.js"></script>
+    <script src="/javascripts/appAdminComplements.js"></script>
+    <script src="/javascripts/appFormularioAdd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+        var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    </script>
+</body>

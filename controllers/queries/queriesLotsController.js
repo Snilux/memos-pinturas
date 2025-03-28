@@ -129,7 +129,7 @@ SELECT
     c.precio_unitario_venta AS precio_venta,
     NULL AS subcategoria,
     c.cantidad,
-    c.imgen AS imagen,
+    c.imagen AS imagen,
     '' AS nombre_proveedor, -- Los complementos no tienen nombre_proveedor, pon algo coherente
     'complementos' AS tabla_origen
 FROM complementos c

@@ -9,7 +9,8 @@
   <section class="productos-section">
     <%- include('../../partials/navShowProducts.ejs') %>
     <div class="productos-container">
-      <div class="productos-grid"> <% if (products) { %> <% for (let i = 0; i < products.length; i++) { %>
+      <div class="productos-grid">
+        <% if (products) { %> <% for (let i = 0; i < products.length; i++) { %>
         <div class="producto-card">
           <div class="producto-imagen"> <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].Tipo %>>
           </div>
@@ -56,14 +57,18 @@
               <i class="fa-solid fa-clone"></i> Duplicar </a>
 
             <a class="btn-accion btn-etiqueta"
-              href="/admin/products/generateTag/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
+              href="/admin/products/verifyTag/<%= products[i].id_producto %>/<%= products[i].Tipo || type %>">
               <i class="fa-solid fa-tag"></i> Etiqueta </a>
           </div>
 
 
-        </div> <% } %> <% } else { %> <div class="no-products">
+        </div>
+        <% } %>
+        <% } else { %>
+        <div class="no-products">
           <p>No hay productos disponibles</p>
-        </div> <% } %>
+        </div>
+        <% } %>
       </div>
     </div>
   </section>

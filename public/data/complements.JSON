@@ -1,0 +1,32 @@
+[
+  {
+    "codigo": "BRI-1/2",
+    "producto": "La Guerrera",
+    "caracteristicas": "1/2",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRM-1",
+    "producto": "La Guerrera",
+    "caracteristicas": "1",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRM-11/2",
+    "producto": "La Guerrera",
+    "caracteristicas": "1, 1/2",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRM-2",
+    "producto": "La Guerrera",
+    "caracteristicas": "2",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "CIM-26",
+    "producto": "epillos Impermeabilizar",
+    "caracteristicas": " Para impermeabilizar",
+    "piezasCaja": "6"
+  }
+]

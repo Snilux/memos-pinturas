@@ -25,10 +25,14 @@ router.get(
   lotsController.generateCode
 );
 
+router.get("/verifyTag/:id", authUser.isAdmOrOp, lotsController.verifyTag);
+
+router.get("/generateTag/:id", authUser.isAdmOrOp, lotsController.generateTag);
+
 router.get("/edit/:id/:provider", authUser.isAdmOrOp, lotsController.editLot);
 
 router.post("/edit/:id", authUser.isAdmOrOp, lotsController.saveLot);
 
-router.get("/delete/:id", authUser.isAdmOrOp, lotsController.deleteLot)
+router.get("/delete/:id", authUser.isAdmOrOp, lotsController.deleteLot);
 
 module.exports = router;

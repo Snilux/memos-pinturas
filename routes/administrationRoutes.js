@@ -7,6 +7,7 @@ const providerRoutes = require("./administrationProvidersRoutes");
 const lotsRoutes = require("./administrationLotsRoutes");
 const historyRoutes = require("./administrationHistoryRoutes");
 const salesRoutes = require("./administrationSalesRoutes");
+const complementsRoutes = require("./administrationComplementsRoutes");
 
 router.get("/", authUser.isAdmOrOp, (req, res, next) => {
   res.render("administration/panelAdministration", {
@@ -22,6 +23,8 @@ router.use("/lots", lotsRoutes);
 router.use("/history", historyRoutes);
 
 router.use("/sales", salesRoutes);
+
+router.use("/complements", complementsRoutes);
 
 router.get("/products", authUser.isAdmOrOp, productsController.ShowAllProducts);
 
@@ -40,7 +43,7 @@ router.post(
 );
 
 router.get(
-  "/products/generateTag/:id/:category/",
+  "/products/verifyTag/:id/:category/",
   authUser.isAdmOrOp,
   productsController.verifyTag
 );

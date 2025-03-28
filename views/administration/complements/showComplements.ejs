@@ -1,0 +1,91 @@
+<%- include('../../partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
+<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
+</head>
+
+<body>
+    <%- include('../../partials/navAdmin.ejs') %>
+    <%- include('../../partials/dropdownMenu.ejs') %>
+    <section class="productos-section">
+        <%- include('../../partials/navShowComplements.ejs') %>
+
+        <div class="productos-container">
+            <div class="productos-grid">
+
+                <%if (complements) { %>
+                <% for(let i = 0; i < complements.length; i++) { %>
+                <div class="producto-card">
+                    <div class="producto-imagen"> <img src=/uploads/images/<%= complements[i].imagen %>
+                            alt="Imagen-complemento">
+                    </div>
+                    <div class="producto-content">
+                        <div class="producto-header">
+                            <h3 class="producto-titulo"> <%= complements[i].producto %> </h3>
+                            <h3 class="producto-nombre"> <%= complements[i].caracteristicas %> </h3>
+                        </div>
+                        <div class="producto-info">
+                            <div class="info-item"> <span class="info-label">Código Complento:</span> <span
+                                    class="info-value"><%= complements[i].codigo_complemento %></span> </div>
+
+                            <div class="info-item"> <span class="info-label">Piezas por caja:</span> <span
+                                    class="info-value"><%= complements[i].cantidad_caja %></span> </div>
+
+
+                            <div class="info-item"> <span class="info-label">Número lote:</span> <span
+                                    class="info-value"><%= complements[i].lote_id %></span> </div>
+
+                            <div class="info-item"> <span class="info-label">Precio compra (Caja):</span> <span
+                                    class="info-value precio">$<%= complements[i].precio_caja %></span> </div>
+
+                            <div class="info-item"> <span class="info-label">Precio Compra (Unitario) :</span> <span
+                                    class="info-value precio">$<%= complements[i].precio_unitario %></span> </div>
+
+                            <div class="info-item"> <span class="info-label">Precio venta (Unitario) :</span> <span
+                                    class="info-value precio">$<%= complements[i].precio_unitario_venta %></span> </div>
+
+                            <div class="info-item"> <span class="info-label">Cantidad:</span> <span
+                                    class="info-value"><%= complements[i].cantidad %></span> </div>
+
+                            <div class="info-item"> <span class="info-label">Proveedor:</span> <span
+                                    class="info-value">Ipesa</span> </div>
+                        </div>
+                    </div>
+                    <div class="producto-accion">
+                        <a class="btn-accion btn-editar"
+                            href="/admin/complements/edit/<%= complements[i].id_complemento %>">
+                            <i class="fa-solid fa-pen-to-square"></i> Editar </a>
+
+                        <a class="btn-accion btn-eliminar delete-product"
+                            data-url="/admin/complements/delete/<%= complements[i].id_complemento %>">
+                            <i class="fa-solid fa-trash"></i> Eliminar </a>
+
+                        <a class="btn-accion btn-duplicar"
+                            href="/admin/complements/duplicate/<%= complements[i].id_complemento %> ">
+                            <i class=" fa-solid fa-clone"></i> Duplicar </a>
+
+                        <a class="btn-accion btn-etiqueta"
+                            href="/admin/complements/verifyTag/<%= complements[i].id_complemento %>">
+                            <i class="fa-solid fa-tag"></i> Etiqueta </a>
+                    </div>
+
+
+                </div>
+
+
+                <% }%>
+                <% } else { %>
+                <div class="no-products">
+                    <p>No hay productos disponibles</p>
+                </div>
+                <% } %>
+
+            </div>
+        </div>
+    </section>
+    <script src="/javascripts/appPanelAdministrarion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+        var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    </script>
+</body>

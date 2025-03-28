@@ -39,13 +39,13 @@ INSERT INTO pinturas_automotrices (nombre, color_nombre, color_hex, codigo_pintu
 INSERT INTO pinturas_para_madera (nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, codigo_trazabilidad, subcategoria) VALUES
 ('Tinta para Madera Nogal', 'Nogal', '#8B4513', 'PM001', 10, 3.00, 1, 200.00, 350.00, 25, 'TRZ007', 'Tintas');
 
-INSERT INTO complementos (producto, codigo_trazabilidad, caracteristicas, cantidad_caja, precio_caja, precio_unitario, precio_caja_venta, precio_unitario_venta, cantidad) VALUES
-('Brocha de 2 pulgadas', 'CMP001', 'Brocha de cerdas sintéticas, mango de madera', 24, 600.00, 25.00, 800.00, 35.00, 100),
-('Rodillo para Pintura de 9"', 'CMP002', 'Rodillo de esponja con mango ergonómico', 12, 480.00, 40.00, 600.00, 50.00, 60),
-('Bandeja para Rodillo', 'CMP003', 'Bandeja plástica de 12 pulgadas', 10, 300.00, 30.00, 450.00, 45.00, 40),
-('Lija para Madera Grano 220', 'CMP004', 'Lija fina para acabados en madera', 50, 250.00, 5.00, 350.00, 7.00, 200),
-('Cinta de enmascarar 1"', 'CMP005', 'Cinta adhesiva para protección en pintura', 48, 960.00, 20.00, 1200.00, 25.00, 150);
+INSERT INTO complementos (producto, codigo_complemento, caracteristicas, cantidad_caja, precio_caja, precio_unitario, precio_unitario_venta, cantidad, lote_id) VALUES
+('La Guerrera', ' BRI-1/2', '1/2 ', 24, 600.00, 25.00, 35.00, 100, 1);
 
+SELECT * FROM complementos;
+
+DESCRIBE complementos;
+DESCRIBE pinturas_arquitectonicas;
 -- Crear una vista que combine todas las tablas de productos de pinturas
 CREATE VIEW vista_todas_las_pinturas AS
 SELECT id_producto, nombre, color_nombre, color_hex, cantidad, precio_venta, 'Arquitectónicas' AS categoria FROM pinturas_arquitectonicas
@@ -414,4 +414,51 @@ WHERE l.id_lote = 19
 GROUP BY l.id_lote, p.nombre_empresa, l.fecha_llegada;
 
 
+SELECT 'Complementos' AS tabla, 
+id_complemento, 	
+producto, 
+caracteristicas, 
+cantidad_caja, 
+precio_caja, 
+precio_unitario, 
+precio_unitario_venta, 
+lote_id , 
+cantidad, 
+imagen, 
+codigo_complemento 
+  FROM complementos
+  WHERE producto LIKE ? OR codigo_complemento LIKE ? OR id_complemento LIKE ? OR cantidad LIKE ? OR lote_id LIKE ? OR caracteristicas LIKE ?;
 
+SELECT * -- Selecciona todas las columnas del resultado combinado
+FROM (
+    SELECT 'Pinturas Arquitectónicas' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor -- <<< Columna de fecha/ID
+    FROM pinturas_arquitectonicas
+
+    UNION ALL
+
+    SELECT 'Pinturas en Aerosol' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor -- <<< Columna de fecha/ID
+    FROM pinturas_en_aerosol
+
+    UNION ALL
+
+    SELECT 'Adhesivos y Colorantes' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor -- <<< Columna de fecha/ID
+    FROM adhesivos_y_colorantes
+
+    UNION ALL
+
+    SELECT 'Pinturas Industriales' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor -- <<< Columna de fecha/ID
+    FROM pinturas_industriales
+
+    UNION ALL
+
+    SELECT 'Pinturas Automotrices' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor -- <<< Columna de fecha/ID
+    FROM pinturas_automotrices
+
+    UNION ALL
+
+    SELECT 'Pinturas para Madera' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor -- <<< Columna de fecha/ID
+    FROM pinturas_para_madera
+) AS TodosLosProductos -- Un alias para el resultado de la subconsulta UNION
+ORDER BY
+    id_producto DESC -- Ordena por la columna de fecha, los más recientes (DESCendente) primero
+LIMIT 12; -- Limita el resultado final a 12 filas

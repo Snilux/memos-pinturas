@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           window.location.href = `/admin/lots`;
         }, 1000);
+      } else if (successMessage == "Complemento agregado correctamente") {
+        setTimeout(() => {
+          window.location.href = `/admin/complements`;
+        }, 1000);
+      } else if (successMessage == "Complemento actualizado correctamente") {
+        setTimeout(() => {
+          window.location.href = `/admin/complements`;
+        }, 1000);
       } else {
         setTimeout(() => {
           window.location.href = `/admin/products`;
@@ -82,4 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
     bubbles: true,
   });
   input.dispatchEvent(event);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  let codeC = document.getElementById("inputCodigoC").value;
+  console.log(codeC);
+  setTimeout(() => {
+    let inputC = document.getElementById("inputCodigoC");
+    inputC.value = codeC;
+    let eventC = new Event("input", {
+      bubbles: true,
+    });
+    inputC.dispatchEvent(eventC);
+  }, 1000);
 });

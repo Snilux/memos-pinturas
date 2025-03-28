@@ -8,6 +8,52 @@
   <%- include('../../partials/dropdownMenu.ejs') %>
   <section class="productos-section">
     <%- include('../../partials/historyMenuNav.ejs') %>
+    <div class="productos-container">
+      <div class="productos-grid">
+        <% if (products) { %> <% for (let i = 0; i < products.length; i++) { %>
+        <div class="producto-card">
+          <div class="producto-imagen"> <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].Tipo %>>
+          </div>
+          <div class="producto-content">
+            <div class="producto-header">
+              <h3 class="producto-titulo"> <%= products[i].Tipo %> <%= products[i].tabla %>
+                <%= products[i].subcategoria %> </h3>
+              <h3 class="producto-nombre"> <%= products[i].nombre %> </h3>
+              <div class="color-muestra">
+                <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"></div> <span
+                  class="color-nombre"><%= products[i].color_nombre %></span>
+              </div>
+            </div>
+            <div class="producto-info">
+              <div class="info-item"> <span class="info-label">Código Pintura:</span> <span
+                  class="info-value"><%= products[i].codigo_pintura %></span> </div>
+              <div class="info-item"> <span class="info-label">Cantidad caja:</span> <span
+                  class="info-value"><%= products[i].cantidad_caja %></span> </div>
+              <div class="info-item"> <span class="info-label">Cantidad litros:</span> <span
+                  class="info-value"><%= products[i].cantidad_litros %></span> </div>
+              <div class="info-item"> <span class="info-label">Número lote:</span> <span
+                  class="info-value"><%= products[i].lote_id %></span> </div>
+              <div class="info-item"> <span class="info-label">Precio compra:</span> <span
+                  class="info-value precio">$<%= products[i].precio_compra %></span> </div>
+              <div class="info-item"> <span class="info-label">Precio venta:</span> <span
+                  class="info-value precio">$<%= products[i].precio_venta %></span> </div>
+              <div class="info-item"> <span class="info-label">Cantidad:</span> <span
+                  class="info-value"><%= products[i].cantidad %></span> </div>
+              <div class="info-item"> <span class="info-label">Proveedor:</span> <span
+                  class="info-value"><%= products[i].nombre_proveedor %></span> </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+        <% } else { %>
+        <div class="no-products">
+          <p>No hay productos disponibles</p>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+
   </section>
 
 

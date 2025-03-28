@@ -1,6 +1,8 @@
 const connection = require("../config/db");
 const lotsController = {};
 const table = "lotes";
+const qrcode = require("qrcode");
+
 const queries = require("../controllers/queries/queriesLotsController");
 
 const traceability = (id) => {
@@ -282,4 +284,188 @@ lotsController.deleteLot = (req, res) => {
     return res.redirect("/admin/lots");
   });
 };
+
+const generateQrCode = async (productDataObj) => {
+  if (!productDataObj || typeof productDataObj !== "object") {
+    console.error("generateQrCode recibió datos inválidos:", productDataObj);
+    throw new Error("Datos inválidos proporcionados para generar QR.");
+  }
+  // console.log(productDataObj);
+
+  const qrContent = {
+    lotId: productDataObj.id_lote,
+    codeTrazeability: productDataObj.codigo_trazabilidad,
+    dateCa: productDataObj.fecha_caducidad,
+    tipe: "lote",
+  };
+  // console.log("Datos para qr lotes");
+  // console.log(qrContent);
+
+  const qrString = JSON.stringify(qrContent);
+  // console.log(`Contenido para qrCode ${qrString}`);
+
+  if (qrString === "{}" || !qrContent.lotId) {
+    console.warn(
+      "El contenido del QR parece estar vacío o incompleto:",
+      qrContent
+    );
+  }
+
+  try {
+    const qrDataUrl = await qrcode.toDataURL(qrString);
+    console.log(qrDataUrl);
+
+    return qrDataUrl;
+  } catch (error) {
+    console.error(`Error al generar qr ${error}`);
+    throw new Error("No se pudo generar el código QR.");
+  }
+};
+
+lotsController.verifyTag = (req, res) => {
+  const id = req.params.id;
+
+  const getProductDataQuery = `SELECT * FROM ?? WHERE id_lote = ?`;
+
+  connection.query(
+    getProductDataQuery,
+    [table, id],
+    (errProduct, productResults) => {
+      if (errProduct) {
+        console.error(
+          `Error al obtener datos del producto (${table}): ${errProduct}`
+        );
+        return res.status(500).render("error", {
+          message: "Error al buscar los datos del producto",
+          error: errProduct,
+        });
+      }
+
+      if (!productResults || productResults.length === 0) {
+        console.log(`Producto con ID ${id} no encontrado en ${table}.`);
+
+        return res.status(404).render("error", {
+          message: `Producto con ID ${id} no encontrado en la categoría ${category}.`,
+        });
+      }
+
+      const productData = productResults[0];
+      // console.log(productData);
+
+      const idProductoParaEtiqueta = productData.id_lote;
+      // console.log(idProductoParaEtiqueta);
+
+      const findEtiquetaQuery = `SELECT codigo_qr FROM etiquetas WHERE no_lote = ? LIMIT 1`;
+
+      console.log(
+        `Buscando etiqueta existente para no_lote ${idProductoParaEtiqueta}`
+      );
+
+      connection.query(
+        findEtiquetaQuery,
+        [idProductoParaEtiqueta, table],
+        (errEtiqueta, etiquetaResults) => {
+          if (errEtiqueta) {
+            console.error(`Error al buscar etiqueta existente: ${errEtiqueta}`);
+            return res.status(500).render("error", {
+              message: "Error al verificar la etiqueta",
+              error: errEtiqueta,
+            });
+          }
+
+          if (etiquetaResults && etiquetaResults.length > 0) {
+            const existingQrCode = etiquetaResults[0].codigo_qr;
+            // console.log(
+            //   `Etiqueta encontrada para id_complemento ${idProductoParaEtiqueta}.`
+            // );
+            res.render("administration/lots/showTag", {
+              title: `Etiqueta Existente - ${productData.nombre || "Producto"}`,
+              tagValues: productData,
+              qrCodeDataUrl: existingQrCode,
+              data: req.session.user,
+            });
+          } else {
+            console.log(
+              `No se encontró etiqueta para id_complemento ${idProductoParaEtiqueta}.`
+            );
+            console.log(productData);
+            res.render("administration/lots/generateTag", {
+              title: `Generar Etiqueta - ${productData.nombre || "Producto"}`,
+              tagValues: productData,
+              data: req.session.user,
+            });
+          }
+        }
+      );
+    }
+  );
+};
+
+lotsController.generateTag = (req, res) => {
+  const id = req.params.id;
+
+  if (!table) {
+    console.error(`Error: Categoría inválida "${category}"`);
+    return res.redirect("/admin/products");
+  }
+
+  const query = `SELECT * FROM ?? WHERE id_lote = ?`;
+
+  connection.query(query, [table, id], async (err, results) => {
+    if (err) {
+      console.error(`Error en el servidor ${err}`);
+      return res.status(500).render("error", {
+        message: "Error al buscar el producto",
+        error: err,
+      });
+    }
+
+    if (!results || results.length === 0) {
+      console.log(`Producto con ID ${id} no encontrado en la tabla ${table}`);
+      return res.status(404).render("error", {
+        message: `Producto con ID ${id} no encontrado en la categoría ${category}`,
+      });
+    }
+
+    const productData = results[0];
+    const no_lote = productData.id_lote;
+    console.log(productData);
+
+    try {
+      const qrCodeDataUrl = await generateQrCode(productData);
+      const insertEtiquetaQuery =
+        "INSERT INTO etiquetas (no_lote, lote_id, codigo_qr,tabla, fecha_creacion) VALUES (?, ?, ?, ? , NOW())";
+      connection.query(
+        insertEtiquetaQuery,
+        [no_lote, productData.lote_id, qrCodeDataUrl, table],
+        (saveErr, saveResult) => {
+          if (saveErr) {
+            console.error("Error guardando la etiqueta en la BD:", saveErr);
+          } else {
+            console.log(
+              "Etiqueta guardada en la BD con ID:",
+              saveResult.insertId
+            );
+          }
+        }
+      );
+
+      return res.render("administration/complements/showTag", {
+        title: `Etiquetas`,
+        tagValues: productData,
+        qrCodeDataUrl: qrCodeDataUrl,
+        data: req.session.user,
+      });
+    } catch (error) {
+      console.error(
+        `Error durante la generación/procesamiento del QR: ${error}`
+      );
+      return res.status(500).render("error", {
+        message: "Error al generar la etiqueta QR",
+        error: error,
+      });
+    }
+  });
+};
+
 module.exports = lotsController;
