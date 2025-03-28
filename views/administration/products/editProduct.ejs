@@ -39,9 +39,11 @@
                     <i class="fa-solid fa-fill-drip"></i>
                     <select name="cantidad_litros" id="inputLitros" required>
                       <option value="<%= product.litros %>" selected><%= product.litros %> Litros</option>
-                      <option value="1">1 Litro</option>
+
+
+                      <!-- <option value="1">1 Litro</option>
                       <option value="4">4 Litros</option>
-                      <option value="19">19 Litros</option>
+                      <option value="19">19 Litros</option> -->
                     </select>
                   </div>
                 </div>
@@ -97,12 +99,13 @@
 
                 <% if (product.imagen) { %>
 
-                <img src="/uploads/images/<%= product.imagen %>" alt="Imagen del producto" id="imagePreview" class="preview-image">
+                <img src="/uploads/images/<%= product.imagen %>" alt="Imagen del producto" id="imagePreview"
+                  class="preview-image">
 
-                <input type="file" id="imageUpload" name="imagen" accept="image/*" required>
+                <input type="file" id="imageUpload" name="imagen" accept="image/*">
 
                 <% } %>
-                
+
                 <input type="hidden" name="currentImagePath" value="<%= product.imagen %>">
 
               </div>

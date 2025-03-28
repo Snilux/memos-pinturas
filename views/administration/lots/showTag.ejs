@@ -7,7 +7,7 @@
         border: 1px solid #ccc;
         padding: 25px;
         margin: 30px auto;
-        max-width: 450px;
+        max-width: 650px;
         /* Ajusta el ancho según necesites */
         background-color: #f9f9f9;
         box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
@@ -82,8 +82,6 @@
 
 
     <div class="contenedor etiqueta-producto">
-
-
         <h2>Código QR</h2>
         <div class="qr-code-container">
             <% if (typeof qrCodeDataUrl !== 'undefined' && qrCodeDataUrl) { %>
@@ -100,30 +98,14 @@
         <h2>Detalles del Producto</h2>
         <% if (typeof tagValues !== 'undefined' && tagValues) { %>
         <div class="product-details-grid">
-            <strong>Nombre:</strong>
-            <span><%= tagValues.producto %></span>
+            <strong>Código Lote:</strong>
+            <span><%= tagValues.id_lote || 'N/A' %></span>
 
-            <strong>Código Complemento:</strong>
-            <span><%= tagValues.codigo_complemento || 'N/A' %></span>
+            <strong>Codigo trazabilidad:</strong>
+            <span><%= tagValues.codigo_trazabilidad %></span>
 
-            <strong>Proveedor:</strong>
-            <span>Ipesa</span>
-
-
-            <strong>Descripción:</strong>
-            <span><%= tagValues.caracteristicas ? `${tagValues.caracteristicas} "` : 'N/A' %></span>
-
-            <strong>Precio Venta:</strong>
-            <span><%= typeof tagValues.precio_unitario_venta !== 'undefined' ? `$${parseFloat(tagValues.precio_unitario_venta).toFixed(2)}` : 'N/A' %></span>
-
-            <strong>Lote ID:</strong>
-            <span><%= tagValues.lote_id %></span>
-
-            <strong>Stock:</strong>
-            <span><%= tagValues.cantidad %></span>
-
-            <strong>ID :</strong>
-            <span><%= tagValues.id_complemento %></span>
+            <strong>Fecha caducidad:</strong>
+            <span><%= tagValues.fecha_caducidad %></span>
             %>
         </div>
 

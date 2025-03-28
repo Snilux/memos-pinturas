@@ -648,7 +648,7 @@ productsController.searchProducts = (req, res) => {
     res.redirect("/products");
   }
   const searchTermWildcard = `%${value}%`;
-  const queryParams = Array(30).fill(searchTermWildcard);
+  const queryParams = Array(36).fill(searchTermWildcard);
 
   connection.query(query, queryParams, (err, results) => {
     if (err) {
@@ -665,7 +665,7 @@ productsController.searchProducts = (req, res) => {
         tabla: formattedTabla,
       };
     });
-    // console.log(formattedResults);
+    console.log(formattedResults);
 
     res.render("administration/products/showProducts", {
       title: `Productos`,

@@ -350,7 +350,7 @@ lotsController.verifyTag = (req, res) => {
       }
 
       const productData = productResults[0];
-      // console.log(productData);
+      console.log(productData);
 
       const idProductoParaEtiqueta = productData.id_lote;
       // console.log(idProductoParaEtiqueta);
