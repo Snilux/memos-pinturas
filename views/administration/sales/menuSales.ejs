@@ -245,25 +245,10 @@
                                 <th>Descripción</th>
                                 <th>P. Unit.</th>
                                 <th>Importe</th>
-                                <th></th> <!-- For remove button -->
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Rows will be added dynamically here -->
-                            <tr>
-                                <td>1</td>
-                                <td>Producto Ejemplo A</td>
-                                <td>$10.00</td>
-                                <td>$10.00</td>
-                                <td><button class="remove-item">X</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Producto Ejemplo B</td>
-                                <td>$5.50</td>
-                                <td>$11.00</td>
-                                <td><button class="remove-item">X</button></td>
-                            </tr>
                         </tbody>
                     </table>
                 </section>
@@ -271,37 +256,27 @@
                 <aside class="sidebar">
                     <section class="sale-summary">
                         <h3>DATOS DE LA VENTA</h3>
-                        <p>Subtotal: <span id="subtotal">$21.00</span></p>
-                        <p>Descuento: <span id="discount">$0.00</span></p>
-                        <p>Impuestos (IVA): <span id="tax">$3.36</span></p>
-                        <p class="total">PRECIO TOTAL: <strong id="total-price">$24.36</strong></p>
+                        <p class="total">PRECIO TOTAL: <strong id="total-price">$</strong></p>
                         <hr>
                         <p>TOTAL DE PRODUCTOS: <span id="total-items">3</span></p>
-                        <p>Cliente: <span id="customer-name">General</span></p>
+
                     </section>
 
                     <section class="action-buttons">
                         <h3>OPCIONES</h3>
-                        <button class="btn-primary">Cobrar / Finalizar Venta</button>
-                        <button class="btn-secondary">Cancelar Venta</button>
-                        <button class="btn-secondary">Guardar Venta</button>
-                        <button class="btn-secondary">Aplicar Descuento</button>
-                        <button class="btn-secondary">Buscar Cliente</button>
+                        <button id="sale" class="btn-primary">Cobrar / Finalizar Venta</button>
+                        <a href="/admin/sales" class="btn-secondary">Cancelar Venta</a>
                     </section>
                 </aside>
             </div>
         </div>
 
-        </html>
     </section>
 
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        var errorMessage =
-            "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
-        var successMessage =
-            "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
-    </script>
+    <script src="/javascripts/sales/appAdminSales.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </body>
 
 </html>

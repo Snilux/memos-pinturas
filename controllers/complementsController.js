@@ -242,7 +242,7 @@ const generateQrCode = async (productDataObj) => {
     lotId: productDataObj.lote_id,
     price: productDataObj.precio_unitario_venta,
     code: productDataObj.codigo_complemento,
-    tipe: "complement",
+    tipe: "complementos",
     Quantity: productDataObj.cantidad,
   };
   console.log("Datos para qr complementos" + qrContent);

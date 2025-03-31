@@ -7,9 +7,9 @@
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
   <section class="productos">
+    <% if (lots.length != 0) { %>
     <h1>Productos para <%= lots[0].codigo_lote %></h1>
     <div class="productos-grid">
-      <% if (lots) { %>
       <% for (let i = 0; i < lots.length; i++) { %>
       <div class="producto-card">
         <div class="producto-imagen">
@@ -57,10 +57,12 @@
         </div>
 
         <div class="producto-accion">
-          <a class="btn-ver-mas" href="/admin/products/edit/<%= lots[i].id_producto %>/<%= lots[i].tabla_origen %>/lots">
+          <a class="btn-ver-mas"
+            href="/admin/products/edit/<%= lots[i].id_producto %>/<%= lots[i].tabla_origen %>/lots">
             Editar <i class="fa-solid fa-pen-to-square"></i>
           </a>
-          <a class="btn-ver-mas delete-product" data-url="/admin/products/delete/<%= lots[i].id_producto %>/<%= lots[i].tabla_origen %>">
+          <a class="btn-ver-mas delete-product"
+            data-url="/admin/products/delete/<%= lots[i].id_producto %>/<%= lots[i].tabla_origen %>">
             Eliminar <i class="fa-solid fa-trash"></i>
           </a>
         </div>

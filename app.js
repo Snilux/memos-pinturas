@@ -18,6 +18,7 @@ var usersRouter = require("./routes/usersRoutes");
 var logoutRouter = require("./routes/logout");
 var adminRouter = require("./routes/administrationRoutes");
 
+
 var app = express();
 
 app.use(sessionConfig);

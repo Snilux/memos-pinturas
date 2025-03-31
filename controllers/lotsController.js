@@ -174,6 +174,15 @@ lotsController.showProductsInLots = (req, res) => {
       return res.redirect("/admin/lots");
     }
 
+    console.log(results);
+    if (results.length === 0) {
+      res.render("administration/lots/showProducts", {
+        title: "Productos en lote",
+        errorMessage: "No hay productos en este lote",
+        lots: [],
+      });
+    }
+
     const formattedResults = results.map((product) => {
       const formattedTabla = product.tabla_origen
         .replace(/_/g, " ")
