@@ -18,18 +18,20 @@ userController.login = (req, res) => {
         errorMessage: "Usuario o contraseña incorrectos",
       });
     } else {
-      const { rol, nombre } = results[0];
+      const { rol, nombre, id_usuario } = results[0];
 
       if (rol === "Administrador") {
         req.session.user = {
           user: nombre,
           rol: rol,
+          idUser: id_usuario,
         };
         res.redirect("/admin");
       } else if (rol === "Operador") {
         req.session.user = {
           user: nombre,
           rol: rol,
+          idUser: id_usuario,
         };
         res.redirect("/admin");
       }

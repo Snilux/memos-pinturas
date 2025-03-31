@@ -19,7 +19,7 @@ describe proveedores;
 describe lotes;
 
 
-
+describe pinturas_arquitectonicas;
 INSERT INTO pinturas_arquitectonicas (nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, codigo_trazabilidad, subcategoria) VALUES
 ('Pintura Vinílica Blanca', 'Blanco', '#FFFFFF', 'PV001', 6, 19.00, 1, 250.00, 400.00, 50, 'TRZ001', 'Vinílicas'),
 ('Pintura Sellador Transparente', 'Transparente', '#F8F8F8', 'PS002', 4, 10.00, 1, 300.00, 500.00, 30, 'TRZ002', 'Selladores');
@@ -113,7 +113,7 @@ WHERE nombre LIKE '%[tu_termino_de_busqueda]%' OR color_nombre LIKE '%[tu_termin
 -- Select all
 
 SELECT 'Pinturas Arquitectónicas' AS Tipo, id_producto, nombre, color_nombre, color_hex, codigo_pintura, subcategoria, nombre_proveedor, cantidad
-FROM pinturas_arquitectonicas
+FROM pinturas_arquitectonicas WHERE 
 
 UNION ALL
 

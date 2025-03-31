@@ -107,23 +107,23 @@ CREATE TABLE complementos (
 );
 ALTER TABLE complementos ADD COLUMN codigo_complemento VARCHAR (25) NOT NULL;
 describe complementos;
-
+SELECT * FROM complementos;
 drop table complementos;
 
 -- Tabla de Ventas (puede vender productos o complementos)
 CREATE TABLE ventas (
     id_venta INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT,
+    nombre_usuario VARCHAR(50),
     producto_id INT NULL,
     complemento_id INT NULL,
     cantidad_vendida INT,
     precio_total_venta DECIMAL(10,2),
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    codigo_trazabilidad VARCHAR(50) UNIQUE NOT NULL,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE SET NULL,
-    FOREIGN KEY (producto_id) REFERENCES productos_base(id_producto) ON DELETE SET NULL,
-    FOREIGN KEY (complemento_id) REFERENCES complementos(id_complemento) ON DELETE SET NULL
+    codigo_trazabilidad VARCHAR(50) UNIQUE NULL
+
 );
+DROP TABLE ventas;
+
 
 -- Tabla de Movimientos de Inventario
 CREATE TABLE movimientos_inventario (
