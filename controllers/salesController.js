@@ -3,6 +3,7 @@ const connection = require("../config/db");
 const salesController = {};
 
 salesController.findByCode = (req, res) => {
+  // console.log("Código recibido:", req.params.code);
   try {
     const decodedCodeParam = decodeURIComponent(req.params.code);
     const codeObject = JSON.parse(decodedCodeParam);
@@ -58,10 +59,10 @@ salesController.findByCode = (req, res) => {
     }
 
     // Si no es válido o no se reconoce el tipo
-    if (!isValid || !itemType) {
-      console.error("Objeto recibido inválido o incompleto:", codeObject);
-      return res.status(400).send("Datos de búsqueda inválidos o incompletos.");
-    }
+    // if (!isValid || !itemType) {
+    //   console.error("Objeto recibido inválido o incompleto:", codeObject);
+    //   return res.status(400).send("Datos de búsqueda inválidos o incompletos.");
+    // }
 
     // console.log(
     //   `Buscando ${itemType} en tabla ${tableName} con params:`,
@@ -222,7 +223,7 @@ salesController.finalizeSale = async (req, res) => {
     const itemQuantity = parseInt(item.quantity, 10);
     if (isNaN(itemQuantity) || itemQuantity <= 0) {
       console.warn("Cantidad inválida o cero encontrada para el item:", item);
-      return; 
+      return;
     }
 
     if (item.type === "pintura" && item.productId != null) {

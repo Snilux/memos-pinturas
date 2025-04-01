@@ -1,32 +1,62 @@
 <%- include('../../partials/head.ejs') %>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
 <link rel="stylesheet" href="/stylesheets/userStyles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
 
-  <section class="contenedor login" id="sectionFormulario">
-    <h2 class="heading__login">Journey</h2>
-    <form class="formulario__login" id="formularioLogin" method="post" action="/admin/providers/save/<%= provider.id_proveedor %>">
-      <h1 class="heading__formulario">Añadir Proveedor</h1>
-      <input type="text" class="input__formulario" placeholder="Nombre de la empresa " id="inputEmpresa" name="nombre_empresa" value="<%= provider.nombre_empresa %>">
-      <input type="text" class="input__formulario" placeholder="Telefono " id="inputTelefono" name="telefono" value="<%= provider.telefono %>">
-      <input type="text" class="input__formulario" placeholder="Correo electronico" id="inputCorreo" name="email" value="<%= provider.email %>">
-      <input type="submit" class="submit__formulario" value="Guardar" id="submitAñadir">
-      <a href="/admin/providers" class="submit__formulario">Volver</a>
-    </form>
+  <main class="main-content">
+    <div class="page-header">
+      <h1><i class="fas fa-truck-loading"></i> Añadir Proveedor</h1>
+    </div>
 
-  </section>
+    <div class="contenedor form-container">
+      <form class="formulario" id="formularioLogin" method="post"
+        action="/admin/providers/save/<%= provider.id_proveedor %>">
+        <div class="campo">
+          <label for="inputEmpresa"><i class="fas fa-building"></i> Nombre de la empresa</label>
+          <div class="input-container">
+            <input type="text" class="input-field" placeholder="Nombre de la empresa" id="inputEmpresa"
+              name="nombre_empresa" value="<%= provider.nombre_empresa %>" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="inputTelefono"><i class="fas fa-phone"></i> Teléfono</label>
+          <div class="input-container">
+            <input type="text" class="input-field" placeholder="Teléfono" id="inputTelefono" name="telefono"
+              value="<%= provider.telefono %>" required>
+          </div>
+        </div>
+
+        <div class="campo campo-completo">
+          <label for="inputCorreo"><i class="fas fa-envelope"></i> Correo electrónico</label>
+          <div class="input-container">
+            <input type="email" class="input-field" placeholder="Correo electrónico" id="inputCorreo" name="email"
+              value="<%= provider.email %>" required>
+          </div>
+        </div>
+
+        <div class="botones">
+          <a href="/admin/providers" class="btn btn-cancelar">
+            <i class="fas fa-arrow-left"></i> Volver
+          </a>
+          <button type="submit" class="btn btn-guardar" id="submitAñadir">
+            <i class="fas fa-save"></i> Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
 
   <script src="/javascripts/appAdminProviders.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    var errorMessage =
-      "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
-    var successMessage =
-      "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
   </script>
 </body>
 

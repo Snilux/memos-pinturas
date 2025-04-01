@@ -6,34 +6,62 @@
 
 <body>
   <%- include('../partials/navAdmin.ejs') %>
-
-  <!-- Inicia Menu -->
   <%- include('../partials/dropdownMenu.ejs') %>
 
+  <main class="main-content">
+    <div class="page-header">
+      <h1><i class="fas fa-user-plus"></i> Crea un usuario</h1>
+    </div>
 
-  <!-- Contenido -->
-  <section class="contenedor login" id="sectionFormulario">
-    <h2 class="heading__login">Journey</h2>
+    <div class="contenedor form-container">
+      <form class="formulario" id="formularioLogin" method="post" action="/users/add">
+        
+        <div class="campo">
+          <label for="inputUsuario"><i class="fas fa-user"></i> Nombre</label>
+          <div class="input-container">
+            <input type="text" class="input-field" placeholder="Nombre" id="inputUsuario" name="user" required>
+          </div>
+        </div>
 
-    <form class="formulario__login" id="formularioLogin" method="post" action="/users/add">
-      <h1 class="heading__formulario">Crea un usuario</h1>
+        <div class="campo">
+          <label for="inputCorreo"><i class="fas fa-envelope"></i> Correo electrónico</label>
+          <div class="input-container">
+            <input type="email" class="input-field" placeholder="Correo electrónico" id="inputCorreo" name="email" required>
+          </div>
+        </div>
 
-      <input type="text" class="input__formulario" placeholder="Nombre " id="inputUsuario" name="user">
-      <input type="email" class="input__formulario" placeholder="Correo electronico " id="inputCorreo" name="email">
-      <input type="password" class="input__formulario" placeholder="Contraseña" id="inputPassword" name="password">
-      <select class="input__formulario" id="inputRol" name="rol">
-        <option value="" disabled selected>Selecciona un rol</option>
-        <option value="administrador">Administrador</option>
-        <option value="operador">Operador</option>
-      </select>
-      <input type="submit" class="submit__formulario" value="Registrarte" id="submitLogin">
-      <a href="/users" class="submit__formulario">Volver</a>
+        <div class="campo">
+          <label for="inputPassword"><i class="fas fa-lock"></i> Contraseña</label>
+          <div class="input-container">
+            <input type="password" class="input-field" placeholder="Contraseña" id="inputPassword" name="password" required>
+          </div>
+        </div>
 
-    </form>
+        <div class="campo">
+          <label for="inputRol"><i class="fas fa-user-tag"></i> Rol</label>
+          <div class="input-container">
+            <select class="input-field" id="inputRol" name="rol" required>
+              <option value="" disabled selected>Selecciona un rol</option>
+              <option value="administrador">Administrador</option>
+              <option value="operador">Operador</option>
+            </select>
+          </div>
+        </div>
 
+        <div class="botones">
+          <a href="/users" class="btn btn-cancelar">
+            <i class="fas fa-arrow-left"></i> Volver
+          </a>
+          <button type="submit" class="btn btn-guardar" id="submitLogin">
+            <i class="fas fa-save"></i> Registrarte
+          </button>
+        </div>
 
-  </section>
-  <!-- SweetAlert2 -->
+      </form>
+    </div>
+  </main>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/javascripts/appPanelAdministrarion.js"></script>
   <script src="/javascripts/appUsers.js"></script>
@@ -41,7 +69,5 @@
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
   </script>
 
-
 </body>
-
 </html>

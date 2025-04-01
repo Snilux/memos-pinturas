@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Puedes añadir verificaciones similares para subtotalEl, taxEl, etc. si son críticos
 
   // Configuración
-  const TAX_RATE = 0.16; // Ejemplo: IVA del 16% (0.16). Pon 0 si no aplica.
+  const TAX_RATE = 0; // Ejemplo: IVA del 16% (0.16). Pon 0 si no aplica.
 
   // --- Función para buscar detalles del producto en el backend ---
   // Llama a la API que creaste en el servidor
@@ -163,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- Función para añadir producto/complemento a la tabla HTML ---
   function addProductToTable(product, quantity = 1) {
     // console.log(">>> addProductToTable recibiendo:", product);
 

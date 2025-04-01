@@ -7,11 +7,10 @@ router.get("/", authUser.isAdmin, historyController.showMenu);
 
 router.get("/edited", authUser.isAdmin, historyController.showAllEdited);
 
-router.get("/sales", authUser.isAdmin, (req, res) => {
-  res.render("administration/history/historySales", {
-    title: "Historial de ventas",
-  });
-});
+router.get("/sales", authUser.isAdmin, historyController.showSales);
+
+router.get("/sales/showProducts/:id", authUser.isAdmin, historyController.showProductsInSales);
+
 router.get("/removed", authUser.isAdmin, historyController.showAllDeleted);
 
 router.get(

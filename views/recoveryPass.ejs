@@ -1,25 +1,46 @@
 <%- include('partials/head.ejs') %>
-<link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/loginStyles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
-  <section class="contenedor recuperar" id="sectionRecuperar">
-    <h2 class="heading__login">¿Olvidaste tu contraseña?</h2>
+  <div class="login-container">
 
-    <form class="formulario__login" id="formularioRecuperacion" method="post" action="/login/recoveryPass">
-      <h1 class="heading__formulario">Recuperar Contraseña</h1>
+    <section class="contenedor recuperar" id="sectionRecuperar">
 
-      <input type="email" class="input__formulario input__formulario-correo" placeholder="Correo electrónico" id="inputContraseña" name="email">
-      <input type="submit" class="submit__formulario" value="Recuperar Contraseña" id="recuperarContraseña">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="heading__formulario">Recuperar Contraseña</h1>
+        </div>
 
-      <a href="/login" class="enlace__formulario">Regresar</a>
-    </form>
+        <div class="card-body">
+          <form class="formulario__login" id="formularioRecuperacion" method="post" action="/login/recoveryPass">
+            <p class="recovery-text">Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu
+              contraseña.</p>
 
-    <div class="imagen__login">
-      <img src="/images/journey-logo.png" alt="Logo Journey" class="journey__imagen">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" class="input__formulario input__formulario-correo" placeholder="Correo electrónico"
+                  id="inputContraseña" name="email">
+              </div>
+            </div>
 
-    </div>
-  </section>
+            <button type="submit" class="submit__formulario" id="recuperarContraseña">
+              <i class="fa-solid fa-key"></i> Recuperar Contraseña
+            </button>
+
+            <div class="back-link">
+              <a href="/login" class="volver-link">
+                <i class="fa-solid fa-arrow-left"></i> Regresar
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+  </div>
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -28,7 +49,6 @@
     var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
   </script>
-
 </body>
 
 </html>

@@ -133,4 +133,56 @@ historyController.deleteRemoved = (req, res) => {
   });
 };
 
+historyController.showSales = (req, res) => {
+  const table = "ventas";
+  const query = `SELECT * FROM ?? ORDER BY id_venta DESC`;
+
+  connection.query(query, table, (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/admin/history");
+    }
+    console.log(results);
+
+    res.render("administration/history/historySales", {
+      title: "Historial de ventas",
+      sales: results,
+    });
+  });
+};
+
+const recoveryIDs = (id) => {
+  return new Promise((resolve, reject) => {
+    const table = "ventas";
+    const queryIDs = `SELECT producto_id, complemento_id FROM ?? WHERE id_venta = ?  `;
+
+    connection.query(queryIDs, [table, id], (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor ${err}`);
+        reject(err);
+      } else {
+        if (!results || results.length === 0) {
+          resolve({ productIDs: [], complementIDs: [] });
+        } else {
+          const productIDs = results.map((result) => result.producto_id);
+          const complementIDs = results.map((result) => result.complemento_id);
+          resolve({ productIDs, complementIDs });
+        }
+      }
+    });
+  });
+};
+
+historyController.showProductsInSales = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const ids = await recoveryIDs(id);
+    console.log("IDs recuperados:");
+    console.log(ids);
+    
+  } catch (error) {
+    return res.redirect("/admin/history/sales");
+  }
+};
 module.exports = historyController;

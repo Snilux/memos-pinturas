@@ -1,120 +1,90 @@
 <%- include('../partials/head.ejs') %>
-<script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
 <link rel="stylesheet" href="/stylesheets/userStyles.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
   <%- include('../partials/navAdmin.ejs') %>
-
-  <!-- Inicia Menu -->
   <%- include('../partials/dropdownMenu.ejs') %>
 
-  <!-- Contenido -->
-  <h1>Users</h1>
-  <div class="w-4/5 mx-auto mt-5">
-    <a href="/users/add" class="submit__formulario" style="background-color: black;">Agregar usuario</a>
+  <div class="main-content">
+    <div class="page-header">
+      <h1><i class="fas fa-users"></i> Usuarios</h1>
+    </div>
 
-    <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
-      <thead class="bg-gray-50">
-        <tr>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            ID
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Nombre
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Correo
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Contraseña
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Rol
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Acciones
-          </th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
-        <% if(users){ %>
-        <% for (let i = 0; i < users.length; i++) { %>
+    <div class="contenedor">
+      <div class="header-actions">
+        <a href="/users/add" class="btn btn-agregar"><i class="fas fa-plus"></i> Agregar usuario</a>
+      </div>
 
-        <tr>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-              <div class="flex-shrink-0 h-16 w-16">
-                <img class="h-16 w-16 rounded-full" src="/images/user-icon.png" alt="User icon">
-              </div>
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= users[i].id_usuario %>
-                  </di2xl </div>
+      <div class="tabla-container">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Contraseña</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(users){ %>
+            <% for (let i = 0; i < users.length; i++) { %>
+            <tr>
+              <td data-label="ID">
+                <div class="usuario-info">
+                  <div class="usuario-imagen">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="usuario-id">
+                    <%= users[i].id_usuario %>
+                  </div>
                 </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= users[i].nombre %>
+              </td>
+              <td data-label="Nombre" class="usuario-nombre">
+                <%= users[i].nombre %>
+              </td>
+              <td data-label="Correo" class="usuario-correo">
+                <%= users[i].email %>
+              </td>
+              <td data-label="Contraseña" class="usuario-pass">
+                <%= users[i].pass %>
+              </td>
+              <td data-label="Rol" class="usuario-rol">
+                <%= users[i].rol %>
+              </td>
+              <td data-label="Acciones">
+                <div class="acciones">
+                  <a href="/users/edit/<%= users[i].id_usuario %>" class="btn btn-accion btn-editar">
+                    <i class="fas fa-edit"></i> Editar
+                  </a>
+                  <a href="/users/delete/<%= users[i].id_usuario %>" class="btn btn-accion btn-eliminar">
+                    <i class="fas fa-trash"></i> Eliminar
+                  </a>
                 </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= users[i].email %>
+              </td>
+            </tr>
+            <% } %>
+            <% } else { %>
+            <tr>
+              <td colspan="6">
+                <div class="estado-vacio">
+                  <i class="fas fa-users fa-3x"></i>
+                  <h3>No hay usuarios registrados</h3>
+                  <p>Agrega un nuevo usuario para comenzar</p>
                 </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= users[i].pass %>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= users[i].rol %>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <a href="/users/edit/<%= users[i].id_usuario %>">Editar</a>
-                  <a href="/users/delete/<%= users[i].id_usuario %>">Eliminar</a>
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <% } %>
-        <% } %>
-      </tbody>
-    </table>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
-
-  <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/javascripts/appPanelAdministrarion.js"></script>
   <script>

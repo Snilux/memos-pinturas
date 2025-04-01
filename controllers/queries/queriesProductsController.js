@@ -31,35 +31,35 @@ module.exports = {
 
   searchAllProducts: `SELECT 'pinturas_arquitectonicas' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor
   FROM pinturas_arquitectonicas
-  WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
+  WHERE id_producto LIKE ? OR nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
 
   UNION ALL
 
   SELECT 'pinturas_en_aerosol' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor
   FROM pinturas_en_aerosol
-  WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
+  WHERE id_producto LIKE ? OR nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
 
   UNION ALL
 
   SELECT 'adhesivos_y_colorantes' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor
   FROM adhesivos_y_colorantes
-  WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
+  WHERE id_producto LIKE ? OR nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
 
   UNION ALL
 
   SELECT 'pinturas_industriales' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor
   FROM pinturas_industriales
-  WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
+  WHERE id_producto LIKE ? OR nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
 
   UNION ALL
 
   SELECT 'pinturas_automotrices' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor
   FROM pinturas_automotrices
-  WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
+  WHERE id_producto LIKE ? OR nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?
 
   UNION ALL
 
   SELECT 'pinturas_para_madera' AS tabla, id_producto, nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, imagen, subcategoria, nombre_proveedor
   FROM pinturas_para_madera
-  WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?;`,
+  WHERE id_producto LIKE ? OR nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ? OR codigo_pintura LIKE ?;`,
 };

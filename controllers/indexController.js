@@ -33,6 +33,7 @@ indexController.getAllRandomProducts = (req, res) => {
     if (err) {
       return;
     }
+    // console.log(results);
 
     return res.render("products", {
       title: "Productos",
@@ -44,17 +45,25 @@ indexController.getAllRandomProducts = (req, res) => {
 indexController.searchAllProducts = (req, res) => {
   const { selectBusqueda } = req.query;
   const table = categoriaMap[selectBusqueda];
+  console.log(table);
 
   if (!table) {
     return res.redirect("/products");
   }
 
-  const query = `SELECT imagen, precio_venta, color_nombre, color_hex, cantidad_litros FROM ${table}`; // Insertar el nombre de la tabla directamente
+  let query = ``;
+  if (table != "complementos") {
+    query = `SELECT imagen, precio_venta, color_nombre, color_hex, cantidad_litros FROM ${table}`; // Insertar el nombre de la tabla directamente
+  } else {
+    query = `SELECT producto, precio_unitario_venta, imagen, caracteristicas, codigo_complemento FROM ${table}`;
+  }
 
   connection.query(query, (err, results) => {
     if (err) {
       return res.redirect("/products");
     }
+    console.log(results);
+    
     res.render("searchProducts", {
       title: `Productos ${selectBusqueda} `,
       category: selectBusqueda,
@@ -71,7 +80,7 @@ indexController.searchProducts = (req, res) => {
     res.redirect("/products");
   }
   const searchTermWildcard = `%${value}%`;
-  const queryParams = Array(30).fill(searchTermWildcard);
+  const queryParams = Array(34).fill(searchTermWildcard);
 
   connection.query(query, queryParams, (err, results) => {
     if (err) {

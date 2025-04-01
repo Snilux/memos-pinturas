@@ -47,6 +47,10 @@
 
 
         <div class="productos-grid">
+
+
+
+          <% if(category != "Complementos") { %>
           <% if(products && products.length > 0) { %>
           <% for (let i = 0; i < products.length; i++) { %>
 
@@ -61,7 +65,8 @@
                 <h3 class="producto-titulo"><%= products[i].tabla %></h3>
                 <h3 class="producto-titulo"><%= products[i].nombre %></h3>
                 <p class="producto-precio">Precio: <span>$<%= products[i].precio_venta %></span></p>
-                <p class="producto-color-label">Color:<span class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
+                <p class="producto-color-label">Color:<span
+                    class="producto-color-valor"><%= products[i].color_nombre %></span> </p>
                 <p class="producto-capacidad">Capacidad: <span><%= products[i].cantidad_litros %> Lts</span></p>
               </div>
 
@@ -76,6 +81,31 @@
           <% } else { %>
           <p>No se encontraron productos.</p>
           <% } %>
+          <%}%>
+          
+          <% if(category == "Complementos") { %>
+          <% if(products && products.length > 0) { %>
+          <% for (let i = 0; i < products.length; i++) { %>
+
+          <!-- Producto 1 -->
+          <div class="producto-card">
+            <div class="producto-imagen">
+              <img src=/uploads/images/<%= products[i].imagen %> alt=<%= products[i].tabla_origen %>>
+            </div>
+
+            <div class="producto-info">
+              <div class="producto-detalles">
+                <h3 class="producto-titulo"><%= products[i].producto %></h3>
+                <p class="producto-precio">Precio: <span>$ <%= products[i].precio_unitario_venta %> </span></p>
+              </div>
+            </div>
+          </div>
+
+          <%}%>
+            <% } else { %>
+          <p>No se encontraron productos.</p>
+          <% } %>
+          <%}%>
 
         </div>
 
@@ -85,16 +115,17 @@
   </main>
   <section class="enlace__contacto">
     <h1 class="enlace__contacto-titulo">¿No encontraste lo que buscabas?</h1>
-    <p class="enlace__contacto-subtitulo">Dirigete a la sección de <a class="enlace__contacto-liga" href="contacto.html">Contacto</a> y preguntanos acerca de los productos de tu interés.</p>
+    <p class="enlace__contacto-subtitulo">Dirigete a la sección de <a class="enlace__contacto-liga"
+        href="contacto.html">Contacto</a> y preguntanos acerca de los productos de tu interés.</p>
   </section>
 
   <%- include('partials/footer.ejs' )%>
-  <script src="/javascripts/appIndexCarrusel.js"></script>
+          <script src="/javascripts/appIndexCarrusel.js"></script>
 
-  <!-- jQuery -->
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-  <!-- Slick Carousel JS -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+          <!-- jQuery -->
+          <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+          <!-- Slick Carousel JS -->
+          <!-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="js/appSwiper.js"></script> -->
 
 </body>

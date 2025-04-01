@@ -16,6 +16,8 @@ module.exports = {
           (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'pinturas_automotrices' AS tabla_origen FROM pinturas_automotrices ORDER BY RAND() LIMIT 3)
           UNION ALL
           (SELECT color_nombre, color_hex, precio_venta, imagen, cantidad_litros, 'pinturas_para_madera' AS tabla_origen FROM pinturas_para_madera ORDER BY RAND() LIMIT 3)
+          UNION ALL
+          (SELECT producto, precio_unitario_venta, imagen, caracteristicas,codigo_complemento, 'complementos' AS tabla_origen FROM complementos order by rand() LIMIT 3)
         `,
 
   searchProducts: `
@@ -51,6 +53,10 @@ module.exports = {
         
         SELECT 'pinturas_para_madera' AS tabla, color_nombre, color_hex, precio_venta, imagen, cantidad_litros, subcategoria, nombre
         FROM pinturas_para_madera
-        WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ?;
-`,
+        WHERE nombre LIKE ? OR color_nombre LIKE ? OR cantidad_litros LIKE ? OR precio_venta LIKE ? OR subcategoria LIKE ?
+        UNION ALL
+        SELECT 'complementos' AS tabla, producto, caracteristicas, precio_unitario_venta,imagen,codigo_complemento,cantidad,lote_id
+        FROM complementos
+        WHERE producto LIKE ? OR caracteristicas LIKE ? OR precio_unitario_venta LIKE ? OR codigo_complemento LIKE ?;
+  `,
 };

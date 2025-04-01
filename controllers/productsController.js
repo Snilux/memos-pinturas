@@ -648,7 +648,7 @@ productsController.searchProducts = (req, res) => {
     res.redirect("/products");
   }
   const searchTermWildcard = `%${value}%`;
-  const queryParams = Array(36).fill(searchTermWildcard);
+  const queryParams = Array(42).fill(searchTermWildcard);
 
   connection.query(query, queryParams, (err, results) => {
     if (err) {

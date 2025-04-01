@@ -1,29 +1,56 @@
 <%- include('partials/head.ejs') %>
-<link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/loginStyles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
-  <img src="/images/journey-logo.png" alt="imagen Logo" id="imagenInicio" />
-  <section class="contenedor login" id="sectionFormulario">
-    <h2 class="heading__login">¡Hola de nuevo!</h2>
+  <div class="login-container">
+    <img src="/images/journey-logo.png" alt="imagen Logo" id="imagenInicio" class="logo-main" />
 
-    <form class="formulario__login" id="formularioLogin" method="post" action="/login">
-      <h1 class="heading__formulario">Iniciar Sesión</h1>
+    <section class="contenedor login" id="sectionFormulario">
+      <h2 class="heading__login">¡Bienvenido!</h2>
 
-      <input type="text" class="input__formulario" placeholder="Nombre de Usuario" id="user" name="user" />
-      <input type="password" class="input__formulario" placeholder="Contraseña" id="password" name="password" />
+      <div class="card">
+        <div class="card-header">
+          <h1 class="heading__formulario">Iniciar Sesión</h1>
+        </div>
 
+        <div class="card-body">
+          <form class="formulario__login" id="formularioLogin" method="post" action="/login">
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" class="input__formulario" placeholder="Nombre de Usuario" id="user" name="user" />
+              </div>
+            </div>
 
-      <input type="submit" class="submit__formulario" value="Iniciar Sesión" id="submitLogin" />
-      <a href="/" class="submit__formulario">Volver</a>
+            <div class="form-group">
+              <div class="input-container">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" class="input__formulario" placeholder="Contraseña" id="password"
+                  name="password" />
+              </div>
+            </div>
 
-      <a href="/login/recoveryPass" class="enlace__formulario">¿Olvidaste tu contraseña?</a>
-    </form>
+            <a href="/login/recoveryPass" class="enlace__formulario">
+              <i class="fa-solid fa-question-circle"></i> ¿Olvidaste tu contraseña?
+            </a>
 
-    <div class="imagen__login">
-      <img src="/images/journey-logo.png" alt="Logo Journey" class="journey__imagen" />
-    </div>
-  </section>
+            <button type="submit" class="submit__formulario" id="submitLogin">
+              <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+            </button>
+
+            <div class="back-link">
+              <a href="/" class="volver-link">
+                <i class="fa-solid fa-arrow-left"></i> Volver
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+  </div>
 
   <script src="/javascripts/appLogin.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -31,10 +58,6 @@
   <script>
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
   </script>
-
-
-
-
 </body>
 
 </html>
