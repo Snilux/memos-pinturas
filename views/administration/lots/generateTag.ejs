@@ -1,25 +1,33 @@
 <%- include('../../partials/head.ejs') %>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
-<link rel="stylesheet" href="/stylesheets/productsAdministration.css">
+<link rel="stylesheet" href="/stylesheets/userStyles.css">
 </head>
 
 <body>
     <%- include('../../partials/navAdmin.ejs') %>
     <%- include('../../partials/dropdownMenu.ejs') %>
 
-    <h1 class="heading__formulario">Etiquetas</h1>
+    <main class="main-content">
+        <header class="page-header">
+            <h1><i class="fas fa-box"></i> Administración de Lotes</h1>
+        </header>
 
-    <div class="contenedor">
+        <section class="contenedor lote-container">
+            <div class="lote-info">
+                <h2 class="lote-id">ID Lote: <%= tagValues.id_lote %></h2>
+            </div>
 
-        <h1><%= tagValues.id_lote %></h1>
-
-        <a href="/admin/lots/generateTag/<%= tagValues.id_lote  %>">Generar Etiqueta</a>
-    </div>
+            <div class="lote-actions">
+                <a href="/admin/lots/generateTag/<%= tagValues.id_lote %>" class="btn btn-generar-lote">
+                    Generar Etiqueta
+                </a>
+            </div>
+        </section>
+    </main>
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/javascripts/appPanelAdministrarion.js"></script>
-
 
     <script>
         var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";

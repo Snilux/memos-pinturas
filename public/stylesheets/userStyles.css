@@ -55,9 +55,16 @@ body {
 
 /* Encabezado de página */
 .page-header {
+  margin-top: 10rem;
   margin-bottom: 2rem;
   padding: 1rem 0;
   border-bottom: 2px solid var(--primary-light);
+}
+
+@media (max-width: 767px) {
+  .page-header {
+    margin-top: 5rem;
+  }
 }
 
 .page-header h1 {
@@ -92,6 +99,7 @@ body {
   flex-wrap: wrap;
   gap: 1.5rem;
   border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -425,4 +433,228 @@ body {
 
 .usuario-id {
   text-align: center;
+}
+/* Mejora para el scroll horizontal */
+
+/* Mejora para el scroll horizontal */
+.tabla-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 5px;
+}
+
+/* Estilo para el scrollbar */
+.tabla-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tabla-scroll::-webkit-scrollbar-track {
+  background: var(--background-color);
+  border-radius: 4px;
+}
+
+.tabla-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+
+.tabla-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Estilo para las filas de datos */
+.fila-datos {
+  position: relative;
+  background-color: #6b8cce33; /* Fondo azul claro semi-transparente */
+}
+
+.fila-datos:hover {
+  background-color: #6b8cce55; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Contenedor de acciones verticales */
+.acciones-verticales {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+/* Botones de acción verticales */
+.btn-accion-vertical {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  position: relative; /* Para posicionar el tooltip */
+}
+
+.btn-accion-vertical:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Colores para los botones */
+.btn-ver {
+  background-color: #3b82f6; /* Azul */
+}
+
+.btn-ver:hover {
+  background-color: #2563eb;
+}
+
+.btn-generar {
+  background-color: #8b5cf6; /* Púrpura */
+}
+
+.btn-generar:hover {
+  background-color: #7c3aed;
+}
+
+.btn-editar {
+  background-color: var(--warning-color); /* Naranja/Amarillo */
+}
+
+.btn-editar:hover {
+  background-color: var(--warning-hover);
+}
+
+.btn-etiqueta {
+  background-color: #10b981; /* Verde */
+}
+
+.btn-etiqueta:hover {
+  background-color: #059669;
+}
+
+.btn-eliminar {
+  background-color: var(--danger-color); /* Rojo */
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background-color: var(--danger-hover);
+}
+
+/* Estilos para los tooltips */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 45px; /* Posición a la izquierda del botón */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+  .acciones-verticales {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .tabla td[data-label="Acciones"] {
+    padding-right: 0;
+  }
+
+  /* Ajuste de tooltips para móviles */
+  .tooltip::after {
+    right: auto;
+    left: 50%;
+    top: -35px;
+    transform: translateX(-50%);
+  }
+
+  .tooltip::before {
+    right: auto;
+    left: 50%;
+    top: -10px;
+    transform: translateX(-50%);
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+  }
+}
+
+/* ETIQUETA */
+
+.etiqueta-container,
+.lote-container {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.etiqueta-info h2,
+.lote-info h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.etiqueta-actions,
+.lote-actions {
+  margin-top: 2rem;
+}
+
+.btn-generar-producto,
+.btn-generar-lote {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.btn-generar-producto:hover,
+.btn-generar-lote {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
 }

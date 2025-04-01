@@ -61,7 +61,7 @@
                   <a href="/users/edit/<%= users[i].id_usuario %>" class="btn btn-accion btn-editar">
                     <i class="fas fa-edit"></i> Editar
                   </a>
-                  <a href="/users/delete/<%= users[i].id_usuario %>" class="btn btn-accion btn-eliminar">
+                  <a data-url="/users/delete/<%= users[i].id_usuario %>" class="btn btn-accion btn-eliminar">
                     <i class="fas fa-trash"></i> Eliminar
                   </a>
                 </div>
@@ -88,6 +88,30 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/javascripts/appPanelAdministrarion.js"></script>
   <script>
+
+
+    const deleteButtons = document.querySelectorAll(".btn-eliminar");
+    deleteButtons.forEach(button => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault(); 
+        let deleteUrl = this.getAttribute("data-url");
+        Swal.fire({
+          title: "¿Estás seguro?",
+          text: "No podrás revertir esta acción.",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Sí, eliminar",
+          cancelButtonText: "Cancelar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = deleteUrl;
+          }
+        });
+      });
+    });
+
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
   </script>
 </body>

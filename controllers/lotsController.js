@@ -459,7 +459,7 @@ lotsController.generateTag = (req, res) => {
         }
       );
 
-      return res.render("administration/complements/showTag", {
+      return res.render("administration/lots/showTag", {
         title: `Etiquetas`,
         tagValues: productData,
         qrCodeDataUrl: qrCodeDataUrl,

@@ -83,7 +83,6 @@
 
     <div class="contenedor etiqueta-producto">
 
-
         <h2>Código QR</h2>
         <div class="qr-code-container">
             <% if (typeof qrCodeDataUrl !== 'undefined' && qrCodeDataUrl) { %>
@@ -114,31 +113,9 @@
             <strong>Código Pintura:</strong>
             <span><%= tagValues.codigo_pintura || 'N/A' %></span>
 
-            <% if (tagValues.subcategoria) { %>
-            <strong>Subcategoría:</strong>
-            <span><%= tagValues.subcategoria %></span>
-            <% } %>
-
-            <% if (tagValues.nombre_proveedor) { %>
-            <strong>Proveedor:</strong>
-            <span><%= tagValues.nombre_proveedor %></span>
-            <% } %>
-
-            <strong>Presentación:</strong>
-            <span><%= tagValues.cantidad_litros ? `${tagValues.cantidad_litros} L` : 'N/A' %></span>
-
             <strong>Precio Venta:</strong>
             <span><%= typeof tagValues.precio_venta !== 'undefined' ? `$${parseFloat(tagValues.precio_venta).toFixed(2)}` : 'N/A' %></span>
 
-            <strong>Lote ID:</strong>
-            <span><%= tagValues.lote_id %></span>
-
-            <strong>Stock:</strong>
-            <span><%= tagValues.cantidad %></span>
-
-            <strong>ID :</strong>
-            <span><%= tagValues.id_producto %></span>
-            %>
         </div>
 
         <% if (typeof saveError !== 'undefined' && saveError) { %>
@@ -150,8 +127,9 @@
         <% } else { %>
         <p style="color: #888; text-align: center;">Detalles del producto no disponibles.</p>
         <% } %>
-
     </div>
+    <a href="">Imprimir</a>
+    <a class="btn-accion btn-editar" href="/admin/products">Volver</a>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/javascripts/appPanelAdministrarion.js"></script>

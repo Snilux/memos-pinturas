@@ -8,153 +8,94 @@
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
 
+  <div class="page-header">
+    <h1><i class="fas fa-truck-loading"></i> Provedores</h1>
+  </div>
 
+  <div class="contenedor">
+    <div class="header-actions">
+      <a href="/admin/lots/add" class="btn-agregar"><i class="fas fa-plus"></i> Agregar lote</a>
+    </div>
 
-  <h1>Providers</h1>
-  <div class="w-4/5 mx-auto mt-5">
-    <a href="/admin/lots/add" class="submit__formulario" style="background-color: black;">Agregar lote</a>
-
-    <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
-      <thead class="bg-gray-50">
-        <tr>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            ID
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Codigo
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Id de proveedor
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Proveedor
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Fecha llegada
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Fecha Caducidad
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Descripcion
-          </th>
-          <th scope="col" class="px-6 py-4 text-left text-2xl font-semibold text-gray-700 uppercase tracking-wider">
-            Acciones
-          </th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
-        <% if(lots){ %>
-        <% for (let i = 0; i < lots.length; i++) { %>
-
-        <tr>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= lots[i].id_lote  %>
-                </div>
+    <div class="tabla-container tabla-scroll">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Id de proveedor</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Fecha llegada</th>
+            <th scope="col">Fecha Caducidad</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(lots){ %>
+          <% for (let i = 0; i < lots.length; i++) { %>
+          <tr class="fila-datos">
+            <td data-label="ID"><%= lots[i].id_lote %></td>
+            <td data-label="Codigo"><%= lots[i].codigo_trazabilidad %></td>
+            <td data-label="Id de proveedor"><%= lots[i].proveedor_id %></td>
+            <td data-label="Proveedor"><%= lots[i].nombre_proveedor %></td>
+            <td data-label="Fecha llegada">
+              <% if (lots[i].fecha_llegada) { %>
+              <%= new Date(lots[i].fecha_llegada).toLocaleDateString() %>
+              <% } %>
+            </td>
+            <td data-label="Fecha Caducidad">
+              <% if (lots[i].fecha_caducidad) { %>
+              <%= new Date(lots[i].fecha_caducidad).toLocaleDateString() %>
+              <% } %>
+            </td>
+            <td data-label="Descripcion"><%= lots[i].descripcion %></td>
+            <td data-label="Acciones">
+              <div class="acciones-verticales">
+                <a href="/admin/lots/showProduct/<%= lots[i].id_lote %>" class="btn-accion-vertical btn-ver tooltip"
+                  data-tooltip="Ver productos">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a href="/admin/lots/generateCode/<%= lots[i].id_lote %>/<%= (new Date(lots[i].fecha_llegada).getMonth() + 1).toString().padStart(2, '0') %>/<%= new Date(lots[i].fecha_llegada).getFullYear() %>"
+                  class="btn-accion-vertical btn-generar tooltip" data-tooltip="Generar código">
+                  <i class="fas fa-barcode"></i>
+                </a>
+                <a href="/admin/lots/edit/<%= lots[i].id_lote %>/<%= lots[i].proveedor_id %>"
+                  class="btn-accion-vertical btn-editar tooltip" data-tooltip="Editar lote">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="/admin/lots/verifyTag/<%= lots[i].id_lote %>" class="btn-accion-vertical btn-etiqueta tooltip"
+                  data-tooltip="Ver etiqueta">
+                  <i class="fas fa-tag"></i>
+                </a>
+                <a class="btn-accion-vertical btn-eliminar delete-product tooltip" data-tooltip="Eliminar lote"
+                  data-url="/admin/lots/delete/<%= lots[i].id_lote %>">
+                  <i class="fas fa-trash"></i>
+                </a>
               </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= lots[i].codigo_trazabilidad %>
-                </div>
+            </td>
+          </tr>
+          <% } %>
+          <% } else { %>
+          <tr>
+            <td colspan="8">
+              <div class="estado-vacio">
+                <i class="fas fa-box-open fa-3x"></i>
+                <h3>No hay lotes registrados</h3>
+                <p>Agrega un nuevo lote para comenzar</p>
               </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= lots[i].proveedor_id %>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= lots[i].nombre_proveedor %>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <% if (lots[i].fecha_llegada) { %>
-                  <%= new Date(lots[i].fecha_llegada).toLocaleDateString() %>
-                  <% } %>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <% if (lots[i].fecha_caducidad) { %>
-                  <%= new Date(lots[i].fecha_caducidad).toLocaleDateString() %>
-                  <% } %>
-                </div>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <%= lots[i].descripcion %>
-                </div>
-              </div>
-            </div>
-          </td>
-
-          <td class="px-6 py-6 whitespace-nowrap">
-            <div class="flex items-center">
-
-              <div class="ml-6">
-                <div class="text-2xl font-semibold text-gray-900">
-                  <a href="/admin/lots/showProduct/<%= lots[i].id_lote %>">Ver productos</a>
-
-                  <a
-                    href="/admin/lots/generateCode/<%= lots[i].id_lote %>/<%= (new Date(lots[i].fecha_llegada).getMonth() + 1).toString().padStart(2, '0') %>/<%= new Date(lots[i].fecha_llegada).getFullYear() %>">Generar
-                    codigo</a>
-
-                  <a href="/admin/lots/edit/<%= lots[i].id_lote %>/<%= lots[i].proveedor_id %>">Editar</a>
-
-                  <a href="/admin/lots/verifyTag/<%= lots[i].id_lote %>">Etiqueta</a>
-
-                  <a class="delete-product" data-url="/admin/lots/delete/<%= lots[i].id_lote %>">Eliminar</a>
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <% } %>
-        <% } %>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <script src="/javascripts/appAdminLots.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    var errorMessage =
-      "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
-    var successMessage =
-      "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
   </script>
 </body>

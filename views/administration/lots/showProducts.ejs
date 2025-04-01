@@ -6,78 +6,95 @@
 <body>
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
+
+
   <section class="productos">
-    <% if (lots.length != 0) { %>
-    <h1>Productos para <%= lots[0].codigo_lote %></h1>
+    <h1 class="heading__lote">Productos para <%= lots[0].codigo_lote %></h1>
     <div class="productos-grid">
+      <% if (lots) { %>
       <% for (let i = 0; i < lots.length; i++) { %>
+
+
       <div class="producto-card">
         <div class="producto-imagen">
-          <img src=/uploads/images/<%= lots[i].imagen %> alt=<%= lots[i].Tipo %>>
+          <img src="/uploads/images/<%= lots[i].imagen %>" alt="<%= lots[i].Tipo %>">
         </div>
-        <div class="producto-info">
-          <div class="producto-detalles">
+
+        <div class="producto-content">
+          <div class="producto-header">
             <h3 class="producto-titulo">
               <%= lots[i].id_producto %>
-              <%= lots[i].Tipo %>
-              <%= lots[i].tabla_origen %>
-              <%= lots[i].subcategoria %>
+              <%= lots[i].Tipo %> <%= lots[i].tabla_origen %> <%= lots[i].subcategoria %>
             </h3>
-            <h3 class="producto-titulo">
+            <h3 class="producto-nombre">
               <%= lots[i].nombre %>
             </h3>
-            <p class="producto-precio">Codigo Pintura: <span>
-                <%= lots[i].codigo_pintura %>
-              </span></p>
-            <p class="producto-color-label">Color: <span class="producto-color-valor">
-                <%= lots[i].color_nombre %>
-              </span></p>
-            <p class="producto-precio">Cantidad caja: <span>
-                <%= lots[i].cantidad_caja %>
-              </span></p>
-            <p class="producto-precio">Cantidad litros: <span>
-                <%= lots[i].cantidad_litros %>
-              </span></p>
-
-            <p class="producto-precio">Precio compra: <span>$
-                <%= lots[i].precio_compra %>
-              </span></p>
-            <p class="producto-precio">Precio venta: <span>$
-                <%= lots[i].precio_venta %>
-              </span></p>
-            <p class="producto-precio">Cantidad: <span>
-                <%= lots[i].cantidad %>
-              </span></p>
-            <p class="producto-precio">Proveedor: <span>
-                <%= lots[i].nombre_proveedor %>
-              </span></p>
+            <div class="color-muestra">
+              <div class="color-circulo" style="background-color:<%= lots[i].color_hex %>;"></div>
+              <span class="color-nombre"><%= lots[i].color_nombre %></span>
+            </div>
           </div>
-          <div class="color-muestra">
-            <div class="color-circulo" style="background-color:<%= lots[i].color_hex %>;"> </div>
+
+          <div class="producto-info">
+            <div class="info-item">
+              <span class="info-label">Código Pintura:</span>
+              <span class="info-value"><%= lots[i].codigo_pintura %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Cantidad caja:</span>
+              <span class="info-value"><%= lots[i].cantidad_caja %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Cantidad litros:</span>
+              <span class="info-value"><%= lots[i].cantidad_litros %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Número lote:</span>
+              <span class="info-value"><%= lots[i].lote_id %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Precio compra:</span>
+              <span class="info-value precio">$<%= lots[i].precio_compra %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Precio venta:</span>
+              <span class="info-value precio">$<%= lots[i].precio_venta %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Cantidad:</span>
+              <span class="info-value"><%= lots[i].cantidad %></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Proveedor:</span>
+              <span class="info-value"><%= lots[i].nombre_proveedor %></span>
+            </div>
           </div>
         </div>
 
-        <div class="producto-accion">
-          <a class="btn-ver-mas"
+        <div class="producto-accion-lotes">
+          <a class="btn-accion btn-editar bt__lote1"
             href="/admin/products/edit/<%= lots[i].id_producto %>/<%= lots[i].tabla_origen %>/lots">
-            Editar <i class="fa-solid fa-pen-to-square"></i>
+            <i class="fa-solid fa-pen-to-square"></i> Editar
           </a>
-          <a class="btn-ver-mas delete-product"
+
+          <a class="btn-accion btn-eliminar bt__lote2"
             data-url="/admin/products/delete/<%= lots[i].id_producto %>/<%= lots[i].tabla_origen %>">
-            Eliminar <i class="fa-solid fa-trash"></i>
+            <i class="fa-solid fa-trash bt__lote2"></i> Eliminar
           </a>
+
+
         </div>
       </div>
+
       <% } %>
       <% } %>
     </div>
   </section>
+
   <script src="/javascripts/appPanelAdministrarion.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    var errorMessage =
-      "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
-    var successMessage =
-      "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
   </script>
 </body>

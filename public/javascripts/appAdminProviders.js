@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         confirmButtonText: "Sí, eliminar",
         cancelButtonText: "Cancelar",
       }).then((result) => {
+        
         if (result.isConfirmed) {
           window.location.href = deleteUrl; // Redirige si confirma
         }

@@ -97,7 +97,7 @@
         <hr>
 
 
-        <h2>Detalles del Producto</h2>
+        <h2>Detalles del Complemento</h2>
         <% if (typeof tagValues !== 'undefined' && tagValues) { %>
         <div class="product-details-grid">
             <strong>Nombre:</strong>
@@ -106,25 +106,13 @@
             <strong>Código Complemento:</strong>
             <span><%= tagValues.codigo_complemento || 'N/A' %></span>
 
-            <strong>Proveedor:</strong>
-            <span>Ipesa</span>
-
-
             <strong>Descripción:</strong>
             <span><%= tagValues.caracteristicas ? `${tagValues.caracteristicas} "` : 'N/A' %></span>
 
             <strong>Precio Venta:</strong>
             <span><%= typeof tagValues.precio_unitario_venta !== 'undefined' ? `$${parseFloat(tagValues.precio_unitario_venta).toFixed(2)}` : 'N/A' %></span>
 
-            <strong>Lote ID:</strong>
-            <span><%= tagValues.lote_id %></span>
-
-            <strong>Stock:</strong>
-            <span><%= tagValues.cantidad %></span>
-
-            <strong>ID :</strong>
-            <span><%= tagValues.id_complemento %></span>
-            %>
+            
         </div>
 
 
@@ -133,6 +121,9 @@
         <% } %>
 
     </div>
+    
+    <a href="">Imprimir</a>
+    <a href="admin/complements">Volver</a>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/javascripts/appPanelAdministrarion.js"></script>

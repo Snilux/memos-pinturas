@@ -11,6 +11,8 @@ router.get("/sales", authUser.isAdmin, historyController.showSales);
 
 router.get("/sales/showProducts/:id", authUser.isAdmin, historyController.showProductsInSales);
 
+router.get("/sales/delete/:id", authUser.isAdmin, historyController.deleteSale);
+
 router.get("/removed", authUser.isAdmin, historyController.showAllDeleted);
 
 router.get(

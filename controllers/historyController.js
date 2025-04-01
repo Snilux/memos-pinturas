@@ -173,16 +173,179 @@ const recoveryIDs = (id) => {
   });
 };
 
+const recoveryProducts = (itemsData) => {
+  console.log("Iniciando recoveryProducts con:", itemsData);
+  const suffixToTableMap = {
+    ARQ: { table: "pinturas_arquitectonicas", idColumn: "id_producto" },
+    AER: { table: "pinturas_en_aerosol", idColumn: "id_producto" },
+    ADH: { table: "adhesivos_y_colorantes", idColumn: "id_producto" },
+    IND: { table: "pinturas_industriales", idColumn: "id_producto" },
+    AUT: { table: "pinturas_automotrices", idColumn: "id_producto" },
+    MAD: { table: "pinturas_para_madera", idColumn: "id_producto" },
+    COM: { table: "complementos", idColumn: "id_complemento" },
+  };
+  return new Promise(async (resolve, reject) => {
+    if (!Array.isArray(itemsData) || itemsData.length === 0) {
+      console.log("recoveryProducts: No hay items para procesar.");
+      return resolve([]);
+    }
+
+    const queryPromises = itemsData.map((item) => {
+      const { id, suffix } = item;
+      const tableInfo = suffixToTableMap[suffix];
+
+      if (!tableInfo || id == null) {
+        console.warn(
+          `Sufijo '${suffix}' no reconocido o ID nulo para item:`,
+          item
+        );
+        return Promise.resolve(null);
+      }
+
+      return new Promise((resolveQuery, rejectQuery) => {
+        const query = `SELECT * FROM ?? WHERE ?? = ? LIMIT 1`;
+        const params = [tableInfo.table, tableInfo.idColumn, id];
+        connection.query(query, params, (err, results) => {
+          if (err) {
+            console.error(
+              `Error al consultar ${tableInfo.table} con ID ${id}:`,
+              err
+            );
+            rejectQuery(err);
+          } else {
+            if (results && results.length > 0) {
+              results[0].itemType = tableInfo.table;
+              results[0].originalSuffix = suffix;
+              resolveQuery(results[0]);
+            } else {
+              console.warn(
+                `Item con ID ${id} y sufijo ${suffix} no encontrado en tabla ${tableInfo.table}.`
+              );
+              resolveQuery(null);
+            }
+          }
+        });
+      });
+    });
+    try {
+      const allResults = await Promise.all(queryPromises);
+
+      const foundItems = allResults.filter((result) => result !== null);
+
+      resolve(foundItems);
+    } catch (error) {
+      console.error(
+        "Error durante la ejecución de Promise.all en recoveryProducts:",
+        error
+      );
+      reject(error);
+    }
+  });
+};
+
 historyController.showProductsInSales = async (req, res) => {
   const { id } = req.params;
-
   try {
     const ids = await recoveryIDs(id);
-    console.log("IDs recuperados:");
-    console.log(ids);
-    
+
+    const productsArray = [];
+    const complementsArray = [];
+
+    if (
+      ids &&
+      Array.isArray(ids.productIDs) &&
+      ids.productIDs.length > 0 &&
+      ids.productIDs[0]
+    ) {
+      const productIdsString = ids.productIDs[0];
+      const productItems = productIdsString.split(",");
+
+      productItems.forEach((itemString) => {
+        const trimmedItem = itemString.trim();
+        if (trimmedItem) {
+          const parts = trimmedItem.split("+");
+          if (parts.length === 2) {
+            const parsedId = parseInt(parts[0], 10);
+            const suffix = parts[1];
+            if (!isNaN(parsedId) && suffix) {
+              productsArray.push({ id: parsedId, suffix: suffix });
+            } else {
+              console.warn(`Formato inválido en producto: '${trimmedItem}'`);
+            }
+          } else {
+            console.warn(
+              `Formato inválido en producto (sin '+'): '${trimmedItem}'`
+            );
+          }
+        }
+      });
+    } else {
+      console.log("No se encontraron IDs de productos para procesar.");
+    }
+
+    if (
+      ids &&
+      Array.isArray(ids.complementIDs) &&
+      ids.complementIDs.length > 0 &&
+      ids.complementIDs[0]
+    ) {
+      const complementIdsString = ids.complementIDs[0];
+      const complementItems = complementIdsString.split(",");
+
+      complementItems.forEach((itemString) => {
+        const trimmedItem = itemString.trim();
+        if (trimmedItem) {
+          const parts = trimmedItem.split("+");
+          if (parts.length === 2) {
+            const parsedId = parseInt(parts[0], 10);
+            const suffix = parts[1];
+            if (!isNaN(parsedId) && suffix) {
+              complementsArray.push({ id: parsedId, suffix: suffix });
+            } else {
+              console.warn(`Formato inválido en complemento: '${trimmedItem}'`);
+            }
+          } else {
+            console.warn(
+              `Formato inválido en complemento (sin '+'): '${trimmedItem}'`
+            );
+          }
+        }
+      });
+    } else {
+      console.log("No se encontraron IDs de complementos para procesar.");
+    }
+
+    // console.log("Array de Productos Procesado:", productsArray);
+    // console.log("Array de Complementos Procesado:", complement sArray);
+    const allItemsToRecover = [...productsArray, ...complementsArray];
+
+    products = await recoveryProducts(allItemsToRecover);
+    console.log("Detalles completos recuperados:", products);
+
+    res.render("administration/history/historyProductsInSales", {
+      title: "Detalles de venta",
+      products: products,
+      saleId: id,
+    });
   } catch (error) {
+    console.error("Error en historyController.showProductsInSales:", error);
     return res.redirect("/admin/history/sales");
   }
 };
+
+historyController.deleteSale = (req, res) => {
+  const id = req.params.id;
+  const table = "ventas";
+  const query = `DELETE FROM ?? WHERE id_venta = ?`;
+
+  connection.query(query, [table, id], (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/admin/history/sales");
+    }
+
+    res.redirect("/admin/history/sales");
+  });
+};
+
 module.exports = historyController;

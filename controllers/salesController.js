@@ -195,16 +195,16 @@ salesController.finalizeSale = async (req, res) => {
   const { items, totalAmount } = req.body;
   const user = req.session.user.user;
 
-  if (
-    !items ||
-    !Array.isArray(items) ||
-    items.length === 0 ||
-    totalAmount == null
-  ) {
-    return res
-      .status(400)
-      .json({ message: "Datos de venta inválidos o incompletos." });
-  }
+  // if (
+  //   !items ||
+  //   !Array.isArray(items) ||
+  //   items.length === 0 ||
+  //   totalAmount == null
+  // ) {
+  //   return res
+  //     .status(400)
+  //     .json({ message: "Datos de venta inválidos o incompletos." });
+  // }
   if (!user) {
     return res.status(401).json({ message: "Usuario no autenticado." });
   }
@@ -213,73 +213,112 @@ salesController.finalizeSale = async (req, res) => {
   console.log("Items recibidos:", items);
 
   // 2. Separar IDs y Cantidades por tipo
-  const paintIds = [];
-  const complementIds = [];
-  let totalQuantity = 0; // Guardará las cantidades en el mismo orden que los items
+  const paintIdsWithSuffix = []; // Almacenará IDs de pintura con sufijo
+  const complementIdsWithSuffix = []; // Almacenará IDs de complemento con sufijo
+  let totalQuantity = 0; // Suma total de cantidades válidas
 
   items.forEach((item) => {
     let isValidItem = false;
-
     const itemQuantity = parseInt(item.quantity, 10);
+
+    // Validar cantidad primero
     if (isNaN(itemQuantity) || itemQuantity <= 0) {
       console.warn("Cantidad inválida o cero encontrada para el item:", item);
-      return;
+      return; // Saltar este item
     }
 
+    // Procesar según el tipo y añadir sufijo al ID correspondiente
     if (item.type === "pintura" && item.productId != null) {
-      paintIds.push(item.productId);
       isValidItem = true;
-    } else if (item.type === "complemento" && item.complementId != null) {
-      complementIds.push(item.complementId);
+      if (item.category === "pinturas_arquitectonicas") {
+        paintIdsWithSuffix.push(`${item.productId}+ARQ`); // Sufijo ARQ
+      } else if (item.category === "pinturas_en_aerosol") {
+        paintIdsWithSuffix.push(`${item.productId}+AER`);
+      } else if (item.category === "adhesivos_y_colorantes") {
+        paintIdsWithSuffix.push(`${item.productId}+ADH`);
+      } else if (item.category === "pinturas_industriales") {
+        paintIdsWithSuffix.push(`${item.productId}+IND`);
+      } else if (item.category === "pinturas_automotrices") {
+        paintIdsWithSuffix.push(`${item.productId}+AUT`);
+      } else if (item.category === "pinturas_para_madera") {
+        paintIdsWithSuffix.push(`${item.productId}+MAD`);
+      } else {
+        paintIdsWithSuffix.push(`${item.productId}+PIN`);
+      }
+    } else if (item.type === "complemento") {
+      // Asegúrate que el frontend envíe complementId para este tipo
       isValidItem = true;
+      complementIdsWithSuffix.push(`${item.complementId}+COM`); // Sufijo COM
     } else {
-      console.warn("Item inválido o tipo desconocido encontrado:", item);
+      console.warn("Item inválido o tipo/ID desconocido encontrado:", item);
     }
 
-    // Sumar la cantidad SI el item era válido
     if (isValidItem) {
-      totalQuantity += itemQuantity; // <--- SUMAR la cantidad al total
+      totalQuantity += itemQuantity;
     }
   });
 
-  const paintIdsString = paintIds.filter((id) => id !== null).join(",");
-  const complementIdsString = complementIds
-    .filter((id) => id !== null)
-    .join(",");
+  // 3. Convertir arrays de IDs (con sufijos) a strings separados por comas
+  const paintIdsString = paintIdsWithSuffix.join(",");
+  const complementIdsString = complementIdsWithSuffix.join(",");
 
-  if (
-    paintIds.filter((id) => id !== null).length === 0 &&
-    complementIds.filter((id) => id !== null).length === 0
-  ) {
-    return res.status(400).json({
-      message: "No hay productos o complementos válidos en la venta.",
-    });
-  }
+  // Verificar que tengamos items válidos procesados
 
-  console.log("IDs Pinturas:", paintIdsString);
-  console.log("IDs Complementos:", complementIdsString);
-  console.log("Cantidades:", totalQuantity);
-  console.log("Total Venta:", totalAmount);
+  // console.log("IDs Pinturas (con sufijo):", paintIdsString);
+  // console.log("IDs Complementos (con sufijo):", complementIdsString);
+  // console.log("Cantidad TOTAL:", totalQuantity);
+  // console.log("Total Venta:", totalAmount);
 
+  // --- Lógica de Base de Datos (¡Usa TRANSACCIONES!) ---
   try {
-    const saleTable = `ventas`;
+    // await connection.beginTransaction(); // DESCOMENTA para iniciar transacción
+
+    // 4. Insertar el registro ÚNICO de la venta
+    const saleTable = `ventas`; // Nombre real de tu tabla de ventas
+    const hoy = new Date();
+
+    // 2. Obtener el día, mes y año
+    let day = hoy.getDate();
+    let month = hoy.getMonth() + 1; // Los meses en JavaScript van de 0 a 11, por eso se suma 1
+    const year = hoy.getFullYear();
+
+    // 3. Asegurarse de que el día y el mes tengan dos dígitos (agregar un '0' al inicio si es necesario)
+    if (day < 10) {
+      day = "0" + day;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+
+    const paintIdsStringT = paintIdsString.replace(/\+/g, ":");
+    const complementIdsStringT = complementIdsString.replace(/\+/g, ":");
+
+    // console.log("IDs Pinturas (con sufijo):", paintIdsStringT);
+    // console.log("IDs Complementos (con sufijo):", complementIdsStringT);
+
+    const traceabilityCode = `${user}--${paintIdsStringT}--${complementIdsStringT}-C:${totalQuantity}-T:${totalAmount}-${day}/${month}/${year}`;
+    console.log("Código de trazabilidad:", traceabilityCode);
+
+    // !!! AJUSTA los nombres de columna a los de tu tabla 'ventas' !!!
     const queryInsertSale = `
             INSERT INTO ?? (
                 nombre_usuario,
-                producto_id,      -- Columna para IDs de pinturas
-                complemento_id,   -- Columna para IDs de complementos
-                cantidad_vendida,         -- Columna para cantidades (en orden)
-                precio_total_venta, -- Columna para el total
-                fecha         -- Opcional: Columna para la fecha
-            ) VALUES (?, ?, ?, ?, ?, NOW())`;
+                producto_id,     
+                complemento_id,   
+                cantidad_vendida,        
+                precio_total_venta, 
+                fecha,
+                codigo_trazabilidad        
+            ) VALUES (?, ?, ?, ?, ?, NOW(), ?)`;
 
     const insertParams = [
       saleTable,
       user,
-      paintIdsString, // String de IDs de pinturas
-      complementIdsString, // String de IDs de complementos
-      totalQuantity, // String de cantidades
-      totalAmount, // El total ya calculado
+      paintIdsString, // String con IDs + sufijo
+      complementIdsString, // String con IDs + sufijo
+      totalQuantity, // La SUMA total numérica
+      totalAmount, // El total monetario
+      traceabilityCode, // Código de trazabilidad
     ];
 
     connection.query(queryInsertSale, insertParams, (err, result) => {
