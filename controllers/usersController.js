@@ -9,7 +9,7 @@ userController.login = (req, res) => {
   connection.query(query, [user, password], (err, results) => {
     if (err) {
       console.error(`Error en la consulta ${err}`);
-      return res.status(500).send("Error del servidor");
+      return res.redirect("/login");
     }
 
     if (results.length === 0) {
@@ -18,20 +18,24 @@ userController.login = (req, res) => {
         errorMessage: "Usuario o contraseña incorrectos",
       });
     } else {
-      const { rol, nombre, id_usuario } = results[0];
+      const { rol, nombre, id_usuario, email, pass } = results[0];
 
-      if (rol === "Administrador") {
+      if (rol === "Administrador" && user == nombre && password == pass) {
         req.session.user = {
-          user: nombre,
-          rol: rol,
           idUser: id_usuario,
+          user: nombre,
+          email: email,
+          pass: pass,
+          rol: rol,
         };
         res.redirect("/admin");
-      } else if (rol === "Operador") {
+      } else if (rol === "Operador" && user == nombre && password == pass) {
         req.session.user = {
-          user: nombre,
-          rol: rol,
           idUser: id_usuario,
+          user: nombre,
+          email: email,
+          pass: pass,
+          rol: rol,
         };
         res.redirect("/admin");
       }
@@ -70,16 +74,52 @@ userController.recoveryPass = (req, res) => {
     }
   });
 };
-userController.addUser = (req, res) => {
-  const { user, email, password, rol } = req.body;
-  const query = `INSERT INTO usuarios (nombre, email, pass, rol) VALUES (?, ?, ?, ?)`;
-  connection.query(query, [user, email, password, rol], (err, results) => {
-    if (err) {
-      console.error(`Error en la consulta ${err}`);
-      return res.status(500).send("Error del servidor");
-    }
-    res.redirect("/users");
+
+const verifyEmailExists = (email) => {
+  const table = "usuarios";
+  const query = `SELECT email FROM ?? WHERE email = ?`;
+
+  return new Promise((resolve, reject) => {
+    connection.query(query, [table, email], (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor ${err}`);
+        reject();
+        return res.redirect("/admin");
+      }
+      if (results.length > 0) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
   });
+};
+
+userController.addUser = async (req, res) => {
+  const { user, email, password, rol } = req.body;
+
+  const verifyEmailExistsPromise = await verifyEmailExists(email);
+  console.log(verifyEmailExistsPromise);
+
+  if (verifyEmailExistsPromise) {
+    return res.render("users/addUser", {
+      title: "Agregar usuario",
+      errorMessage: "El email ya existe",
+    });
+  } else {
+    const query = `INSERT INTO usuarios (nombre, email, pass, rol) VALUES (?, ?, ?, ?)`;
+    connection.query(query, [user, email, password, rol], (err, results) => {
+      if (err) {
+        console.error(`Error en la consulta ${err}`);
+        return res.status(500).send("Error del servidor");
+      }
+
+      return res.render("users/addUser", {
+        title: "Agregar usuario",
+        successMessage: "Usuario agregado correctamente",
+      });
+    });
+  }
 };
 
 userController.showUsers = (req, res) => {
@@ -116,6 +156,7 @@ userController.editUser = (req, res) => {
     });
   });
 };
+
 userController.updateUser = (req, res) => {
   const { id } = req.params;
   const { user, email, password, rol } = req.body;

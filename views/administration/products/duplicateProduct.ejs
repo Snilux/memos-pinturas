@@ -35,13 +35,13 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Litros</label>
+                  <label>Litros (<%= liters %>)</label>
                   <div class="input-container">
                     <i class="fa-solid fa-fill-drip"></i>
                     <select name="cantidad_litros" id="inputLitros" required>
-                      <option value="1" <%= product.cantidad_litros == 1 ? 'selected' : '' %>>1 Litro</option>
-                      <option value="4" <%= product.cantidad_litros == 4 ? 'selected' : '' %>>4 Litros</option>
-                      <option value="19" <%= product.cantidad_litros == 19 ? 'selected' : '' %>>19 Litros</option>
+                      <option value="" disabled selected>Selecciona una opción </option>
+
+                      <option selected value="<%= product.litros %>"><%= product.litros %> Litros</option>
                     </select>
                   </div>
                 </div>

@@ -8,6 +8,8 @@ const lotsRoutes = require("./administrationLotsRoutes");
 const historyRoutes = require("./administrationHistoryRoutes");
 const salesRoutes = require("./administrationSalesRoutes");
 const complementsRoutes = require("./administrationComplementsRoutes");
+const accountsRoutes = require("./administrationAccountRoutes");
+
 
 router.get("/", authUser.isAdmOrOp, (req, res, next) => {
   res.render("administration/panelAdministration", {
@@ -25,6 +27,8 @@ router.use("/history", historyRoutes);
 router.use("/sales", salesRoutes);
 
 router.use("/complements", complementsRoutes);
+
+router.use("/account", accountsRoutes);
 
 router.get("/products", authUser.isAdmOrOp, productsController.ShowAllProducts);
 

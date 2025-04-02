@@ -20,15 +20,17 @@ function setupEventListeners() {
 
     if (producto) {
       document.getElementById("inputCategoria").value = producto.categoria;
-      document.getElementById("inputSubCategoria").value = producto.subcategoria;
-      document.getElementById("inputNombreProducto").value = producto.nombreProducto;
+      document.getElementById("inputSubCategoria").value =
+        producto.subcategoria;
+      document.getElementById("inputNombreProducto").value =
+        producto.nombreProducto;
       document.getElementById("colorInput").value = producto.color || "";
-      
+
       const colorInput = document.getElementById("nombreColor");
       colorInput.value = producto.colorHex || "#000000";
-    
+
       document.getElementById("inputProveedor").value = "Ipesa";
-    
+
       setOrReplaceInput("inputLitros", producto.litros, producto.piezasCaja);
       setOrReplaceInput("inputCompra", producto.preciosCompra);
     } else {
@@ -36,13 +38,13 @@ function setupEventListeners() {
       document.getElementById("inputSubCategoria").value = "";
       document.getElementById("inputNombreProducto").value = "";
       document.getElementById("colorInput").value = "";
-    
+
       const colorInput = document.getElementById("nombreColor");
       colorInput.value = "#000000"; // Valor por defecto para evitar errores
       colorInput.style.backgroundColor = "transparent";
-    
+
       document.getElementById("inputProveedor").value = "";
-    
+
       setOrReplaceInput("inputLitros", []);
     }
   });
@@ -122,7 +124,7 @@ function setOrReplaceInput(id, valores, piezasCaja) {
   valores.forEach((valor, index) => {
     const option = document.createElement("option");
     option.value = valor;
-    option.textContent = `${valor} Litro${valor > 1 ? 's' : ''}`;
+    option.textContent = `${valor} Litro${valor > 1 ? "s" : ""}`;
     option.dataset.piezas = piezasCaja[index]; // Guarda las piezas en un data attribute
     select.appendChild(option);
   });
@@ -136,5 +138,3 @@ function setOrReplaceInput(id, valores, piezasCaja) {
     inputCajas.value = piezasSeleccionadas || "";
   });
 }
-
-

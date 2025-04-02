@@ -39,12 +39,17 @@ productsController.ShowAllProducts = (req, res) => {
 };
 
 productsController.add = (req, res) => {
+
+  console.log(req.body);
+  
+
   let imagePath = null;
   if (req.file) {
     imagePath = req.file.filename;
     console.log("Ruta de la imagen:", imagePath);
   } else {
-    console.log("No se subió la imagen");
+    imagePath = req.body.currentImagePath;
+    console.log("Ruta de la imagen actual:", imagePath);
   }
   const {
     tabla_categoria,
@@ -53,7 +58,7 @@ productsController.add = (req, res) => {
     color_hex,
     codigo_pintura,
     cantidad_caja,
-    litros,
+    cantidad_litros,
     lote_id,
     precio_compra,
     precio_venta,
@@ -75,7 +80,7 @@ productsController.add = (req, res) => {
         color_hex,
         codigo_pintura,
         cantidad_caja,
-        litros,
+        cantidad_litros,
         lote_id,
         precio_compra,
         precio_venta,
@@ -93,6 +98,7 @@ productsController.add = (req, res) => {
             title: "Añadir productos",
             data: req.session.user,
             successMessage: "El producto se agrego correctamente",
+
           });
         }
       }
@@ -310,16 +316,17 @@ productsController.edit = (req, res) => {
 
   connection.query(query, [id], (err, results) => {
     if (err) {
-      if (err) {
-        console.error(`Error en la consulta ${err}`);
-        return res.status(500).send("Error del servidor");
-      }
+      console.error(`Error en la consulta ${err}`);
+      return res.status(500).send("Error del servidor");
     }
+    console.log(results);
+
     res.render("administration/products/editProduct", {
       product: results[0],
       path: path,
       category: categoria,
       title: "Editar producto",
+      liters: results[0].cantidad_litros,
       data: req.session.user,
     });
   });
@@ -430,6 +437,7 @@ productsController.save = async (req, res) => {
                 data: req.session.user,
                 path: url,
                 successMessage: "Producto editado con éxito",
+                liters: "",
               });
             } else {
               res.render("administration/products/editProduct", {
@@ -439,6 +447,7 @@ productsController.save = async (req, res) => {
                 data: req.session.user,
                 path: url,
                 successMessage: "Producto en lote editado con éxito",
+                liters: "",
               });
             }
           }
@@ -515,15 +524,15 @@ productsController.duplicate = (req, res) => {
 
   connection.query(query, [id], (err, results) => {
     if (err) {
-      if (err) {
-        console.error(`Error en la consulta ${err}`);
-        return res.status(500).send("Error del servidor");
-      }
+      console.error(`Error en la consulta ${err}`);
+      return res.status(500).send("Error del servidor");
     }
+
     res.render("administration/products/duplicateProduct", {
       product: results[0],
       category: categoria,
       title: "Duplicar producto",
+      liters: results[0].cantidad_litros,
       data: req.session.user,
     });
   });

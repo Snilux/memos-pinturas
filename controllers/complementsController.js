@@ -25,12 +25,14 @@ complementsController.showAllComplements = (req, res) => {
 
 complementsController.addComplement = (req, res) => {
   let imagePath = null;
+  console.log(req.body);
 
   if (req.file) {
     imagePath = req.file.filename;
     console.log("Ruta de la imagen:", imagePath);
   } else {
-    console.log("No se subió la imagen");
+    imagePath = req.body.currentImagePath;
+    console.log("No se subió la imagen nueva");
   }
   //   console.log(imagePath);
   //   console.log(req.body);
@@ -221,7 +223,7 @@ complementsController.duplicateComplement = (req, res) => {
       console.log(`Error en el servidor ${err}`);
       return res.redirect("/admin/complements");
     }
-    console.log(results);
+    // console.log(results);
 
     return res.render("administration/complements/duplicateComplement", {
       title: "Duplicar complemento",

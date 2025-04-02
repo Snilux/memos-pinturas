@@ -15,7 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
       icon: "error",
       confirmButtonText: "Aceptar",
     }).then(() => {
-      window.location.href = `/admin`;
+      if (errorMessage == "El email ya existe") {
+        window.location.href = `/users/add`;
+      }else{
+
+        window.location.href = `/admin`;
+      }
+
     });
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.pathname);
@@ -48,6 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (successMessage == "Complemento actualizado correctamente") {
         setTimeout(() => {
           window.location.href = `/admin/complements`;
+        }, 1000);
+      } else if (successMessage == "Usuario agregado correctamente") {
+        setTimeout(() => {
+          window.location.href = `/users/add`;
         }, 1000);
       } else {
         setTimeout(() => {
