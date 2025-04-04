@@ -1194,9 +1194,9 @@
     "subcategoria": "Vinílicas",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1313",
@@ -1205,9 +1205,9 @@
     "subcategoria": "Vinílicas",
     "color": "Blanco Ostión",
     "colorHex": "#EAEAEA",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1303",
@@ -1216,9 +1216,9 @@
     "subcategoria": "Vinílicas",
     "color": "Arena",
     "colorHex": "#B87333",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1309",
@@ -1227,9 +1227,9 @@
     "subcategoria": "Vinílicas",
     "color": "Azul",
     "colorHex": "#0000FF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1312",
@@ -1238,9 +1238,9 @@
     "subcategoria": "Vinílicas",
     "color": "Azul Eterno",
     "colorHex": "#0074D9",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1305",
@@ -1249,9 +1249,9 @@
     "subcategoria": "Vinílicas",
     "color": "Chabacano",
     "colorHex": "#FFCBA4",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1301",
@@ -1260,9 +1260,9 @@
     "subcategoria": "Vinílicas",
     "color": "Flamingo",
     "colorHex": "#FFD1DC",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1304",
@@ -1271,9 +1271,9 @@
     "subcategoria": "Vinílicas",
     "color": "Marfil",
     "colorHex": "#F8F4E3",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1306",
@@ -1282,9 +1282,9 @@
     "subcategoria": "Vinílicas",
     "color": "Naranja",
     "colorHex": "#FFA500",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1311",
@@ -1293,9 +1293,9 @@
     "subcategoria": "Vinílicas",
     "color": "Salmón",
     "colorHex": "#FA8072",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1308",
@@ -1304,9 +1304,9 @@
     "subcategoria": "Vinílicas",
     "color": "Turquesa",
     "colorHex": "#40E0D0",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1310",
@@ -1315,9 +1315,9 @@
     "subcategoria": "Vinílicas",
     "color": "Verde Manzana",
     "colorHex": "#A8E05F",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$150.00", "$610.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1381",
@@ -1326,9 +1326,9 @@
     "subcategoria": "Bases",
     "color": "Base lv1",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$140.00", "$559.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1382",
@@ -1339,7 +1339,7 @@
     "colorHex": "#FFFFFF",
     "litros": [4, 19],
     "preciosCompra": ["", "$130.00", "$509.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1382",
@@ -1348,9 +1348,9 @@
     "subcategoria": "Bases",
     "color": "Base lv2",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$130.00", "$509.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1400",
@@ -1359,9 +1359,9 @@
     "subcategoria": "Vinílicas",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1409",
@@ -1370,9 +1370,9 @@
     "subcategoria": "Vinílicas",
     "color": "Blanco Ostión",
     "colorHex": "#EAEAEA",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1408",
@@ -1381,9 +1381,9 @@
     "subcategoria": "Vinílicas",
     "color": "Amarillo",
     "colorHex": "#FFFF00",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1405",
@@ -1392,9 +1392,9 @@
     "subcategoria": "Vinílicas",
     "color": "Azul Cascada",
     "colorHex": "#5B9BD5",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1402",
@@ -1403,9 +1403,9 @@
     "subcategoria": "Vinílicas",
     "color": "Azul Olimpia",
     "colorHex": "#0000FF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1410",
@@ -1414,9 +1414,9 @@
     "subcategoria": "Vinílicas",
     "color": "Durazno",
     "colorHex": "#FFDAB9",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1417",
@@ -1425,9 +1425,9 @@
     "subcategoria": "Vinílicas",
     "color": "Escarlata",
     "colorHex": "#B22222",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1403",
@@ -1436,9 +1436,9 @@
     "subcategoria": "Vinílicas",
     "color": "Mamey",
     "colorHex": "#FFDAB9",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1416",
@@ -1447,9 +1447,9 @@
     "subcategoria": "Vinílicas",
     "color": "Mandarina",
     "colorHex": "#FF8243",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1401",
@@ -1458,9 +1458,9 @@
     "subcategoria": "Vinílicas",
     "color": "Marfil",
     "colorHex": "#F8F4E3",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1411",
@@ -1469,9 +1469,9 @@
     "subcategoria": "Vinílicas",
     "color": "Pistache",
     "colorHex": "#77DD77",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1414",
@@ -1480,9 +1480,9 @@
     "subcategoria": "Vinílicas",
     "color": "Roble",
     "colorHex": "#B87333",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1413",
@@ -1491,9 +1491,9 @@
     "subcategoria": "Vinílicas",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1418",
@@ -1502,9 +1502,9 @@
     "subcategoria": "Vinílicas",
     "color": "Rojo Ligero",
     "colorHex": "#FF4D4D",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1407",
@@ -1513,9 +1513,9 @@
     "subcategoria": "Vinílicas",
     "color": "Turquesa Claro",
     "colorHex": "#7FFFD4",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1415",
@@ -1524,9 +1524,9 @@
     "subcategoria": "Vinílicas",
     "color": "Verde Manzana",
     "colorHex": "#A8E05F",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1406",
@@ -1535,9 +1535,9 @@
     "subcategoria": "Vinílicas",
     "color": "Violeta",
     "colorHex": "#8A2BE2",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$119.00", "$416.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1481",
@@ -1546,9 +1546,9 @@
     "subcategoria": "Bases",
     "color": "Base Cb1",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$109.00", "$365.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "0620",
@@ -1557,9 +1557,9 @@
     "subcategoria": "Tintas",
     "color": "Amarillo Organico",
     "colorHex": "#FFFF00",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$419.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0621",
@@ -1568,9 +1568,9 @@
     "subcategoria": "Tintas",
     "color": "B Negro",
     "colorHex": "#000000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$143.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0622",
@@ -1579,9 +1579,9 @@
     "subcategoria": "Tintas",
     "color": "Amarillo Óxido",
     "colorHex": "#C7B300",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$199.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0623",
@@ -1590,9 +1590,9 @@
     "subcategoria": "Tintas",
     "color": "D Verde",
     "colorHex": "#008000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$259.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0624",
@@ -1601,9 +1601,9 @@
     "subcategoria": "Tintas",
     "color": "E Azul",
     "colorHex": "#0000FF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$210.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0625",
@@ -1612,9 +1612,9 @@
     "subcategoria": "Tintas",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$274.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0626",
@@ -1623,9 +1623,9 @@
     "subcategoria": "Tintas",
     "color": "Café Óxido",
     "colorHex": "#B87333",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$264.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0627",
@@ -1634,9 +1634,9 @@
     "subcategoria": "Tintas",
     "color": "Kx Blanco",
     "colorHex": "#FFFFFF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$270.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0628",
@@ -1645,9 +1645,9 @@
     "subcategoria": "Tintas",
     "color": "L Ocre",
     "colorHex": "#C7B300",
-    "litros": [1, 0, 0],
+    "litros": [1],
     "preciosCompra": ["$167.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0629",
@@ -1656,9 +1656,9 @@
     "subcategoria": "Tintas",
     "color": "Rojo Organico",
     "colorHex": "#FF0000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$590.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0630",
@@ -1667,9 +1667,9 @@
     "subcategoria": "Tintas",
     "color": "Amarillo Medio",
     "colorHex": "#FFF200",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$583.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0631",
@@ -1678,9 +1678,9 @@
     "subcategoria": "Tintas",
     "color": "V Magenta",
     "colorHex": "#9400D3",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$574.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0620",
@@ -1689,9 +1689,9 @@
     "subcategoria": "Tintas",
     "color": "Amarillo Organico",
     "colorHex": "#FFFF00",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$419.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "0601",
@@ -1700,9 +1700,9 @@
     "subcategoria": "Tintas",
     "color": "Amarillo",
     "colorHex": "#FFFF00",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$294.00", "$1243.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "0605",
@@ -1711,9 +1711,9 @@
     "subcategoria": "Tintas",
     "color": "Azul",
     "colorHex": "#0000FF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$294.00", "$1243.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "0607",
@@ -1722,9 +1722,9 @@
     "subcategoria": "Tintas",
     "color": "Magenta",
     "colorHex": "#9400D3",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$294.00", "$1243.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "0602",
@@ -1733,9 +1733,9 @@
     "subcategoria": "Tintas",
     "color": "Naranja",
     "colorHex": "#FFA500",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$294.00", "$1243.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "0603",
@@ -1744,9 +1744,9 @@
     "subcategoria": "Tintas",
     "color": "Rojo",
     "colorHex": "#FF0000",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$294.00", "$1243.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "0606",
@@ -1755,9 +1755,9 @@
     "subcategoria": "Tintas",
     "color": "Verde",
     "colorHex": "#008000",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$294.00", "$1243.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "0604",
@@ -1766,9 +1766,9 @@
     "subcategoria": "Tintas",
     "color": "Violeta",
     "colorHex": "#8A2BE2",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$294.00", "$1243.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "5010",
@@ -2008,9 +2008,9 @@
     "subcategoria": "Esmaltes",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$465.00", "$2138.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "234",
@@ -2041,9 +2041,9 @@
     "subcategoria": "Esmaltes",
     "color": "Blanco Mate",
     "colorHex": "#F5F5F5",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1032",
@@ -2052,9 +2052,9 @@
     "subcategoria": "Esmaltes",
     "color": "Negro Mate",
     "colorHex": "#1C1C1C",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1000",
@@ -2063,9 +2063,9 @@
     "subcategoria": "Esmaltes",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["$47.00", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1014",
@@ -2074,9 +2074,9 @@
     "subcategoria": "Esmaltes",
     "color": "Negro",
     "colorHex": "#000000",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["$47.00", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1028",
@@ -2085,9 +2085,9 @@
     "subcategoria": "Esmaltes",
     "color": "Blanco Hueso",
     "colorHex": "#F8F4E3",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1019",
@@ -2096,9 +2096,9 @@
     "subcategoria": "Esmaltes",
     "color": "Blanco Ostión",
     "colorHex": "#EAEAEA",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1001",
@@ -2107,9 +2107,9 @@
     "subcategoria": "Esmaltes",
     "color": "Amarillo Cromo",
     "colorHex": "#FFD700",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1022",
@@ -2118,9 +2118,9 @@
     "subcategoria": "Esmaltes",
     "color": "Amarillo Limón",
     "colorHex": "#FDFD96",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1006",
@@ -2129,9 +2129,9 @@
     "subcategoria": "Esmaltes",
     "color": "Amarillo Mazatlán",
     "colorHex": "#FFFF00",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1003",
@@ -2140,9 +2140,9 @@
     "subcategoria": "Esmaltes",
     "color": "Amarillo Óxido",
     "colorHex": "#C7B300",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1015",
@@ -2151,9 +2151,9 @@
     "subcategoria": "Esmaltes",
     "color": "Azul De Prusia",
     "colorHex": "#003153",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1020",
@@ -2162,9 +2162,9 @@
     "subcategoria": "Esmaltes",
     "color": "Azul Holandés",
     "colorHex": "#1E3A5F",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1009",
@@ -2173,9 +2173,9 @@
     "subcategoria": "Esmaltes",
     "color": "Castaño",
     "colorHex": "#B87333",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1016",
@@ -2184,9 +2184,9 @@
     "subcategoria": "Esmaltes",
     "color": "Chocolate",
     "colorHex": "#B87333",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["$47.00", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1004",
@@ -2195,9 +2195,9 @@
     "subcategoria": "Esmaltes",
     "color": "Granada",
     "colorHex": "#B22222",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1026",
@@ -2206,9 +2206,9 @@
     "subcategoria": "Esmaltes",
     "color": "Marfil",
     "colorHex": "#F8F4E3",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1024",
@@ -2217,9 +2217,9 @@
     "subcategoria": "Esmaltes",
     "color": "Marrón",
     "colorHex": "#B87333",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1025",
@@ -2228,9 +2228,9 @@
     "subcategoria": "Esmaltes",
     "color": "Azul Cielo",
     "colorHex": "#87CEEB",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1021",
@@ -2239,9 +2239,9 @@
     "subcategoria": "Esmaltes",
     "color": "Gris Tornado",
     "colorHex": "#A9A9A9",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1008",
@@ -2250,9 +2250,9 @@
     "subcategoria": "Esmaltes",
     "color": "Rojo Cereza",
     "colorHex": "#B22222",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["$47.00", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1012",
@@ -2261,9 +2261,9 @@
     "subcategoria": "Esmaltes",
     "color": "Rojo Indio",
     "colorHex": "#FF0000",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1027",
@@ -2272,9 +2272,9 @@
     "subcategoria": "Esmaltes",
     "color": "Verde Intenso",
     "colorHex": "#008000",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1002",
@@ -2283,9 +2283,9 @@
     "subcategoria": "Esmaltes",
     "color": "Verde Pradera",
     "colorHex": "#3CB371",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1007",
@@ -2294,9 +2294,9 @@
     "subcategoria": "Esmaltes",
     "color": "Verde Real",
     "colorHex": "#008000",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1023",
@@ -2305,9 +2305,9 @@
     "subcategoria": "Esmaltes",
     "color": "Violeta",
     "colorHex": "#8A2BE2",
-    "litros": [0.25, 0.5, 1, 4, 19],
-    "preciosCompra": ["", "$72.00", "$115.00", "$430.00", "$1868.00"],
-    "piezasCaja": [12, 12, 6, 2, 1]
+    "litros": [1, 4, 19],
+    "preciosCompra": ["$115.00", "$430.00", "$1868.00"],
+    "piezasCaja": [6, 2, 1]
   },
   {
     "codigo": "1701",
@@ -2371,9 +2371,9 @@
     "subcategoria": "Esmaltes",
     "color": "Amarillo Sicotrans",
     "colorHex": "#FFFF00",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$397.00", "$1716.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1713",
@@ -2525,9 +2525,9 @@
     "subcategoria": "Esmaltes",
     "color": "Rojo Sicotrans",
     "colorHex": "#C41E3A",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$397.00", "$1716.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1704",
@@ -2679,9 +2679,9 @@
     "subcategoria": "Anticorrosivos",
     "color": "Economico",
     "colorHex": "#FFFFFF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$124.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "9040",
@@ -2690,9 +2690,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Terracota",
     "colorHex": "#7E2E0D",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$252.00", "$1050.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9041",
@@ -2701,9 +2701,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$252.00", "$1050.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9053",
@@ -2712,9 +2712,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Terracota",
     "colorHex": "#7E2E0D",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$233.00", "$952.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9052",
@@ -2723,9 +2723,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$233.00", "$952.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9050",
@@ -2734,9 +2734,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Terracota",
     "colorHex": "#7E2E0D",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$233.00", "$952.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9051",
@@ -2745,9 +2745,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$233.00", "$952.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9060",
@@ -2756,9 +2756,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Terracota",
     "colorHex": "#7E2E0D",
-    "litros": ["", "", 19],
+    "litros": [19],
     "preciosCompra": ["", "", "$716.00"],
-    "piezasCaja": ["", "", 1]
+    "piezasCaja": [1]
   },
   {
     "codigo": "9061",
@@ -2767,9 +2767,9 @@
     "subcategoria": "Impermeabilizantes",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", "", 19],
+    "litros": [19],
     "preciosCompra": ["", "", "$716.00"],
-    "piezasCaja": ["", "", 1]
+    "piezasCaja": [1]
   },
   {
     "codigo": "9000",
@@ -2789,9 +2789,9 @@
     "subcategoria": "Impermeabilizantes Asfálticos",
     "color": "Negro",
     "colorHex": "#000000",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$151.00", "$533.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9054",
@@ -2800,9 +2800,9 @@
     "subcategoria": "Impermeabilizantes Muros",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$418.00", "$1716.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "9063",
@@ -2811,9 +2811,9 @@
     "subcategoria": "Impermeabilizantes Muros",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$233.00", "$1005.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2172",
@@ -2822,9 +2822,9 @@
     "subcategoria": "Mate",
     "color": "Blanco Mate",
     "colorHex": "#F5F5F5",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2173",
@@ -2833,9 +2833,9 @@
     "subcategoria": "Mate",
     "color": "Negro Mate",
     "colorHex": "#1C1C1C",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2141",
@@ -2844,9 +2844,9 @@
     "subcategoria": "Mate",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2191",
@@ -2855,9 +2855,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Negro Satinado",
     "colorHex": "#000000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2170",
@@ -2866,9 +2866,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Blanco Brillante",
     "colorHex": "#FFFFFF",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2171",
@@ -2877,9 +2877,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Negro Brillante",
     "colorHex": "#0F0F0F",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2194",
@@ -2888,9 +2888,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2184",
@@ -2899,9 +2899,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Verde Hoja",
     "colorHex": "#228B22",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2175",
@@ -2910,9 +2910,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Verde Metálico",
     "colorHex": "#008000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2147",
@@ -2921,9 +2921,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Verde Óleo",
     "colorHex": "#008000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2144",
@@ -2932,9 +2932,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Amarillo Caterpilar",
     "colorHex": "#FFFF00",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2182",
@@ -2943,9 +2943,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Amarillo Limón",
     "colorHex": "#FDFD96",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2140",
@@ -2954,9 +2954,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Azul Cielo",
     "colorHex": "#87CEEB",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2178",
@@ -2965,9 +2965,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Azul Ford",
     "colorHex": "#0000FF",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2183",
@@ -2976,9 +2976,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Azul Holandés",
     "colorHex": "#1E3A5F",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2146",
@@ -2987,9 +2987,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Chocolate",
     "colorHex": "#B87333",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2145",
@@ -2998,9 +2998,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Crema",
     "colorHex": "#F8F4E3",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2177",
@@ -3009,9 +3009,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Morado",
     "colorHex": "#800080",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2176",
@@ -3020,9 +3020,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Rosa Mexicano",
     "colorHex": "#E4007C",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2148",
@@ -3031,9 +3031,9 @@
     "subcategoria": "Satinado y Brillante",
     "color": "Rosa Taxi",
     "colorHex": "#FF91A4",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2143",
@@ -3042,9 +3042,9 @@
     "subcategoria": "Metálicos",
     "color": "Negro",
     "colorHex": "#000000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2180",
@@ -3053,9 +3053,9 @@
     "subcategoria": "Metálicos",
     "color": "Rojo",
     "colorHex": "#FF0000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2174",
@@ -3064,9 +3064,9 @@
     "subcategoria": "Metálicos",
     "color": "Azul",
     "colorHex": "#0000FF",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2142",
@@ -3075,9 +3075,9 @@
     "subcategoria": "Metálicos",
     "color": "Lila",
     "colorHex": "#8A2BE2",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2158",
@@ -3086,9 +3086,9 @@
     "subcategoria": "Fluorescentes",
     "color": "Amarillo",
     "colorHex": "#FFFF00",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2159",
@@ -3097,9 +3097,9 @@
     "subcategoria": "Fluorescentes",
     "color": "Naranja",
     "colorHex": "#FFA500",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2154",
@@ -3108,9 +3108,9 @@
     "subcategoria": "Fluorescentes",
     "color": "Rosa",
     "colorHex": "#FFC0CB",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2153",
@@ -3119,9 +3119,9 @@
     "subcategoria": "Fluorescentes",
     "color": "Verde",
     "colorHex": "#008000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2139",
@@ -3130,9 +3130,9 @@
     "subcategoria": "Alta Temperatura",
     "color": "Negro",
     "colorHex": "#000000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$43.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2162",
@@ -3141,9 +3141,9 @@
     "subcategoria": "Alta Temperatura",
     "color": "Aluminio",
     "colorHex": "#D9D9D9",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$43.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2149",
@@ -3152,9 +3152,9 @@
     "subcategoria": "Madera",
     "color": "Caoba",
     "colorHex": "#B87333",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2150",
@@ -3163,9 +3163,9 @@
     "subcategoria": "Madera",
     "color": "Nogal",
     "colorHex": "#B87333",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2188",
@@ -3174,9 +3174,9 @@
     "subcategoria": "Niquelado",
     "color": "Oro Intenso",
     "colorHex": "#DAA520",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2192",
@@ -3185,9 +3185,9 @@
     "subcategoria": "Niquelado",
     "color": "Aluminio",
     "colorHex": "#D9D9D9",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2193",
@@ -3196,9 +3196,9 @@
     "subcategoria": "Niquelado",
     "color": "Oro Brillante",
     "colorHex": "#FFD700",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2198",
@@ -3207,9 +3207,9 @@
     "subcategoria": "Niquelado",
     "color": "Cromo",
     "colorHex": "#D9D9D9",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2199",
@@ -3218,9 +3218,9 @@
     "subcategoria": "Niquelado",
     "color": "Cobre",
     "colorHex": "#B87333",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$40.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2185",
@@ -3229,9 +3229,9 @@
     "subcategoria": "Seguridad",
     "color": "Naranja",
     "colorHex": "#FFA500",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2186",
@@ -3240,9 +3240,9 @@
     "subcategoria": "Seguridad",
     "color": "Amarillo Medio",
     "colorHex": "#FFF200",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2189",
@@ -3251,9 +3251,9 @@
     "subcategoria": "Seguridad",
     "color": "Gris Acero",
     "colorHex": "#B0B0B0",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2190",
@@ -3262,9 +3262,9 @@
     "subcategoria": "Seguridad",
     "color": "Rojo",
     "colorHex": "#FF0000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2195",
@@ -3273,9 +3273,9 @@
     "subcategoria": "Primarios",
     "color": "Gris",
     "colorHex": "#808080",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2196",
@@ -3284,9 +3284,9 @@
     "subcategoria": "Primarios",
     "color": "Rojo",
     "colorHex": "#FF0000",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$35.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "1600",
@@ -3449,9 +3449,9 @@
     "subcategoria": "Pintura para tráfico",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19, 200],
-    "preciosCompra": ["", "$378.00", "$1620.00", "$16200.00"],
-    "piezasCaja": ["", 2, 1, 1]
+    "litros": [4, 19, 200],
+    "preciosCompra": ["$378.00", "$1620.00", "$16200.00"],
+    "piezasCaja": [2, 1, 1]
   },
   {
     "codigo": "6002",
@@ -3460,9 +3460,9 @@
     "subcategoria": "Pintura para tráfico",
     "color": "Amarillo",
     "colorHex": "#FFFF00",
-    "litros": ["", 4, 19, 200],
-    "preciosCompra": ["", "$378.00", "$1620.00", "$16200.00"],
-    "piezasCaja": ["", 2, 1, 1]
+    "litros": [4, 19, 200],
+    "preciosCompra": ["$378.00", "$1620.00", "$16200.00"],
+    "piezasCaja": [2, 1, 1]
   },
   {
     "codigo": "1900",
@@ -3471,9 +3471,9 @@
     "subcategoria": "Pintura para Alberca",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$688.00", "$3074.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "1903",
@@ -3482,9 +3482,9 @@
     "subcategoria": "Pintura para Alberca",
     "color": "Azul",
     "colorHex": "#0000FF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$688.00", "$3074.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2100",
@@ -3493,9 +3493,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Blanco Acabado",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$658.00", "$3084.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2101",
@@ -3504,9 +3504,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Blanco Mezclas",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$658.00", "$3084.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2132",
@@ -3515,9 +3515,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Negro Acabado",
     "colorHex": "#000000",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$690.00", "$3234.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2138",
@@ -3526,9 +3526,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Negro Super Intenso",
     "colorHex": "#000000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$791.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2103",
@@ -3537,9 +3537,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Aluminio Fino",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$649.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2163",
@@ -3548,9 +3548,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Aluminio Fino Brillante",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$660.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2104",
@@ -3559,9 +3559,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Aluminio Mediano",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$597.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2164",
@@ -3570,9 +3570,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Aluminio Med Brillante",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$660.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2167",
@@ -3581,9 +3581,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Aluminio Med Destellante",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$723.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2105",
@@ -3592,9 +3592,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Aluminio Grueso",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$597.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2165",
@@ -3603,9 +3603,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Aluminio Grueso Brillante",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$660.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2166",
@@ -3614,9 +3614,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Alum Extra Grueso Brill",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$660.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2106",
@@ -3625,9 +3625,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Alum Extra Grueso",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$597.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2102",
@@ -3636,9 +3636,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$523.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2116",
@@ -3647,9 +3647,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Amarillo Cromo",
     "colorHex": "#FFD700",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$673.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2115",
@@ -3658,9 +3658,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Amarillo Limón",
     "colorHex": "#FDFD96",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$648.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2117",
@@ -3669,9 +3669,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Amarillo Limón Orgánico",
     "colorHex": "#FDFD96",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1022.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2118",
@@ -3680,9 +3680,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Amarillo Org Rojizo",
     "colorHex": "#FFFF00",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$776.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2109",
@@ -3691,9 +3691,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Amarillo Óxido",
     "colorHex": "#C7B300",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$530.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2122",
@@ -3702,9 +3702,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Azul De Prusia",
     "colorHex": "#003153",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$624.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2125",
@@ -3713,9 +3713,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Azul Neutro",
     "colorHex": "#1C39BB",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$723.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2152",
@@ -3724,9 +3724,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Azul Omega",
     "colorHex": "#0000FF",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$659.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2123",
@@ -3735,9 +3735,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Azul Rojizo",
     "colorHex": "#0000FF",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$597.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2124",
@@ -3746,9 +3746,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Azul Verdoso",
     "colorHex": "#0000FF",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$609.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2121",
@@ -3757,9 +3757,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Marron Magenta",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1084.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2120",
@@ -3768,9 +3768,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Marron Morado",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1370.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2131",
@@ -3779,9 +3779,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Marron Perrindo",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1030.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2130",
@@ -3790,9 +3790,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Marron Violeta",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$922.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2119",
@@ -3801,9 +3801,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Naranja Molibdato",
     "colorHex": "#FF4500",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$839.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2113",
@@ -3812,9 +3812,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Oro Amarillento",
     "colorHex": "#FFD700",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$591.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2112",
@@ -3823,9 +3823,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Oro Rojizo",
     "colorHex": "#FFD700",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$626.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2129",
@@ -3834,9 +3834,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "ROjo Brillante",
     "colorHex": "#FF0000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$946.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2111",
@@ -3845,9 +3845,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Rojo Claro",
     "colorHex": "#FF4D4D",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1197.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2114",
@@ -3856,9 +3856,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Rojo Encendido",
     "colorHex": "",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1197.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2107",
@@ -3867,9 +3867,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Rojo Flama",
     "colorHex": "#E32636",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$775.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2133",
@@ -3878,9 +3878,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Rojo Intenso",
     "colorHex": "#C00000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$839.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2110",
@@ -3889,9 +3889,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$530.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2168",
@@ -3900,9 +3900,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Rosa Taxi",
     "colorHex": "#FF91A4",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$963.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2137",
@@ -3911,9 +3911,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Verde Ecologico",
     "colorHex": "#00A86B",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$835.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2127",
@@ -3922,9 +3922,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Verde Orgánico",
     "colorHex": "#1B5E20",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$640.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2126",
@@ -3933,9 +3933,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Violeta",
     "colorHex": "#8A2BE2",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$754.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2108",
@@ -3944,9 +3944,9 @@
     "subcategoria": "Esmalte Acrílico",
     "color": "Rojo",
     "colorHex": "#FF0000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1078.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2301",
@@ -3955,9 +3955,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Blanco Mezclas",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$804.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2300",
@@ -3966,9 +3966,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Blanco Acabado",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$804.00", "$3706.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2332",
@@ -3977,9 +3977,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Negro Acabado",
     "colorHex": "#000000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$774.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2338",
@@ -3988,9 +3988,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Negro Super Intenso",
     "colorHex": "#000000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1066.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2363",
@@ -3999,9 +3999,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Alum Fino Brillante",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$788.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2306",
@@ -4010,9 +4010,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Aluminio Ex Grueso",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$763.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2303",
@@ -4021,9 +4021,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Aluminio Fino",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$763.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2305",
@@ -4032,9 +4032,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Aluminio Grueso",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$763.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2365",
@@ -4043,9 +4043,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Aluminio Grueso Brillante",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$788.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2364",
@@ -4054,9 +4054,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Aluminio Med Brillante",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$907.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2304",
@@ -4065,9 +4065,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Aluminio Mediano",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$741.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2315",
@@ -4076,9 +4076,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Amarillo Limón",
     "colorHex": "#FDFD96",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$769.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2316",
@@ -4087,9 +4087,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Amarillo Medio",
     "colorHex": "#FFF200",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$769.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2318",
@@ -4098,9 +4098,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Amarillo Org Rojizo",
     "colorHex": "#FFFF00",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1049.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2309",
@@ -4109,9 +4109,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Amarillo Óxido",
     "colorHex": "#C7B300",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$682.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2322",
@@ -4120,9 +4120,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Azul De Prusia",
     "colorHex": "#003153",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$696.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2325",
@@ -4131,9 +4131,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Azul Neutro",
     "colorHex": "#1C39BB",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$841.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2323",
@@ -4142,9 +4142,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Azul Rojizo",
     "colorHex": "#0000FF",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$701.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2324",
@@ -4153,9 +4153,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Azul Verdoso",
     "colorHex": "#0000FF",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$701.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2336",
@@ -4164,9 +4164,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Azul Zafiro",
     "colorHex": "#0F52BA",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1403.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2321",
@@ -4175,9 +4175,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Marron Magenta",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1207.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2320",
@@ -4186,9 +4186,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Marron Morado",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1423.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2331",
@@ -4197,9 +4197,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Marron Perrindo",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1269.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2330",
@@ -4208,9 +4208,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Marron Violeta",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1111.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2313",
@@ -4219,9 +4219,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Oro Amarillento",
     "colorHex": "#FFD700",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$763.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2312",
@@ -4230,9 +4230,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Oro Rojizo",
     "colorHex": "#FFD700",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$808.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2329",
@@ -4241,9 +4241,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "ROjo Brillante",
     "colorHex": "#FF0000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1030.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2311",
@@ -4252,9 +4252,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Rojo Claro",
     "colorHex": "#FF4D4D",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1343.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2307",
@@ -4263,9 +4263,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Rojo Flama",
     "colorHex": "#E32636",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$794.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2333",
@@ -4274,9 +4274,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Rojo Intenso",
     "colorHex": "#C00000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1002.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2308",
@@ -4285,9 +4285,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Rojo Limpio Osc",
     "colorHex": "#FF0000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$997.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2310",
@@ -4296,9 +4296,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$643.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2302",
@@ -4307,9 +4307,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$643.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2337",
@@ -4318,9 +4318,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Verde Ecologico",
     "colorHex": "#00A86B",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$807.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2327",
@@ -4329,9 +4329,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Verde Orgánico",
     "colorHex": "#1B5E20",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$741.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2326",
@@ -4340,9 +4340,9 @@
     "subcategoria": "Laca Acrílica",
     "color": "Violeta",
     "colorHex": "#8A2BE2",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$902.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2606",
@@ -4351,9 +4351,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Negro Mate",
     "colorHex": "#1C1C1C",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$915.00", "$4199.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2600",
@@ -4362,9 +4362,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$942.00", "$4321.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2603",
@@ -4373,9 +4373,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Negro",
     "colorHex": "#000000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$915.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2608",
@@ -4384,9 +4384,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Rojo Claro",
     "colorHex": "#FF4D4D",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1487.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2633",
@@ -4395,9 +4395,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Rojo Intenso",
     "colorHex": "#C00000",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1082.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2607",
@@ -4406,9 +4406,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$682.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2602",
@@ -4417,9 +4417,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$758.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2613",
@@ -4428,9 +4428,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Verde Orgánico",
     "colorHex": "#1B5E20",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$959.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2601",
@@ -4439,9 +4439,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Aluminio Medio",
     "colorHex": "#D9D9D9",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$982.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2609",
@@ -4450,9 +4450,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Amarillo Cromo",
     "colorHex": "#FFD700",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1068.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2614",
@@ -4461,9 +4461,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Amarillo Limón",
     "colorHex": "#FDFD96",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$952.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2604",
@@ -4472,9 +4472,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Amarillo Óxido",
     "colorHex": "#C7B300",
-    "litros": ["", 4, 19],
+    "litros": [4, 19],
     "preciosCompra": ["", "$715.00", "$3418.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2605",
@@ -4483,9 +4483,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Azul Verdoso",
     "colorHex": "#0000FF",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$900.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2612",
@@ -4494,9 +4494,9 @@
     "subcategoria": "Esmalte de Polouretano",
     "color": "Marron Perrindo",
     "colorHex": "#B87333",
-    "litros": ["", 4, ""],
+    "litros": [4],
     "preciosCompra": ["", "$1123.00", ""],
-    "piezasCaja": ["", 2, ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2400",
@@ -4549,9 +4549,9 @@
     "subcategoria": "Base Color",
     "color": "ROjo Brillante",
     "colorHex": "#FF0000",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$283.00", "$1060.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2474",
@@ -4560,9 +4560,9 @@
     "subcategoria": "Base Color",
     "color": "Rojo Candy",
     "colorHex": "#FF0000",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$371.00", "$1406.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2407",
@@ -4571,9 +4571,9 @@
     "subcategoria": "Base Color",
     "color": "Rojo Flama",
     "colorHex": "#E32636",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$241.00", "$906.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2411",
@@ -4582,9 +4582,9 @@
     "subcategoria": "Base Color",
     "color": "Rojo Claro",
     "colorHex": "#FF4D4D",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$421.00", "$1570.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2414",
@@ -4593,9 +4593,9 @@
     "subcategoria": "Base Color",
     "color": "Rojo Encendido",
     "colorHex": "#FF0000",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$362.00", "$1416.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2433",
@@ -4604,9 +4604,9 @@
     "subcategoria": "Base Color",
     "color": "Rojo Intenso",
     "colorHex": "#C00000",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$262.00", "$992.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2408",
@@ -4615,9 +4615,9 @@
     "subcategoria": "Base Color",
     "color": "Rojo Limpio Osc",
     "colorHex": "#FF0000",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$371.00", "$1406.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2410",
@@ -4626,9 +4626,9 @@
     "subcategoria": "Base Color",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$191.00", "$704.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2473",
@@ -4637,9 +4637,9 @@
     "subcategoria": "Base Color",
     "color": "Azul Candy",
     "colorHex": "#0000FF",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$237.00", "$901.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2422",
@@ -4648,9 +4648,9 @@
     "subcategoria": "Base Color",
     "color": "Azul De Prusia",
     "colorHex": "#003153",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$219.00", "$790.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2425",
@@ -4659,9 +4659,9 @@
     "subcategoria": "Base Color",
     "color": "Azul Neutro",
     "colorHex": "#1C39BB",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$237.00", "$901.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2423",
@@ -4670,9 +4670,9 @@
     "subcategoria": "Base Color",
     "color": "Azul Tono Rojiz",
     "colorHex": "#0000FF",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$222.00", "$826.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2424",
@@ -4681,9 +4681,9 @@
     "subcategoria": "Base Color",
     "color": "Azul Tono Verdoso",
     "colorHex": "#0000FF",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$222.00", "$826.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2436",
@@ -4692,9 +4692,9 @@
     "subcategoria": "Base Color",
     "color": "Azul Zafiro",
     "colorHex": "#0F52BA",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$398.00", "$1482.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2469",
@@ -4703,9 +4703,9 @@
     "subcategoria": "Base Color",
     "color": "Palio Orange",
     "colorHex": "#FFA500",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$750.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2475",
@@ -4714,9 +4714,9 @@
     "subcategoria": "Base Color",
     "color": "Plata Super Reflectivo",
     "colorHex": "#D9D9D9",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$421.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2472",
@@ -4725,9 +4725,9 @@
     "subcategoria": "Base Color",
     "color": "Plata Lenticular",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$417.00", "$1605.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2406",
@@ -4736,9 +4736,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Ext Grueso",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$265.00", "$980.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2466",
@@ -4747,9 +4747,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Ext Grueso Brill",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$252.00", "$942.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2403",
@@ -4758,9 +4758,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Fino",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$280.00", "$1063.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2463",
@@ -4769,9 +4769,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Fino Brillante",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$256.00", "$952.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2405",
@@ -4780,9 +4780,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Grueso",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$260.00", "$962.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2465",
@@ -4791,9 +4791,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Grueso Brillante",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$257.00", "$959.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2467",
@@ -4802,9 +4802,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Med Destellante",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$281.00", "$1060.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2464",
@@ -4813,9 +4813,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Med Brillante",
     "colorHex": "#D9D9D9",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$265.00", "$999.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2404",
@@ -4824,9 +4824,9 @@
     "subcategoria": "Base Color",
     "color": "Aluminio Mediano",
     "colorHex": "#FFF200",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$269.00", "$989.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2415",
@@ -4835,9 +4835,9 @@
     "subcategoria": "Base Color",
     "color": "Amarillo Limón",
     "colorHex": "#FDFD96",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$241.00", "$850.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2417",
@@ -4846,9 +4846,9 @@
     "subcategoria": "Base Color",
     "color": "Amarillo Limón Orgánico",
     "colorHex": "#FDFD96",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$363.00", "$1379.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2416",
@@ -4857,9 +4857,9 @@
     "subcategoria": "Base Color",
     "color": "Amarillo Medio",
     "colorHex": "#FFF200",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$233.00", "$814.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2409",
@@ -4868,9 +4868,9 @@
     "subcategoria": "Base Color",
     "color": "Amarillo Óxido",
     "colorHex": "#C7B300",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$214.00", "$781.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2418",
@@ -4879,9 +4879,9 @@
     "subcategoria": "Base Color",
     "color": "Amarillo Rojizo",
     "colorHex": "#FFDD44",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$363.00", "$1379.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2435",
@@ -4890,9 +4890,9 @@
     "subcategoria": "Base Color",
     "color": "Gold Tonner",
     "colorHex": "#FFD700",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$310.00", "$1197.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2421",
@@ -4901,9 +4901,9 @@
     "subcategoria": "Base Color",
     "color": "Marron Magenta",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$355.00", "$1344.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2420",
@@ -4912,9 +4912,9 @@
     "subcategoria": "Base Color",
     "color": "Marron Morado",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$421.00", "$1615.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2431",
@@ -4923,9 +4923,9 @@
     "subcategoria": "Base Color",
     "color": "Marron Perrindo",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$368.00", "$1388.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2430",
@@ -4934,9 +4934,9 @@
     "subcategoria": "Base Color",
     "color": "Marron Violeta",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$338.00", "$1280.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2419",
@@ -4945,9 +4945,9 @@
     "subcategoria": "Base Color",
     "color": "Naranja Molibdato",
     "colorHex": "#FF4500",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$230.00", "$855.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2413",
@@ -4956,9 +4956,9 @@
     "subcategoria": "Base Color",
     "color": "Oro Amarillento",
     "colorHex": "#FFD700",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$252.00", "$906.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2412",
@@ -4967,9 +4967,9 @@
     "subcategoria": "Base Color",
     "color": "Oro Rojizo",
     "colorHex": "#FFD700",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$266.00", "$960.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2470",
@@ -4978,9 +4978,9 @@
     "subcategoria": "Base Color",
     "color": "Palio Gold",
     "colorHex": "#FFD700",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$718.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2468",
@@ -4989,9 +4989,9 @@
     "subcategoria": "Base Color",
     "color": "Rosa Taxi",
     "colorHex": "#FF91A4",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$303.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2471",
@@ -5000,9 +5000,9 @@
     "subcategoria": "Base Color",
     "color": "Verde Dorado",
     "colorHex": "#50C878",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$528.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2437",
@@ -5011,9 +5011,9 @@
     "subcategoria": "Base Color",
     "color": "Verde Ecologico",
     "colorHex": "#00A86B",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$237.00", "$859.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2427",
@@ -5022,9 +5022,9 @@
     "subcategoria": "Base Color",
     "color": "Verde Orgánico",
     "colorHex": "1B5E20",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$214.00", "$813.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2426",
@@ -5033,9 +5033,9 @@
     "subcategoria": "Base Color",
     "color": "Violeta",
     "colorHex": "#8A2BE2",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$254.00", "$950.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2406",
@@ -5044,9 +5044,9 @@
     "subcategoria": "Base Color",
     "color": "Vehiculo De Ajuste",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$206.00", "$730.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "9020",
@@ -5066,9 +5066,9 @@
     "subcategoria": "Esmalte Negro Chasis",
     "color": "Aerosol Negro Chasis",
     "colorHex": "#000000",
-    "litros": [0.5, "", ""],
+    "litros": [0.5],
     "preciosCompra": ["$37.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2218",
@@ -5187,9 +5187,9 @@
     "subcategoria": "Primers y Rellenadores",
     "color": "Gris",
     "colorHex": "#808080",
-    "litros": ["", 3.2, 15.2],
+    "litros": [3.2, 15.2],
     "preciosCompra": ["$.00", "$855.00", "$3852.00"],
-    "piezasCaja": ["", 2, 1]
+    "piezasCaja": [2, 1]
   },
   {
     "codigo": "2219",
@@ -5198,9 +5198,9 @@
     "subcategoria": "Primers y Rellenadores",
     "color": "Rellenador",
     "colorHex": "#F8F4E3",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$191.00", "$715.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "2221",
@@ -5220,9 +5220,9 @@
     "subcategoria": "Primers y Rellenadores",
     "color": "Body Filler",
     "colorHex": "#F8F4E3",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$186.00", "$", "$"],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2202",
@@ -5286,9 +5286,9 @@
     "subcategoria": "Plaste Automotivo",
     "color": "Blanco",
     "colorHex": "#FFFFFF",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$135.00", "$482.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "2207",
@@ -5330,9 +5330,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Blanca Fina",
     "colorHex": "#FFFFFF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$716.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2440",
@@ -5341,9 +5341,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Blanco Nacarado",
     "colorHex": "#FFFFFF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$716.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2452",
@@ -5352,9 +5352,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Negro Grafito",
     "colorHex": "#000000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$303.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2450",
@@ -5363,9 +5363,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Rojo Limpio",
     "colorHex": "#FF4D4D",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$464.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2442",
@@ -5374,9 +5374,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Rojo Nacarado",
     "colorHex": "#FF0000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$776.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2441",
@@ -5385,9 +5385,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Azul Nacarado",
     "colorHex": "#0000FF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$545.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2446",
@@ -5396,9 +5396,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Bronce",
     "colorHex": "#B87333",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$303.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2448",
@@ -5407,9 +5407,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Cobre",
     "colorHex": "#B87333",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$432.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2444",
@@ -5418,9 +5418,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Dorado",
     "colorHex": "#FFD700",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$695.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2451",
@@ -5429,9 +5429,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Naranja",
     "colorHex": "#FFA500",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$464.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2443",
@@ -5440,9 +5440,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Rosa",
     "colorHex": "#FFC0CB",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$565.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2449",
@@ -5451,9 +5451,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Tornasol",
     "colorHex": "#0000FF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$535.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2447",
@@ -5462,9 +5462,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Verde",
     "colorHex": "#008000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$565.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2445",
@@ -5473,9 +5473,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Violeta",
     "colorHex": "#8A2BE2",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$714.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2459",
@@ -5484,9 +5484,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Super Roja",
     "colorHex": "#C00000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$782.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2453",
@@ -5495,9 +5495,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Blanca (Xiralica)",
     "colorHex": "#FFFFFF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$1157.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2456",
@@ -5506,9 +5506,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Azul (Xiralica)",
     "colorHex": "#0000FF",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$1157.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2457",
@@ -5517,9 +5517,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Dorada (Xiralica)",
     "colorHex": "#FFD700",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$1157.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2454",
@@ -5528,9 +5528,9 @@
     "subcategoria": "Perlas Universales/Xiralicas",
     "color": "Roja (Xiralica)",
     "colorHex": "#FF0000",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$1157.00", "", ""],
-    "piezasCaja": [1, "", ""]
+    "piezasCaja": [1]
   },
   {
     "codigo": "2205",
@@ -5572,9 +5572,9 @@
     "subcategoria": "Reductores y Solventes",
     "color": "Reductor Para Primario",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$76.00", "$285.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "2230",
@@ -5616,9 +5616,9 @@
     "subcategoria": "Endurecedores y Aditivos",
     "color": "Endurecedor Top Gloss",
     "colorHex": "#FFFFFF00",
-    "litros": [0.8, "", ""],
+    "litros": [0.8],
     "preciosCompra": ["$212.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2275",
@@ -5627,9 +5627,9 @@
     "subcategoria": "Endurecedores y Aditivos",
     "color": "Endurecedor Glass Finish",
     "colorHex": "#FFFFFF00",
-    "litros": [0.8, "", ""],
+    "litros": [0.8],
     "preciosCompra": ["$231.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2161",
@@ -5638,9 +5638,9 @@
     "subcategoria": "Endurecedores y Aditivos",
     "color": "Endurecedor LPA-AP",
     "colorHex": "#FFFFFF00",
-    "litros": [0.8, "", ""],
+    "litros": [0.8],
     "preciosCompra": ["$163.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2233",
@@ -5649,9 +5649,9 @@
     "subcategoria": "Endurecedores y Aditivos",
     "color": "Promotor Aerosol",
     "colorHex": "#FFFFFF00",
-    "litros": [0.4, "", ""],
+    "litros": [0.4],
     "preciosCompra": ["$69.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2228",
@@ -5660,9 +5660,9 @@
     "subcategoria": "Endurecedores y Aditivos",
     "color": "Promotor",
     "colorHex": "#FFFFFF00",
-    "litros": [0.8, "", ""],
+    "litros": [0.8],
     "preciosCompra": ["$234.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2227",
@@ -5671,9 +5671,9 @@
     "subcategoria": "Endurecedores y Aditivos",
     "color": "Flotador de Aluminio",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$233.00", "$892.00", ""],
-    "piezasCaja": [1, 1, ""]
+    "piezasCaja": [1, 1]
   },
   {
     "codigo": "2216",
@@ -5682,9 +5682,9 @@
     "subcategoria": "Endurecedores y Aditivos",
     "color": "Fosfatizante",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$75.00", "$281.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "2276",
@@ -5693,9 +5693,9 @@
     "subcategoria": "Transparentes",
     "color": "Kit HD",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$396.00", "$1368.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "2274",
@@ -5704,9 +5704,9 @@
     "subcategoria": "Transparentes",
     "color": "Kit Glass Finish",
     "colorHex": "#FFFFFF00",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$250.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2157",
@@ -5715,9 +5715,9 @@
     "subcategoria": "Transparentes",
     "color": "Kit Top Gloss",
     "colorHex": "#FFFFFF00",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$230.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2272",
@@ -5726,9 +5726,9 @@
     "subcategoria": "Transparentes",
     "color": "Kit Hyper Finish",
     "colorHex": "#FFFFFF00",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$186.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2156",
@@ -5737,9 +5737,9 @@
     "subcategoria": "Transparentes",
     "color": "Kit LPA-AP",
     "colorHex": "#FFFFFF00",
-    "litros": [1, "", ""],
+    "litros": [1],
     "preciosCompra": ["$163.00", "", ""],
-    "piezasCaja": [6, "", ""]
+    "piezasCaja": [6]
   },
   {
     "codigo": "2274",
@@ -5748,9 +5748,9 @@
     "subcategoria": "Transparentes",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": [3.8, "", ""],
+    "litros": [3.8],
     "preciosCompra": ["$853.00", "", ""],
-    "piezasCaja": [2, "", ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2157",
@@ -5759,9 +5759,9 @@
     "subcategoria": "Transparentes",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": [4, "", ""],
+    "litros": [4],
     "preciosCompra": ["$850.00", "", ""],
-    "piezasCaja": [2, "", ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2156",
@@ -5770,9 +5770,9 @@
     "subcategoria": "Transparentes",
     "color": "Transparente",
     "colorHex": "#FFFFFF00",
-    "litros": [4, "", ""],
+    "litros": [4],
     "preciosCompra": ["$533.00", "", ""],
-    "piezasCaja": [2, "", ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2210",
@@ -5781,9 +5781,9 @@
     "subcategoria": "Transparentes",
     "color": "Desengrasante",
     "colorHex": "#FFFFFF00",
-    "litros": [4, "", ""],
+    "litros": [4],
     "preciosCompra": ["$277.00", "", ""],
-    "piezasCaja": [2, "", ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2232",
@@ -5792,9 +5792,9 @@
     "subcategoria": "Transparentes",
     "color": "Matizante",
     "colorHex": "#FFFFFF00",
-    "litros": [4, "", ""],
+    "litros": [4],
     "preciosCompra": ["$550.00", "", ""],
-    "piezasCaja": [2, "", ""]
+    "piezasCaja": [2]
   },
   {
     "codigo": "2234",
@@ -5803,9 +5803,9 @@
     "subcategoria": "Transparentes",
     "color": "Blender",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$177.00", "$671", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3202",
@@ -5838,7 +5838,7 @@
     "colorHex": "#D21F3C",
     "litros": [1, 4, ""],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3211",
@@ -5849,7 +5849,7 @@
     "colorHex": "#B87333",
     "litros": [1, 4, ""],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3206",
@@ -5858,9 +5858,9 @@
     "subcategoria": "Century Maderas",
     "color": "Chocolate",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3210",
@@ -5869,9 +5869,9 @@
     "subcategoria": "Century Maderas",
     "color": "Magnolia",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3209",
@@ -5880,9 +5880,9 @@
     "subcategoria": "Century Maderas",
     "color": "Maple",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3207",
@@ -5891,9 +5891,9 @@
     "subcategoria": "Century Maderas",
     "color": "Nogal Americano",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3212",
@@ -5902,9 +5902,9 @@
     "subcategoria": "Century Maderas",
     "color": "Nogal Clasico",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3208",
@@ -5913,9 +5913,9 @@
     "subcategoria": "Century Maderas",
     "color": "Roble",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$126.00", "$458.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3004",
@@ -5946,9 +5946,9 @@
     "subcategoria": "Century Maderas",
     "color": "Semi Mate",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$116.00", "$455.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3007",
@@ -5957,9 +5957,9 @@
     "subcategoria": "Century Maderas",
     "color": "Brillante",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$137.00", "$532.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3083",
@@ -6034,9 +6034,9 @@
     "subcategoria": "Century Maderas",
     "color": "Marron",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$105.00", "$381.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3081",
@@ -6100,9 +6100,9 @@
     "subcategoria": "Century Maderas",
     "color": "Chocolate",
     "colorHex": "#B87333",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$138.00", "$538.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3071",
@@ -6111,9 +6111,9 @@
     "subcategoria": "Century Maderas",
     "color": "Negro",
     "colorHex": "#000000",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$138.00", "$538.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3072",
@@ -6122,9 +6122,9 @@
     "subcategoria": "Century Maderas",
     "color": "Rojo Óxido",
     "colorHex": "#7E2E0D",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$138.00", "$538.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3001",
@@ -6155,9 +6155,9 @@
     "subcategoria": "Tintas",
     "color": "Amaranto",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3031",
@@ -6166,9 +6166,9 @@
     "subcategoria": "Tintas",
     "color": "Caoba Clasico",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3038",
@@ -6177,9 +6177,9 @@
     "subcategoria": "Tintas",
     "color": "Caoba Comercial",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3036",
@@ -6188,9 +6188,9 @@
     "subcategoria": "Tintas",
     "color": "Cedro",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3033",
@@ -6199,9 +6199,9 @@
     "subcategoria": "Tintas",
     "color": "Chocolate",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3040",
@@ -6210,9 +6210,9 @@
     "subcategoria": "Tintas",
     "color": "Early American",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3034",
@@ -6221,9 +6221,9 @@
     "subcategoria": "Tintas",
     "color": "Magnolia",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3030",
@@ -6232,9 +6232,9 @@
     "subcategoria": "Tintas",
     "color": "Nogal Americano",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3035",
@@ -6243,9 +6243,9 @@
     "subcategoria": "Tintas",
     "color": "Nogal Obscuro",
     "colorHex": "#0F0F0F",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3039",
@@ -6254,9 +6254,9 @@
     "subcategoria": "Tintas",
     "color": "Olmo",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3037",
@@ -6265,9 +6265,9 @@
     "subcategoria": "Tintas",
     "color": "Roble",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3012",
@@ -6276,9 +6276,9 @@
     "subcategoria": "Tintas",
     "color": "Amaranto",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3011",
@@ -6287,9 +6287,9 @@
     "subcategoria": "Tintas",
     "color": "Caoba Clasico",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3018",
@@ -6298,9 +6298,9 @@
     "subcategoria": "Tintas",
     "color": "Caoba Comercial",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3016",
@@ -6309,9 +6309,9 @@
     "subcategoria": "Tintas",
     "color": "Cedro",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3013",
@@ -6320,9 +6320,9 @@
     "subcategoria": "Tintas",
     "color": "Chocolate",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3020",
@@ -6331,9 +6331,9 @@
     "subcategoria": "Tintas",
     "color": "Early American",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3014",
@@ -6342,9 +6342,9 @@
     "subcategoria": "Tintas",
     "color": "Magnolia",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3010",
@@ -6353,9 +6353,9 @@
     "subcategoria": "Tintas",
     "color": "Nogal Americano",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3015",
@@ -6364,9 +6364,9 @@
     "subcategoria": "Tintas",
     "color": "Nogal Obscuro",
     "colorHex": "#0F0F0F",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3019",
@@ -6375,9 +6375,9 @@
     "subcategoria": "Tintas",
     "color": "Olmo",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3017",
@@ -6386,9 +6386,9 @@
     "subcategoria": "Tintas",
     "color": "Roble",
     "colorHex": "#B87333",
-    "litros": [0.5, 1, ""],
+    "litros": [0.5, 1],
     "preciosCompra": ["$56.00", "$97.00", ""],
-    "piezasCaja": [12, 6, ""]
+    "piezasCaja": [12, 6]
   },
   {
     "codigo": "3060",
@@ -6397,9 +6397,9 @@
     "subcategoria": "Tintas",
     "color": "Brillante",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$147.00", "$572.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3061",
@@ -6408,9 +6408,9 @@
     "subcategoria": "Tintas",
     "color": "Semi Mate",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$138.00", "$537.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3062",
@@ -6419,9 +6419,9 @@
     "subcategoria": "Tintas",
     "color": "Mate",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$138.00", "$537.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3050",
@@ -6430,9 +6430,9 @@
     "subcategoria": "Tintas",
     "color": "Fondo Poliuretano",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$134.00", "$520.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3063",
@@ -6441,9 +6441,9 @@
     "subcategoria": "Tintas",
     "color": "Brillante",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$147.00", "$572.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3064",
@@ -6452,9 +6452,9 @@
     "subcategoria": "Tintas",
     "color": "Matizado",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$163.00", "$627.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3051",
@@ -6463,9 +6463,9 @@
     "subcategoria": "Tintas",
     "color": "Catalizador Fondo PU",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$134.00", "$520.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   },
   {
     "codigo": "3069",
@@ -6474,8 +6474,8 @@
     "subcategoria": "Tintas",
     "color": "Solvente poliuretano",
     "colorHex": "#FFFFFF00",
-    "litros": [1, 4, ""],
+    "litros": [1, 4],
     "preciosCompra": ["$80.00", "$316.00", ""],
-    "piezasCaja": [6, 2, ""]
+    "piezasCaja": [6, 2]
   }
 ]

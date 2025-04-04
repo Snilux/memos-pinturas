@@ -4,14 +4,13 @@ const table = "proveedores";
 
 providersController.showProviders = (req, res) => {
   const query = `SELECT * FROM ${table}`;
-
   connection.query(query, (err, results) => {
     if (err) {
       console.log(`Error en el servidor ${err}`);
       return res.render("/admin");
     }
 
-    // console.log(results);
+    console.log(results);
 
     res.render("administration/providers/showProviders", {
       title: "Proveedores",
@@ -21,11 +20,14 @@ providersController.showProviders = (req, res) => {
 };
 
 providersController.addProviders = (req, res) => {
+  console.log(req.body);
+  
   const { nombre_empresa, telefono, email } = req.body;
   const query = `INSERT INTO ${table} (nombre_empresa, telefono, email) VALUES (?, ?, ?)`;
+
   connection.query(
     query,
-    [table, nombre_empresa, telefono, email],
+    [nombre_empresa, telefono, email],
     (err, results) => {
       if (err) {
         console.log(`Error en el servidor ${err}`);

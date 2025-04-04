@@ -1686,65 +1686,10 @@ img {
 
 .contenedor__busqueda {
   background-color: var(--grisClaro);
-  padding: 3rem;
+  padding: 6rem 3rem;
 }
 
-.formulario__busqueda {
-  display: flex;
-  justify-content: center;
-  margin-top: 4rem;
-  gap: 3rem;
-  padding-bottom: 5rem;
-}
-
-@media (max-width: 992px) {
-  .formulario__busqueda {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .formulario__busqueda input,
-  .formulario__busqueda select,
-  .formulario__busqueda button {
-    width: 100%;
-  }
-
-  .formulario__busqueda button {
-    padding: 1rem;
-  }
-}
-
-.input__busqueda,
-.select__busqueda {
-  border: 0.1rem solid var(--gris);
-  padding: 1rem;
-  font-size: 1.8rem;
-}
-
-.input__busqueda {
-  width: 60%;
-}
-
-.select__busqueda {
-  width: 40%;
-}
-
-.enviar__busqueda {
-  width: 20%;
-  background-color: var(--blanco);
-  border: 0.1rem solid var(--gris);
-  font-weight: 700;
-  font-family: var(--fuente-principal);
-  transition: background-color 300ms, color 300ms, border-color 300ms;
-  font-size: 1.6rem;
-}
-
-.enviar__busqueda:hover {
-  border-color: var(--rojoSecundario);
-  background-color: var(--rojoSecundario);
-  color: var(--blanco);
-  cursor: pointer;
-}
+/* ACABA BUSQUEDA */
 
 .productos__grid-section {
   display: grid;
@@ -2125,5 +2070,136 @@ textarea {
 @media (max-width: 767px) {
   .submit__contacto {
     width: 100%;
+  }
+}
+
+/* Estilos para el contenedor principal */
+.contenedor__searchs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--grisClaro);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra);
+}
+
+/* Contenedor de los formularios de búsqueda */
+.contenedor__searchs__formularios-busqueda {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--blanco);
+  padding: 20px;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra);
+}
+
+/* Estilos para el formulario de categorías */
+.categorias__busqueda {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+/* Estilos para el select */
+.select__busqueda {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--gris);
+  border-radius: var(--radio-borde);
+  background-color: var(--blanco);
+  font-family: var(--fuente-principal);
+  transition: var(--transicion);
+}
+
+.select__busqueda:hover {
+  border-color: var(--azulPrincipal);
+}
+
+/* Estilos para el botón de búsqueda */
+.enviar__busqueda {
+  background-color: var(--azulPrincipal);
+  color: var(--blanco);
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.enviar__busqueda:hover {
+  background-color: var(--azulSecundario);
+}
+
+/* Estilos para el formulario de búsqueda por texto */
+.busqueda__search {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--gris);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.input__busqueda {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-family: var(--fuente-principal);
+  font-size: 1.4rem;
+}
+
+.input__busqueda::placeholder {
+  color: var(--gris);
+}
+
+.input__busqueda:focus {
+  outline: none;
+  border-color: var(--azulPrincipal);
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+  .contenedor__searchs {
+    padding: 15px;
+  }
+  .contenedor__searchs__formularios-busqueda {
+    padding: 15px;
+    max-width: 90%;
+  }
+  .enviar__busqueda {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .input__busqueda {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor__searchs {
+    padding: 10px;
+  }
+  .contenedor__searchs__formularios-busqueda {
+    padding: 10px;
+    max-width: 100%;
+  }
+  .select__busqueda {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .enviar__busqueda {
+    font-size: 12px;
+    padding: 6px;
+  }
+  .input__busqueda {
+    font-size: 12px;
+    padding: 6px;
   }
 }

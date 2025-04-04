@@ -2,31 +2,375 @@
   {
     "codigo": "BRI-1/2",
     "producto": "La Guerrera",
-    "caracteristicas": "1/2",
+    "caracteristicas": "1/2 pulgada",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRI-1",
+    "producto": "La Guerrera",
+    "caracteristicas": "1 pulgada",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRI-11/2",
+    "producto": "La Guerrera",
+    "caracteristicas": "1,1/2 pulgadas",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRI-2",
+    "producto": "La Guerrera",
+    "caracteristicas": "2 pulgadas",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRI-21/2",
+    "producto": "La Guerrera",
+    "caracteristicas": "2,1/2 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRI-3",
+    "producto": "La Guerrera",
+    "caracteristicas": "3 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRI-4",
+    "producto": "La Guerrera",
+    "caracteristicas": "4 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRI-5",
+    "producto": "La Guerrera",
+    "caracteristicas": "5 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRI-6",
+    "producto": "La Guerrera",
+    "caracteristicas": "6 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRM-1/2",
+    "producto": "La Morena",
+    "caracteristicas": "1/2 pulgada",
     "piezasCaja": "24"
   },
   {
     "codigo": "BRM-1",
-    "producto": "La Guerrera",
-    "caracteristicas": "1",
+    "producto": "La Morena",
+    "caracteristicas": "1 pulgada",
     "piezasCaja": "24"
   },
   {
     "codigo": "BRM-11/2",
-    "producto": "La Guerrera",
-    "caracteristicas": "1, 1/2",
+    "producto": "La Morena",
+    "caracteristicas": "1,1/2 pulgadas",
     "piezasCaja": "24"
   },
   {
     "codigo": "BRM-2",
-    "producto": "La Guerrera",
-    "caracteristicas": "2",
+    "producto": "La Morena",
+    "caracteristicas": "2 pulgadas",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRM-21/2",
+    "producto": "La Morena",
+    "caracteristicas": "2,1/2 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRM-3",
+    "producto": "La Morena",
+    "caracteristicas": "3 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRM-4",
+    "producto": "La Morena",
+    "caracteristicas": "4 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRM-5",
+    "producto": "La Morena",
+    "caracteristicas": "5 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRM-6",
+    "producto": "La Morena",
+    "caracteristicas": "6 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRV-5",
+    "producto": "Verde",
+    "caracteristicas": "5 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRC-1",
+    "producto": "La China",
+    "caracteristicas": "1 pulgada",
     "piezasCaja": "24"
   },
   {
     "codigo": "CIM-26",
     "producto": "Cepillos Impermeabilizar",
     "caracteristicas": " Para impermeabilizar",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "CPP-56R",
+    "producto": "Cepillo para Picar",
+    "caracteristicas": " Para picar pintura",
+    "piezasCaja": "6"
+  },
+  
+
+  {
+    "codigo": "BRD-1/2",
+    "producto": "Durazno",
+    "caracteristicas": "1/2 pulgada",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRD-1",
+    "producto": "Durazno",
+    "caracteristicas": "1 pulgada",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRD-11/2",
+    "producto": "Durazno",
+    "caracteristicas": "1,1/2 pulgadas",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRD-2",
+    "producto": "Durazno",
+    "caracteristicas": "2 pulgadas",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "BRD-21/2",
+    "producto": "Durazno",
+    "caracteristicas": "2,1/2 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRD-3",
+    "producto": "Durazno",
+    "caracteristicas": "3 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRD-4",
+    "producto": "Durazno",
+    "caracteristicas": "4 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRD-5",
+    "producto": "Durazno",
+    "caracteristicas": "5 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "BRD-6",
+    "producto": "Durazno",
+    "caracteristicas": "6 pulgadas",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "RAL-60i",
+    "producto": "Alta Densidad",
+    "caracteristicas": "Sencillo 1 Alambre 9",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RAL-65i",
+    "producto": "Alta Densidad",
+    "caracteristicas": "Profesional 5 Alambres 9",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RAL-69i",
+    "producto": "Alta Densidad",
+    "caracteristicas": "Superficie Lisa Media Densidad 9, 9/16",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RME-70i",
+    "producto": "Media Densidad",
+    "caracteristicas": "Superficie Rugosa Media Densidad 9, 1 1/8",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RME-71i",
+    "producto": "Media Densidad",
+    "caracteristicas": "Superficie Lisa Alta Densidad 9, 3/4",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RME-75i",
+    "producto": "Media Densidad",
+    "caracteristicas": "Superficie Rugosa ALta Densidad 9, 1",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RBA-80i",
+    "producto": "Baja Densidad",
+    "caracteristicas": "Superficie Extra Rugosa Alta Densidad 9, 11/4",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RBA-89i",
+    "producto": "Baja Densidad",
+    "caracteristicas": "Superficie Lisa Baja Densidad 9, 3/4",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "REC-55i",
+    "producto": "Economico",
+    "caracteristicas": "Superficie Extra Rugosa Baja Densidad 9, 11/4",
+    "piezasCaja": "25"
+  },
+  {
+    "codigo": "RRA-60",
+    "producto": "Alta Densidad",
+    "caracteristicas": "Superficie Rugosa Media Densidad 9, 1 1/8",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "RRA-69",
+    "producto": "Alta Densidad",
+    "caracteristicas": "Superficie Rugosa Media Densidad 9, 1 1/8",
+    "piezasCaja": "20"
+  },
+  {
+    "codigo": "RRA-65",
+    "producto": "Alta Densidad",
+    "caracteristicas": "Superficie Lisa Baja Densidad 9, 3/4",
+    "piezasCaja": "20"
+  },
+  {
+    "codigo": "RRM-70",
+    "producto": "Media Densidad",
+    "caracteristicas": "Superficie Extra Rugosa Baja Densidad 9, 1",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "RRM-75",
+    "producto": "Media Densidad",
+    "caracteristicas": "Superficie Extra Rugosa Baja Densidad 9, 1 1/4",
+    "piezasCaja": "20"
+  },
+  {
+    "codigo": "RRB-80",
+    "producto": "Baja Densidad",
+    "caracteristicas": "Superficie Extra Rugosa Baja Densidad 9, 1 1/4",
+    "piezasCaja": "24"
+  },
+  {
+    "codigo": "MAN-5",
+    "producto": "Maneral",
+    "caracteristicas": "Maneral Profesional de 9 Alambres",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "KMF4-3P",
+    "producto": "Kit Mini",
+    "caracteristicas": "BLister 3 pz, Esponja, 1 Maneral",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "RME4-6P",
+    "producto": "Repuestos Mini",
+    "caracteristicas": "Repuestos Esponja",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "RMF4-6P",
+    "producto": "Repuestos Mini",
+    "caracteristicas": "Blister pz, Felpa, 1 Maneral",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "CAL-42",
+    "producto": "Cepillos De Alambre",
+    "caracteristicas": "Cepillo de Alambre Calibre 42",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "CAL-43",
+    "producto": "Cepillos De Alambre",
+    "caracteristicas": "Cepillo de Alambre Calibre 43",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "CAL-44",
+    "producto": "Cepillos De Alambre",
+    "caracteristicas": "Cepillo de Alambre Calibre 44",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "CAL-46",
+    "producto": "Cepillos De Alambre",
+    "caracteristicas": "Cepillo de Alambre Calibre 46",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "PPR-10",
+    "producto": "PLastiprotector",
+    "caracteristicas": "Plástico Protector Uso Rudo, 10m",
+    "piezasCaja": "15"
+  },
+  {
+    "codigo": "PPL-15",
+    "producto": "PLastiprotector",
+    "caracteristicas": "Plástico Protector Uso Ligero, 15m",
+    "piezasCaja": "20"
+  },
+  {
+    "codigo": "EXM-200",
+    "producto": "Extensión 2 mt",
+    "caracteristicas": "Extensión Telescópica Metal 2,00 m",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "EXM-300",
+    "producto": "Extensión 3 mt",
+    "caracteristicas": "Extensión Telescópica Metal 3,00 m",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "CHP-99",
+    "producto": "Charola Plástico",
+    "caracteristicas": "Charola de Plástico 9",
+    "piezasCaja": "20"
+  },
+  {
+    "codigo": "CHP-4",
+    "producto": "Charola Mini",
+    "caracteristicas": "Charola de Plástico 4",
+    "piezasCaja": "12"
+  },
+  {
+    "codigo": "CEC-50",
+    "producto": "CInta Canela",
+    "caracteristicas": "Cinta de Empaque Canela",
+    "piezasCaja": "6"
+  },
+  {
+    "codigo": "CET-50",
+    "producto": "Cinta Transparente",
+    "caracteristicas": "Cinta de Empaque Transparente",
     "piezasCaja": "6"
   }
 ]

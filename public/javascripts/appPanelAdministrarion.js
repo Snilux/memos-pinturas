@@ -17,8 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }).then(() => {
       if (errorMessage == "El email ya existe") {
         window.location.href = `/users/add`;
-      }else{
-
+      } else if(errorMessage == "No hay productos en este lote"){
+        window.location.href = `/admin/lots`;
+      } else if (errorMessage == "Categoria invalida") {
+        window.location.href = `/admin/products`;
+      }
+      else{
         window.location.href = `/admin`;
       }
 
@@ -59,7 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           window.location.href = `/users/add`;
         }, 1000);
-      } else {
+      }
+      
+      
+      else {
         setTimeout(() => {
           window.location.href = `/admin/products`;
         }, 1000);

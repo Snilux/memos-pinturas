@@ -7,7 +7,7 @@
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
 
-
+  <% if (lots.length != 0) { %>
   <section class="productos">
     <h1 class="heading__lote">Productos para <%= lots[0].codigo_lote %></h1>
     <div class="productos-grid">
@@ -77,7 +77,7 @@
             <i class="fa-solid fa-pen-to-square"></i> Editar
           </a>
 
-          <a class="btn-accion btn-eliminar bt__lote2"
+          <a class="btn-accion btn-eliminar bt__lote2 delete-product"
             data-url="/admin/products/delete/<%= lots[i].id_producto %>/<%= lots[i].tabla_origen %>">
             <i class="fa-solid fa-trash bt__lote2"></i> Eliminar
           </a>
@@ -86,6 +86,7 @@
         </div>
       </div>
 
+      <% } %>
       <% } %>
       <% } %>
     </div>

@@ -14,7 +14,6 @@
       <form class="formularios__productos" id="formularioEditar" method="post"
         action="/admin/products/edit/<%= product.id_producto %>/<%= path %>" enctype="multipart/form-data">
         <div class="formulario__grid">
-          <!-- SECCIÓN INFORMACIÓN PRINCIPAL -->
           <div class="formulario__card">
             <div class="card__header">
               <div class="icon-circle">
@@ -28,7 +27,7 @@
                   <label>Código de Pintura</label>
                   <div class="input-container">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="000" name="codigo_pintura" id="inputCodigo" required
+                    <input type="text" placeholder="000" name="codigo_pintura" id="inputCodigo" 
                       value="<%= product.codigo_pintura %>">
                     <span class="badge">Autocompletado</span>
                   </div>
@@ -206,6 +205,7 @@
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/javascripts/validations/validationsEditProducts.js"></script>
   <script src="/javascripts/appPanelAdministrarion.js"></script>
   <script src="/javascripts/appAdminProducts.js"></script>
   <script src="/javascripts/appFormularioAdd.js"></script>

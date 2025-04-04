@@ -95,10 +95,32 @@ const verifyEmailExists = (email) => {
   });
 };
 
+const verifyUserExists = (user) => {
+  const table = "usuarios";
+  const query = `SELECT nombre FROM ?? WHERE nombre = ?`;
+
+  return new Promise((resolve, reject) => {
+    connection.query(query, [table, user], (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor ${err}`);
+        reject();
+        return res.redirect("/admin");
+      }
+      if (results.length > 0) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
+  });
+}
+
 userController.addUser = async (req, res) => {
   const { user, email, password, rol } = req.body;
 
   const verifyEmailExistsPromise = await verifyEmailExists(email);
+  const verifyUserExistsPromise = await verifyUserExists(user)
+
   console.log(verifyEmailExistsPromise);
 
   if (verifyEmailExistsPromise) {
@@ -106,7 +128,12 @@ userController.addUser = async (req, res) => {
       title: "Agregar usuario",
       errorMessage: "El email ya existe",
     });
-  } else {
+  } else if (verifyUserExistsPromise) {
+    return res.render("users/addUser", {
+      title: "Agregar usuario",
+      errorMessage: "El usuario ya se encuentra registrado",
+    });
+  }  else {
     const query = `INSERT INTO usuarios (nombre, email, pass, rol) VALUES (?, ?, ?, ?)`;
     connection.query(query, [user, email, password, rol], (err, results) => {
       if (err) {
