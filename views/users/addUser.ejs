@@ -15,7 +15,7 @@
 
     <div class="contenedor form-container">
       <form class="formulario" id="formularioLogin" method="post" action="/users/add">
-        
+
         <div class="campo">
           <label for="inputUsuario"><i class="fas fa-user"></i> Nombre</label>
           <div class="input-container">
@@ -26,14 +26,16 @@
         <div class="campo">
           <label for="inputCorreo"><i class="fas fa-envelope"></i> Correo electrónico</label>
           <div class="input-container">
-            <input type="email" class="input-field" placeholder="Correo electrónico" id="inputCorreo" name="email" required>
+            <input type="email" class="input-field" placeholder="Correo electrónico" id="inputCorreo" name="email"
+              required>
           </div>
         </div>
 
         <div class="campo">
           <label for="inputPassword"><i class="fas fa-lock"></i> Contraseña</label>
           <div class="input-container">
-            <input type="password" class="input-field" placeholder="Contraseña" id="inputPassword" name="password" required>
+            <input type="password" class="input-field" placeholder="Contraseña" id="inputPassword" name="password"
+              required>
           </div>
         </div>
 
@@ -64,11 +66,13 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/javascripts/appPanelAdministrarion.js"></script>
-  <script src="/javascripts/appUsers.js"></script>
+  <script src="/javascripts/validations/validationUsers.js"></script>
+  
   <script>
     var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
     var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
   </script>
 
 </body>
+
 </html>

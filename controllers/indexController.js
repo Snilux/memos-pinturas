@@ -1,6 +1,7 @@
 const connection = require("../config/db");
 const indexController = {};
 const queries = require("./queries/queriesIndexController");
+const { sendMailContact } = require("./emailController");
 
 const categoriaMap = {
   "Pinturas Automotrices": "pinturas_automotrices",
@@ -63,7 +64,7 @@ indexController.searchAllProducts = (req, res) => {
       return res.redirect("/products");
     }
     console.log(results);
-    
+
     res.render("searchProducts", {
       title: `Productos ${selectBusqueda} `,
       category: selectBusqueda,
@@ -106,4 +107,36 @@ indexController.searchProducts = (req, res) => {
     });
   });
 };
+
+indexController.sendContact = async (req, res) => {
+  const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    console.error("Validation Failed: Missing required fields.");
+    res.render("contact", {
+      title: "Contacto",
+      errorMessage: "Por favor, completa todos los campos del formulario.",
+    });
+  }
+
+  try {
+    const mailSent = await sendMailContact(name, email, message);
+
+    if (mailSent) {
+      console.log("Controller: Contact email successfully processed.");
+      res.render("contact", {
+        title: "Contacto",
+        successMessage: "Mensaje enviado correctamente."
+      });
+    } else {
+      console.error("Controller: sendMailContact function reported an error.");
+      return res.redirect("/contact");
+    }
+  } catch (error) {
+    // Catch any unexpected errors during the process
+    console.error("Controller: Unexpected error in sendContact:", error);
+    return res.redirect("/contact");
+  }
+};
+
 module.exports = indexController;

@@ -17,15 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }).then(() => {
       if (errorMessage == "El email ya existe") {
         window.location.href = `/users/add`;
-      } else if(errorMessage == "No hay productos en este lote"){
+      } else if (errorMessage == "No hay productos en este lote") {
         window.location.href = `/admin/lots`;
       } else if (errorMessage == "Categoria invalida") {
         window.location.href = `/admin/products`;
+      } else if (errorMessage == "El lote no existe en los registros") {
+        setTimeout(() => {
+          window.location.href = `/admin/complements/add`;
+        }, 1000);
+      } else if (errorMessage == "No puedes editar este usuario") {
+        setTimeout(() => {
+          window.location.href = `/users`;
+        }, 500);
+      } else {
+        // window.location.href = `/admin`;
       }
-      else{
-        window.location.href = `/admin`;
-      }
-
     });
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.pathname);
@@ -63,10 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           window.location.href = `/users/add`;
         }, 1000);
-      }
-      
-      
-      else {
+      } else if (successMessage == "Usuario editado correctamente") {
+        setTimeout(() => {
+          window.location.href = `/users`;
+        });
+      } else {
         setTimeout(() => {
           window.location.href = `/admin/products`;
         }, 1000);

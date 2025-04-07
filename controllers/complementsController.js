@@ -23,7 +23,24 @@ complementsController.showAllComplements = (req, res) => {
   });
 };
 
-complementsController.addComplement = (req, res) => {
+const verifyLotExists = async (lote_id) => {
+  return new Promise((resolve, reject) => {
+    const query = `SELECT COUNT(*) AS count FROM lotes WHERE id_lote = ?`;
+    connection.query(query, [lote_id], (err, results) => {
+      if (err) {
+        console.error("Error al verificar el lote:", err);
+        return reject(err);
+      }
+      if (results[0].count > 0) {
+        resolve(true); // El lote existe
+      } else {
+        resolve(false); // El lote no existe
+      }
+    });
+  });
+};
+
+complementsController.addComplement = async (req, res) => {
   let imagePath = null;
   console.log(req.body);
 
@@ -47,6 +64,98 @@ complementsController.addComplement = (req, res) => {
     cantidad,
     codigo_complemento,
   } = req.body;
+
+  let loteExists = await verifyLotExists(lote_id);
+
+  if (!loteExists) {
+    console.log("El lote no existe en los registros");
+    return res.render("administration/complements/addComplement", {
+      title: "Añadir complemento",
+      errorMessage: "El lote no existe ingresa una valido.",
+    });
+  }
+
+  const query = `INSERT INTO ?? (producto,
+    caracteristicas,
+    cantidad_caja,
+    precio_caja,
+    precio_unitario,
+    precio_unitario_venta,
+    lote_id,
+    cantidad, imagen, codigo_complemento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+  connection.query(
+    query,
+    [
+      table,
+      producto,
+      caracteristicas,
+      cantidad_caja,
+      precio_caja,
+      precio_unitario,
+      precio_unitario_venta,
+      lote_id,
+      cantidad,
+      imagePath,
+      codigo_complemento,
+    ],
+    (err, results) => {
+      if (err) {
+        console.log(`Error en el servidor ${err}`);
+        return res.redirect("/admin/complements");
+      }
+      return res.render("administration/complements/addComplement", {
+        title: "Añadir complemento",
+        successMessage: "Complemento agregado correctamente",
+      });
+    }
+  );
+};
+
+complementsController.addDuplicateComplement = async (req, res) => {
+  let imagePath = null;
+  console.log(req.body);
+
+  if (req.file) {
+    imagePath = req.file.filename;
+    console.log("Ruta de la imagen:", imagePath);
+  } else {
+    imagePath = req.body.currentImagePath;
+    console.log("No se subió la imagen nueva");
+  }
+  const {
+    producto,
+    caracteristicas,
+    cantidad_caja,
+    precio_caja,
+    precio_unitario,
+    precio_unitario_venta,
+    lote_id,
+    cantidad,
+    codigo_complemento,
+  } = req.body;
+
+  let loteExists = await verifyLotExists(lote_id);
+
+  if (!loteExists) {
+    console.log("El lote no existe en los registros, no se puede duplicar");
+    return res.render("administration/complements/duplicateComplement", {
+      title: "Añadir complemento",
+      errorMessage: "El lote no existe en los registros, no se puede duplicar",
+      complement: {
+        producto: producto,
+        caracteristicas: caracteristicas,
+        cantidad_caja: cantidad_caja,
+        precio_caja: precio_caja,
+        precio_unitario: precio_unitario,
+        precio_unitario_venta: precio_unitario_venta,
+        lote_id: lote_id,
+        cantidad: cantidad,
+        imagen: imagePath,
+        codigo_complemento: codigo_complemento,
+      },
+    });
+  }
 
   const query = `INSERT INTO ?? (producto,
     caracteristicas,
@@ -103,7 +212,7 @@ complementsController.editComplement = (req, res) => {
   });
 };
 
-complementsController.updateComplement = (req, res) => {
+complementsController.updateComplement = async (req, res) => {
   const id_complemento = req.params.id;
 
   const {
@@ -118,6 +227,29 @@ complementsController.updateComplement = (req, res) => {
     codigo_complemento,
     currentImagePath,
   } = req.body;
+
+  let loteExists = await verifyLotExists(lote_id);
+
+  if (!loteExists) {
+    console.log("El lote no existe en la base de datos.");
+    return res.render("administration/complements/editComplement", {
+      title: "Añadir complemento",
+      errorMessage: "El lote no existe",
+      complement: {
+        id_complemento: id_complemento,
+        producto: producto,
+        caracteristicas: caracteristicas,
+        cantidad_caja: cantidad_caja,
+        precio_caja: precio_caja,
+        precio_unitario: precio_unitario,
+        precio_unitario_venta: precio_unitario_venta,
+        lote_id: lote_id,
+        cantidad: cantidad,
+        imagen: currentImagePath,
+        codigo_complemento: codigo_complemento,
+      },
+    });
+  }
 
   let imagePath = currentImagePath;
 
@@ -325,7 +457,7 @@ complementsController.verifyTag = (req, res) => {
               `Etiqueta encontrada para id_complemento ${idProductoParaEtiqueta}.`
             );
             res.render("administration/complements/showTag", {
-              title: `Etiqueta Existente - ${productData.nombre || "Producto"}`,
+              title: `Etiqueta Existente - ${productData.producto || "Producto"}`,
               tagValues: productData,
               qrCodeDataUrl: existingQrCode,
               data: req.session.user,
@@ -336,7 +468,7 @@ complementsController.verifyTag = (req, res) => {
             );
             console.log(productData);
             res.render("administration/complements/generateTag", {
-              title: `Generar Etiqueta - ${productData.nombre || "Producto"}`,
+              title: `Generar Etiqueta - ${productData.producto || "Producto"}`,
               tagValues: productData,
               data: req.session.user,
             });
@@ -416,11 +548,6 @@ complementsController.generateTag = (req, res) => {
 
 complementsController.searchComplements = (req, res) => {
   const { value } = req.query;
-  // Asegúrate de que 'table' esté definido correctamente en tu scope // Asumiendo que la tabla se llama 'complementos'
-
-  // --- Consulta SQL Mejorada (con CAST para MariaDB) ---
-  // Añadimos CAST(... AS CHAR) para los campos no textuales, como discutimos antes.
-  // Ahora hay 6 condiciones LIKE y 6 placeholders '?'
   const query = `
     SELECT 'Complementos' AS tabla,
            id_complemento,

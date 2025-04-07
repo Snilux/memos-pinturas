@@ -179,23 +179,7 @@ lotsController.showProductsInLots = (req, res) => {
       res.render("administration/lots/showProducts", {
         title: "Productos en lote",
         errorMessage: "No hay productos en este lote",
-        lots: [
-          // {
-          //   codigo_lote: "",
-          //   id_producto: 0,
-          //   nombre: "",
-          //   color_nombre: "",
-          //   color_hex: "",
-          //   codigo_pintura: "",
-          //   cantidad_litros: "",
-          //   precio_venta: "",
-          //   subcategoria: "",
-          //   cantidad: 0,
-          //   imagen: "",
-          //   nombre_proveedor: "",
-          //   tabla_origen: "",
-          // },
-        ],
+        lots: [],
       });
     }
 
@@ -214,6 +198,8 @@ lotsController.showProductsInLots = (req, res) => {
     return res.render("administration/lots/showProducts", {
       title: "Productos en lote",
       lots: formattedResults,
+      id_lote: id,
+      data: req.session.user,
     });
   });
 };

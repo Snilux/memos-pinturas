@@ -27,4 +27,15 @@ router.get(
   historyController.deleteRemoved
 );
 
+router.get(
+  "/edited/deletedAll",
+  authUser.isAdmin,
+  historyController.deleteEditedAll
+);
+router.get(
+  "/removed/deletedAll",
+  authUser.isAdmin,
+  historyController.deleteDeletedAll
+);
+
 module.exports = router;

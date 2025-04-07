@@ -1,6 +1,6 @@
 <%- include('../../partials/head.ejs') %>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
-<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
+<!-- <link rel="stylesheet" href="/stylesheets/products/showProducts.css"> -->
 <link rel="stylesheet" href="/stylesheets/productsAdministration.css">
 </head>
 
@@ -55,7 +55,7 @@
                                 <div class="form-group full-width">
                                     <label>Características</label>
                                     <div class="input-container">
-                                        <textarea name="caracteristicas"
+                                        <textarea name="caracteristicas" class="text__formulario"
                                             placeholder="Coloca aquí una descripción del producto:" readonly></textarea>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                                     <label for="">Precio Compra Unitario</label>
                                     <div class="input-container">
                                         <i class="fas fa-tag"></i>
-                                        <input type="number" placeholder="Precio de compra unitario"
+                                        <input type="number" placeholder="Precio de compra unitario" id="precioUnitario"
                                             name="precio_unitario" id="" min="0" required>
                                     </div>
                                 </div>
@@ -129,7 +129,8 @@
                                     <div class="input-container">
                                         <i class="fas fa-tag"></i>
                                         <input type="number" placeholder="Precio de venta unitario"
-                                            name="precio_unitario_venta" id="" min="0" required>
+                                            id="precioUnitarioVenta" name="precio_unitario_venta" id="" min="0"
+                                            required>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +140,7 @@
                                     <label>Número de Lote</label>
                                     <div class="input-container">
                                         <i class="fas fa-barcode"></i>
-                                        <input type="number" placeholder="Número de lote" name="lote_id" id="" min="0"
+                                        <input type="number" placeholder="Número de lote (ingresa uno existente) " name="lote_id" id="" min="0"
                                             required>
                                     </div>
                                 </div>
@@ -147,7 +148,7 @@
                                     <label>Proveedor</label>
                                     <div class="input-container">
                                         <i class="fas fa-truck"></i>
-                                        <input type="text" placeholder="Proveedor" name="" id="" readonly required>
+                                        <input type="text" placeholder="Ipesa" name="" id="" readonly required>
                                     </div>
                                 </div>
                             </div>
@@ -169,6 +170,7 @@
         </div>
     </div>
 
+    <script src="/javascripts/validations/validationsComplements.js"></script>
     <script src="/javascripts/appPanelAdministrarion.js"></script>
     <script src="/javascripts/appAdminComplements.js"></script>
     <script src="/javascripts/appFormularioAdd.js"></script>

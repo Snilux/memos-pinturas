@@ -84,7 +84,7 @@ router.post(
   "/products/duplicate/",
   authUser.isAdmOrOp,
   upload.single("imagen"),
-  productsController.add
+  productsController.addDuplicateProduct
 );
 router.get(
   "/products/automobiles",

@@ -6,85 +6,103 @@
 <body>
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
-  <section class="productos-section">
+  <section class="productos-section history-section">
     <%- include('../../partials/historyMenuNav.ejs') %>
     <div class="productos-container">
+      <h2 class="section-title">
+        Historial de Productos Eliminados
+        <a data-url="/admin/history/removed/deletedAll" class="clear-history-btn">
+          <i class="fas fa-eraser"></i> Vaciar historial
+        </a>
+      </h2>
+
       <div class="productos-grid">
-        <% if (editedProducts) { %> <% for (let i = 0; i < editedProducts.length; i++) { %>
-        <div class="producto-card">
+        <% if (editedProducts && editedProducts.length > 0) { %>
+        <% for (let i = 0; i < editedProducts.length; i++) { %>
+        <div class="producto-card history-card">
           <div class="producto-content">
-
             <div class="producto-header">
-              <h3 class="producto-titulo"> <%= editedProducts[i].tabla_modificada %>
-                <%= editedProducts[i].subcategoria %> </h3>
-              <h3 class="producto-nombre"> <%= editedProducts[i].nombre %> </h3>
-              <h3 class="producto-nombre">ID del producto: <%= editedProducts[i].producto_id %> </h3>
-              <h3 class="producto-nombre">Codigo de pintura: <%= editedProducts[i].codigo_pintura %> </h3>
+              <h3 class="producto-titulo">
+                <i class="fa-solid fa-trash-can"></i> <%= editedProducts[i].tabla_modificada %>
+                <%= editedProducts[i].subcategoria %>
+              </h3>
+              <h3 class="producto-nombre"><%= editedProducts[i].nombre %></h3>
 
-            </div>
-            <div class="producto-info">
-
-              <div class="info-item">
-                <span class="producto-nombre">Valores del producto:</span>
+              <div class="producto-meta">
+                <span class="meta-item">
+                  <i class="fa-solid fa-hashtag"></i> ID: <%= editedProducts[i].producto_id %>
+                </span>
+                <span class="meta-item">
+                  <i class="fa-solid fa-barcode"></i> Código: <%= editedProducts[i].codigo_pintura %>
+                </span>
               </div>
+            </div>
 
-
-              <div class=" info-item"></div>
-              <div class=" info-item"></div>
-
+            <div class="producto-info">
+              <div class="info-item"
+                style="grid-column: 1 / span 3; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 8px;">
+                <span class="producto-nombre">
+                  <i class="fa-solid fa-clipboard-list"></i> Valores del producto
+                </span>
+              </div>
 
               <div class="info-item">
                 <span class="info-label">Litros:</span>
                 <span class="info-value"><%= editedProducts[i].cantidad_litros %></span>
               </div>
+
               <div class="info-item">
                 <span class="info-label">Precio compra:</span>
-                <span class="info-value"><%= editedProducts[i].precio_compra %></span>
+                <span class="info-value precio"><%= editedProducts[i].precio_compra %></span>
               </div>
+
               <div class="info-item">
                 <span class="info-label">Precio venta:</span>
-                <span class="info-value"><%= editedProducts[i].precio_venta %></span>
+                <span class="info-value precio"><%= editedProducts[i].precio_venta %></span>
               </div>
+
               <div class="info-item">
                 <span class="info-label">Cantidad:</span>
                 <span class="info-value"><%= editedProducts[i].cantidad %></span>
               </div>
+
               <div class="info-item">
-                <span class="info-label">Lote id:</span>
+                <span class="info-label">Lote ID:</span>
                 <span class="info-value"><%= editedProducts[i].lote_id %></span>
               </div>
-              <div class="info-item">
-                <span class="info-label">Fecha de eliminacion:</span>
+
+              <% if(editedProducts[i].fecha_eliminacion) { %>
+              <div class="info-item"
+                style="grid-column: 1 / span 3; margin-top: 12px; border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                <span class="info-label">
+                  <i class="fa-regular fa-calendar"></i> Fecha de eliminación:
+                </span>
                 <span class="info-value">
-                  <% if (editedProducts[i].fecha_eliminacion) { %>
                   <%= new Date(editedProducts[i].fecha_eliminacion).toLocaleString('es-ES', { 
-                      day: '2-digit', 
-                      month: '2-digit', 
-                      year: 'numeric', 
-                      hour: '2-digit', 
-                      minute: '2-digit' 
-                    }) %>
-                  <% } %>
+                          day: '2-digit', 
+                          month: '2-digit', 
+                          year: 'numeric', 
+                          hour: '2-digit', 
+                          minute: '2-digit' 
+                        }) %>
                 </span>
               </div>
-
-
-
+              <% } %>
             </div>
-
           </div>
+
           <div class="producto-accion">
             <a class="btn-accion btn-eliminar delete-product"
               data-url="/admin/history/removed/delete/<%= editedProducts[i].id_auditoria %>">
-              <i class="fa-solid fa-trash"></i> Eliminar </a>
+              <i class="fa-solid fa-trash"></i> Eliminar del historial
+            </a>
           </div>
-
-
         </div>
         <% } %>
         <% } else { %>
-        <div class=" no-products">
-          <p>No hay productos </p>
+        <div class="no-products">
+          <i class="fa-solid fa-box-open" style="font-size: 48px; color: var(--text-light); margin-bottom: 16px;"></i>
+          <p>No hay productos eliminados en el historial</p>
         </div>
         <% } %>
       </div>
@@ -92,4 +110,60 @@
   </section>
   <script src="/javascripts/appAdminHistory.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Selecciona todos los botones/enlaces con la clase 'clear-history-btn'
+      const clearHistoryButtons = document.querySelectorAll('.clear-history-btn');
+
+      // Itera sobre cada botón encontrado (aunque en tu ejemplo parece haber solo uno)
+      clearHistoryButtons.forEach(button => {
+        // Añade un event listener para el evento 'click'
+        button.addEventListener('click', function (event) {
+          // Previene el comportamiento por defecto del enlace (evita la navegación inmediata)
+          event.preventDefault();
+
+          // Obtiene la URL del atributo 'data-url' del botón/enlace clickeado
+          // 'this' dentro de la función se refiere al elemento que disparó el evento
+          const targetUrl = this.dataset.url || this.getAttribute('data-url'); // Usa dataset o getAttribute
+
+          // Verifica si se encontró una URL
+          if (!targetUrl) {
+            console.error('No se encontró el atributo data-url en el botón:', this);
+            // Opcionalmente, muestra un error al usuario
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo determinar la URL de destino.'
+            });
+            return; // Detiene la ejecución si no hay URL
+          }
+
+          // Muestra la alerta de confirmación de SweetAlert2
+          Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Esta acción vaciará el historial y no se puede deshacer.",
+            icon: 'warning', // Ícono de advertencia
+            showCancelButton: true, // Muestra el botón de cancelar
+            confirmButtonColor: '#d33', // Color rojo para el botón de confirmar (peligro)
+            cancelButtonColor: '#3085d6', // Color azul para el botón de cancelar
+            confirmButtonText: 'Sí, ¡vaciar!', // Texto del botón de confirmar
+            cancelButtonText: 'Cancelar' // Texto del botón de cancelar
+          }).then((result) => {
+            // Esta función se ejecuta después de que el usuario interactúa con la alerta
+            if (result.isConfirmed) {
+              // Si el usuario hizo clic en 'Sí, ¡vaciar!'
+              console.log('Usuario confirmó. Redirigiendo a:', targetUrl);
+              // Redirige el navegador a la URL obtenida
+              window.location.href = targetUrl;
+            } else {
+              // Si el usuario hizo clic en 'Cancelar' o cerró la alerta
+              console.log('Usuario canceló la acción.');
+            }
+          });
+        });
+      });
+
+    });
+  </script>
 </body>

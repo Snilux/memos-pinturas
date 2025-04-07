@@ -36,25 +36,26 @@
           </div>
 
           <div class="producto-info">
+            <% if (lots[i].codigo_pintura !== null)  {%>
             <div class="info-item">
               <span class="info-label">Código Pintura:</span>
               <span class="info-value"><%= lots[i].codigo_pintura %></span>
+
+
             </div>
-            <div class="info-item">
-              <span class="info-label">Cantidad caja:</span>
-              <span class="info-value"><%= lots[i].cantidad_caja %></span>
-            </div>
+            <% }%>
+
+            <% if (lots[i].cantidad_litros !== null)  {%>
+
             <div class="info-item">
               <span class="info-label">Cantidad litros:</span>
               <span class="info-value"><%= lots[i].cantidad_litros %></span>
             </div>
+            <% }%>
+
             <div class="info-item">
               <span class="info-label">Número lote:</span>
-              <span class="info-value"><%= lots[i].lote_id %></span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">Precio compra:</span>
-              <span class="info-value precio">$<%= lots[i].precio_compra %></span>
+              <span class="info-value"><%= id_lote %></span>
             </div>
             <div class="info-item">
               <span class="info-label">Precio venta:</span>
@@ -66,7 +67,7 @@
             </div>
             <div class="info-item">
               <span class="info-label">Proveedor:</span>
-              <span class="info-value"><%= lots[i].nombre_proveedor %></span>
+              <span class="info-value">Ipesa</span>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { v4: uuidv4 } = require("uuid");
 const connection = require("../config/db");
 const queries = require("./queries/queriesProductsController");
 const qrcode = require("qrcode");
@@ -38,10 +39,25 @@ productsController.ShowAllProducts = (req, res) => {
   });
 };
 
-productsController.add = (req, res) => {
+const verifyLotExists = async (lote_id) => {
+  return new Promise((resolve, reject) => {
+    const query = `SELECT COUNT(*) AS count FROM lotes WHERE id_lote = ?`;
+    connection.query(query, [lote_id], (err, results) => {
+      if (err) {
+        console.error("Error al verificar el lote:", err);
+        return reject(err);
+      }
+      if (results[0].count > 0) {
+        resolve(true); // El lote existe
+      } else {
+        resolve(false); // El lote no existe
+      }
+    });
+  });
+};
 
+productsController.add = async (req, res) => {
   console.log(req.body);
-  
 
   let imagePath = null;
   if (req.file) {
@@ -68,6 +84,17 @@ productsController.add = (req, res) => {
   } = req.body;
 
   const tabla = categoriaMap[tabla_categoria];
+
+  let loteExists = await verifyLotExists(lote_id);
+
+  if (!loteExists) {
+    console.log("El lote no existe en la base de datos.");
+    return res.render("administration/products/addProduct", {
+      title: "Añadir producto",
+      data: req.session.user,
+      errorMessage: "El lote no existe",
+    });
+  }
 
   if (tabla) {
     const query = `INSERT INTO ${tabla} (nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, subcategoria, nombre_proveedor, imagen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
@@ -98,7 +125,106 @@ productsController.add = (req, res) => {
             title: "Añadir productos",
             data: req.session.user,
             successMessage: "El producto se agrego correctamente",
+          });
+        }
+      }
+    );
+  } else {
+    return res.render("administration/products/addProduct", {
+      title: "Añadir productos",
+      data: req.session.user,
+      errorMessage: "Categoria invalida",
+    });
+  }
+};
 
+productsController.addDuplicateProduct = async (req, res) => {
+  console.log(req.body);
+
+  let imagePath = null;
+  if (req.file) {
+    imagePath = req.file.filename;
+    console.log("Ruta de la imagen:", imagePath);
+  } else {
+    imagePath = req.body.currentImagePath;
+    console.log("Ruta de la imagen actual:", imagePath);
+  }
+  const {
+    tabla_categoria,
+    nombre,
+    color_nombre,
+    color_hex,
+    codigo_pintura,
+    cantidad_caja,
+    cantidad_litros,
+    lote_id,
+    precio_compra,
+    precio_venta,
+    cantidad,
+    subcategoria,
+    nombre_proveedor,
+  } = req.body;
+
+  const tabla = categoriaMap[tabla_categoria];
+
+  let loteExists = await verifyLotExists(lote_id);
+
+  if (!loteExists) {
+    console.log("El lote no existe en la base de datos.");
+    res.render("administration/products/duplicateProduct", {
+      product: {
+        tabla_categoria,
+        nombre,
+        color_nombre,
+        color_hex,
+        codigo_pintura,
+        cantidad_caja,
+        cantidad_litros,
+        lote_id,
+        precio_compra,
+        precio_venta,
+        cantidad,
+        imagen: imagePath,
+        subcategoria,
+        nombre_proveedor,
+      },
+      category: tabla_categoria,
+      title: "Duplicar producto",
+      errorMessage: "El lote no existe",
+      liters: cantidad_litros,
+      data: req.session.user,
+    });
+  }
+
+  if (tabla) {
+    const query = `INSERT INTO ${tabla} (nombre, color_nombre, color_hex, codigo_pintura, cantidad_caja, cantidad_litros, lote_id, precio_compra, precio_venta, cantidad, subcategoria, nombre_proveedor, imagen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+    connection.query(
+      query,
+      [
+        nombre,
+        color_nombre,
+        color_hex,
+        codigo_pintura,
+        cantidad_caja,
+        cantidad_litros,
+        lote_id,
+        precio_compra,
+        precio_venta,
+        cantidad,
+        subcategoria,
+        nombre_proveedor,
+        imagePath,
+      ],
+      (err, results) => {
+        if (err) {
+          console.error(`Error en la consulta ${err}`);
+          return res.status(500).send("Error del servidor");
+        } else {
+          return res.render("administration/products/addProduct", {
+            title: "Añadir productos",
+            data: req.session.user,
+            successMessage: "El producto se agrego correctamente",
           });
         }
       }
@@ -218,7 +344,7 @@ productsController.verifyTag = (req, res) => {
             console.log(
               `No se encontró etiqueta para producto_id ${idProductoParaEtiqueta}.`
             );
-            // console.log(productData);
+            console.log(productData);
             res.render("administration/products/generateTag", {
               title: `Generar Etiqueta - ${productData.nombre || "Producto"}`,
               tagValues: productData,
@@ -303,8 +429,12 @@ productsController.generateTag = (req, res) => {
 };
 
 productsController.edit = (req, res) => {
-  const { id, categoria, path } = req.params;
-  console.log(path);
+  let { id, categoria, path } = req.params;
+  console.log(categoria);
+
+  if (categoria == "Adhesivos Y Colorantes") {
+    categoria = "Adhesivos y Colorantes";
+  }
 
   const tabla =
     categoriaMap[
@@ -312,6 +442,7 @@ productsController.edit = (req, res) => {
         (key) => normalizarTexto(key) === normalizarTexto(categoria)
       )
     ];
+
   const query = `SELECT * FROM ${tabla} WHERE id_producto = ?`;
 
   connection.query(query, [id], (err, results) => {
@@ -363,6 +494,37 @@ productsController.save = async (req, res) => {
         (key) => normalizarTexto(key) === normalizarTexto(tabla_categoria)
       )
     ];
+  console.log(currentImagePath);
+
+  let loteExists = await verifyLotExists(lote_id);
+
+  if (!loteExists) {
+    console.log("El lote no existe en la base de datos.");
+    return res.render("administration/products/editProduct", {
+      title: "Añadir producto",
+      errorMessage: "El lote no existe",
+      product: {
+        id_producto,
+        codigo_pintura,
+        precio_compra,
+        precio_venta,
+        cantidad,
+        imagen: currentImagePath,
+        lote_id,
+        tabla_categoria,
+        subcategoria,
+        nombre,
+        color_nombre,
+        color_hex,
+        cantidad_caja,
+        nombre_proveedor,
+        cantidad_litros,
+      },
+      path: url,
+      liters: cantidad_litros,
+    });
+  }
+
   let imagePath = currentImagePath;
 
   try {

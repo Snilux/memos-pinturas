@@ -50,7 +50,7 @@ router.post(
   "/duplicate/",
   authUser.isAdmOrOp,
   upload.single("imagen"),
-  complementsController.addComplement
+  complementsController.addDuplicateComplement
 );
 
 router.get(

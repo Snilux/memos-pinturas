@@ -33,6 +33,7 @@
           <tbody>
             <% if(users){ %>
             <% for (let i = 0; i < users.length; i++) { %>
+            <% if(users[i].nombre !== "Administrador" && users[i].email !== "memospinturas@gmail.com" && users.rol !== "Administrador"){ %>
             <tr>
               <td data-label="ID">
                 <div class="usuario-info">
@@ -56,6 +57,8 @@
               <td data-label="Rol" class="usuario-rol">
                 <%= users[i].rol %>
               </td>
+
+
               <td data-label="Acciones">
                 <div class="acciones">
                   <a href="/users/edit/<%= users[i].id_usuario %>" class="btn btn-accion btn-editar">
@@ -67,6 +70,7 @@
                 </div>
               </td>
             </tr>
+            <% } %>
             <% } %>
             <% } else { %>
             <tr>
@@ -93,7 +97,7 @@
     const deleteButtons = document.querySelectorAll(".btn-eliminar");
     deleteButtons.forEach(button => {
       button.addEventListener("click", function (event) {
-        event.preventDefault(); 
+        event.preventDefault();
         let deleteUrl = this.getAttribute("data-url");
         Swal.fire({
           title: "¿Estás seguro?",

@@ -1,225 +1,8 @@
 <%- include('../../partials/head.ejs') %>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
-<link rel="stylesheet" href="/stylesheets/userStyles.css">
+<link rel="stylesheet" href="/stylesheets/products/showProducts.css">
 <style>
-    /* Basic Reset & Body Style */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
 
-    body {
-        font-family: sans-serif;
-        padding: 20px;
-        background-color: #f4f4f4;
-        /* Light background */
-        color: #333;
-    }
-
-    /* Main Container */
-    .pos-container {
-        max-width: 1200px;
-        /* Limit overall width */
-        margin: auto;
-        /* Center the container */
-        background-color: #fff;
-        /* White background for the interface */
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Search Bar */
-    .search-bar {
-        padding: 15px;
-        border-bottom: 1px solid #ccc;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        /* Space between label, input, button */
-    }
-
-    .search-bar label {
-        font-weight: bold;
-    }
-
-    .search-bar input[type="text"] {
-        flex-grow: 1;
-        /* Input takes available space */
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .search-bar button {
-        padding: 8px 15px;
-        cursor: pointer;
-    }
-
-    /* Main Content Area (Product List + Sidebar) */
-    .main-content {
-        display: flex;
-        min-height: 60vh;
-        /* Give it some minimum height */
-    }
-
-    /* Product List Panel (Left) */
-    .product-list-panel {
-        flex: 3;
-        /* Takes 3 parts of the available space */
-        padding: 15px;
-        border-right: 1px solid #ccc;
-        display: flex;
-        flex-direction: column;
-        /* Stack heading and table */
-    }
-
-    .product-list-panel h2 {
-        margin-bottom: 15px;
-        text-align: center;
-        font-size: 1.2em;
-    }
-
-    #sale-items {
-        width: 100%;
-        border-collapse: collapse;
-        /* Clean table borders */
-        flex-grow: 1;
-        /* Table takes remaining space in panel */
-    }
-
-    #sale-items th,
-    #sale-items td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    #sale-items th {
-        background-color: #f2f2f2;
-    }
-
-    #sale-items td:nth-child(1),
-    /* Cant */
-    #sale-items td:nth-child(3),
-    /* P. Unit */
-    #sale-items td:nth-child(4) {
-        /* Importe */
-        text-align: right;
-    }
-
-    #sale-items td:nth-child(5) {
-        /* Remove button column */
-        text-align: center;
-    }
-
-    .remove-item {
-        background-color: #ff4d4d;
-        color: white;
-        border: none;
-        padding: 3px 8px;
-        cursor: pointer;
-        border-radius: 3px;
-        font-size: 0.8em;
-    }
-
-    .remove-item:hover {
-        background-color: #cc0000;
-    }
-
-
-    /* Sidebar (Right) */
-    .sidebar {
-        flex: 1;
-        /* Takes 1 part of the available space */
-        display: flex;
-        flex-direction: column;
-        /* Stack summary and buttons */
-    }
-
-    /* Sale Summary (Top Right) */
-    .sale-summary {
-        padding: 15px;
-        border-bottom: 1px solid #ccc;
-        flex-grow: 1;
-        /* Allows it to take space if buttons panel is small */
-    }
-
-    .sale-summary h3 {
-        margin-bottom: 10px;
-        text-align: center;
-        font-size: 1.1em;
-    }
-
-    .sale-summary p {
-        margin-bottom: 8px;
-        display: flex;
-        justify-content: space-between;
-        /* Align text left, value right */
-    }
-
-    .sale-summary p.total {
-        font-size: 1.1em;
-        margin-top: 10px;
-    }
-
-    .sale-summary p.total strong {
-        font-size: 1.2em;
-    }
-
-    .sale-summary hr {
-        margin: 10px 0;
-        border: 0;
-        border-top: 1px solid #eee;
-    }
-
-    /* Action Buttons (Bottom Right) */
-    .action-buttons {
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        /* Stack buttons vertically */
-        gap: 10px;
-        /* Space between buttons */
-    }
-
-    .action-buttons h3 {
-        margin-bottom: 10px;
-        text-align: center;
-        font-size: 1.1em;
-    }
-
-    .action-buttons button {
-        padding: 12px;
-        font-size: 1em;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 100%;
-        /* Make buttons full width of container */
-    }
-
-    /* Button Styles */
-    .btn-primary {
-        background-color: #4CAF50;
-        /* Green */
-        color: white;
-        border-color: #4CAF50;
-    }
-
-    .btn-primary:hover {
-        background-color: #45a049;
-    }
-
-    .btn-secondary {
-        background-color: #e7e7e7;
-        /* Light gray */
-        color: black;
-    }
-
-    .btn-secondary:hover {
-        background-color: #ddd;
-    }
 </style>
 </head>
 
@@ -227,51 +10,238 @@
     <%- include('../../partials/navAdmin.ejs') %>
     <%- include('../../partials/dropdownMenu.ejs') %>
 
-    <section class="contenedor login" id="sectionFormulario">
-        <div class="pos-container">
-            <header class="search-bar">
-                <label for="search-input">BUSCAR:</label>
-                <input type="text" id="search-input" placeholder="Buscar producto por nombre o código...">
-                <button>Agregar</button>
-            </header>
+    <section class="productos-section pos-section">
+        <div class="productos-container pos-container">
+            <div class="section-header">
+                <h2 class="section-title">Sistema de Punto de Venta</h2>
+            </div>
 
-            <div class="main-content">
-                <section class="product-list-panel">
-                    <h2>PRODUCTOS</h2>
-                    <table id="sale-items">
-                        <thead>
-                            <tr>
-                                <th>Cant.</th>
-                                <th>Descripción</th>
-                                <th>P. Unit.</th>
-                                <th>Importe</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </section>
+            <div class="pos-layout">
+                <!-- Search Bar -->
+                <!-- <div class="search-bar-container">
+                    <div class="search__contenedor pos-search">
+                        <form>
+                            <input type="text" id="search-input" class="input__search"
+                                placeholder="Buscar producto por nombre o código...">
+                        </form>
+                    </div>
+                    <button class="btn-accion btn-editar add-product-btn">
+                        <i class="fa-solid fa-plus"></i> Agregar
+                    </button>
+                </div> -->
 
-                <aside class="sidebar">
-                    <section class="sale-summary">
-                        <h3>DATOS DE LA VENTA</h3>
-                        <p class="total">PRECIO TOTAL: <strong id="total-price">$</strong></p>
-                        <hr>
-                        <p>TOTAL DE PRODUCTOS: <span id="total-items">3</span></p>
+                <div class="pos-main-content">
+                    <!-- Product List Panel -->
+                    <div class="producto-card product-list-card">
+                        <div class="producto-header">
+                            <h3 class="producto-nombre padding">
+                                <i class="fa-solid fa-cart-shopping"></i> PRODUCTOS EN VENTA
+                            </h3>
+                        </div>
 
-                    </section>
+                        <div class="producto-content table-container">
+                            <table id="sale-items" class="products-table">
+                                <thead>
+                                    <tr>
+                                        <th>Cant.</th>
+                                        <th>Descripción</th>
+                                        <th>P. Unit.</th>
+                                        <th>Importe</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Table rows will be dynamically added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                    <section class="action-buttons">
-                        <h3>OPCIONES</h3>
-                        <button id="sale" class="btn-primary">Cobrar / Finalizar Venta</button>
-                        <a href="/admin/sales" class="btn-secondary">Cancelar Venta</a>
-                    </section>
-                </aside>
+                    <!-- Sidebar -->
+                    <div class="pos-sidebar">
+                        <!-- Sale Summary -->
+                        <div class="producto-card summary-card">
+                            <div class="producto-header">
+                                <h3 class="producto-nombre padding">
+                                    <i class="fa-solid fa-receipt"></i> DATOS DE LA VENTA
+                                </h3>
+                            </div>
+
+                            <div class="producto-content">
+                                <div class="total-price-container">
+                                    <span class="total-label">PRECIO TOTAL:</span>
+                                    <span class="total-value" id="total-price">$0.00</span>
+                                </div>
+
+                                <div class="summary-divider"></div>
+
+                                <div class="summary-item">
+                                    <span class="info-label">TOTAL DE PRODUCTOS:</span>
+                                    <span class="info-value" id="total-items">3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="producto-card actions-card">
+                            <div class="producto-header">
+                                <h3 class="producto-nombre padding">
+                                    <i class="fa-solid fa-gear"></i> OPCIONES
+                                </h3>
+                            </div>
+
+                            <div class="producto-accion pos-actions">
+                                <button id="sale" class="btn-accion btn-editar">
+                                    <i class="fa-solid fa-cash-register"></i> Cobrar / Finalizar Venta
+                                </button>
+                                <a href="/admin/sales" class="btn-accion btn-eliminar">
+                                    <i class="fa-solid fa-ban"></i> Cancelar Venta
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </section>
+
+    <style>
+        /* POS specific styles */
+        .pos-section {
+            padding-top: 40px;
+        }
+
+        .pos-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .search-bar-container {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            background-color: var(--white);
+            padding: 16px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .pos-search {
+            flex-grow: 1;
+        }
+
+        .add-product-btn {
+            min-width: 120px;
+        }
+
+        .pos-main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .product-list-card {
+            height: auto;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .products-table th {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .products-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        .pos-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .summary-card .producto-content {
+            padding: 16px;
+        }
+
+        .total-price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .total-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .total-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .summary-divider {
+            height: 1px;
+            background-color: var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pos-actions {
+            display: flex;
+            flex-direction: column;
+            grid-template-columns: 1fr;
+        }
+
+        .pos-actions .btn-accion {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 992px) {
+            .pos-main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-bar-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .add-product-btn {
+                width: 100%;
+            }
+        }
+
+        .padding {
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -26,12 +26,11 @@
       <div class="contacto__grid">
 
         <div class="contacto__formulario">
-          <form class="formulario__contacto">
+          <form class="formulario__contacto" method="post" action="/contact">
             <h2 class="formulario__contacto-heading">Formulario de Contacto</h2>
-            <input type="text" class="input__nombre" placeholder="Coloca tu nombre">
-            <input type="email" class="input__email" placeholder="Coloca tu Email">
-            <input type="tel" class="input__telefono" placeholder="Coloca tu Email">
-            <textarea name="asunto__contacto" class="asunto__contacto" placeholder="Coloca aquí tu asunto"></textarea>
+            <input type="text" class="input__nombre" name="name" placeholder="Coloca tu nombre">
+            <input type="email" class="input__email" name="email" placeholder="Coloca tu Email">
+            <textarea name="message" class="asunto__contacto" placeholder="Coloca aquí tu asunto"></textarea>
 
             <input type="submit" value="Enviar" class="submit__contacto">
           </form>
@@ -72,9 +71,55 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/javascripts/appIndexCarrusel.js"></script>
-
-  <!-- Slick Carousel JS -->
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    var errorMessage =
+      "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
+    var successMessage =
+      "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
+    if (
+      successMessage &&
+      successMessage.trim() !== "" &&
+      successMessage !== "undefined"
+    ) {
+      Swal.fire({
+        title: "Éxito",
+        text: successMessage,
+        icon: "success",
+        confirmButtonText: "Aceptar",
+      }).then(() => {
+        setTimeout(() => {
+          window.location.href = `/contact`;
+        }, 1000);
+      });
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.pathname);
+      }
+    }
+
+    if (
+      errorMessage &&
+      errorMessage.trim() !== "" &&
+      errorMessage !== "undefined"
+    ) {
+      Swal.fire({
+        title: "Error",
+        text: errorMessage,
+        icon: "error",
+        confirmButtonText: "Aceptar",
+      }).then(() => {
+        setTimeout(() => {
+          window.location.href = `/contact`;
+        }, 1000);
+      });
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.pathname);
+      }
+    }
+
+
+  </script>
 </body>
 
 </html>

@@ -7,9 +7,10 @@
 <body>
     <%- include('../../partials/navAdmin.ejs') %>
     <%- include('../../partials/dropdownMenu.ejs') %>
+
+    <h1 class="heading__formulario">Duplicar Producto</h1>
+
     <div class="contenedor">
-        <%- include('../../partials/navShowComplements.ejs') %>
-        <br>
         <div class="formulario-container">
             <form class="formularios__productos" id="formularioLogin" method="post"
                 action="/admin/complements/duplicate" enctype="multipart/form-data">
@@ -56,7 +57,7 @@
                                 <div class="form-group full-width">
                                     <label>Características</label>
                                     <div class="input-container">
-                                        <textarea name="caracteristicas"
+                                        <textarea name="caracteristicas" class="text__formulario"
                                             placeholder="Coloca aquí una descripción del producto:"><%=complement.caracteristicas%></textarea>
                                     </div>
                                 </div>
@@ -84,7 +85,7 @@
                                 <img src="/uploads/images/<%= complement.imagen %>" alt="Imagen del producto"
                                     id="imagePreview" class="preview-image">
 
-                                <input type="file" id="imageUpload" name="imagen" accept="image/*" >
+                                <input type="file" id="imageUpload" name="imagen" accept="image/*">
 
                                 <% } %>
 
@@ -153,7 +154,7 @@
                                     <label>Número de Lote</label>
                                     <div class="input-container">
                                         <i class="fas fa-barcode"></i>
-                                        <input type="number" placeholder="Número de lote" name="lote_id" id="" min="0"
+                                        <input type="number" placeholder="Número de lote (ingresa uno existente)" name="lote_id" id="" min="0"
                                             value="<%= complement.lote_id%>" required>
                                     </div>
                                 </div>
@@ -184,9 +185,11 @@
         </div>
     </div>
 
+    <script src="/javascripts/validations/validationsComplements.js"></script>
     <script src="/javascripts/appPanelAdministrarion.js"></script>
     <script src="/javascripts/appAdminComplements.js"></script>
-    <script src="/javascripts/appFormularioAdd.js"></script>
+
+    <!-- <script src="/javascripts/appFormularioAdd.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";

@@ -1,77 +1,137 @@
 <%- include('../../partials/head.ejs') %>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
 <link rel="stylesheet" href="/stylesheets/productsAdministration.css">
+
 <style>
-    /* Estilos básicos para la etiqueta visible */
-    .etiqueta-producto {
-        border: 1px solid #ccc;
-        padding: 25px;
+    /* --- Estilos tipo Tarjeta (como en la versión anterior) --- */
+    .etiqueta-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 0;
         margin: 30px auto;
         max-width: 450px;
-        /* Ajusta el ancho según necesites */
-        background-color: #f9f9f9;
-        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
         font-family: sans-serif;
+        overflow: hidden;
     }
 
-    .etiqueta-producto h2 {
-        text-align: center;
-        margin-bottom: 15px;
-        color: #333;
+    .etiqueta-card .card__header {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #e0e0e0;
     }
 
+    .etiqueta-card .card__header .icon-circle {
+        background-color: #17a2b8;
+        /* Color diferente para complementos (ej: cyan) */
+        color: white;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+
+    .etiqueta-card .card__header .icon-circle i {
+        font-size: 16px;
+    }
+
+    .etiqueta-card .card__header h2 {
+        margin: 0;
+        font-size: 1.1em;
+        font-weight: 600;
+        color: #343a40;
+    }
+
+    .etiqueta-card .card__content {
+        padding: 20px;
+    }
+
+    /* --- Estilos específicos de la etiqueta --- */
     .qr-code-container {
         text-align: center;
-        /* Centra la imagen del QR */
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .qr-code-container img {
-        width: 200px;
-        /* Tamaño del QR */
-        height: 200px;
+        width: 120px;
+        height: 120px;
         border: 1px solid #eee;
+        margin-bottom: 10px;
     }
 
     .product-details-grid {
         display: grid;
-        grid-template-columns: 1fr 2fr;
-        /* Columna para etiqueta, columna para valor */
-        gap: 8px 15px;
-        /* Espacio entre filas y columnas */
+        grid-template-columns: auto 1fr;
+        gap: 8px 12px;
         margin-top: 15px;
         text-align: left;
+        font-size: 0.9em;
     }
 
     .product-details-grid strong {
-        font-weight: bold;
-        color: #555;
+        font-weight: 600;
+        color: #495057;
+        padding-right: 8px;
     }
 
-    .color-swatch-container span {
-        vertical-align: middle;
+    .product-details-grid span {
+        color: #212529;
+        word-break: break-word;
     }
 
-    .color-swatch {
-        display: inline-block;
-        width: 18px;
-        height: 18px;
-        border: 1px solid #888;
-        vertical-align: middle;
-        margin-left: 8px;
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
-    .error-warning {
-        color: #D8000C;
-        /* Rojo para errores */
-        background-color: #FFD2D2;
-        /* Fondo rojo claro */
-        border: 1px solid #D8000C;
-        padding: 10px;
-        margin-top: 15px;
-        text-align: center;
+
+
+    /* Estilos de impresión */
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        .etiqueta-card-print-area,
+        .etiqueta-card-print-area * {
+            visibility: visible;
+        }
+
+        .etiqueta-card-print-area {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .print-button-container,
+        .back-button-container {
+            display: none;
+        }
+
+        .card__header {
+            background-color: #fff !important;
+        }
     }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -80,74 +140,91 @@
 
     <h1 class="heading__formulario"><%= title %></h1>
 
+    <%# --- Cambiado class y añadido id --- %>
+    <div class="contenedor etiqueta-card" id="etiquetaParaImprimir">
+        <div class="card__header">
+            <div class="icon-circle"><i class="fas fa-puzzle-piece"></i></div> <%# Icono diferente %>
+            <h2>Etiqueta de Complemento</h2> <%# Título diferente %>
+        </div>
+        <div class="card__content">
+            <div class="qr-code-container">
+                <% if (typeof qrCodeDataUrl !== 'undefined' && qrCodeDataUrl) { %>
+                <img src="<%= qrCodeDataUrl %>" alt="Código QR del Complemento">
+                <% } else { %>
+                <p style="color: #888;">(QR no disponible)</p>
+                <% } %>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <h3>Detalles</h3>
+            <% if (typeof tagValues !== 'undefined' && tagValues) { %>
+            <div class="product-details-grid">
+                <strong>Nombre:</strong>
+                <%# Asumiendo que el nombre viene en tagValues.producto %>
+                <span><%= tagValues.producto %></span>
 
-    <div class="contenedor etiqueta-producto">
+                <strong>Código:</strong> <%# Cambiado a Código Complemento %>
+                <%# Añadido ID para JS %>
+                <span id="detalle-codigo-complemento"><%= tagValues.codigo_complemento || 'N/A' %></span>
+
+                <strong>Descripción:</strong>
+                <span><%= tagValues.caracteristicas ? tagValues.caracteristicas : 'N/A' %></span> <%# Simplificado %>
+
+                <strong>Precio:</strong> <%# Cambiado a Precio Venta %>
+                <span><%= typeof tagValues.precio_unitario_venta !== 'undefined' ? `$${parseFloat(tagValues.precio_unitario_venta).toFixed(2)}` : 'N/A' %></span>
+
+            </div>
 
 
-        <h2>Código QR</h2>
-        <div class="qr-code-container">
-            <% if (typeof qrCodeDataUrl !== 'undefined' && qrCodeDataUrl) { %>
-
-            <img src="<%= qrCodeDataUrl %>" alt="Código QR del Producto">
+            <% if (typeof saveError !== 'undefined' && saveError) { %>
+            <div class="error-warning"><strong>Advertencia:</strong> <%= saveError %></div>
+            <% } %>
             <% } else { %>
-            <p style="color: #888;">(Código QR no disponible)</p>
+            <p style="color: #888; text-align: center;">Detalles del complemento no disponibles.</p>
             <% } %>
         </div>
-
-        <hr>
-
-
-        <h2>Detalles del Complemento</h2>
-        <% if (typeof tagValues !== 'undefined' && tagValues) { %>
-        <div class="product-details-grid">
-            <strong>Nombre:</strong>
-            <span><%= tagValues.producto %></span>
-
-            <strong>Código Complemento:</strong>
-            <span><%= tagValues.codigo_complemento || 'N/A' %></span>
-
-            <strong>Descripción:</strong>
-            <span><%= tagValues.caracteristicas ? `${tagValues.caracteristicas} "` : 'N/A' %></span>
-
-            <strong>Precio Venta:</strong>
-            <span><%= typeof tagValues.precio_unitario_venta !== 'undefined' ? `$${parseFloat(tagValues.precio_unitario_venta).toFixed(2)}` : 'N/A' %></span>
-
-            
+        <div class="container">
+            <div class="logo__final">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 19L12 4L21 19H3Z" fill="#3B66FF" />
+                </svg>
+                <span class="logo__texto">Journey</span>
+            </div>
         </div>
-
-
-        <% } else { %>
-        <p style="color: #888; text-align: center;">Detalles del producto no disponibles.</p>
-        <% } %>
-
     </div>
-    
-    <a href="">Imprimir</a>
-    <a href="admin/complements">Volver</a>
+
+    <!-- <div class="contenedor print-button-container" style="text-align: center; margin-top: 20px;">
+        <a href="#" id="print-button" class="btn-accion btn-editar">Imprimir Etiqueta</a>
+    </div>
+    <div class="contenedor back-button-container" style="text-align: center; margin-top: 10px;">
+
+        <a class="btn-accion btn-cancel" href="/admin/complements">Volver</a>
+    </div> -->
+
+    <div class="buttons-container">
+        <a href="#" class="btn btn-save" id="print-button">
+            <i class="fa-solid fa-print"></i> Imprimir
+        </a>
+        <a href="/admin/complements" class="btn btn-cancel">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+        </a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/javascripts/appPanelAdministrarion.js"></script>
-    <script>
 
+    <script src="/javascripts/generatePDFs/complements.js"></script>
+
+    <script>
+        // Script para mensajes flash (igual que antes)
         var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";
         var successMessage = "<%= typeof successMessage !== 'undefined' ? successMessage : '' %>";
-
-        if (successMessage) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Realizado',
-                text: successMessage,
-                timer: 2500,
-                showConfirmButton: false
-            });
-        }
-        if (errorMessage) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: errorMessage
-
-            });
+        // ... (lógica Swal para mostrar mensajes) ...
+        if (typeof Swal !== 'undefined') {
+            if (successMessage) { Swal.fire({ icon: 'success', title: 'Realizado', text: successMessage, timer: 2500, showConfirmButton: false }); }
+            if (errorMessage) { Swal.fire({ icon: 'error', title: 'Error', text: errorMessage }); }
+        } else {
+            if (successMessage) alert('Realizado: ' + successMessage);
+            if (errorMessage) alert('Error: ' + errorMessage);
         }
     </script>
 

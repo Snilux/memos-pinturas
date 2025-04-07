@@ -1,25 +1,36 @@
 <%- include('../../partials/head.ejs') %>
 <link rel="stylesheet" href="/stylesheets/panelAdministrarion.css">
-<link rel="stylesheet" href="/stylesheets/productsAdministration.css">
+<link rel="stylesheet" href="/stylesheets/userStyles.css">
 </head>
 
 <body>
     <%- include('../../partials/navAdmin.ejs') %>
     <%- include('../../partials/dropdownMenu.ejs') %>
 
-    <h1 class="heading__formulario">Etiquetas</h1>
+    <main class="main-content">
+        <header class="page-header">
+            <h1><i class="fas fa-tags"></i> Administración de Etiquetas</h1>
+        </header>
 
-    <div class="contenedor">
+        <section class="contenedor etiqueta-container">
+            <div class="etiqueta-info">
+                <h2 class="etiqueta-id">ID Producto: <%= tagValues.id_complemento %></h2>
+                <h2 class="etiqueta-id">Producto: <%= tagValues.producto %></h2>
+                <h2 class="etiqueta-id">Código complemento: <%= tagValues.codigo_complemento %></h2>
+            </div>
 
-        <h1><%= tagValues.id_producto %></h1>
-
-        <a href="/admin/complements/generateTag/<%= tagValues.id_complemento  %>">Generar Etiqueta</a>
-    </div>
+            <div class="etiqueta-actions">
+                <a href="/admin/complements/generateTag/<%= tagValues.id_complemento  %>"
+                    class="btn btn-generar-producto">
+                    Generar Etiqueta
+                </a>
+            </div>
+        </section>
+    </main>
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/javascripts/appPanelAdministrarion.js"></script>
-
 
     <script>
         var errorMessage = "<%= typeof errorMessage !== 'undefined' ? errorMessage : '' %>";

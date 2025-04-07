@@ -6,128 +6,124 @@
 <body>
     <%- include('../../partials/navAdmin.ejs') %>
     <%- include('../../partials/dropdownMenu.ejs') %>
-    <section class="productos-section">
-        <%- include('../../partials/historyMenuNav.ejs') %>
+    <section class="productos">
+      
         <% if (products.length != 0) { %>
-        <h1 class="heading__lote">Productos para ID venta No: <%= products[0].lote_id %></h1>
+          
 
-        <div class="productos-grid">
+          
+          <h1 class="heading__lote">Productos para ID venta No: <%= products[0].lote_id %></h1>
+          <%- include('../../partials/historyMenuNav.ejs') %>
+      
+          <div class="productos-grid">
             <% for (let i = 0; i < products.length; i++) { %>
-
-            <div class="producto-card">
+              <div class="producto-card">
                 <div class="producto-imagen">
-                    <img src="/uploads/images/<%= products[i].imagen %>"
-                        alt="<%= products[i].originalSuffix == 'COM' ? 'Imagen-complemento' : products[i].Tipo %>">
+                  <img src="/uploads/images/<%= products[i].imagen %>"
+                    alt="<%= products[i].originalSuffix == 'COM' ? 'Imagen-complemento' : products[i].Tipo %>">
                 </div>
-
+      
                 <div class="producto-content">
-                    <div class="producto-header">
-                        <% if(products[i].originalSuffix == "COM" ) { %>
-                        <h3 class="producto-titulo"><%= products[i].id_complemento %></h3>
-                        <h3 class="producto-titulo"><%= products[i].producto %></h3>
-                        <h3 class="producto-nombre"><%= products[i].caracteristicas %></h3>
-                        <% } else { %>
-                        <h3 class="producto-titulo">
-                            <%= products[i].id_producto %>
-                            <%= products[i].subcategoria %>
-                        </h3>
-                        <h3 class="producto-nombre">
-                            <%= products[i].nombre %>
-                        </h3>
-                        <div class="color-muestra">
-                            <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"></div>
-                            <span class="color-nombre"><%= products[i].color_nombre %></span>
-                        </div>
-                        <% } %>
-                    </div>
-
-                    <div class="producto-info">
-                        <% if(products[i].originalSuffix == "COM" ) { %>
-                        <div class="info-item">
-                            <span class="info-label">Código Complento:</span>
-                            <span class="info-value"><%= products[i].codigo_complemento %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Piezas por caja:</span>
-                            <span class="info-value"><%= products[i].cantidad_caja %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Número lote:</span>
-                            <span class="info-value"><%= products[i].lote_id %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Precio compra (Caja):</span>
-                            <span class="info-value precio">$<%= products[i].precio_caja %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Precio Compra (Unitario):</span>
-                            <span class="info-value precio">$<%= products[i].precio_unitario %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Precio venta (Unitario):</span>
-                            <span class="info-value precio">$<%= products[i].precio_unitario_venta %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Cantidad:</span>
-                            <span class="info-value"><%= products[i].cantidad %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Proveedor:</span>
-                            <span class="info-value">Ipesa</span>
-                        </div>
-                        <% } else { %>
-                        <div class="info-item">
-                            <span class="info-label">Código Pintura:</span>
-                            <span class="info-value"><%= products[i].codigo_pintura %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Cantidad caja:</span>
-                            <span class="info-value"><%= products[i].cantidad_caja %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Cantidad litros:</span>
-                            <span class="info-value"><%= products[i].cantidad_litros %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Número lote:</span>
-                            <span class="info-value"><%= products[i].lote_id %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Precio compra:</span>
-                            <span class="info-value precio">$<%= products[i].precio_compra %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Precio venta:</span>
-                            <span class="info-value precio">$<%= products[i].precio_venta %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Cantidad:</span>
-                            <span class="info-value"><%= products[i].cantidad %></span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Proveedor:</span>
-                            <span class="info-value"><%= products[i].nombre_proveedor %></span>
-                        </div>
-                        <% } %>
-                    </div>
+                  <div class="producto-header">
+                    <% if (products[i].originalSuffix == "COM") { %>
+                      <h3 class="producto-titulo">
+                        <%= products[i].id_complemento %> <%= products[i].producto %>
+                      </h3>
+                      <h3 class="producto-nombre">
+                        <%= products[i].caracteristicas %>
+                      </h3>
+                    <% } else { %>
+                      <h3 class="producto-titulo">
+                        <%= products[i].id_producto %> <%= products[i].subcategoria %>
+                      </h3>
+                      <h3 class="producto-nombre">
+                        <%= products[i].nombre %>
+                      </h3>
+                      <div class="color-muestra">
+                        <div class="color-circulo" style="background-color:<%= products[i].color_hex %>;"></div>
+                        <span class="color-nombre"><%= products[i].color_nombre %></span>
+                      </div>
+                    <% } %>
+                  </div>
+      
+                  <div class="producto-info">
+                    <% if (products[i].originalSuffix == "COM") { %>
+                      <div class="info-item">
+                        <span class="info-label">Código Complemento:</span>
+                        <span class="info-value"><%= products[i].codigo_complemento %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Piezas por caja:</span>
+                        <span class="info-value"><%= products[i].cantidad_caja %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Número lote:</span>
+                        <span class="info-value"><%= products[i].lote_id %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Precio compra (Caja):</span>
+                        <span class="info-value precio">$<%= products[i].precio_caja %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Precio compra (Unitario):</span>
+                        <span class="info-value precio">$<%= products[i].precio_unitario %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Precio venta (Unitario):</span>
+                        <span class="info-value precio">$<%= products[i].precio_unitario_venta %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Cantidad:</span>
+                        <span class="info-value"><%= products[i].cantidad %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Proveedor:</span>
+                        <span class="info-value">Ipesa</span>
+                      </div>
+                    <% } else { %>
+                      <div class="info-item">
+                        <span class="info-label">Código Pintura:</span>
+                        <span class="info-value"><%= products[i].codigo_pintura %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Cantidad caja:</span>
+                        <span class="info-value"><%= products[i].cantidad_caja %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Cantidad litros:</span>
+                        <span class="info-value"><%= products[i].cantidad_litros %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Número lote:</span>
+                        <span class="info-value"><%= products[i].lote_id %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Precio compra:</span>
+                        <span class="info-value precio">$<%= products[i].precio_compra %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Precio venta:</span>
+                        <span class="info-value precio">$<%= products[i].precio_venta %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Cantidad:</span>
+                        <span class="info-value"><%= products[i].cantidad %></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">Proveedor:</span>
+                        <span class="info-value"><%= products[i].nombre_proveedor %></span>
+                      </div>
+                    <% } %>
+                  </div>
                 </div>
+      
 
-                <div class="producto-accion-lotes">
-                    <a class="btn-accion btn-editar bt__lote1"
-                        href="/admin/products/edit/<%= products[i].originalSuffix == 'COM' ? products[i].id_complemento : products[i].id_producto %>/<%= products[i].originalSuffix || products[i].tabla_origen %>/lots">
-                        <i class="fa-solid fa-pen-to-square"></i> Editar
-                    </a>
-                    <a class="btn-accion btn-eliminar bt__lote2"
-                        data-url="/admin/products/delete/<%= products[i].originalSuffix == 'COM' ? products[i].id_complemento : products[i].id_producto %>/<%= products[i].originalSuffix || products[i].tabla_origen %>">
-                        <i class="fa-solid fa-trash bt__lote2"></i> Eliminar
-                    </a>
-                </div>
-            </div>
-
+              </div>
             <% } %>
-            <% } %>
-        </div>
-    </section>
+          </div>
+        <% } %>
+      </section>
+      
     <script src="/javascripts/appAdminProviders.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

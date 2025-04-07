@@ -117,62 +117,67 @@ document.addEventListener("DOMContentLoaded", () => {
     Swal.fire({ icon: "success", title: "Éxito", text: successMessage });
   }
 
-  // --- Código existente para manejo de carga de imagen ---
-  const uploadArea = document.getElementById("uploadArea");
-  // ... (resto del código de carga de imagen sin cambios, asegúrate que esté completo como en la respuesta anterior) ...
-  const imageUpload = document.getElementById("imageUpload");
-  const imagePreview = document.getElementById("imagePreview");
-  const uploadPlaceholder = uploadArea?.querySelector(".upload-placeholder");
 
-  if (uploadArea && imageUpload && imagePreview && uploadPlaceholder) {
-    uploadArea.addEventListener("click", () => imageUpload.click());
-    uploadArea.addEventListener("dragover", (event) => {
-      /* ... */
-    });
-    uploadArea.addEventListener("dragleave", () => {
-      /* ... */
-    });
-    uploadArea.addEventListener("drop", (event) => {
-      /* ... */
-    });
-    imageUpload.addEventListener("change", (event) => {
-      /* ... */
-    });
-    function displayImage(file) {
-      /* ... */
-    }
-    // Re-añadir listeners por completitud
-    uploadArea.addEventListener("dragover", (event) => {
-      event.preventDefault();
-      uploadArea.classList.add("dragging");
-    });
-    uploadArea.addEventListener("dragleave", () => {
-      uploadArea.classList.remove("dragging");
-    });
-    uploadArea.addEventListener("drop", (event) => {
-      event.preventDefault();
-      uploadArea.classList.remove("dragging");
-      const files = event.dataTransfer.files;
-      if (files.length > 0) {
-        imageUpload.files = files;
-        displayImage(files[0]);
-      }
-    });
-    imageUpload.addEventListener("change", (event) => {
-      const files = event.target.files;
-      if (files.length > 0) {
-        displayImage(files[0]);
-      }
-    });
-    function displayImage(file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        imagePreview.src = e.target.result;
-        imagePreview.style.display = "block";
-        uploadPlaceholder.style.display = "none";
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+  // const uploadArea = document.getElementById("uploadArea");
+
+  // const imageUpload = document.getElementById("imageUpload");
+  // const imagePreview = document.getElementById("imagePreview");
+  // const uploadPlaceholder = uploadArea?.querySelector(".upload-placeholder");
+
+  // if (uploadArea && imageUpload && imagePreview && uploadPlaceholder) {
+  //   uploadArea.addEventListener("click", () => imageUpload.click());
+
+  //   uploadArea.addEventListener("dragover", (event) => {
+  //     /* ... */
+  //   });
+
+  //   uploadArea.addEventListener("dragleave", () => {
+  //     /* ... */
+  //   });
+
+  //   uploadArea.addEventListener("drop", (event) => {
+  //     /* ... */
+  //   });
+
+  //   imageUpload.addEventListener("change", (event) => {
+  //     /* ... */
+  //   });
+
+  //   function displayImage(file) {
+  //     /* ... */
+  //   }
+  //   // Re-añadir listeners por completitud
+  //   uploadArea.addEventListener("dragover", (event) => {
+  //     event.preventDefault();
+  //     uploadArea.classList.add("dragging");
+  //   });
+  //   uploadArea.addEventListener("dragleave", () => {
+  //     uploadArea.classList.remove("dragging");
+  //   });
+  //   uploadArea.addEventListener("drop", (event) => {
+  //     event.preventDefault();
+  //     uploadArea.classList.remove("dragging");
+  //     const files = event.dataTransfer.files;
+  //     if (files.length > 0) {
+  //       imageUpload.files = files;
+  //       displayImage(files[0]);
+  //     }
+  //   });
+  //   imageUpload.addEventListener("change", (event) => {
+  //     const files = event.target.files;
+  //     if (files.length > 0) {
+  //       displayImage(files[0]);
+  //     }
+  //   });
+  //   function displayImage(file) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       imagePreview.src = e.target.result;
+  //       imagePreview.style.display = "block";
+  //       uploadPlaceholder.style.display = "none";
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // }
   // --- Fin del código de carga de imagen ---
 }); // Fin de DOMC

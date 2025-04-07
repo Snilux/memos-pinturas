@@ -18,6 +18,8 @@ router.get("/contact", (req, res) => {
   });
 });
 
+router.post("/contact", indexController.sendContact);
+
 router.get("/products/searchProduct", indexController.searchAllProducts);
 
 router.get("/products/searchProducts", indexController.searchProducts)

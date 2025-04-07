@@ -22,6 +22,7 @@
     "nodemailer": "^6.10.0",
     "qrcode": "^1.5.4",
     "socket.io": "^4.8.1",
-    "sweetalert2": "^11.17.2"
+    "sweetalert2": "^11.17.2",
+    "uuid": "^11.1.0"
   }
 }

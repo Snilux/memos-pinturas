@@ -38,14 +38,13 @@ body {
   background-size: 100%;
   background-position: top;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
-@media (max-width:767px) {
-    body {
-      padding-top: 6rem;
-  min-height: 100vh;
-
-    }
+@media (max-width: 767px) {
+  body {
+    padding-top: 6rem;
+  }
 }
 
 input {
@@ -277,7 +276,6 @@ p {
     z-index: 800;
   }
 }
-
 
 /* Finaliza barra de navegacion */
 

@@ -348,4 +348,28 @@ historyController.deleteSale = (req, res) => {
   });
 };
 
+historyController.deleteEditedAll = (req, res) => {
+  const table = "auditoria_editar_productos";
+  const query = `TRUNCATE TABLE ??`;
+
+  connection.query(query, table, (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/admin/history/edited");
+    }
+    res.redirect("/admin/history/edited");
+  });
+};
+historyController.deleteDeletedAll = (req, res) => {
+  const table = "auditoria_eliminar_productos";
+  const query = `TRUNCATE TABLE ??`;
+
+  connection.query(query, table, (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/admin/history/edited");
+    }
+    res.redirect("/admin/history/removed");
+  });
+};
 module.exports = historyController;

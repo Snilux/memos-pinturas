@@ -113,13 +113,13 @@ const verifyUserExists = (user) => {
       }
     });
   });
-}
+};
 
 userController.addUser = async (req, res) => {
   const { user, email, password, rol } = req.body;
 
   const verifyEmailExistsPromise = await verifyEmailExists(email);
-  const verifyUserExistsPromise = await verifyUserExists(user)
+  const verifyUserExistsPromise = await verifyUserExists(user);
 
   console.log(verifyEmailExistsPromise);
 
@@ -133,7 +133,7 @@ userController.addUser = async (req, res) => {
       title: "Agregar usuario",
       errorMessage: "El usuario ya se encuentra registrado",
     });
-  }  else {
+  } else {
     const query = `INSERT INTO usuarios (nombre, email, pass, rol) VALUES (?, ?, ?, ?)`;
     connection.query(query, [user, email, password, rol], (err, results) => {
       if (err) {
@@ -176,7 +176,43 @@ userController.editUser = (req, res) => {
       return res.status(500).send("Error del servidor");
     }
 
-    res.render("users/editUser", {
+    console.log(results[0]);
+
+    if (
+      results[0].nombre === "Admin" &&
+      results[0].rol === "Administrador" &&
+      results[0].email === "memospinturas@gmail.com"
+    ) {
+      return res.render("users/editUser", {
+        title: "Usuarios",
+        errorMessage: "No puedes editar este usuario",
+        data: req.session.user,
+        users: {
+          id_usuario: null,
+          nombre: null,
+          email: null,
+          pass: null,
+          rol: null,
+        },
+      });
+    }
+
+    // if (results[0].nombre == req.session.user.user) {
+    //   return res.render("users/editUser", {
+    //     title: "Usuarios",
+    //     errorMessage: "No puedes editar tu propio usuario",
+    //     data: req.session.user,
+    //     users: {
+    //       id_usuario: null,
+    //       nombre: null,
+    //       email: null,
+    //       pass: null,
+    //       rol: null,
+    //     },
+    //   });
+    // }
+
+    return res.render("users/editUser", {
       users: results[0],
       title: "Editar usuario",
       data: req.session.user,
@@ -187,6 +223,25 @@ userController.editUser = (req, res) => {
 userController.updateUser = (req, res) => {
   const { id } = req.params;
   const { user, email, password, rol } = req.body;
+
+  if (
+    user === "Admin" &&
+    email === "Administrador" &&
+    rol === "memospinturas@gmail.com"
+  ) {
+    return res.render("users/editUser", {
+      title: "Usuarios",
+      errorMessage: "No puedes editar este usuario",
+      data: req.session.user,
+      users: {
+        id_usuario: null,
+        nombre: null,
+        email: null,
+        pass: null,
+        rol: null,
+      },
+    });
+  }
   const query = `UPDATE usuarios SET nombre = ?, email = ?, pass = ?, rol = ? WHERE id_usuario = ?`;
 
   connection.query(query, [user, email, password, rol, id], (err, results) => {
@@ -194,7 +249,18 @@ userController.updateUser = (req, res) => {
       console.error(`Error en la consulta ${err}`);
       return res.status(500).send("Error del servidor");
     }
-    res.redirect("/users");
+    res.render("users/editUser", {
+      users: {
+        id_usuario: id,
+        nombre: user,
+        email: email,
+        pass: password,
+        rol: rol,
+      },
+      title: "Editar usuario",
+      data: req.session.user,
+      successMessage: "Usuario editado correctamente",
+    });
   });
 };
 
