@@ -139,16 +139,97 @@ productsController.add = async (req, res) => {
 };
 
 productsController.addDuplicateProduct = async (req, res) => {
-  console.log(req.body);
-
-  let imagePath = null;
+  console.log("Request Body:", req.body);
   if (req.file) {
-    imagePath = req.file.filename;
-    console.log("Ruta de la imagen:", imagePath);
-  } else {
-    imagePath = req.body.currentImagePath;
-    console.log("Ruta de la imagen actual:", imagePath);
+    console.log("Request File:", req.file);
   }
+
+  const uploadsDir = path.join(__dirname, "../public/uploads/images");
+
+
+  let imageName; 
+
+  if (req.file) {
+
+    console.log("Procesando nueva imagen subida...");
+
+    const extension = path.extname(req.file.originalname);
+    imageName = `${uuidv4()}${extension}`; 
+
+    const oldPath = req.file.path; 
+    const newPath = path.join(uploadsDir, imageName);
+
+    try {
+      fs.renameSync(oldPath, newPath);
+      console.log("Imagen subida y renombrada a:", imageName);
+    } catch (err) {
+      console.error("Error al renombrar la imagen subida:", err);
+      return res.render("administration/products/duplicateProduct", {
+        product: {
+          tabla_categoria,
+          nombre,
+          color_nombre,
+          color_hex,
+          codigo_pintura,
+          cantidad_caja,
+          cantidad_litros,
+          lote_id,
+          precio_compra,
+          precio_venta,
+          cantidad,
+          subcategoria,
+          nombre_proveedor,
+          currentImagePath: req.body.currentImagePath, 
+        },
+        category: tabla_categoria,
+        title: "Duplicar producto",
+        errorMessage: `Error al procesar la imagen subida`,
+        liters: cantidad_litros,
+        data: req.session.user, 
+      });
+    }
+  } else {
+
+    console.log("Procesando copia de imagen existente...");
+    const originalImage = req.body.currentImagePath; 
+
+    if (!originalImage) {
+      console.error(
+        "Error: No se proporcionó currentImagePath en el body cuando no hay req.file"
+      );
+      return res
+        .status(400)
+        .send("Falta la ruta de la imagen original para duplicar.");
+    }
+
+    const originalExtension = path.extname(originalImage);
+    imageName = `${uuidv4()}${originalExtension}`; 
+
+    const originalPath = path.join(uploadsDir, originalImage);
+    const newPath = path.join(uploadsDir, imageName);
+
+    try {
+
+      if (fs.existsSync(originalPath)) {
+        fs.copyFileSync(originalPath, newPath);
+        console.log("Imagen existente duplicada como:", imageName);
+      } else {
+        console.error(
+          "Error: La imagen original a copiar no existe en:",
+          originalPath
+        );
+        // imageName = 'default-product.png'; 
+
+        return res
+          .status(400)
+          .send("La imagen original especificada no existe.");
+      }
+    } catch (err) {
+      console.error("Error al copiar la imagen existente:", err);
+      return res.status(500).send("Error al duplicar la imagen");
+    }
+  }
+
   const {
     tabla_categoria,
     nombre,
@@ -166,12 +247,32 @@ productsController.addDuplicateProduct = async (req, res) => {
   } = req.body;
 
   const tabla = categoriaMap[tabla_categoria];
-
-  let loteExists = await verifyLotExists(lote_id);
+  let loteExists = false; 
+  try {
+    loteExists = await verifyLotExists(lote_id); 
+  } catch (err) {
+    console.error("Error verificando el lote:", err);
+    return res.status(500).send("Error interno al verificar el lote");
+  }
 
   if (!loteExists) {
     console.log("El lote no existe en la base de datos.");
-    res.render("administration/products/duplicateProduct", {
+    const imagePathToDelete = path.join(uploadsDir, imageName);
+    if (fs.existsSync(imagePathToDelete)) {
+      try {
+        fs.unlinkSync(imagePathToDelete);
+        console.log(
+          "Imagen temporal/duplicada eliminada debido a lote inexistente:",
+          imageName
+        );
+      } catch (unlinkErr) {
+        console.error(
+          "Error al eliminar la imagen temporal/duplicada:",
+          unlinkErr
+        );
+      }
+    }
+    return res.render("administration/products/duplicateProduct", {
       product: {
         tabla_categoria,
         nombre,
@@ -184,13 +285,13 @@ productsController.addDuplicateProduct = async (req, res) => {
         precio_compra,
         precio_venta,
         cantidad,
-        imagen: imagePath,
         subcategoria,
         nombre_proveedor,
+        currentImagePath: req.body.currentImagePath, 
       },
       category: tabla_categoria,
       title: "Duplicar producto",
-      errorMessage: "El lote no existe",
+      errorMessage: `El lote con ID '${lote_id}' no existe. No se pudo duplicar el producto.`,
       liters: cantidad_litros,
       data: req.session.user,
     });
@@ -214,26 +315,64 @@ productsController.addDuplicateProduct = async (req, res) => {
         cantidad,
         subcategoria,
         nombre_proveedor,
-        imagePath,
+        imageName, 
       ],
       (err, results) => {
         if (err) {
-          console.error(`Error en la consulta ${err}`);
-          return res.status(500).send("Error del servidor");
+          console.error(`Error en la consulta INSERT: ${err}`);
+          const imagePathToDelete = path.join(uploadsDir, imageName);
+          if (fs.existsSync(imagePathToDelete)) {
+            try {
+              fs.unlinkSync(imagePathToDelete);
+              console.log(
+                "Imagen duplicada/subida eliminada debido a error en DB:",
+                imageName
+              );
+            } catch (unlinkErr) {
+              console.error(
+                "Error al eliminar la imagen tras fallo de DB:",
+                unlinkErr
+              );
+            }
+          }
+          return res
+            .status(500)
+            .send("Error del servidor al guardar el producto");
         } else {
+          console.log(
+            "Producto duplicado insertado correctamente con ID:",
+            results.insertId
+          );
           return res.render("administration/products/addProduct", {
-            title: "Añadir productos",
+            title: "Añadir productos", 
             data: req.session.user,
-            successMessage: "El producto se agrego correctamente",
+            successMessage: "El producto se duplicó correctamente",
           });
         }
       }
     );
   } else {
+    console.error("Categoría inválida recibida:", tabla_categoria);
+    const imagePathToDelete = path.join(uploadsDir, imageName);
+    if (fs.existsSync(imagePathToDelete)) {
+      try {
+        fs.unlinkSync(imagePathToDelete);
+        console.log(
+          "Imagen temporal/duplicada eliminada debido a categoría inválida:",
+          imageName
+        );
+      } catch (unlinkErr) {
+        console.error(
+          "Error al eliminar la imagen temporal/duplicada:",
+          unlinkErr
+        );
+      }
+    }
     return res.render("administration/products/addProduct", {
-      title: "Añadir productos",
+      title: "Añadir productos", 
       data: req.session.user,
-      errorMessage: "Categoria invalida",
+      errorMessage: "Categoría inválida proporcionada.",
+
     });
   }
 };
