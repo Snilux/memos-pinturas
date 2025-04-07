@@ -3,6 +3,7 @@ var debug = require("debug")("memos-pinturas:server");
 var http = require("http");
 var socketIo = require("socket.io"); // Agregar Socket.io
 
+
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 

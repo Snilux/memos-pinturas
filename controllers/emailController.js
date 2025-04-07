@@ -3,20 +3,14 @@ require("dotenv").config();
 
 let transporter;
 try {
-  // --- Configuration optimized for Gmail ---
-  // When using 'service: "gmail"', Nodemailer automatically sets
-  // host: 'smtp.gmail.com', port: 465, secure: true.
-  // You only need to provide the service name and authentication.
+
   transporter = nodemailer.createTransport({
     service: "gmail", // Explicitly use the Gmail service
     auth: {
       user: process.env.EMAIL_USER, // Your Gmail address from .env
       pass: process.env.EMAIL_PASS, // Your Gmail App Password from .env
     },
-    // Optional: Reject self-signed certificates (useful for development with local SMTP servers)
-    // tls: {
-    //   rejectUnauthorized: false
-    // }
+
   });
   // --- End of Gmail specific configuration ---
 
