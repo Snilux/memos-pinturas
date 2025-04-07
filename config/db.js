@@ -4,8 +4,9 @@ require("dotenv").config();
 const connection = mysql.createConnection({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
-  password:process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME|| "memos_pinturas",
+  password: process.env.DB_PASSWORD || "",
+  database: process.env.DB_NAME || "memos_pinturas",
+  port: process.env.DB_PORT || 3306,
 });
 
 connection.connect((err) => {
