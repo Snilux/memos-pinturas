@@ -1,12 +1,11 @@
-// let data = JSON.parse(localStorage.getItem("productosData")) || null;
-let data = null;
+let data = JSON.parse(localStorage.getItem("productosData")) || null;
 
 if (!data) {
   fetch("/data/products.JSON")
     .then((response) => response.json())
     .then((json) => {
       data = json;
-      // localStorage.setItem("productosData", JSON.stringify(data));
+      localStorage.setItem("productosData", JSON.stringify(data));
       setupEventListeners();
     })
     .catch((error) => console.error("Error al cargar datos:", error));

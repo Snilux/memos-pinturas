@@ -129,6 +129,9 @@ salesController.findByCode = (req, res) => {
 const UpdateQuantity = (productos) => {
   let queryUpdateQuantity = ``;
   let updateQuery = ``;
+  console.log("Entrada");
+
+  console.log(productos);
 
   if (productos.type === "complemento") {
     queryUpdateQuantity = `SELECT cantidad FROM ?? WHERE id_complemento = ?`;
@@ -141,12 +144,13 @@ const UpdateQuantity = (productos) => {
     console.error("Tipo de producto no reconocido:", productos.type);
     return res.status(400).send("Tipo de producto no reconocido.");
   }
+  console.log("Salida");
 
-  // console.log(productos);
+  console.log(productos);
 
   connection.query(
     queryUpdateQuantity,
-    [productos.category, productos.productId],
+    [productos.category, productos.productId || productos.complementId],
     (err, rows) => {
       if (err) {
         console.error("Error al ejecutar la consulta:", err);
@@ -154,7 +158,7 @@ const UpdateQuantity = (productos) => {
           .status(500)
           .send("Error en el servidor al consultar producto.");
       }
-      // console.log(rows);
+      //console.log("Filas obtenidas de la consulta:", rows);
 
       if (rows.length > 0) {
         const dbProduct = rows[0];
@@ -163,7 +167,11 @@ const UpdateQuantity = (productos) => {
 
         connection.query(
           updateQuery,
-          [productos.category, newQuantity, productos.productId],
+          [
+            productos.category,
+            newQuantity,
+            productos.productId || productos.complementId,
+          ],
           (err) => {
             if (err) {
               console.error("Error al actualizar la cantidad:", err);
@@ -180,9 +188,7 @@ const UpdateQuantity = (productos) => {
         console.log(
           "No se encontraron datos para los criterios proporcionados."
         );
-        return res
-          .status(404)
-          .send("Producto no encontrado con esos criterios.");
+        return;
       }
     }
   );
@@ -194,6 +200,7 @@ salesController.finalizeSale = async (req, res) => {
 
   const { items, totalAmount } = req.body;
   const user = req.session.user.user;
+  console.log(items);
 
   // if (
   //   !items ||
@@ -205,12 +212,18 @@ salesController.finalizeSale = async (req, res) => {
   //     .status(400)
   //     .json({ message: "Datos de venta inválidos o incompletos." });
   // }
+  for (let i = 0; i < items.length; i++) {
+    //console.log(items[0]);
+
+    await UpdateQuantity(items[i]);
+  }
+
   if (!user) {
     return res.status(401).json({ message: "Usuario no autenticado." });
   }
 
   // console.log("Iniciando finalización de venta para usuario:", user);
-  console.log("Items recibidos:", items);
+  // console.log("Items recibidos:", items);
 
   // 2. Separar IDs y Cantidades por tipo
   const paintIdsWithSuffix = []; // Almacenará IDs de pintura con sufijo
