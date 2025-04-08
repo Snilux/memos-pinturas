@@ -372,4 +372,18 @@ historyController.deleteDeletedAll = (req, res) => {
     res.redirect("/admin/history/removed");
   });
 };
+
+historyController.deleteAllSales = (req, res) => {
+  const table = "ventas";
+  const query = `TRUNCATE TABLE ??`;
+
+  connection.query(query, table, (err, results) => {
+    if (err) {
+      console.log(`Error en el servidor ${err}`);
+      return res.redirect("/admin/history/sales");
+    }
+    res.redirect("/admin/history/sales");
+  });
+};
+
 module.exports = historyController;

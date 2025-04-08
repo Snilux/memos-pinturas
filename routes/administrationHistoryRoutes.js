@@ -38,4 +38,10 @@ router.get(
   historyController.deleteDeletedAll
 );
 
+router.get(
+  "/sales/deletedAll",
+  authUser.isAdmin,
+  historyController.deleteAllSales
+);
+
 module.exports = router;

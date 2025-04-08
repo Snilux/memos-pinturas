@@ -9,13 +9,8 @@
   <%- include('../../partials/navAdmin.ejs') %>
   <%- include('../../partials/dropdownMenu.ejs') %>
 
-
-
-
-
-
   <main class="main-content">
-    
+
     <div class="page-header">
       <%- include('../../partials/historyMenuNav.ejs') %>
       <br>
@@ -24,7 +19,7 @@
 
     </div>
 
-    
+
     <div class="contenedor">
       <div class="header-actions">
 
@@ -84,9 +79,9 @@
     </div>
   </main>
 
-  <button class="clear-history-btn">
+  <a class="clear-history-btn" data-url="/admin/history/sales/deletedAll">
     <i class="fas fa-eraser"></i> Vaciar historial
-  </button>
+  </a>
 
 
 
@@ -116,6 +111,61 @@
           });
         });
       }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // Selecciona todos los botones/enlaces con la clase 'clear-history-btn'
+      const clearHistoryButtons = document.querySelectorAll('.clear-history-btn');
+
+      // Itera sobre cada botón encontrado (aunque en tu ejemplo parece haber solo uno)
+      clearHistoryButtons.forEach(button => {
+        // Añade un event listener para el evento 'click'
+        button.addEventListener('click', function (event) {
+          // Previene el comportamiento por defecto del enlace (evita la navegación inmediata)
+          event.preventDefault();
+
+          // Obtiene la URL del atributo 'data-url' del botón/enlace clickeado
+          // 'this' dentro de la función se refiere al elemento que disparó el evento
+          const targetUrl = this.dataset.url || this.getAttribute('data-url'); // Usa dataset o getAttribute
+
+          // Verifica si se encontró una URL
+          if (!targetUrl) {
+            console.error('No se encontró el atributo data-url en el botón:', this);
+            // Opcionalmente, muestra un error al usuario
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se pudo determinar la URL de destino.'
+            });
+            return; // Detiene la ejecución si no hay URL
+          }
+
+          // Muestra la alerta de confirmación de SweetAlert2
+          Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Esta acción vaciará el historial y no se puede deshacer.",
+            icon: 'warning', // Ícono de advertencia
+            showCancelButton: true, // Muestra el botón de cancelar
+            confirmButtonColor: '#d33', // Color rojo para el botón de confirmar (peligro)
+            cancelButtonColor: '#3085d6', // Color azul para el botón de cancelar
+            confirmButtonText: 'Sí, ¡vaciar!', // Texto del botón de confirmar
+            cancelButtonText: 'Cancelar' // Texto del botón de cancelar
+          }).then((result) => {
+            // Esta función se ejecuta después de que el usuario interactúa con la alerta
+            if (result.isConfirmed) {
+              // Si el usuario hizo clic en 'Sí, ¡vaciar!'
+              console.log('Usuario confirmó. Redirigiendo a:', targetUrl);
+              // Redirige el navegador a la URL obtenida
+              window.location.href = targetUrl;
+            } else {
+              // Si el usuario hizo clic en 'Cancelar' o cerró la alerta
+              console.log('Usuario canceló la acción.');
+            }
+          });
+        });
+      });
+
     });
   </script>
 </body>
